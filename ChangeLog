@@ -3,6 +3,8 @@
     * developer.src: fix bonsai link to include gnome-python. Add a line about
     triage and testcases.
 
+    * downloads.src: add win32 section.
+
 2004-02-28  Christian Reis <kiko@async.com.br>
 
     * people.src: added a link and updated johan's entry. Reordered the

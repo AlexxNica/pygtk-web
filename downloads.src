@@ -39,6 +39,15 @@ They are available from the Gnome FTP site and its mirrors:</p>
   <li><a href="http://ftp.gnome.org/pub/GNOME/sources/gnome-python/">http://ftp.gnome.org/pub/GNOME/sources/gnome-python/</a></li>
 </ul>
 
+<h3>Windows (Win32) Port</h3>
+
+<p>The Win32 port of PyGTK is maintained by <strong>Cedric
+Gustin</strong>; he maintains a <a
+href="http://www.pcpm.ucl.ac.be/~gustin/win32_ports/">PyGTK for Win32
+website</a>. Note that the FAQ also includes a number of <a
+href="http://www.async.com.br/faq/pygtk/index.py?querytype=simple&query=win32&req=search">items
+on PyGTK and Win32</a>.
+
 <h3>CVS Access</h3>
 
 <p>Alternatively, you can get the bleeding edge version of PyGTK from
