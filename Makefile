@@ -1,4 +1,4 @@
-WEBDIR = ${HOME}/www/pygtk-web
+WEBDIR ?= ${HOME}/www/pygtk-web
 IMGDIR = ${HOME}/www/pygtk-web/img
 TUTDIRS = ${HOME}/www/pygtk-web/pygtktutorial \
 		${HOME}/www/pygtk-web/pygtk2tutorial \

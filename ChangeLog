@@ -1,3 +1,8 @@
+2003-12-13  Jeff Waugh  <jdub@perkypants.org>
+
+	* Makefile: WEBDIR ?= <default>, because we want to set it to something
+	different when testing, and explicitly on the main server.
+
 2003-12-11  John Finlay <finlay@moeraki.com>
 
 	* reference.src Add file
