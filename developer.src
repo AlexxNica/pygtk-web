@@ -18,6 +18,7 @@ There are a number of ways to help out with PyGTK development:
     <li>Provide <a href="feedback.html">support</a> via the mailing list
     or IRC</li>
     <li>Report new bugs</li>
+    <li>Write testcases and do triage for open bugs</li>
     <li>Fix bugs and write patches</li>
     <li>Review patches pending</li>
 </ul>
@@ -62,7 +63,7 @@ current state of PyGTK and its bug reports.
 
 <ul>
     <li><a
-    href="http://cvs.gnome.org/bonsai/cvsquery.cgi?treeid=default&branch=HEAD&branchtype=match&dir=gnome-python%2Fpygtk&file=&filetype=match&who=&whotype=match&sortby=Date&hours=2&date=month&mindate=&maxdate=&cvsroot=%2Fcvs%2Fgnome">Changes comitted in the last month</a></li>
+    href="http://cvs.gnome.org/bonsai/cvsquery.cgi?treeid=default&branch=HEAD&branchtype=match&dir=gnome-python&file=&filetype=match&who=&whotype=match&sortby=Date&hours=2&date=month&mindate=&maxdate=&cvsroot=%2Fcvs%2Fgnome">Changes comitted in the last month</a></li>
 
 </ul>
  

@@ -1,3 +1,8 @@
+2004-02-29  Christian Reis <kiko@async.com.br>
+
+    * developer.src: fix bonsai link to include gnome-python. Add a line about
+    triage and testcases.
+
 2004-02-28  Christian Reis <kiko@async.com.br>
 
     * people.src: added a link and updated johan's entry. Reordered the
