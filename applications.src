@@ -37,6 +37,9 @@
   <dt><a href="http://matplotlib.sourceforge.net">matplotlib</a></dt>
   <dd>matplotlib is a pure python 2D plotting library with a matlab syntaxwhich produces publication quality figures using in a variety ofhardcopy formats (PNG, JPG, TIFF, PS) and interactive GUI environments(WX, GTK) across platforms.  matplotlib can be used in python scripts,interactively from the python shell (ala matlab or mathematica), inweb application servers generating dynamic charts, or embedded in GTKor WX applications.</dd>
 
+  <dt><a href="http://meld.sf.net">Meld</a></dt>
+  <dd>Meld is a visual diff and merge tool. It integrates especially well with CVS.The diff viewer lets you edit files in place and allows easy merges.</dd>
+
   <dt><a href="http://www-stu.pem.cam.ac.uk/~jrk33/plotter/">Plotter</a></dt>
   <dd>Plotter is a GTK+ mathematical graph plotting application. It is written entirely in Python, an object orientated interpreted programming language, using James Henstridge's PyGtk bindings.</dd>
 

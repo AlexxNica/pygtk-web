@@ -9,11 +9,6 @@
 Here you can see some of the things you can create with PyGTK. If you want to see more screenshots you can check the <a href="http://www.gtk.org">GTK+</a> website since there is no way to visually distinguish from a pure C GTK+ application and a Python GTK+ app.</p>
 
 <div class="screenshot">
-  <p>Application Main Window:</p>
-  <img src="img/appwindow.png" alt="Application Main Window" />
-</div>
-
-<div class="screenshot">
   <p>Color Selector:</p>
   <img src="img/colorselector.png" alt="Color Selector" />
 </div>

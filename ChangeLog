@@ -1,3 +1,10 @@
+2003-12-16  Lorenzo Gil Sanchez  <lgs@cvs.gnome.org>
+
+	* applications.src: added Meld
+
+	* screenshots.src: removed the first screenshots because it actually
+	shows a broken feature
+
 2003-12-15  Johan Dahlin  <johan@gnome.org>
 
 	* applications.src: added pyGestor
