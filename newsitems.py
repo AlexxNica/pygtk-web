@@ -12,6 +12,15 @@ item = lambda *x: items.append(x)
 #      INSERT TEXT HERE
 #      """,
 #      "INSERT AUTHOR HERE")
+item("PyGTK 2.5.4 released!",
+     (2005, 2, 23),
+     """
+     This will be the final release before 2.6.0 (unless some serious bugs shows up). 
+     Please test carefully! You'll be rewared with the stablest PyGTK release ever!
+     <a href="http://ftp.gnome.org/pub/GNOME/sources/pygtk/2.5/">here</a>.
+     Read the whole party announcement at
+     <a href="http://www.daa.com.au/pipermail/pygtk/2005-February/009654.html">the mailing list</a>.""",
+     "Johan Dahlin")
 item("Gazpacho 0.5.0",
      (2005, 2, 4),
      """
@@ -38,7 +47,7 @@ item("PyGTK 2.5.3 has hit streets!",
      you can join the party, by downloading it from:
      <a href="http://ftp.gnome.org/pub/GNOME/sources/pygtk/2.5/">here</a>.
      Read the whole party announcement at
-     <a href="http://www.daa.com.au/pipermail/pygtk/2005-January/009481.html"q>the mailing list</a>.""",
+     <a href="http://www.daa.com.au/pipermail/pygtk/2005-January/009481.html">the mailing list</a>.""",
      "Johan Dahlin")
 
 item("Tutorial de PyGTK en castellano actualizado",
