@@ -1,4 +1,12 @@
 <div class="news">
+<h4>PyGTK 2.3.91 (unstable) released</h4>
+<h5>Friday 16th April 2004</h5>
+<p>We just released PyGTK 2.3.91 which implement most of the new GTK+2.4
+APIs. The official announce is
+<a href="http://www.daa.com.au/pipermail/pygtk/2004-April/007447.html">here</a>
+and you can download it from <a href="http://ftp.gnome.org/pub/GNOME/sources/pygtk/2.3/pygtk-2.3.91.tar.gz">here</a>.
+We'd really appreciate testing and bug reports on this release.</p>
+
 <h4>GNOME-Python 2.0.2 released!</h4>
 <h5>Thursday 8th April 2004</h5>
 <p>We are happy to announce version 2.0.2 of GNOME Python. We have quite a few of bug fixes and new functions wrapped so don't wait until your friends try it and do it by yourself. As always you can find the files at <a href="http://ftp.gnome.org/pub/GNOME/sources/gnome-python/2.0/">http://ftp.gnome.org/pub/GNOME/sources/gnome-python/2.0/</a>. After a previous 2.0.1 version on the 30th of March we released 2.0.2 just to fix a build problem with the vfs bindings.</p>

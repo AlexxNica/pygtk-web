@@ -1,3 +1,9 @@
+2004-04-16  Lorenzo Gil Sanchez  <lgs@i8100.sicem.biz>
+
+	* index.src: changed maxlines to include the new announce.
+
+	* newsitems.src: added the 2.3.91 announce.
+
 2004-04-13  Lorenzo Gil Sanchez  <lgs@i8100.sicem.biz>
 
 	* applications.src: added Gaphor.
