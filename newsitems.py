@@ -12,7 +12,17 @@ item = lambda *x: items.append(x)
 #      INSERT TEXT HERE
 #      """)
 
-item("PyGTK 2.5.0 is out in the wild!",
+item("New version of the PyGTK Reference released",
+     (2004, 12, 23),
+     """
+     A new version (2.5.1) of the <a
+     href="http://www.pygtk.org/pygtk2reference/index.html">PyGTK
+     Reference</a> is available. Changes include updates to reflect changes in
+     PyGTK 2.5.1 and many bug fixes (thanks to Rafael Villar Burke,
+     Johan Dahlin, Erik Grinaker, Doug Quale, and Gian Mario Tagliaretti).
+     """)
+
+item("PyGTK 2.5.1 is out in the wild!",
      (2004, 12, 23),
      """
      The PyGTK team is pleased to announce PyGTK 2.5.1.
