@@ -1,5 +1,13 @@
 <div class="news">
 
+<h4>PyGTK 2.3.93 (unstable) released</h4>
+<h5>Monday 19th July 2004</h5>
+<p>The PyGTK team has released PyGTK 2.3.93 today. We are now in frozen state
+so no more changes are expected until 2.4.0, just bug fixes. The official
+announce is <a href="http://www.daa.com.au/pipermail/pygtk/2004-July/008199.html">here</a> and you can download it from
+<a href="http://ftp.gnome.org/pub/GNOME/sources/pygtk/2.3/pygtk-2.3.93.tar.gz">here</a>.
+We'd really appreciate testing and bug reports on this release.</p>
+
 <h4>PyGTK 0.6.12 (obsolete) released</h4>
 <h5>Monday 12th July 2004</h5>
 <p>The PyGTK team has released the latest (and perhaps last) version off
