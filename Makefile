@@ -56,7 +56,7 @@ extras: ${CSS_FILES} img/*.png
 	cp img/*.png ${IMGDIR}
 
 tarballs:
-	(cd ${DISTDIR}; ${WGET} -qKN ${TARBALLS})
+	-(cd ${DISTDIR}; ${WGET} -KN ${TARBALLS})
 	(cd ${WEBDIR}; for f in ${DISTDIR}/*.tgz; do tar xzf $$f; done)
 
 clean:
