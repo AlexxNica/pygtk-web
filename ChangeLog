@@ -1,4 +1,8 @@
-2004-02-20  Christian Reis <kiko@async.com.br>
+2004-02-27  Christian Reis <kiko@async.com.br>
+
+    * articles/applets_arturogf/x304.html: fix link.
+
+2004-02-25  Christian Reis <kiko@async.com.br>
     
     * Makefile: use -N (instead of -c) to wget fetches the newer tarballs
     correctly. Also inverted tar arguments to make Greg happy.
