@@ -61,7 +61,7 @@ a:active {
   margin-top: 20px;
   padding-right: 10px;
   padding-bottom: 0;
-  border-left: 1px dashed #dddddd;
+  border-left: 1px dashed #9c99cd;
   color: #000000;
   background-color: #ffffff;
 }
@@ -77,8 +77,8 @@ a:active {
   font-weight: bold;
   padding-top: 3px;
   padding-bottom: 3px;
-  color: #999999;
-  background-color: #eeeeee;
+  background-color: #d6e7ff;
+  border: 1px solid #9c99cd;
 }
 
 #sidebar ul {
@@ -137,4 +137,37 @@ a:active {
 #articles th {
   background-color: #999999;
   color: #000000;
+}
+
+#mainText h3 {
+  padding: 3px;
+  background-color: #d6e7ff;
+  border: 1px solid #9c99cd;
+}
+
+#mainText h4 {
+  margin-bottom: 0;
+}
+
+#mainText h5 {
+  margin-top: 0;
+  border-bottom: 1px solid #d6e7ff;
+}
+
+#mainText h3, #mainText h4, #mainText h5 {
+  width: 65%;
+}
+
+div#about {
+  float: right;
+  padding: 10px;
+  margin-left: 10px;
+  margin-bottom: 10px;
+  width: 30%; 
+  background-color: #d6e7ff;
+  border: 1px solid #9c99cd;
+}
+
+div#about h4 {
+  margin: 0;
 }

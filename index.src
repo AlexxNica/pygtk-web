@@ -6,6 +6,11 @@
 
 <h1>PyGTK's Home Page</h1>
 
+<div id="about">
+<h4>About PyGTK</h4>
+<p>PyGTK provides a convenient wrapper for the GTK library for use in Python programs, and takes care of many of the boring details such as managing memory and type casting. When combined with PyORBit and gnome-python, it can be used to write full featured Gnome applications. <a href="./about.html">Read more</a></p>
+</div>
+
 <h3>Latest news&#8230;</h3>
 
 <div class="news">

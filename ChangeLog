@@ -1,5 +1,10 @@
 2004-01-19  Lorenzo Gil Sanchez  <lgs@cvs.gnome.org>
 
+	* index.src: Added an about section in the welcome page.
+
+	* default.css: Added specific styles for the mainText and about areas.
+	Changed the background color of the menus to the one used in gnome.org.
+
 	* applications.src: Added Revelation.
 
 2004-01-09  Lorenzo Gil Sanchez  <lgs@cvs.gnome.org>
