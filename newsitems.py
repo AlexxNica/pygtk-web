@@ -14,10 +14,12 @@ item = lambda *x: items.append(x)
 item("We got RSS!",
      (2004, 9, 8),
      """
-     Sridhar R. contributed code to the PyGTK.org website that generates
-     an RSS feed of the latest news items posted. This code has been
-     integrated over the weekend and is currently live. Please send
-     feedback and report problems to pygtk-web at pygtk dot org.
+     <a href="http://cs.annauniv.edu/~rsridhar">Sridhar R.</a>
+     contributed code to the PyGTK.org website that generates an <a
+     href="news.rss">RSS feed</a> of the latest news items posted. This
+     code has been integrated over the weekend and is currently live.
+     Please send feedback and report problems to pygtk-web at pygtk dot
+     org.
      """)
 
 item("Devhelp support added to the PyGTK Reference manual v2.4.10",
