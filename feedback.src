@@ -6,9 +6,18 @@
 
 <h3>Mailing List</h3>
 
-<p>There is a mailing list for PyGTK. To subscribe to the list, go to its webpage at  <a href="http://www.daa.com.au/mailman/listinfo/pygtk">http://www.daa.com.au/mailman/listinfo/pygtk</a>. The mailing address of the list is <a href="mailto:pygtk@daa.com.au">pygtk@daa.com.au</a></p>
-
-<p>The mailing list is archived at <a href="http://www.mail-archive.com/pygtk@daa.com.au/">mail-archive.com</a> and at <a href="http://www.daa.com.au/pipermail/pygtk/">daa.com.au</a></p>
+<p>There is a main mailing list for PyGTK. To subscribe to the list, use
+the web interface at  
+<ul>
+<li><a
+href="http://www.daa.com.au/mailman/listinfo/pygtk">http://www.daa.com.au/mailman/listinfo/pygtk</a></li>
+</ul>
+The mailing address of the list is <a
+href="mailto:pygtk@daa.com.au">pygtk@daa.com.au</a>. The mailing list is
+archived at <a
+href="http://www.mail-archive.com/pygtk@daa.com.au/">mail-archive.com</a>
+and at <a
+href="http://www.daa.com.au/pipermail/pygtk/">daa.com.au</a>.</p>
 
 <h3>IRC Channel</h3>
 
