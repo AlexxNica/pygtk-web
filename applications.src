@@ -104,6 +104,13 @@
   well with CVS.The diff viewer lets you edit files in place and allows
   easy merges.</dd>
 
+  <dt><a href="http://www.netpromi.com/mojoview.html">MojoView</a></dt>
+  <dd>MojoView is a Python package that assists you in building simple PyGTK2
+  database applications. It consists of a set of classes that you can subclass
+  in your application. Each class is either a dialog or a widget that should be
+  placed inside a dialog, along with supporting code that handles a lot of the
+  mundane details inherent in most gui database apps.</dd>
+
   <dt><a href="http://narim.sourceforge.net">Narim</a></dt>
   <dd>Narim is a GUI file-name encoding converter written in Python.</dd>
 

@@ -1,3 +1,7 @@
+2004-03-03  Lorenzo Gil Sanchez  <lgs@cvs.gnome.org>
+
+	* applications.src: added MojoView
+
 2004-03-01  Lorenzo Gil Sanchez  <lgs@cvs.gnome.org>
 
 	* articles.src: added Ross Burton article about wrapping GObjects in
