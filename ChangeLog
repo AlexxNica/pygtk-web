@@ -1,5 +1,7 @@
 2004-02-20  Christian Reis <kiko@async.com.br>
 
+    * applications.src: added fslint (requested by  P@draigBrady.com)
+
     * articles/, articles/applets_arturogf/, Makefile: add an articles
     directory and add the first pygtk-web-hosted article, arturo's "Gnome
     Applets with Python" tutorial.

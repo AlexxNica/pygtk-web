@@ -43,6 +43,13 @@
   between separate CLAW browsers, and audio (using mpg123, ogg123, and
   playwave) and image previews.</dd>
 
+  <dt><a href="http://www.pixelbeat.org/fslint/">fslint</a></dt>
+  <dd>FSlint is a toolkit to find various forms of lint on a filesystem.
+  At the moment it reports duplicate files, bad symbolic links,
+  troublesome file names, empty directories, non stripped executables,
+  temporary files, duplicate/conflicting (binary) names, and unused ext2
+  directory blocks.</dd>
+
   <dt><a href="http://gdesklets.gnomedesktop.org/">gDesklets</a></dt>
   <dd>gDesklets provides an advanced architecture for desktop applets --
   tiny displays sitting on your desktop in a symbiotic relationship of
