@@ -1,3 +1,7 @@
+2004-12-23  Johan Dahlin  <johan@gnome.org>
+
+	* newsitems.py: PyGTK 2.5.1
+
 2004-12-21    <lgs@sicem.biz>
 
 	* tutorial.src: updated spanish translation
