@@ -107,6 +107,13 @@
   <dt><a href="http://narim.sourceforge.net">Narim</a></dt>
   <dd>Narim is a GUI file-name encoding converter written in Python.</dd>
 
+  <dt><a href="http://numexp.sourceforge.net/">NumExp</a></dt>
+  <dd>NumExp is a family of open-source applications for numeric computation.
+  When it was created, the idea was to make a powerfull tool like
+  <a href="http://www.wolfram.com">Mathematica</a>. Now, we know this is almost
+  impossible without more open-source hackers. Meanwhile, we are trying to
+  make, at least, an usefull tool!</dd>
+
   <dt><a href="http://www-stu.pem.cam.ac.uk/~jrk33/plotter/">Plotter</a></dt>
   <dd>Plotter is a GTK+ mathematical graph plotting application.</dd>
 
