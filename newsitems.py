@@ -12,6 +12,25 @@ item = lambda *x: items.append(x)
 #      INSERT TEXT HERE
 #      """)
 
+item("PyGTK BOF at the Mataro Ubuntu Conference",
+     (2004, 12, 1),
+     """
+     We are having a BOF at the <a href="http://www.ubuntulinux.org/wiki/Conference/">Mataro Ubuntu Conference</a>. We have a <a href="http://www.ubuntulinux.org/wiki/PyGTKMegaBOF">Wiki page</a> where you can see who is going and what
+     are we going to do. By the way, Mataro is close to Barcelona (Spain) and
+     the pygtk bof is on the weekend of the 11th and 12th of December.
+     """)
+
+item("A bunch of updates",
+     (2004, 12, 1),
+     """
+     We have <a href="ftp://ftp.gnome.org/pub/GNOME/sources/gnome-python/2.5/">PyGTK 2.5.0</a>,
+     <a href="http://ftp.gnome.org/pub/GNOME/sources/gnome-python/2.9/">Gnome Python 2.9.1</a> and
+     <a href="http://ftp.gnome.org/pub/GNOME/sources/gnome-python-extras/2.9/">Gnome Python Extras 2.9.1</a>. They are all unstable versions so the need your
+     help to find bugs and fix them. More information is given in the regular
+     mailing list but feel free to ask in our irc channel if you find any
+     problem with this packages.
+     """)
+
 item("New versions of the PyGTK Reference released",
      (2004, 11, 15),
      """

@@ -1,3 +1,8 @@
+2004-12-01    <lgs@sicem.biz>
+
+	* newsitems.py (item): added items for pygtk, gnome-python and
+	gnome-python-extras updates, aswell as the Mataro pygtk-mega-bof.
+
 2004-11-22    <lgs@sicem.biz>
 
 	* applications.src: added OnTv (patch by pachi)
