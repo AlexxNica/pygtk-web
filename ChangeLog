@@ -1,5 +1,7 @@
 2004-12-23  John Finlay  <finlay@moeraki.com>
 
+	* reference.src: Update version and date info.
+
 	* newsitems.py: PyGTK 2.5.1 Reference Manual
 
 2004-12-23  Johan Dahlin  <johan@gnome.org>
