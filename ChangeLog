@@ -1,3 +1,7 @@
+2003-01-19  Christian Reis <kiko@async.com.br>
+
+    * applications.src: Added BloGTK.
+
 2004-01-19  Lorenzo Gil Sanchez  <lgs@cvs.gnome.org>
 
 	* index.src: Added an about section in the welcome page.

@@ -10,6 +10,12 @@
   <dt><a href="http://fedora.redhat.com/projects/anaconda-installer/">Anaconda</a></dt>
   <dd>Anaconda is the installation program for Red Hat distributions. During installation, the system's hardware is identified and configured, and the appropriate file systems for the system's architecture are created. Finally, it allows the user to install the operating system software on the system. Optionally, it can upgrade existing Red Hat installations. Anaconda can run in a fully interactive mode (text or graphical), or in a kickstart mode, which is allows the installation to be scripted for unattended operation. This makes deploying hundreds or thousands of systems very easy</dd>
 
+  <dt><a href="http://blogtk.sourceforge.net/">BloGTK</a></dt>
+  <dd>BloGTK is a weblog client that allows you to post to your weblog
+  from Linux without the need for a separate browser window. It
+  allows you to connect with many weblog systems such as Blogger,
+  Movable Type, pMachine, and more.
+
   <dt><a href="http://dragiton.com/software/Detailed/5231.php?language=en">BugTool</a></dt>
   <dd>With BugTool you can track all of your vital bug information. Some of the data you are able to track includes: bug id, description, who created it, who is currently assigned to the bug, and a summary (note). This is useful when you need to have a mobile record of the project's bugs with you. BugTool also allows you track the current status, severity and resolution of any bug</dd>
 
