@@ -1,10 +1,31 @@
 <div class="news">
+<h4>gnome-print bounty announced by GRAMPS team</h4>
+<h5>Friday 20th February 2004</h5>
+<a href="http://gramps.sf.net/">GRAMPS</a> is a pygtk/gnome-python based
+genealogy program. The GRAMPS team is looking for a person to step
+forward to claim the task of gnome-print integration into GRAMPS. This
+will use the GNOME print infrastructure to allow print preview and
+direct printing of reports.
+<p>
+<a href="mailto:dallingham@users.sourceforge.net">Don Allingham</a>,
+GRAMPS maintainer writes: ''We have a start on the code, but not enough
+resources to complete the task as quickly as we would like.  With the
+donations we have received, we have been able to set the bounty for this
+task at $100. While it may not be a tremendous amount, it should buy a
+few books, quite a bit of pizza, or a new disk drive.''
+<p>
+For more information and the requirements, see the 
+<a href="http://gramps.sourceforge.net/phpwiki/index.php/GnomePrintBounty">
+Gnome Print Bounty page</a> on the GRAMPS wiki.
+</div>
+
+<div class="news">
 <h4>Gnome applets tutorial</h4>
 <h5>Tuesday 10th February 2004</h5>
-<p>Arturo has written a great tutorial about writting applets for the Gnome
-panel in our favourite language. Check it out in the <a href="articles.html">
-Articles</a> section. By the way, Arturo said that comments and sugestions
-are more than welcomed.</p>
+<p>Arturo González has written a great tutorial on building applets
+for the Gnome panel in our favourite language. Check it out in the <a
+href="articles.html">Articles</a> section. By the way, Arturo says
+''comments and suggestions are more than welcome!''</p>
 </div>
 
 <div class="news">

@@ -1,5 +1,10 @@
 2004-02-20  Christian Reis <kiko@async.com.br>
 
+    * index.src, newsitems.src: added item for the GRAMS gnome-print bounty.
+
+    * Makefile: added newsitems.src to the SRC_PAGES list, I forgot all about
+    it when I broke it apart!
+
     * applications.src: added fslint (requested by  P@draigBrady.com)
 
     * articles/, articles/applets_arturogf/, Makefile: add an articles
