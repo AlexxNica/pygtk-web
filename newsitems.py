@@ -12,6 +12,25 @@ item = lambda *x: items.append(x)
 #      INSERT TEXT HERE
 #      """)
 
+item("Gazpacho 0.3.2 hits the streets",
+     (2005, 1, 17),
+     """
+     We have news about the last version of this Graphical User Interface
+     Designer. Maybe not a lot of new features but tons of bug fixes and
+     code cleanups, which are necessary for next major features. Check it out
+     at <a href="http://gruppy.sicem.biz/descargas">Gazpacho page!</a>
+     """)
+     
+item("GnomePython 2.9.4 is out",
+     (2005, 1, 17),
+     """
+     We are proud to announce the last unstable version of GnomePython which
+     includes some fixes related to gnomevfs, gconf and gnome.ui. We would be
+     very happy if you could <a href="http://ftp.gnome.org/pub/GNOME/sources/gnome-python/2.9/">download</a> it,
+     test it and give us some <a href="http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-python">feedback</a>
+     about it. As always, thank you very much Gustavo!
+     """)
+
 item("PyGTK 2.5.2 is waiting to be downloaded!",
      (2005, 1, 10),
      """
@@ -22,8 +41,7 @@ item("PyGTK 2.5.2 is waiting to be downloaded!",
      <a href="http://ftp.gnome.org/pub/GNOME/sources/pygtk/2.5/">download it now</a>!
      Read the whole announcement at
      <a href="http://www.daa.com.au/pipermail/pygtk/2005-January/009384.html"q>the mailing list</a>.
-     """)
-					     
+     """)					     
 
 item("Happy New Year",
      (2005, 1, 1),
