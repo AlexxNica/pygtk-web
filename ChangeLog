@@ -1,3 +1,7 @@
+2004-07-22  Christian Reis <kiko@async.com.br>
+
+	* applications.src: rehack UPS Monitor
+
 2004-07-21  Christian Reis <kiko@async.com.br>
 
 	* applications.src: recategorize some of the apps, some rewording
