@@ -1,3 +1,7 @@
+2004-01-04  Lorenzo Gil Sanchez  <lgs@cvs.gnome.org>
+
+	* applications.src: Added GnoCHM.
+
 2004-01-03  Lorenzo Gil Sanchez  <lgs@cvs.gnome.org>
 
 	* applications.src: Added Narim and GDick. Changed the mail address
