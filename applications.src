@@ -103,6 +103,10 @@
   you can quickly arrange relationships between nodes. It is commonly
   used for things like task and knowledge management.</dd>
 
+  <dt><a href="http://pygps.org/#mapview">Mapview</a></dt>
+  <dd>Mapview is a python map browser for Terraserver-usa map tiles. It
+  allows for edition of track files.</dd>
+
   <dt><a href="http://upics.sf.net/">Micropics</a></dt>
   <dd>Micropics is a Gnome 2.x applet that displays changing thumbnails
   of your favorite photos. When guiding your mouse pointer over the
@@ -130,6 +134,15 @@
   <dd>pyGestor is a Chilean accounting software developed for small and
   medium sized enterprises, The goal of the project is to provide an
   enterprise resource management system for the GNOME Desktop.</dd>
+
+  <dt><a href="http://pygps.org/">pyGPS</a></dt>
+  <dd>This program shows your position on a map using a GPS system. It can
+  record tracks and notes, display the satellites used to determine your
+  position, as well as download needed maps from terraserver on the fly.</dd>
+
+  <dt><a href="http://fuware.nanocrew.net/pymusique/">PyMusique</a></dt>
+  <dd>This application provides a fair interface to the iTunes Music
+  Store.</dd>
 
   <dt><a href="http://www.skencil.org/">Skencil</a></dt>
   <dd>Skencil, a vector drawing program for Unix formerly known as Sketch</dd>

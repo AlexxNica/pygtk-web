@@ -1,3 +1,7 @@
+2005-03-15  Lorenzo Gil Sanchez  <lgs@sicem.biz>
+
+	* applications.src: added PyMusique, Mapview and pyGPS
+
 2005-03-07  Lorenzo Gil Sanchez  <lgs@sicem.biz>
 
 	* newsitems.py (item): added 2.6.0 release (pachi)
