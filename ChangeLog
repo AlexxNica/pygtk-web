@@ -1,6 +1,7 @@
 2004-03-11  Lorenzo Gil Sanchez  <lgs@cvs.gnome.org>
 
 	* newsitems.src: added a note of the 2.2.0 release.
+	fixed a very stupid mistake with the downloads links.
 
 	* index.src: updated the maxlines.
 
