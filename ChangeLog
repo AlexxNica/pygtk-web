@@ -1,3 +1,8 @@
+2005-01-01  Christian Reis <kiko@async.com.br>
+
+	* newsitems.py: First post! Err, I mean, adding updated news
+	items for gnome-python releases.
+
 2004-12-29  Christian Reis <kiko@async.com.br>
 
 	* downloads.src: Nikos Kouremenos <kourem@gmail.com> pointed out

@@ -12,6 +12,56 @@ item = lambda *x: items.append(x)
 #      INSERT TEXT HERE
 #      """)
 
+item("Happy New Year",
+     (2005, 1, 1),
+     """
+     Happy to see you all safe on the other side.<p>From the PyGTK team
+     straight to you, a happy new year. And remember, 2005 is going to
+     be the year PyGTK takes over the world!
+     <p>
+     -- kiko, on behalf of the CAPS-LOVING OFFICIAL PYGTK TEAM
+     </p>
+     """)
+
+item("GnomePython release bonanza!",
+     (2004, 12, 31),
+     """
+     Gustavo's been busy while the rest of us are trying to digest
+     fatty holidays meals. He's released updated versions of practically
+     all gnome-python components:
+     <ul>
+        <li><a href="http://ftp.gnome.org/pub/GNOME/sources/gnome-python/2.6/">GnomePython 2.6.2</a><br>(Fixes in gnome.vfs)</li>
+        <li><a href="http://ftp.gnome.org/pub/GNOME/sources/gnome-python/2.9/">GnomePython 2.9.2</a><br>(gnome.vfs, bonobo and gconf improvements)</li>
+        <li><a href="http://ftp.gnome.org/pub/GNOME/sources/gnome-python-extras/2.9/">GnomePythonExtras 2.9.2</a><br>(egg.recent, gtkspell, pymozembed added)</li>
+     </ul>
+     Links are to the source tarball download directories. See the
+     mailing list release announcements for more detailed infomrmation.
+     <p>
+     -- kiko
+     </p>
+     """)
+
+item("So just what is GnomePythonExtras?",
+     (2004, 12, 31),
+     """
+     It's worth mentioning (though we have had a release in the news
+     here before) that <a
+     href="http://ftp.gnome.org/pub/GNOME/sources/gnome-python-extras/">GnomePythonExtras</a>
+     is a new package in the PyGTK family, consisting of add-ons to
+     GnomePython that aren't part of the official Gnome platform. It
+     serves as a standard place to release bindings for additional
+     gnome-related libraries in the hope that they receive attention
+     from a larger userbase, with the side-intent of being folded into
+     the main distribution. GnomePythonExtras is currently maintained by
+     the expert Gustavo Carneiro of Portugal (though he probably
+     wouldn't like to describe himself that way, I think I can get away
+     with it).
+     </p>
+     <p>
+     -- kiko
+     </p>
+     """)
+
 item("New version of the PyGTK Tutorial released",
      (2004, 12, 24),
      """
