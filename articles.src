@@ -1,0 +1,86 @@
+<!--stp:include('head.src')-->
+
+<div id="mainText">
+
+<h2>Articles and Tutorials about PyGTK</h2>
+
+<table id="articles">
+
+  <thead>
+    <tr>
+      <th>Date</th>
+      <th>Title</th>
+      <th>Author</th>
+    </tr>
+  </thead>
+
+  <tbody>
+
+    <tr>
+      <td>Nov 2003</td>
+      <td><a href="http://www.sicem.biz/personal/lgs/docs/gobject-python/gobject-tutorial.html">Sub-classing GObject in Python</a></td>
+      <td>Lorenzo G. Sanchez</td>
+    </tr>
+
+    <tr>
+      <td>Aug 2003</td>
+      <td><a href="http://www.linuxjournal.com/article.php?sid=6586">A Beginner's Guide to Using PyGTK and Glade</a></td>
+      <td>Dave Aitel</td>
+    </tr>
+
+    <tr>
+      <td>Jul 2003</td>
+      <td><a href="http://www.moeraki.com/pygtktutorial/">PyGTK Tutorials</a></td>
+      <td>John Finlay</td>
+    </tr>
+
+    <tr>
+      <td>Feb 2003</td>
+      <td><a href="http://www.pycage.de/howto_bonobo.html">Bonobo Tutorial for Python</a></td>
+      <td>Martin Grimme</td>
+    </tr>
+
+    <tr>
+      <td>Nov 2002</td>
+      <td><a href="http://www.linuxfocus.org/English/November2002/article266.shtml">Developing GNOME Applications with Python (part 3)</a></td>
+      <td>Hilaire Fernandes</td>
+    </tr>
+
+    <tr>
+      <td>Jan 2002</td>
+      <td><a href="http://www.linuxfocus.org/English/January2002/article224.shtml">Developing GNOME Applications with Python (part 2)</a></td>
+      <td>Hilaire Fernandes</td>
+    </tr>
+
+    <tr>
+      <td>Aug 2001</td>
+      <td><a href="http://handhelds.org/~nelson/pyglade/pyglade-tutorial">Hello World in PyGTK</a></td>
+      <td>Russ Nelson</td>
+    </tr>
+
+    <tr>
+      <td>Jul 2000</td>
+      <td><a href="http://www.onlamp.com/pub/a/python/2000/07/25/gnome_applet.html">GNOME Panel Applets</a></td>
+      <td>Daniel Solin</td>
+    </tr>
+
+    <tr>
+      <td>Jul 2000</td>
+      <td><a href="http://www.linuxfocus.org/English/July2000/article160.shtml">Developing GNOME Applications with Python (part 1)</a></td>
+      <td>Hilaire Fernandes</td>
+    </tr>
+
+    <tr>
+      <td>Feb 2000</td>
+      <td><a href="http://laguna.fmedic.unam.mx/~daniel/pygtutorial/">Python Gnome tutorial (unfinished)</a></td>
+      <td>Daniel Kornhauser</td>
+    </tr>
+
+  </tbody>
+
+</table>
+
+
+</div>
+
+<!--stp:include('foot.src') -->

@@ -1,0 +1,5 @@
+To generate the templates and install them, run
+
+    make WEBDIR=<pathname>
+
+The Makefile will create <pathname> if it doesn't exist yet.

@@ -1,0 +1,31 @@
+<!--stp:include('head.src')-->
+
+<div id="mainText">
+
+<h2>About PyGTK</h2>
+<p>
+GTK is a toolkit for developing graphical applications that run on POSIX 
+systems such as Linux, Windows and MacOS X (provided that the X server 
+for MacOS X has been installed).  It provides a comprehensive set of GUI 
+widgets, can display Unicode bidi text.  It links into the Gnome 
+Accessibility Framework through the ATK library.
+</p>
+<p>
+PyGTK provides a convenient wrapper for the GTK library for use in 
+Python programs, and takes care of many of the boring details such as 
+managing memory and type casting.  When combined with PyORBit and 
+gnome-python, it can be used to write full featured Gnome applications.
+</p>
+<p>
+Like the GTK library itself PyGTK is licensed under the GNU LGPL, so is 
+suitable for use in both free software and proprietary applications.  It 
+is already in use in many applications ranging from small single purpose 
+scripts up to large full features applications.
+</p>
+<p>
+PyGTK requires GTK >= 2.0 and Python >= 2.2 to build.
+</p>
+
+</div>
+
+<!--stp:include('foot.src') -->

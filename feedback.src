@@ -1,0 +1,24 @@
+<!--stp:include('head.src')-->
+
+<div id="mainText">
+
+<h2>Feedback</h2>
+
+<h3>Mailing List</h3>
+
+<p>There is a mailing list for PyGTK. To subscribe to the list, go to its webpage at  <a href="http://www.daa.com.au/mailman/listinfo/pygtk">http://www.daa.com.au/mailman/listinfo/pygtk</a>. The mailing address of the list is <a href="mailto:pygtk@daa.com.au">pygtk@daa.com.au</a></p>
+
+<p>The mailing list is archived at <a href="http://www.mail-archive.com/pygtk@daa.com.au/">mail-archive.com</a> and at <a href="http://www.daa.com.au/pipermail/pygtk/">daa.com.au</a></p>
+
+<h3>IRC Channel</h3>
+
+<p>There is an IRC Channel called #pygtk in the irc.gnome.org (aka irc.gimp.net) network. People there are eager to help so go and meet some PyGTK hackers.</p> 
+
+<h3>Bugzilla</h3>
+
+<p>Finding and reporting bugs is a excellent way of improving PyGTK so please don't hesitate of doing so. If you think something is not working properly you can ask about it in the irc channel or in the mailing list. Then you probably will know if that is a bug. If so, go to <a href="http://bugzilla.gnome.org">http://bugzilla.gnome.org</a> and fill a bug report. Your problem will be fixed faster than you can imagine.</p>
+
+<p>As <a href="http://www.async.com.br/~kiko/">Christian Reis</a> likes to <a href="http://www.async.com.br/~kiko/diary.html?date=04.12.2003">say</a>, "If you won't do it for me, do it for the <a href="http://www.jacksonh.net/jackson/images/godkills_bugs.jpg">kittens</a>"
+</div>
+
+<!--stp:include('foot.src') -->

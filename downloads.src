@@ -1,0 +1,31 @@
+<!--stp:include('head.src')-->
+
+<div id="mainText">
+
+<h2>Downloads</h2>
+<p>The latest version of PyGTK for GTK+ 2.0.x or 2.2.x is PyGTK-2.0.0, which is available at the following website:</p>
+
+<ul>
+  <li><a href="ftp://ftp.gtk.org/pub/gtk/python/v2.0/">ftp://ftp.gtk.org/pub/gtk/python/v2.0/</a></li>
+</ul>
+
+<p>The latest version of PyGTK for GTK+ 1.2.x is PyGTK-0.6.11, which can be found at the following site:</p>
+
+<ul>
+  <li><a href="ftp://ftp.gtk.org/pub/gtk/python/v1.2/">ftp://ftp.gtk.org/pub/gtk/python/v1.2/</a></li>
+</ul>
+
+<p>If you are writting a new program, it is strongly recommended that you use the GTK+ 2.x version of PyGTK.</p>
+
+<p>If you want to make use of the Gnome libraries in your application, you will also need to install the PyORBit and gnome-python packages. They are available from the Gnome FTP site and its mirrors:</p>
+
+<ul>
+  <li><a href="http://ftp.gnome.org/pub/GNOME/sources/pyorbit/">http://ftp.gnome.org/pub/GNOME/sources/pyorbit/</a></li>
+  <li><a href="http://ftp.gnome.org/pub/GNOME/sources/gnome-python/">http://ftp.gnome.org/pub/GNOME/sources/gnome-python/</a></li>
+</ul>
+
+<p>Alternatively, you can get the bleeding edge version of pygtk from the GNOME anonymous CVS server anoncvs.gnome.org. Just checkout the module gnome-python, or if you don't want the gnome extensions, just get the module pygtk.</p>
+
+</div>
+
+<!--stp:include('foot.src') -->

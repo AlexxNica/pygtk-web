@@ -1,0 +1,30 @@
+<!--stp:include('head.src')-->
+
+<div id="mainText">
+
+<h2>People behind PyGTK</h2>
+
+<dl>
+ 
+  <dt><a href="http://www.daa.com.au/~james/">James Henstridge</a></dt>
+  <dd>James is the main author of the PyGTK bindings. He is a well known GNOME hacker also creator of libglade, jhbuild, Fontilus and Nautilus RPM.</dd>
+
+  <dt>Johan Dahlin</dt>
+  <dd>This young swedish guy has helped James a lot with PyGTK specially with the GTK+ 2.x port. He wrote most of the Bonobo stuff for the gnome-python package.. He is also the one that reads the patches you send to bugzilla.</dd>
+
+  <dt>John Finlay</dt>
+  <dd>He usually is not in the IRC channel mainly because he is working on the great tutorial and reference documentation of PyGTK. What would be wo without John? Nobody knows...</dd>
+
+  <dt>Gustavo J. Carneiro</dt>
+  <dd>Gustavo is the gnomeprint hacker of the team. But he also has helped in a lot of different things of PyGTK like bug hunting and fixing.</dd>
+
+  <dt><a href="http://www.async.com.br/~kiko/">Christian Reis</a></dt>
+  <dd>Ever seen a better open source project <a href="http://www.async.com.br/faq/pygtk/">FAQ</a>?. Kiko is the man behind this great resource. He is also the one who will answer your email telling you how to fix your problems (well, just your PyGTK problems).</dd>
+
+  <dt>Lorenzo G. Sanchez</dt>
+  <dd>He just helps with some documentation stuff like translating the PyGTK Tutorial to spanish or the GObject - Python tutorial. Christian and Lorenzo are the ones who are trying to create this website.</dd>
+</dl>
+
+</div>
+
+<!--stp:include('foot.src') -->
