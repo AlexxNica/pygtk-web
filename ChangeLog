@@ -1,3 +1,10 @@
+2004-08-06  John Finlay  <finlay@moeraki.com>
+
+	* developer.src Remove some bug links and add more info on source
+	location in CVS.
+	* header.src Add ViewCVS link.
+	Fixes #149530 (Abel Daniel)
+
 2004-08-05  John Finlay  <finlay@moeraki.com>
 
 	* Makefile Add download of tbz2 reference tarball

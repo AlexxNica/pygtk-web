@@ -57,13 +57,6 @@ reports.
 <ul>
    <!-- <li><a href=""></a></li> -->
    <li><a
-   href="http://bugzilla.gnome.org/show_bug.cgi?id=138804">138804</a>:
-   gdk_font_get_display and gdk_pixmap_lookup are now available on win32</li>
-   <li><a href="http://bugzilla.gnome.org/show_bug.cgi?id=121629">121629</a>:
-   Wrapper for gnome-vfs async API</li>
-   <li><a href="http://bugzilla.gnome.org/show_bug.cgi?id=122569">122569</a>:
-   gtk.Window derived class segfaults</li>
-   <li><a
    href="http://bugzilla.gnome.org/show_bug.cgi?id=126477">126477</a>:pyORBit
    and threading</li>
    <li><a
@@ -73,9 +66,14 @@ reports.
 
 <h3>CVS Activity</h3>
 
+<p>The source code for PyGTK is located in the <a
+href="http://developer.gnome.org/tools/cvs.html">Gnome CVS repository</a>
+in the gnome-python/pygtk directory. You can view the contents using <a
+href="http://cvs.gnome.org/viewcvs/gnome-python/pygtk">ViewCVS</a>.</p>
+
 <ul>
     <li><a
-    href="http://cvs.gnome.org/bonsai/cvsquery.cgi?treeid=default&branch=HEAD&branchtype=match&dir=gnome-python&file=&filetype=match&who=&whotype=match&sortby=Date&hours=2&date=month&mindate=&maxdate=&cvsroot=%2Fcvs%2Fgnome">Changes comitted in the last month</a></li>
+    href="http://cvs.gnome.org/viewcvs/gnome-python/pygtk/ChangeLog">Changes comitted in the last month</a></li>
 
 </ul>
  
