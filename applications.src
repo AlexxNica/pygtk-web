@@ -46,6 +46,10 @@
   needs to be prefilled once by adding all your disks to it.
   </dd>
 
+  <dt><a href="http://gajim.org/">Gajim</a></dt>
+  <dd> Gajim is a Jabber client based on a plugin system. At this time, 2
+  plugins have been written : one in GTK2 and one that log messages</dd>
+
   <dt><a href="http://gdick.kldp.net/">GDick</a></dt>
   <dd>GDick is a Korean-English dictionary client.</dd>
   
