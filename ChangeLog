@@ -1,5 +1,8 @@
 2004-02-09  Christian Reis <kiko@async.com.br>
 
+    * index.src: changed our main heading to something more enthusiastic if
+      slightly imprecise :-)
+
     * applications.src: Added CLAW, did spellcheck, 72-char wrap and cleanup.
 
     * default.css: minor style updates
