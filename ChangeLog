@@ -8,6 +8,14 @@
 	* Makefile, .htaccess: ensure we supply RSS content as XML and UTF-8.
 	Also make the RSS and news-related rules smarter.
 
+	* newsitems.py, feed.py: rework the way news items are converted into
+	HTML and RSS, which causes us to actually validate at this point. Used
+	James' suggestion to look at www.feedvalidator.org and hacked around
+	the various peculiarities of RSS. The main change was moving the date
+	format into a short tuple in newsitems.py (may it be the last time)
+	and using format-specific setup_items functions. Hopefully this is
+	good enough to go public.
+
 2004-09-04  Christian Reis <kiko@async.com.br>
 	
 	* feed.py, newsitems.py, news.src, index.src: merge contributed

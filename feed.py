@@ -16,31 +16,35 @@
 # along with this program; if not, write to the Free Software 
 # Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
 
-import time
+import time, cgi
 
 #
 # Convenience function imported by newsitems.py; this is essentially a
 # circular import but it's not really important and uses less files
 #
-def setup_item(item):
-    title, date, desc = item
+def setup_rss_item(title, date, desc):
     ret = {}
-    if type(date) is int:
-        date = time.strftime("%Y-%m-%d %a %H:%M", time.localtime(date))
+    ret['title'] = cgi.escape(title)
+    date = time.strptime("%s %s %s" % date, "%Y %m %d")
+    # XXX someday the time and GMT hack will bite us in the rear
+    ret['pubDate'] = time.strftime("%a, %d %b %Y %H:%M:%S GMT", date)
+    ret['description'] = cgi.escape(desc)
+    return ret
+
+def setup_item(title, date, desc):
+    ret = {}
     ret['title'] = title
-    ret['pubDate'] = date
+    date = time.strptime("%s %s %s" % date, "%Y %m %d")
+    ret['pubDate'] = time.strftime("%A %d %B %Y", date)
     ret['description'] = desc
     return ret
 
-# RSS generation
+# RSS generation; note that the <xml bits *must* come at the very top of
+# the document, no whitespace before it allowed.
+# http://www.feedvalidator.org/ can be used to check validity of the RSS.
 
-rss_header = r"""
-<?xml version="1.0"?>
-
-<!DOCTYPE rss PUBLIC "-//Netscape Communications//DTD RSS 0.91//EN"
-"http://my.netscape.com/publish/formats/rss-0.91.dtd">
-
-<rss version="0.91">
+rss_header = r"""<?xml version="1.0"?>
+<rss version="2.0">
 
   <channel>
     <title>PyGTK News</title>
@@ -79,8 +83,7 @@ rss_item_template = r"""
 def write_rss(fp, items):
     sections = [rss_header, rss_image]
     for item in items:
-        # XXX handle escaping of invalid RSS content
-        sections.append(rss_item_template % setup_item(item))
+        sections.append(rss_item_template % setup_rss_item(*item))
     sections.append(rss_footer)
     fp.write(''.join(sections))
     
@@ -97,7 +100,7 @@ src_item_template = r"""
 def write_src(fp, items):
     sections = []
     for item in items:
-        sections.append(src_item_template % setup_item(item))
+        sections.append(src_item_template % setup_item(*item))
     fp.write(''.join(sections))
     
 def items_to_rss(items, rss_file, maxitems=0):
