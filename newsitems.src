@@ -1,25 +1,41 @@
 <div class="news">
-<h4>Version 2.1 of the tutorial released</h4>
+
+<h4>PyGTK 0.6.12 (obsolete) released</h4>
+<h5>Monday 12th July 2004</h5>
+<p>The PyGTK team has released the latest (and perhaps last) version off
+the 0.6 branch, PyGTK 0.6.12. This version contains a number of <a
+href="http://lists.gnome.org/archives/gnome-announce-list/2004-July/msg00029.html">small
+bugfixes and two API additions</a> that were accumulated over the past
+two years in CVS. <a
+href="ftp://ftp.gtk.org/pub/gtk/python/v1.2/">Download it from
+gtk.org</a> while it's hot.. or not!
+
+<h4>New versions of the PyGTK Tutorial and Reference released</h4>
 <h5>Monday 6th July 2004</h5>
-<p>John Finlay announced a new release of his great tutorial. This time it
-covers GenericTreeModel, sorting of TreeModel rows, editable and activatable
-TreeView cells, more TreeView examples, timeout, IO and idle sections updated,
-drag and drop section updated and several bug fixes! Thanks again John.</p>
+<p>John Finlay announced new releases of his <a
+href="http://www.pygtk.org/pygtk2tutorial/index.html">PyGTK Tutorial</a>
+and <a href="http://www.pygtk.org/pygtk2reference/index.html">PyGTK
+Reference</a>. Additions include GenericTreeModel, sorting of TreeModel
+rows, editable and activatable TreeView cells, more TreeView examples,
+updated timeout, IO and idle sections, updated drag and drop section
+updated and several bug fixes! Thanks again John.</p>
 
 <h4>PyGTK 2.3.92 (unstable) released</h4>
 <h5>Saturday 22nd May 2004</h5>
-<p>We just released PyGTK 2.3.92 which implement most of the new GTK+2.4
-APIs. The official announce is
-<a href="http://www.daa.com.au/pipermail/pygtk/2004-May/007644.html">here</a>
-and you can download it from <a href="http://ftp.gnome.org/pub/GNOME/sources/pygtk/2.3/pygtk-2.3.92.tar.gz">here</a>.
+<p>The PyGTK team has released PyGTK 2.3.92 which implement most of the
+new GTK+2.4 APIs. The official announce is <a
+href="http://www.daa.com.au/pipermail/pygtk/2004-May/007644.html">here</a>
+and you can download it from <a
+href="http://ftp.gnome.org/pub/GNOME/sources/pygtk/2.3/pygtk-2.3.92.tar.gz">here</a>.
 We'd really appreciate testing and bug reports on this release.</p>
 
 <h4>PyGTK 2.3.91 (unstable) released</h4>
 <h5>Friday 16th April 2004</h5>
-<p>We just released PyGTK 2.3.91 which implement most of the new GTK+2.4
-APIs. The official announce is
-<a href="http://www.daa.com.au/pipermail/pygtk/2004-April/007447.html">here</a>
-and you can download it from <a href="http://ftp.gnome.org/pub/GNOME/sources/pygtk/2.3/pygtk-2.3.91.tar.gz">here</a>.
+<p>The PyGTK team has released PyGTK 2.3.91 which implement most of the
+new GTK+2.4 APIs. The official announce is <a
+href="http://www.daa.com.au/pipermail/pygtk/2004-April/007447.html">here</a>
+and you can download it from <a
+href="http://ftp.gnome.org/pub/GNOME/sources/pygtk/2.3/pygtk-2.3.91.tar.gz">here</a>.
 We'd really appreciate testing and bug reports on this release.</p>
 
 <h4>GNOME-Python 2.0.2 released!</h4>

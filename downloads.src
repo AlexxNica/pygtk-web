@@ -11,7 +11,7 @@ the links below.
 
 <h3>Current version (GTK+ 2.2.x)</h3>
 
-<p>The latest version of PyGTK for GTK+ 2.2.x or 2.2.x is PyGTK-2.2.0,
+<p>The latest version of PyGTK for GTK+ 2.2.x (or above) is PyGTK-2.2.0,
 which is available at the following website:</p>
 
 <ul>
@@ -20,13 +20,14 @@ which is available at the following website:</p>
 
 <h3>Older versions (GTK+ 2.0.x, 1.x)</h3>
 
-<p>The latest version of PyGTK for GTK+ 2.0.x is PyGTK-2.0.0, which can be found at the following site:</p>
+<p>The latest version of PyGTK for GTK+ 2.0.x (or above) is PyGTK-2.0.0,
+which can be found at the following site:</p>
 
 <ul>
   <li><a href="http://ftp.gnome.org/pub/GNOME/sources/pygtk/2.0/">http://ftp.gnome.org/pub/GNOME/sources/pygtk/2.0/</a></li>
 </ul>
 
-<p>The latest version of PyGTK for GTK+ 1.2.x is PyGTK-0.6.11, which can be found at the following site:</p>
+<p>The latest version of PyGTK for GTK+ 1.2.x is PyGTK-0.6.12, which can be found at the following site:</p>
 
 <ul>
   <li><a href="ftp://ftp.gtk.org/pub/gtk/python/v1.2/">ftp://ftp.gtk.org/pub/gtk/python/v1.2/</a></li>

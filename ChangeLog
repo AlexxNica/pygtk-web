@@ -1,3 +1,13 @@
+2004-07-15  Christian Reis <kiko@async.com.br>
+
+	* downloads.src: update versions
+
+	* newsitems.src: minor text updates and add links and 0.6.12 release
+
+	* reference.src: reformat slightly the reference manual header to
+	  match the tutorial item -- I was going to do the whole shebang but
+	  John Finlay beat me to it (and conflicted!)
+
 2004-07-14  John Finlay  <finlay@moeraki.com>
 
 	* reference.src: Updated version number, tarball size and date.
