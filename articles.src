@@ -35,6 +35,12 @@
     </tr>
 
     <tr>
+      <td>Mar 2003</td>
+      <td><a href="http://www-106.ibm.com/developerworks/linux/library/l-wrap/">Wrap GObjects in Python</a></td>
+      <td>Ross Burton</td>
+    </tr>
+
+    <tr>
       <td>Feb 2003</td>
       <td><a href="http://www.pycage.de/howto_bonobo.html">Bonobo Tutorial for Python</a></td>
       <td>Martin Grimme</td>

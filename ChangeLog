@@ -1,3 +1,8 @@
+2004-03-01  Lorenzo Gil Sanchez  <lgs@cvs.gnome.org>
+
+	* articles.src: added Ross Burton article about wrapping GObjects in
+	Python
+
 2004-03-01  Christian Reis <kiko@async.com.br>
 
     * tutorial.src: added link to version of tutorial in Bahasa Indonesia by
