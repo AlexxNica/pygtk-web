@@ -40,6 +40,12 @@
   <dt><a href="http://gnochm.sourceforge.net/">GnoCHM</a></dt>
   <dd>GnoCHM is a CHM file viewer for Gnome.</dd>
 
+  <dt><a href="http://gosiege.sourceforge.net/">go siege</a></dt>
+  <dd>Go Siege is a transformation of the ancient Chinese game of
+  <a href="http://en.wikipedia.org/wiki/Go_(board_game)">Go</a> into a
+  massively multiplayer online game in which hundreds of players can compete
+  simultaneously</dd>
+
   <dt><a href="http://gramps.sourceforge.net/index.html">gramps</a></dt>
   <dd>Gramps (Genealogical Research and Analysis Management Programming
   System) is an open source genealogy program. It is written in Python,
