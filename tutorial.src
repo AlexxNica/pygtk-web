@@ -9,7 +9,7 @@
  
 <ul>
    <li><a href="pygtk2tutorial/index.html">Tutorial</a></li>
-   <li><a href="dist/pygtk2tutorial.tgz">Gzip'd Tarball of Tutorial</a> (1.60MB)</li>
+   <li><a href="dist/pygtk2tutorial.tgz">Gzip'd Tarball of Tutorial</a> (1.7MB)</li>
 </ul>
 
 <h3>PyGTK Tutorial  for GTK+ 1.x and PyGTK 0.6.x</h3>
@@ -17,13 +17,18 @@
  
 <ul>
    <li><a href="pygtktutorial/index.html">Tutorial</a></li>
-   <li><a href="dist/pygtktutorial.tgz">Gzip'd Tarball of Tutorial</a> (1.4MB)</li>
+   <li><a href="dist/pygtktutorial.tgz">Gzip'd Tarball of Tutorial</a> (1.5MB)</li>
 </ul>
+
+<h2>Localized versions</h2>
           
-<!-- XXX lgs-hack
-<h3><a href="pygtk2tutorial-lgs/index.html">Tutorial de PyGTK 2.0 para GTK+ 2.0 y PyGTK 2.0.0</a></h3>
-Traducción: Lorenzo Gil Sánchez<br>
--->
+<h3>Espa&ntilde;ol: Tutorial de PyGTK 2.0 para GTK+ 2.0 y PyGTK
+2.0.0</h3>
+Traducción: Lorenzo Gil Sánchez<p>
+<ul>
+   <li><a href="pygtk2tutorial-es/index.html">Tutorial</a></li>
+   <li><a href="dist/pygtk2tutorial-es.tgz">Paquete con el Tutorial</a> (2.4MB)</li>
+</ul>
  
 </div>
 
