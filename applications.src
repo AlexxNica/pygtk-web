@@ -111,6 +111,10 @@
   placed inside a dialog, along with supporting code that handles a lot of the
   mundane details inherent in most gui database apps.</dd>
 
+  <dt><a href="http://nekton.mine.nu/projects/mum/">Mum</a></dt>
+  <dd>This Program allows simple creation and upload of images galleries on web
+  site. Mum is Free Software, released under the GNU GPL.</dd>
+
   <dt><a href="http://narim.sourceforge.net">Narim</a></dt>
   <dd>Narim is a GUI file-name encoding converter written in Python.</dd>
 
