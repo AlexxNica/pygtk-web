@@ -1,3 +1,8 @@
+2004-04-08  Lorenzo Gil Sanchez  <lgs@cvs.gnome.org>
+
+	* index.src: modified the include call to add the new item.
+	* newsitems.src: added an entry for Python-GNOME 2.0.2. 
+
 2004-03-26  Xavier Ordoquy  <xordoquy@wanadoo.fr>
 
 	* people.src: added myself.
