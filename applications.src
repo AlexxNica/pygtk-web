@@ -5,27 +5,22 @@
 <h2>Applications that use PyGTK</h2>
 <p>Here you will find a list of applications that actually use PyGTK.</p>
 
+<div style="font-size: x-small">
+<a href="#user">User Apps</a> |
+<a href="#scientific">Scientific Apps</a> |
+<a href="#devel">Development Tools</a> |
+<a href="#system">System Utilities</a> |
+<a href="#libraries">Libraries</a>
+</div>
+
+<h3><a name="user">User Applications</a></h3>
+
 <dl>
-
-  <dt><a href="http://fedora.redhat.com/projects/anaconda-installer/">Anaconda</a></dt>
-  <dd>Anaconda is the installation program for Red Hat distributions.
-  During installation, the system's hardware is identified and
-  configured, and the appropriate file systems for the system's
-  architecture are created. Finally, it allows the user to install the
-  operating system software on the system. Optionally, it can upgrade
-  existing Red Hat installations. Anaconda can run in a fully
-  interactive mode (text or graphical), or in a kickstart mode, which is
-  allows the installation to be scripted for unattended operation. This
-  makes deploying hundreds or thousands of systems very easy</dd>
-
   <dt><a href="http://blogtk.sourceforge.net/">BloGTK</a></dt>
   <dd>BloGTK is a weblog client that allows you to post to your weblog
   from Linux without the need for a separate browser window. It
   allows you to connect with many weblog systems such as Blogger,
-  Movable Type, pMachine, and more.
-
-  <dt><a href="http://clay.ll.pl/clarence.html">Clarence</a></dt>
-  <dd>Clarence is a small GTK+-based programmer's calculator.</dd>
+  Movable Type, pMachine, and more.</dd>
 
   <dt><a href="http://groundhog.zevallos.com/">CLAW</a></dt>
   <dd>Claw is a file browser designed as an alternative to the default
@@ -34,18 +29,6 @@
   autocomplete address bar, dual panes, the ability to drag and drop
   between separate CLAW browsers, and audio (using mpg123, ogg123, and
   playwave) and image previews.</dd>
-
-  <dt><a href="http://www.pixelbeat.org/fslint/">fslint</a></dt>
-  <dd>FSlint is a toolkit to find various forms of lint on a filesystem.
-  At the moment it reports duplicate files, bad symbolic links,
-  troublesome file names, empty directories, non stripped executables,
-  temporary files, duplicate/conflicting (binary) names, and unused ext2
-  directory blocks.</dd>
-
-  <dt><a href="http://gdesklets.gnomedesktop.org/">gDesklets</a></dt>
-  <dd>gDesklets provides an advanced architecture for desktop applets --
-  tiny displays sitting on your desktop in a symbiotic relationship of
-  eye candy and usefulness.</dd>
 
   <dt><a href="http://gdick.kldp.net/">GDick</a></dt>
   <dd>GDick is a Korean-English dictionary client.</dd>
@@ -57,21 +40,169 @@
   <dt><a href="http://gnochm.sourceforge.net/">GnoCHM</a></dt>
   <dd>GnoCHM is a CHM file viewer for Gnome.</dd>
 
+  <dt><a href="http://gramps.sourceforge.net/index.html">gramps</a></dt>
+  <dd>Gramps (Genealogical Research and Analysis Management Programming
+  System) is an open source genealogy program. It is written in Python,
+  using the GTK+/GNOME interface.</dd>
+
+  <dt><a href="http://nekton.mine.nu/projects/mum/">Mum</a></dt>
+  <dd>This Program allows simple creation and upload of images galleries on web
+  site. Mum is Free Software, released under the GNU GPL.</dd>
+
+  <dt><a href="http://narim.sourceforge.net">Narim</a></dt>
+  <dd>Narim is a GUI file-name encoding converter written in Python.</dd>
+
+  <dt>Point2Play</dt>
+  <dd>Point2Play is simply a graphical front end for TransGaming's core
+  WineX technology which enables you to run Windows applications on
+  Linux. To facilitate setting your computer up Point2Play can help you
+  determine if your setup is sufficient for gaming using WineX.</dd>
+
+  <dt><a href="http://www.galilea.cl/gestor">pyGestor</a></dt>
+  <dd>pyGestor is a Chilean accounting software developed for small and
+  medium sized enterprises, The goal of the project is to provide an
+  enterprise resource management system for the GNOME Desktop.</dd>
+
+  <dt><a href="http://rox.sourceforge.net/phpwiki/">The ROX Desktop</a></dt>
+  <dd>ROX is a fast, user friendly desktop which makes extensive use of
+  drag-and-drop. The interface revolves around the file manager, or
+  filer, following the traditional Unix view that `everything is a file'
+  rather than trying to hide the filesystem beneath start menus,
+  wizards, or druids. The aim is to make a system that is well designed
+  and clearly presented. The ROX style favours using several small
+  programs together instead of creating all-in-one
+  mega-applications.</dd>
+
+  <dt><a href="http://sketch.sourceforge.net/">Sketch</a></dt>
+  <dd>Sketch, a vector drawing program for Unix</dd>
+
+  <dt><a href="http://www.nongnu.org/straw/index.html">Straw</a></dt>
+  <dd>Straw is a desktop news aggregation for GNOME</dd>
+
+  <dt><a href="http://voxpak.sourceforge.net/">Voxpak</a></dt>
+  <dd>A GUI for playing, recording, editing, renaming etc. voice and fax
+  messages. Includes scripts for popping up sticky-notes or requesters
+  with caller id info. Renames voice/fax messages to date+callerid.
+  Includes a small Kaptain version for KDE.</dd>
+
+</dl>
+
+<h3><a name="scientific">Scientific Applications</a></h3>
+
+<dl>
   <dt><a href="http://www.unihedron.com/projects/gonvert/gonvert.php">Gonvert</a></dt>
   <dd>Gonvert is a conversion utility that allows conversion between
   many units like CGS, Ancient, Imperial with many categories like
   length, mass, numbers, etc. All units converted values shown at once
   as you type. Easy to add/change your own units.</dd>
 
-  <dt><a href="http://gramps.sourceforge.net/index.html">gramps</a></dt>
-  <dd>Gramps (Genealogical Research and Analysis Management Programming
-  System) is an open source genealogy program. It is written in Python,
-  using the GTK+/GNOME interface.</dd>
+  <dt><a href="http://numexp.sourceforge.net/">NumExp</a></dt>
+  <dd>NumExp is a family of open-source applications for numeric computation.
+  When it was created, the idea was to make a powerfull tool like
+  <a href="http://www.wolfram.com">Mathematica</a>. Now, we know this is almost
+  impossible without more open-source hackers. Meanwhile, we are trying to
+  make, at least, an usefull tool!</dd>
+
+  <dt><a href="http://www-stu.pem.cam.ac.uk/~jrk33/plotter/">Plotter</a></dt>
+  <dd>Plotter is a GTK+ mathematical graph plotting application.</dd>
+
+  <dt><a href="http://www.pythoncad.org">PythonCAD</a></dt>
+  <dd>PythonCAD is a 2D CAD software that is under development now.
+  Check out its <a href="http://www.pythoncad.org">website</a> for some
+  cool screenshots.</dd>
+
+</dl>
+
+<h3><a name="devel">Development Tools</a></h3>
+
+<dl>
+  <dt><a href="http://clay.ll.pl/clarence.html">Clarence</a></dt>
+  <dd>Clarence is a small GTK+-based programmer's calculator.</dd>
+
+  <dt><a href="http://meld.sf.net">Meld</a></dt>
+  <dd>Meld is a visual diff and merge tool. It integrates especially
+  well with CVS.The diff viewer lets you edit files in place and allows
+  easy merges.</dd>
+
+  <dt><a href="http://wingide.com/wingide">Wing IDE</a></dt>
+  <dd>Wing IDE is a powerful development environment for the Python
+  programming language. Wing IDE and Python are well suited for rapid
+  application development and large or complex projects with changing
+  requirements. From desktop to website to enterprise application
+  integration, Wing IDE and Python give you a fast, scalable, and
+  portable platform that lets you concentrate on building your
+  application-specific functionality.</dd>
+
+</dl>
+
+<h3><a name="system">System Utilities</a></h3>
+
+<dl>
+  <dt><a href="http://fedora.redhat.com/projects/anaconda-installer/">Anaconda</a></dt>
+  <dd>Anaconda is the installation program for Red Hat distributions.
+  During installation, the system's hardware is identified and
+  configured, and the appropriate file systems for the system's
+  architecture are created. Anaconda can run in a fully interactive mode
+  (text or graphical), or in a kickstart mode, which is allows the
+  installation to be scripted for unattended operation. This makes
+  deploying hundreds or thousands of systems very easy</dd>
+
+  <dt><a href="http://www.immunitysec.com/CANVAS/">CANVAS</a></dt>
+  <dd>CANVAS is a commercial network intrusion product, which runs under both
+  Linux and Windows and allows a system administrator or penetration tester to
+  break into machines on their network. It uses pyGTK 2.0 for the GUI.</dd>
+
+  <dt><a href="http://www.pixelbeat.org/fslint/">fslint</a></dt>
+  <dd>FSlint is a toolkit to find various forms of lint on a filesystem.
+  At the moment it reports duplicate files, bad symbolic links,
+  troublesome file names, empty directories, non stripped executables,
+  temporary files, duplicate/conflicting (binary) names, and unused ext2
+  directory blocks.</dd>
 
   <dt><a href="http://www.nolongervalid.com/heartbeat/">Heartbeat</a></dt>
   <dd>Heartbeat is a server and service monitoring program written in
   PyGTK, featuring a XML config and support for unlimited servers and
   services.</dd>
+
+  <dt><a href="http://porthole.sf.net">Porthole</a></dt>
+  <dd> Porthole is a GTK-based frontend for Portage (the Gentoo package 
+  management system). It features a hierarchial view of packages and supports
+  fast searches and dependency calculations. Porthole also supports basic
+  emerge features (emerge, unmerge, sync, upgrades).</dd>
+
+  <dt>RedHat/Fedora System Admin Tools</dt>
+  <dd>If you are using a Redhat/Fedora Linux distribution almost every
+  program that starts with redhat-config-* is made with PyGTK</dt>
+
+  <dt><a href="http://www.ximian.com/products/redcarpet/">Red Carpet</a></dt>
+  <dd> Red Carpet is a software management solution for Linux; it makes
+  it easy to update and manage Linux desktops with improved package
+  inventory, update history, and remote operation. Red Carpet offers a
+  choice of client interfaces: the redesigned graphical interface, and
+  the "rug" command line interface, which provides simple, powerful
+  commands and easy scriptability.</dd>
+
+  <dt><a href="http://oss.wired-networks.net/revelation/">Revelation</a></dt>
+  <dd> Revelation is a password manager for the GNOME 2 desktop,
+  released under the GNU GPL license. It organizes accounts in a tree
+  structure, and stores them as AES-encrypted XML files.</dd>
+
+  <dt><a href="http://zero-install.sourceforge.net/">Zero Install</a></dt>
+  <dd>The Zero Install system makes software installation not merely
+  easy, but unnecessary. Users run their applications directly from the
+  Internet from the software author's pages. Caching makes this as fast
+  as running a normal application after the first time, and allows
+  off-line use.</dd>
+  
+</dl>
+
+<h3><a name="libraries">Libraries, Widgets and Modules</a></h3>
+
+<dl>
+  <dt><a href="http://gdesklets.gnomedesktop.org/">gDesklets</a></dt>
+  <dd>gDesklets provides an advanced architecture for desktop applets --
+  tiny displays sitting on your desktop in a symbiotic relationship of
+  eye candy and usefulness.</dd>
 
   <dt><a href="http://www.async.com.br/projects/kiwi/">Kiwi</a></dt>
   <dd> Kiwi consists of a set of classes and wrappers for PyGTK that
@@ -91,46 +222,12 @@
   mathematica), in web application servers generating dynamic charts, or
   embedded in GTK+ or WX applications.</dd>
 
-  <dt><a href="http://meld.sf.net">Meld</a></dt>
-  <dd>Meld is a visual diff and merge tool. It integrates especially
-  well with CVS.The diff viewer lets you edit files in place and allows
-  easy merges.</dd>
-
   <dt><a href="http://www.netpromi.com/mojoview.html">MojoView</a></dt>
   <dd>MojoView is a Python package that assists you in building simple PyGTK2
   database applications. It consists of a set of classes that you can subclass
   in your application. Each class is either a dialog or a widget that should be
   placed inside a dialog, along with supporting code that handles a lot of the
   mundane details inherent in most gui database apps.</dd>
-
-  <dt><a href="http://nekton.mine.nu/projects/mum/">Mum</a></dt>
-  <dd>This Program allows simple creation and upload of images galleries on web
-  site. Mum is Free Software, released under the GNU GPL.</dd>
-
-  <dt><a href="http://narim.sourceforge.net">Narim</a></dt>
-  <dd>Narim is a GUI file-name encoding converter written in Python.</dd>
-
-  <dt><a href="http://numexp.sourceforge.net/">NumExp</a></dt>
-  <dd>NumExp is a family of open-source applications for numeric computation.
-  When it was created, the idea was to make a powerfull tool like
-  <a href="http://www.wolfram.com">Mathematica</a>. Now, we know this is almost
-  impossible without more open-source hackers. Meanwhile, we are trying to
-  make, at least, an usefull tool!</dd>
-
-  <dt><a href="http://www-stu.pem.cam.ac.uk/~jrk33/plotter/">Plotter</a></dt>
-  <dd>Plotter is a GTK+ mathematical graph plotting application.</dd>
-
-  <dt>Point2Play</dt>
-  <dd>Point2Play is simply a graphical front end for TransGaming's core
-  WineX technology which enables you to run Windows applications on
-  Linux. To facilitate setting your computer up Point2Play can help you
-  determine if your setup is sufficient for gaming using WineX.</dd>
-
-  <dt><a href="http://porthole.sf.net">Porthole</a></dt>
-  <dd> Porthole is a GTK-based frontend for Portage (the Gentoo package 
-  management system). It features a hierarchial view of packages and supports
-  fast searches and dependency calculations. Porthole also supports basic
-  emerge features (emerge, unmerge, sync, upgrades).</dd>
 
   <dt><a href="http://pyirc.tuxfamily.org/">PyIRC</a></dt>
   <dd>PyIrc is a Python module which tends to implement RFC 1459 and
@@ -139,90 +236,21 @@
   the product in every kind of applications. For instance the tarball
   comes with two clients done in PyGTK and PyQt.</dd>
 
-  <dt><a href="http://www.galilea.cl/gestor">pyGestor</a></dt>
-  <dd>pyGestor is a Chilean accounting software developed for small and
-  medium sized enterprises, The goal of the project is to provide an
-  enterprise resource management system for the GNOME Desktop.</dd>
-
-  <dt><a href="http://jstripchart.sourceforge.net/">PyStripchart Widget Library</a></dt>
+  <dt><a href="http://jstripchart.sourceforge.net/">PyStripchart Widget
+  Library</a></dt>
   <dd>PyStripchart is a set of widgets for displaying time-sampled data
   in an interactive "strip chart" form.  The widgets are written in
   Python and built upon the PyGTK package. PyStripchart is distributed
   under the GNU LGPL license.</dd>
-
-  <dt><a href="http://www.pythoncad.org">PythonCAD</a></dt>
-  <dd>PythonCAD is a 2D CAD software that is under development now.
-  Check out its <a href="http://www.pythoncad.org">website</a> for some
-  cool screenshots.</dd>
-
-  <dt><a href="http://www.ximian.com/products/redcarpet/">Red Carpet</a></dt>
-  <dd> Red Carpet is the leading software management solution for Linux.
-  The intuitive Red Carpet channel organization and automatic dependency
-  and conflict resolution make it easy to install, update and manage
-  software on Linux workstations and servers. New Red Carpet Services
-  support allows users to manage software from Ximian, leading Linux
-  distribution providers and a variety of open-source projects. Red
-  Carpet makes it easy to update and manage Linux desktops with improved
-  package inventory, update history, and remote operation. Red Carpet
-  now offers a choice of client interfaces: the redesigned graphical
-  interface, and the "rug" command line interface, which provides
-  simple, powerful commands and easy scriptability.</dd>
-
-  <dt>RedHat/Fedora System Admin Tools</dt>
-  <dd>If you are using a Redhat/Fedora Linux distribution almost every
-  program that starts with redhat-config-* is made with PyGTK</dt>
-
-  <dt><a href="http://oss.wired-networks.net/revelation/">Revelation</a></dt>
-  <dd> Revelation is a password manager for the GNOME 2 desktop,
-  released under the GNU GPL license. It organizes accounts in a tree
-  structure, and stores them as AES-encrypted XML files.</dd>
-
-  <dt><a href="http://rox.sourceforge.net/phpwiki/">The ROX Desktop</a></dt>
-  <dd>ROX is a fast, user friendly desktop which makes extensive use of
-  drag-and-drop. The interface revolves around the file manager, or
-  filer, following the traditional Unix view that `everything is a file'
-  rather than trying to hide the filesystem beneath start menus,
-  wizards, or druids. The aim is to make a system that is well designed
-  and clearly presented. The ROX style favours using several small
-  programs together instead of creating all-in-one
-  mega-applications.</dd>
 
   <dt><a href="http://freshmeat.net/projects/rtgraph/?topic_id=135%2C912">rtgraph</a></dt>
   <dd>rtgraph is a Python package providing several widgets for graphing
   data in real-time, using PyGTK, and UI components for controlling the
   graphs.</dd>
 
-  <dt><a href="http://sketch.sourceforge.net/">Sketch</a></dt>
-  <dd>Sketch, a vector drawing program for Unix</dd>
-
-  <dt><a href="http://www.nongnu.org/straw/index.html">Straw</a></dt>
-  <dd>Straw is a desktop news aggregation for GNOME</dd>
-
-  <dt><a href="http://voxpak.sourceforge.net/">Voxpak</a></dt>
-  <dd>A GUI for playing, recording, editing, renaming etc. voice and fax
-  messages. Includes scripts for popping up sticky-notes or requesters
-  with caller id info. Renames voice/fax messages to date+callerid.
-  Includes a small Kaptain version for KDE.</dd>
-
-  <dt><a href="http://wingide.com/wingide">Wing IDE</a></dt>
-  <dd>Wing IDE is a powerful development environment for the Python
-  programming language. Wing IDE and Python are well suited for rapid
-  application development and large or complex projects with changing
-  requirements. From desktop to website to enterprise application
-  integration, Wing IDE and Python give you a fast, scalable, and
-  portable platform that lets you concentrate on building your
-  application-specific functionality.</dd>
-
-  <dt><a href="http://zero-install.sourceforge.net/">Zero Install</a></dt>
-  <dd>The Zero Install system makes software installation not merely
-  easy, but unnecessary. Users run their applications directly from the
-  Internet from the software author's pages. Caching makes this as fast
-  as running a normal application after the first time, and allows
-  off-line use.</dd>
-
 </dl>
 
-<p>If your application is not listed here and it uses PyGTK please tell <a href="mailto:pygtk-web_AT_pygtk.org">us</a> about it.</p>
+<p>If your application is not listed here and it uses PyGTK please <a href="mailto:pygtk-web_AT_pygtk.org">tell us</a> about it.</p>
 
 </div>
 
