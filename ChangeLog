@@ -1,3 +1,8 @@
+2003-12-15  Lorenzo Gil Sanchez  <lgs@cvs.gnome.org>
+
+	* applications.src: added matplotlib and a comment at the end of the
+	page for submitting new apps.
+
 2003-12-15  Lorenzo Gil Sanchez <lgs@cvs.gnome.org>
 
 	* img/appwindow.png, img/colorselector.png, messagedialog.png: Changed

@@ -34,7 +34,10 @@
 
   <dt><a href="http://www.async.com.br/projects/kiwi/">Kiwi</a></dt>
   <dd> Kiwi consists of a set of classes and wrappers for PyGTK that were developed to provide a sort of framework for applications. Fully object-oriented, and roughly modeled after Smalltalk's MVC, Kiwi provides a simple, practical way to build forms, windows and widgets that transparently access and display your object data. Kiwi was primarily designed to make implementing the UI for Stoq easier, and it is released under the LGPL.</dd>
- 
+
+  <dt><a href="http://matplotlib.sourceforge.net">matplotlib</a></dt>
+  <dd>matplotlib is a pure python 2D plotting library with a matlab syntaxwhich produces publication quality figures using in a variety ofhardcopy formats (PNG, JPG, TIFF, PS) and interactive GUI environments(WX, GTK) across platforms.  matplotlib can be used in python scripts,interactively from the python shell (ala matlab or mathematica), inweb application servers generating dynamic charts, or embedded in GTKor WX applications.</dd>
+
   <dt><a href="http://www-stu.pem.cam.ac.uk/~jrk33/plotter/">Plotter</a></dt>
   <dd>Plotter is a GTK+ mathematical graph plotting application. It is written entirely in Python, an object orientated interpreted programming language, using James Henstridge's PyGtk bindings.</dd>
 
@@ -79,6 +82,8 @@
 
 
 </dl>
+
+<p>If your application is not listed here and it uses PyGTK please tell <a href="mailto:lgs_AT_cvs.gnome.org">us</a> about it.</p>
 
 </div>
 
