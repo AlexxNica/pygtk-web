@@ -16,6 +16,17 @@
 <h3><a name="user">User Applications</a></h3>
 
 <dl>
+  <dt><a href="http://www.amautacorp.com/projects/ups-monitor/">Amauta
+  UPS monitor</a></dt>
+  <dd> UPS monitor is a graphical monitoring application that lets you watch
+  your UPS status in real time.</dd>
+
+  <dt><a href="http://blogfish.sourceforge.net">Blogfish</a></dt>
+  <dd>Blogfish is a Gnome panel applet, written in Python using PyGTK and
+  Gnome-python. It allows you to spread your blog URL, website URL or random
+  thoughts to other users. Good memes survive; bad ones are voted down and
+  go belly up.</dd>
+
   <dt><a href="http://blogtk.sourceforge.net/">BloGTK</a></dt>
   <dd>BloGTK is a weblog client that allows you to post to your weblog
   from Linux without the need for a separate browser window. It
