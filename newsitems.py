@@ -12,6 +12,19 @@ item = lambda *x: items.append(x)
 #      INSERT TEXT HERE
 #      """)
 
+item("PyGTK 2.4.1 is here!",
+     (2004, 11, 04),
+     """
+     The PyGTK team is pleased to announce PyGTK 2.4.1.
+     This is a bugfix release but also some new examples were added too.
+     So, go
+     <a href="http://ftp.gnome.org/pub/GNOME/sources/pygtk/2.4/">download</a>
+     it and give new life to your phantasmagoricial applications right now!.
+     Read the whole announcement at
+     <a href="http://www.daa.com.au/pipermail/pygtk/2004-November/008968.html">the mailing list</a>.
+     """)
+
+
 item("Pygtk 2.4.0, Gnome-Python 2.6.0 and PyOrbit 2.0.1 hit the streets",
      (2004, 10, 5),
      """
