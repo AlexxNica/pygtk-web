@@ -1,3 +1,11 @@
+
+2004-06-01  Christian Reis <kiko@async.com.br>
+	
+	* tutorial.src, Makefile: changed mige's Bahasa tutorial to download
+	  unpack and link to a local version. Still using remote version of
+	  docbook source because I'm too lazy to rig the download system right
+	  now :-).
+
 2004-05-22  Johan Dahlin  <johan@gnome.org>
 
 	* newsitems.src: Add 2.3.92 release

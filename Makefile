@@ -10,7 +10,8 @@ WGET = wget
 TARBALLS = http://www.moeraki.com/pygtkreference/pygtk2reference.tgz \
 		   http://www.moeraki.com/pygtktutorial/pygtk2tutorial.tgz \
 		   http://www.moeraki.com/pygtktutorial/pygtktutorial.tgz \
-		   http://www.sicem.biz/personal/lgs/docs/pygtk2tutorial-es.tgz
+		   http://www.sicem.biz/personal/lgs/docs/pygtk2tutorial-es.tgz \
+		   http://www.cornets.net/mige/pygtk2tutorial-id/pygtk2tutorial-id.tgz
 
 SRC_PAGES = index.src about.src screenshots.src news.src downloads.src \
 			feedback.src applications.src people.src articles.src \

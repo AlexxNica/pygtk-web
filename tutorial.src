@@ -31,7 +31,9 @@
 
 <h3>Bahasa Indonesia</h3>
 <ul>
-    <li><a href="http://www.geocities.com/mige_harimurti/gtk2python/Tutorial_PyGTK_2_0.html">Tutorial PyGTK 2.0</a></li>
+    <li><a href="pygtk2tutorial-id/index.html">Tutorial</a></li>
+    <li><a href="dist/pygtk2tutorial-id.tgz">Gzip'd Tarball of Tutorial</a></li>
+    <li><a href="http://www.cornets.net/mige/pygtk2tutorial-id/pygtk2-tut-id.docbook.tgz">Gzip'd Tarball of Docbook Source</a></li>
     <p>Author: Mige Harimurti</p>
 </ul>
  
