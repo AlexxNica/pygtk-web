@@ -1,3 +1,8 @@
+2004-09-16  Christian Reis <kiko@async.com.br>
+
+	* applications.src: add DiskSearch as per request from Stefan Saring
+	<stefan@saring.de>
+
 2004-09-08  Christian Reis <kiko@async.com.br>
 
 	* applications.src: fix Mum, broken link reported by Nicolas Girard

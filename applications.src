@@ -37,6 +37,15 @@
   Circle peer running, anywhere in the world, there's still a
   network.</dd>
 
+  <dt><a href="http://disksearch.sourceforge.net/">DiskSearch</a></dt>
+  <dd>DiskSearch is a tool that searches for files on all your removable
+  media disks (e.g. CD's, ZIP disks or backup tapes); you can, for
+  instance, search for songs on your MP3-CD's or for a document on your
+  backup DVD's. For advanced queries there is a regular expression
+  search mode. The search is based on a simple database file which
+  needs to be prefilled once by adding all your disks to it.
+  </dd>
+
   <dt><a href="http://gdick.kldp.net/">GDick</a></dt>
   <dd>GDick is a Korean-English dictionary client.</dd>
   
