@@ -12,11 +12,21 @@ item = lambda *x: items.append(x)
 #      INSERT TEXT HERE
 #      """,
 #      "INSERT AUTHOR HERE")
+item("Version 2.5.2 of the PyGTK Reference released",
+     (2005, 3, 5),
+     """
+     A new version (2.5.2) of the <a
+     href="http://www.pygtk.org/pygtk2reference/index.html">PyGTK
+     Reference</a> is available. Changes include documentation on the
+     gtk.glade module thanks to Johan Dahlin and many bug fixes thanks to
+     Rafael Villar Burke and Gian Mario Tagliaretti.""",
+     'John Finlay')
+
 item("PyGTK 2.5.4 released!",
      (2005, 2, 23),
      """
      This will be the final release before 2.6.0 (unless some serious bugs shows up). 
-     Please test carefully! You'll be rewared with the stablest PyGTK release ever!
+     Please test carefully! You'll be rewarded with the stablest PyGTK release ever!
      <a href="http://ftp.gnome.org/pub/GNOME/sources/pygtk/2.5/">here</a>.
      Read the whole party announcement at
      <a href="http://www.daa.com.au/pipermail/pygtk/2005-February/009654.html">the mailing list</a>.""",
