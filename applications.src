@@ -118,6 +118,10 @@
   Linux. To facilitate setting your computer up Point2Play can help you
   determine if your setup is sufficient for gaming using WineX.</dd>
 
+  <dt><a href="http://borco.net/html/PyComicsViewer/">PyComicsViewer</a></dt>
+  <dd>This is a program for viewing compressed comic files (aka cbr, cbz and 
+  cba files) as easy as possible.</dd>
+
   <dt><a href="http://www.galilea.cl/gestor">pyGestor</a></dt>
   <dd>pyGestor is a Chilean accounting software developed for small and
   medium sized enterprises, The goal of the project is to provide an
@@ -134,6 +138,12 @@
   messages. Includes scripts for popping up sticky-notes or requesters
   with caller id info. Renames voice/fax messages to date+callerid.
   Includes a small Kaptain version for KDE.</dd>
+
+  <dt><a href="http://xpn.altervista.org/index-en.html">XPN</a></dt>
+  <dd>XPN is a multiplatform newsreader written in Python+GTK2. It is unicode
+  compliant and has features like scoring/action rules, configurable
+  attribution lines and random taglines, search facilities and filtered
+  views, import/export newsrc ...</dd>
 
 </dl>
 
