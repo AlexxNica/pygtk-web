@@ -1,5 +1,13 @@
 <div class="news">
 
+<h4>New versions of the PyGTK Tutorial and Reference released</h4>
+<h5>Thurs 5th August 2004</h5>
+<p>John Finlay announced new releases of his <a
+href="http://www.pygtk.org/pygtk2tutorial/index.html">PyGTK Tutorial</a>
+and <a href="http://www.pygtk.org/pygtk2reference/index.html">PyGTK
+Reference</a>. Additions include ComboBox, ComboBoxEntry, EntryCompletion,
+Expander, Clipboard, FileChooser (by Alex Roitman) and several bug fixes!</p>
+
 <h4>PyGTK 2.3.94 (unstable) released</h4>
 <h5>Wednesday 21st July 2004</h5>
 <p>The PyGTK team has released PyGTK 2.3.94 today. This is a small bug fix release

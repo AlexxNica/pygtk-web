@@ -1,3 +1,13 @@
+2004-08-05  John Finlay  <finlay@moeraki.com>
+
+	* Makefile Add download of tbz2 reference tarball
+
+	* newsitems.src Add info on new tut and ref
+
+	* tutorial.src Udpate version and date
+
+	* reference.src Update version and date. Add link to tbz2 tarball.
+
 2004-08-05  Christian Reis <kiko@async.com.br>
 
 	* Makefile: made the tarball unpacking happen even when one of the

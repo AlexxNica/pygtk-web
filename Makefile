@@ -8,6 +8,7 @@ PROCESSOR = ${PYTHON} stp.py
 
 WGET = wget
 TARBALLS = http://www.moeraki.com/pygtkreference/pygtk2reference.tgz \
+		   http://www.moeraki.com/pygtkreference/pygtk2reference.tbz2 \
 		   http://www.moeraki.com/pygtktutorial/pygtk2tutorial.tgz \
 		   http://www.moeraki.com/pygtktutorial/pygtktutorial.tgz \
 		   http://www.sicem.biz/personal/lgs/docs/pygtk2tutorial-es.tgz \
