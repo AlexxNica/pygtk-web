@@ -6,7 +6,7 @@ ARTICLEDIR = ${WEBDIR}/articles
 PYTHON = python2.2
 PROCESSOR = ${PYTHON} stp.py
 
-WGET = wget # XXX move to rsync
+WGET = wget
 TARBALLS = http://www.moeraki.com/pygtkreference/pygtk2reference.tgz \
 		   http://www.moeraki.com/pygtktutorial/pygtk2tutorial.tgz \
 		   http://www.moeraki.com/pygtktutorial/pygtktutorial.tgz \
@@ -20,7 +20,9 @@ HTML_PAGES = $(patsubst %.src, ${WEBDIR}/%.html, ${SRC_PAGES})
 COMMON_PAGES = head.src foot.src
 CSS_FILES = default.css
 
-all: start_log dirs ${HTML_PAGES} extras finish_log
+all: start_log pages tarballs finish_log
+
+pages: dirs ${HTML_PAGES} extras 
 
 dirs: ${WEBDIR} ${IMGDIR} ${DISTDIR} ${ARTICLEDIR}
 
@@ -51,10 +53,12 @@ extras: ${CSS_FILES} img/*.png
 	cp -a articles/* ${ARTICLEDIR}
 	cp ${CSS_FILES} ${WEBDIR}
 	cp img/*.png ${IMGDIR}
-	(cd ${DISTDIR}; ${WGET} -qN ${TARBALLS})
-	(cd ${WEBDIR}; for f in ${DISTDIR}/*.tgz; do tar xzf $$f ; done)
+
+tarballs:
+	(cd ${DISTDIR}; ${WGET} -qKN ${TARBALLS})
+	(cd ${WEBDIR}; for f in ${DISTDIR}/*.tgz; do tar xzf $$f; done)
 
 clean:
 	rm -f ${HTML_PAGES}
 
-.PHONY:	all dirs extras
+.PHONY:	all dirs extras tarballs pages start_log finish_log

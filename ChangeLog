@@ -5,6 +5,10 @@
 
     * downloads.src: add win32 section.
 
+    * Makefile: Added a "pages" target so you can invoke that without needing
+    to pull and untarring the manuals while testing the site (since that tends
+    to take some time).
+
 2004-02-28  Christian Reis <kiko@async.com.br>
 
     * people.src: added a link and updated johan's entry. Reordered the
