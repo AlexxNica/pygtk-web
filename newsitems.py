@@ -19,7 +19,9 @@ item("PyGTK 2.5.3 has hit streets!",
      <a href="http://ftp.gnome.org/pub/GNOME/sources/pygtk/2.5/">here</a>.
      Read the whole party announcement at
      <a href="http://www.daa.com.au/pipermail/pygtk/2005-January/009481.html"q>the mailing list</a>.
-     """)					     
+     <p>
+     --- Johan Dahlin
+     </p>""")					     
 
 item("Tutorial de PyGTK en castellano actualizado",
      (2004, 12, 21),
