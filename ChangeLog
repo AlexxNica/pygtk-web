@@ -1,3 +1,12 @@
+2004-03-07  Christian Reis <kiko@async.com.br>
+
+    * newsitems.src: added a note about PyGtkSpell to items. 
+
+	* index.src: updated the maxlines.
+
+    * downloads.src: minor fixes to text, and using <strong> to make lgs
+    happy.
+
 2004-03-11  Lorenzo Gil Sanchez  <lgs@cvs.gnome.org>
 
 	* newsitems.src: added a note of the 2.2.0 release.

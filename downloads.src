@@ -4,9 +4,10 @@
 
 <h2>PyGTK Downloads</h2>
 
-PyGTK is included in <b>most Linux distributions</b> (including Conectiva,
-Debian, Fedora, Mandrake, Redhat and SUSE), and can also be downloaded
-from the links below and compiled from source.
+PyGTK is included in <strong>most Linux distributions</strong>
+(including Conectiva, Debian, Fedora, Mandrake, Redhat and SUSE); the
+<strong>source code</strong> can also be downloaded and compiled from
+the links below.
 
 <h3>Current version (GTK+ 2.x)</h3>
 
