@@ -17,6 +17,13 @@
   <tbody>
 
     <tr>
+      <td>July 2004</td>
+      <td><a
+      href="http://www.gnome.org/~newren/tutorials/developing-with-gnome/">Developing with Gnome (in C, C++, Perl and Python)</a></td>
+      <td>Elijah P. Newren</td>
+    </tr>
+
+    <tr>
       <td>Feb 2004</td>
       <td><a href="articles/applets_arturogf/">Gnome applets with Python</a></td>
       <td>Arturo G. Ferrer</td>
