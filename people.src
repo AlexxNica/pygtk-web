@@ -2,27 +2,43 @@
 
 <div id="mainText">
 
-<h2>People behind PyGTK</h2>
+<h2>The people behind PyGTK</h2>
+
+The following people are involved in maintaining the PyGTK project,
+including code, documentation and user support (listed alphabetically):
 
 <dl>
  
-  <dt><a href="http://www.daa.com.au/~james/">James Henstridge</a></dt>
-  <dd>James is the main author of the PyGTK bindings. He is a well known GNOME hacker also creator of libglade, jhbuild, Fontilus and Nautilus RPM.</dd>
-
-  <dt>Johan Dahlin</dt>
-  <dd>This swedish guy has helped James a lot with PyGTK specially with the GTK+ 2.x port. He wrote most of the Bonobo stuff for the gnome-python package.. He is also the one that reads the patches you send to bugzilla.</dd>
-
-  <dt>John Finlay</dt>
-  <dd>He usually is not in the IRC channel mainly because he is working on the great tutorial and reference documentation of PyGTK. What would it be without John? Nobody knows...</dd>
+  <dt><a href="http://www.async.com.br/~kiko/">Christian Reis</a> a.k.a. kiko</dt>
+  <dd><a href="http://www.async.com.br/faq/pygtk/">FAQ</a> maintainer,
+  general IRC and email support, and purportedly co-maintainer of the
+  1.2 branch (though he never manages to do much work on it). Also the
+  author of <a href="http://www.async.com.br/projects/kiwi/">Kiwi</a>, a
+  high-level framework for developing applications using PyGTK.</dd>
 
   <dt>Gustavo J. Carneiro</dt>
-  <dd>Gustavo is the gnomeprint hacker of the team. But he also has helped in a lot of different things of PyGTK like bug hunting and fixing.</dd>
+  <dd>Gustavo is the gnomeprint hacker of the team. But he also has
+  helped in a lot of different things of PyGTK like bug hunting and
+  fixing.</dd>
 
-  <dt><a href="http://www.async.com.br/~kiko/">Christian Reis</a> a.k.a. kiko</dt>
-  <dd><a href="http://www.async.com.br/faq/pygtk/">FAQ</a> maintainer, general IRC and email support, and purportedly co-maintainer of the 1.2 branch (though he never manages to do much work on it). Also the author of <a href="http://www.async.com.br/projects/kiwi/">Kiwi</a>, a high-level framework for developing applications using PyGTK.</dd>
+  <dt><a href="http://www.daa.com.au/~james/">James Henstridge</a></dt>
+  <dd>James is the main author of the PyGTK bindings. He is a well known
+  GNOME hacker; among other things, creator of libglade, jhbuild,
+  Fontilus and the Nautilus RPM.</dd>
+
+  <dt><a href="http://www.async.com.br/~jdahlin/">Johan Dahlin</a></dt>
+  <dd>This swede has helped James a lot with PyGTK, specially with the
+  GTK+ 2.x port. Also wrote most of the Bonobo stuff for the gnome-python
+  package.</dd>
+
+  <dt>John Finlay</dt>
+  <dd>Did practically all the work on the great tutorial and reference
+  documentation of PyGTK. What would it be without John? </dd>
 
   <dt>Lorenzo G. Sanchez</dt>
-  <dd>He just helps with some documentation stuff like translating the PyGTK Tutorial to spanish or the GObject - Python tutorial. Christian and Lorenzo are the ones who are trying to create this website.</dd>
+  <dd>Works on documentation (translating the PyGTK Tutorial to Spanish,
+  and the GObject - Python tutorial). Also part of the team involved in
+  maintaining the website and the super template processor it uses.</dd>
 
 </dl>
 
