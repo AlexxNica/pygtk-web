@@ -13,7 +13,7 @@
   <dd>This young swedish guy has helped James a lot with PyGTK specially with the GTK+ 2.x port. He wrote most of the Bonobo stuff for the gnome-python package.. He is also the one that reads the patches you send to bugzilla.</dd>
 
   <dt>John Finlay</dt>
-  <dd>He usually is not in the IRC channel mainly because he is working on the great tutorial and reference documentation of PyGTK. What would be wo without John? Nobody knows...</dd>
+  <dd>He usually is not in the IRC channel mainly because he is working on the great tutorial and reference documentation of PyGTK. What would it be without John? Nobody knows...</dd>
 
   <dt>Gustavo J. Carneiro</dt>
   <dd>Gustavo is the gnomeprint hacker of the team. But he also has helped in a lot of different things of PyGTK like bug hunting and fixing.</dd>
