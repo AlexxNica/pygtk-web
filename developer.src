@@ -1,0 +1,14 @@
+<!--stp:include('head.src')-->
+
+<div id="mainText">
+
+<h2>PyGTK task list</h2>
+        
+<h3>Open bugs</h3>
+<ul>
+   <li><a href="http://bugzilla.gnome.org/show_bug.cgi?id=110261">garbage collector not invoked often enough -> mem leaks</a></li>
+</ul>
+ 
+</div>
+
+<!--stp:include('foot.src') -->
