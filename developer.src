@@ -2,14 +2,67 @@
 
 <div id="mainText">
 
-<h2>PyGTK task list</h2>
-        
-<h3>Open bugs</h3>
+<h2>Helping out with PyGTK development</h2>
+
+PyGTK is maintained by a <a href="people.html">team of volunteers</a>,
+which take care of coding, bugfixing, support and documentation. This
+page provides links and tips for people interested in helping the team
+by actively participating in the project.
+
+<h3>Helping out</h3>
+
+There are a number of ways to help out with PyGTK development:
+
+<ul>
+    <li>Write documentation and <a href="articles.html">articles</a></li>
+    <li>Provide <a href="feedback.html">support</a> via the mailing list
+    or IRC</li>
+    <li>Report new bugs</li>
+    <li>Fix bugs and write patches</li>
+    <li>Review patches pending</li>
+</ul>
+
+If you are interested in helping with any of these tasks, contact <a
+mailto:></a> or join the <a
+href="http://www.async.com.br/~kiko/pygtk-web/feedback.html">#pygtk IRC
+channel</a>.
+
+The sections below provide links for viewing and tracking down the
+current state of PyGTK and its bug reports.
+
+<h3>Bugs and Bugzilla</h3>
+
+<ul>
+    <li><a
+    href="http://bugzilla.gnome.org/buglist.cgi?product=pygtk&bug_status=UNCONFIRMED&bug_status=NEW&bug_status=ASSIGNED&bug_status=REOPENED&email1=&emailtype1=substring&emailassigned_to1=1&email2=&emailtype2=substring&emailreporter2=1&changedin=&chfieldfrom=&chfieldto=Now&chfieldvalue=&short_desc=&short_desc_type=substring&long_desc=&long_desc_type=substring&bug_file_loc=&bug_file_loc_type=substring&status_whiteboard=&status_whiteboard_type=substring&keywords=&keywords_type=anywords&op_sys_details=&op_sys_details_type=substring&version_details=&version_details_type=substring&cmdtype=doit&namedcmd=gnome-python&newqueryname=&order=Reuse+same+sort+as+last+time&form_name=query">Bugs open on the PyGTK product</a></li>
+    <li><a
+    href="http://bugzilla.gnome.org/buglist.cgi?product=gnome-python&bug_status=UNCONFIRMED&bug_status=NEW&bug_status=ASSIGNED&bug_status=REOPENED&email1=&emailtype1=substring&emailassigned_to1=1&email2=&emailtype2=substring&emailreporter2=1&changedin=&chfieldfrom=&chfieldto=Now&chfieldvalue=&short_desc=&short_desc_type=substring&long_desc=&long_desc_type=substring&bug_file_loc=&bug_file_loc_type=substring&status_whiteboard=&status_whiteboard_type=substring&keywords=&keywords_type=anywords&op_sys_details=&op_sys_details_type=substring&version_details=&version_details_type=substring&cmdtype=doit&namedcmd=gnome-python&newqueryname=&order=Reuse+same+sort+as+last+time&form_name=query">Bugs open on the gnome-python product</a></li>
+    <p>
+    <li><a
+    href="http://bugzilla.gnome.org/buglist.cgi?product=gnome-python&product=pygtk&bug_status=UNCONFIRMED&bug_status=NEW&bug_status=ASSIGNED&bug_status=REOPENED&email1=nobody%40pygtk.org&emailtype1=exact&emailassigned_to1=1&email2=&emailtype2=substring&emailreporter2=1&changedin=&chfieldfrom=&chfieldto=Now&chfieldvalue=&short_desc=&short_desc_type=substring&long_desc=&long_desc_type=substring&bug_file_loc=&bug_file_loc_type=substring&status_whiteboard=&status_whiteboard_type=substring&keywords=&keywords_type=anywords&op_sys_details=&op_sys_details_type=substring&version_details=&version_details_type=substring&cmdtype=doit&namedcmd=gnome-python&newqueryname=&order=Reuse+same+sort+as+last+time&form_name=query">Bugs assigned to nobody@pygtk.org</a> <b>(help
+    wanted!)</b></li>
+    <li><a
+    href="http://bugzilla.gnome.org/buglist.cgi?product=gnome-python&product=pygtk&bug_status=UNCONFIRMED&bug_status=NEW&bug_status=ASSIGNED&bug_status=REOPENED&email1=nobody%40pygtk.org&emailtype1=notregexp&emailassigned_to1=1&email2=&emailtype2=substring&emailreporter2=1&changedin=&chfieldfrom=&chfieldto=Now&chfieldvalue=&short_desc=&short_desc_type=substring&long_desc=&long_desc_type=substring&bug_file_loc=&bug_file_loc_type=substring&status_whiteboard=&status_whiteboard_type=substring&keywords=&keywords_type=anywords&op_sys_details=&op_sys_details_type=substring&version_details=&version_details_type=substring&cmdtype=doit&namedcmd=gnome-python&newqueryname=&order=Reuse+same+sort+as+last+time&form_name=query">Bugs assigned to others</a></li>
+    <p>
+    <li><a
+    href="http://bugzilla.gnome.org/buglist.cgi?product=gnome-python&product=pygtk&bug_status=UNCONFIRMED&bug_status=NEW&bug_status=ASSIGNED&bug_status=REOPENED&email1=&emailtype1=substring&emailassigned_to1=1&email2=&emailtype2=substring&emailreporter2=1&changedin=&chfieldfrom=&chfieldto=Now&chfieldvalue=&short_desc=&short_desc_type=substring&long_desc=&long_desc_type=substring&bug_file_loc=&bug_file_loc_type=substring&status_whiteboard=&status_whiteboard_type=substring&keywords=PATCH&keywords_type=anywords&op_sys_details=&op_sys_details_type=substring&version_details=&version_details_type=substring&cmdtype=doit&namedcmd=gnome-python&newqueryname=&order=Reuse+same+sort+as+last+time&form_name=query">Bugs
+    with patches pending review</a> (reviewers welcome!)</li>
+</ul>
+
+<h4>Long-standing bugs (help wanted!)</h4>
+
 <ul>
    <li><a href="http://bugzilla.gnome.org/show_bug.cgi?id=110261">garbage collector not invoked often enough -> mem leaks</a></li>
-   <li><a href="http://bugzilla.gnome.org/show_bug.cgi?id=130164">patch for adding in missing functions in gnome_client</a></li>
    <li><a href="http://bugzilla.gnome.org/show_bug.cgi?id=81879">GObject properties as descriptors</a></li>
    <li><a href="http://bugzilla.gnome.org/show_bug.cgi?id=129490">Provide hardware_keycode to python</a></li>
+
+</ul>
+
+<h3>CVS Activity</h3>
+
+<ul>
+    <li><a
+    href="http://cvs.gnome.org/bonsai/cvsquery.cgi?treeid=default&branch=HEAD&branchtype=match&dir=gnome-python%2Fpygtk&file=&filetype=match&who=&whotype=match&sortby=Date&hours=2&date=month&mindate=&maxdate=&cvsroot=%2Fcvs%2Fgnome">Changes comitted in the last month</a></li>
 
 </ul>
  
