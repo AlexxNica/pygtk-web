@@ -5,6 +5,8 @@
 
     * developer.src: Fix bug numbers.
 
+    * foot.src, reference.src, tutorial.src: fix dates to use ISO format.
+
 2004-02-23  Lorenzo Gil Sanchez  <lgs@cvs.gnome.org>
 
 	* head.src: Added a menu entry for the developer page.
