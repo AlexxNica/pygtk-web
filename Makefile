@@ -15,17 +15,15 @@ HTML_PAGES = $(patsubst %.src, ${WEBDIR}/%.html, ${SRC_PAGES})
 COMMON_PAGES = head.src foot.src
 CSS_FILES = default.css
 
-all: dirs ${HTML_PAGES}
+all: dirs ${HTML_PAGES} extras
 
 dirs: ${WEBDIR} ${IMGDIR} ${TUTDIRS} ${REFDIRS}
 
 ${WEBDIR}:
 	mkdir -p ${WEBDIR}
-	cp ${CSS_FILES} ${WEBDIR}
 
 ${IMGDIR}:
 	mkdir -p ${IMGDIR}
-	cp img/*.png ${IMGDIR}
 
 ${TUTDIRS}:
 	mkdir -p ${TUTDIRS}
@@ -38,7 +36,11 @@ ${HTML_PAGES}: ${SRC_PAGES} ${COMMON_PAGES}
 ${WEBDIR}/%.html: %.src
 	${PROCESSOR} $< > $@
 
+extras: ${CSS_FILES} img/*.png
+	cp ${CSS_FILES} ${WEBDIR}
+	cp img/*.png ${IMGDIR}
+
 clean:
 	rm -f ${HTML_PAGES}
 
-.PHONY:	all dirs
+.PHONY:	all dirs extras

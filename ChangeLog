@@ -1,3 +1,9 @@
+2003-12-13  Christian Reis <kiko@async.com.br>
+
+    * Makefile: ensure that CSS and PNGs are copied over by using an extras
+    .PHONY target. This could be nicer (since it will copy them every time we
+    run make)..
+
 2003-12-13  Jeff Waugh  <jdub@perkypants.org>
 
 	* Makefile: WEBDIR ?= <default>, because we want to set it to something
