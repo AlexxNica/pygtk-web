@@ -1,3 +1,11 @@
+2003-12-23  Lorenzo Gil Sanchez  <lgs@cvs.gnome.org>
+
+	* feedback.src: added a small section about how to contact the web
+	maintainers.
+
+	* head.src (xml): changed the mail contact address to
+	pygtk-web@pygtk.org.
+
 2003-12-16  Lorenzo Gil Sanchez  <lgs@cvs.gnome.org>
 
 	* applications.src: added Meld
