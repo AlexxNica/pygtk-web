@@ -2,6 +2,11 @@
 
 	* newsitems.src: added announce for PyGTK 2.3.93
 
+2004-07-19  Christian Reis <kiko@async.com.br>
+	
+	* articles.src, newitems.src: added David Reed and Elijah's new
+	  articles
+	 
 2004-07-17  Christian Reis <kiko@async.com.br>
 	
 	* articles.src: add Elijah's tri-lingual tutorial

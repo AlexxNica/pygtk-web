@@ -8,6 +8,20 @@ announce is <a href="http://www.daa.com.au/pipermail/pygtk/2004-July/008199.html
 <a href="http://ftp.gnome.org/pub/GNOME/sources/pygtk/2.3/pygtk-2.3.93.tar.gz">here</a>.
 We'd really appreciate testing and bug reports on this release.</p>
 
+<h4>Article: Rapid Application Development with Python and Glade</h4>
+<h5>Monday 19th July 2004</h5> <p>David Reed's <a
+href="http://www.linuxjournal.com/index.php">Linux Journal</a> article
+is available online: <a
+href="http://www.linuxjournal.com/article.php?sid=7421">Rapid
+Application Development with Python and Glade</a>.</p>
+
+<h4>Article: Developing with Gnome (in C, C++, Perl and Python)
+<h5>Monday 16th July 2004</h5> 
+<p>Elijah P. Newren submitted <a
+href="http://www.gnome.org/~newren/tutorials/developing-with-gnome/">a
+new article</a>, which describes Gnome development using four different
+languages: C, C++, Perl and Python.
+
 <h4>PyGTK 0.6.12 (obsolete) released</h4>
 <h5>Monday 12th July 2004</h5>
 <p>The PyGTK team has released the latest (and perhaps last) version off
