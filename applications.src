@@ -194,14 +194,6 @@
   Linux and Windows and allows a system administrator or penetration tester to
   break into machines on their network. It uses pyGTK 2.0 for the GUI.</dd>
 
-  <dt><a href="http://groundhog.zevallos.com/">CLAW</a></dt>
-  <dd>Claw is a file browser designed as an alternative to the default
-  browser in XFCE4. It has an icon view rather than a list based user
-  interface. It features drag and drop bookmarks, a quick browser, an
-  autocomplete address bar, dual panes, the ability to drag and drop
-  between separate CLAW browsers, and audio (using mpg123, ogg123, and
-  playwave) and image previews.</dd>
-
   <dt><a href="http://www.pixelbeat.org/fslint/">fslint</a></dt>
   <dd>FSlint is a toolkit to find various forms of lint on a filesystem.
   At the moment it reports duplicate files, bad symbolic links,

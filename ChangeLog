@@ -1,29 +1,33 @@
+2004-08-20  Christian Reis <kiko@async.com.br>
+
+	* applications.src: the claw is dead
+
 2004-08-12  John Finlay  <finlay@moeraki.com>
 
-	* newsitems.src Add item re devhelp support in the Reference Manual.
+	* newsitems.src: Add item re devhelp support in the Reference Manual.
 
-	* reference.src Update version and date info.
+	* reference.src: Update version and date info.
 
 2004-08-06  Christian Reis <kiko@async.com.br>
 
-	* add Micropics.
+	* applications.src: add Micropics.
 
 2004-08-06  John Finlay  <finlay@moeraki.com>
 
-	* developer.src Remove some bug links and add more info on source
+	* developer.src: Remove some bug links and add more info on source
 	location in CVS.
-	* header.src Add ViewCVS link.
+	* header.src: Add ViewCVS link.
 	Fixes #149530 (Abel Daniel)
 
 2004-08-05  John Finlay  <finlay@moeraki.com>
 
-	* Makefile Add download of tbz2 reference tarball
+	* Makefile: Add download of tbz2 reference tarball
 
-	* newsitems.src Add info on new tut and ref
+	* newsitems.src: Add info on new tut and ref
 
-	* tutorial.src Udpate version and date
+	* tutorial.src: Udpate version and date
 
-	* reference.src Update version and date. Add link to tbz2 tarball.
+	* reference.src: Update version and date. Add link to tbz2 tarball.
 
 2004-08-05  Christian Reis <kiko@async.com.br>
 
