@@ -1,3 +1,7 @@
+2004-01-19  Lorenzo Gil Sanchez  <lgs@cvs.gnome.org>
+
+	* applications.src: Added Revelation.
+
 2004-01-09  Lorenzo Gil Sanchez  <lgs@cvs.gnome.org>
 
 	* Makefile: Added some boring logging output as jdub asked.
