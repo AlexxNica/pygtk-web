@@ -1,3 +1,8 @@
+2004-03-07  Lorenzo Gil Sanchez  <lgs@cvs.gnome.org>
+
+	* index.src: fixed the maxlines argument to the include call of the
+	news.
+
 2004-03-01  Christian Reis <kiko@async.com.br>
 
     * feedback.src: minor visual fixups to first section.
