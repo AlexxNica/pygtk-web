@@ -1,3 +1,11 @@
+2005-01-28  Lorenzo Gil Sanchez  <lgs@sicem.biz>
+
+	* newsitems.py : Gazpacho 0.4.0
+
+	* feed.py: added support for authors in the news
+
+	* applications.src: updated Sketch to Skencil (pachi)
+
 2005-01-23  Johan Dahlin  <johan@gnome.org>
 
 	* newsitems.py (item): PyGTK 2.5.3

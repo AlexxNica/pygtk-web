@@ -10,7 +10,18 @@ item = lambda *x: items.append(x)
 #      (1901, 3, 1),
 #      """
 #      INSERT TEXT HERE
-#      """)
+#      """,
+#      "INSERT AUTHOR HERE")
+
+item("Gazpacho 0.4.0",
+     (2005, 1, 28),
+     """
+     We're glade to announce another version of this interface designer. This
+     time a lot of people contributed so you can expect fancy cool new
+     features. Don't wait, see the <a href="http://www.sicem.biz/pipermail/gazpacho/2005-January/000098.html">announce</a> and get the <a href="http://gruppy.sicem.biz/descargas">bytes!</a>.
+     """,
+     "Lorenzo Gil Sanchez")
+
 item("PyGTK 2.5.3 has hit streets!",
      (2005, 1, 23),
      """
@@ -18,10 +29,8 @@ item("PyGTK 2.5.3 has hit streets!",
      you can join the party, by downloading it from:
      <a href="http://ftp.gnome.org/pub/GNOME/sources/pygtk/2.5/">here</a>.
      Read the whole party announcement at
-     <a href="http://www.daa.com.au/pipermail/pygtk/2005-January/009481.html"q>the mailing list</a>.
-     <p>
-     --- Johan Dahlin
-     </p>""")					     
+     <a href="http://www.daa.com.au/pipermail/pygtk/2005-January/009481.html"q>the mailing list</a>.""",
+     "Johan Dahlin")
 
 item("Tutorial de PyGTK en castellano actualizado",
      (2004, 12, 21),

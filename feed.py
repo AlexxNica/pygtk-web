@@ -22,7 +22,7 @@ import time, cgi
 # Convenience function imported by newsitems.py; this is essentially a
 # circular import but it's not really important and uses less files
 #
-def setup_rss_item(index, title, date, desc):
+def setup_rss_item(index, title, date, desc, author='Anonymous'):
     ret = {}
     ret['link'] = 'http://www.pygtk.org/news.html#item%d' % index
     ret['title'] = cgi.escape(title)
@@ -32,13 +32,14 @@ def setup_rss_item(index, title, date, desc):
     ret['description'] = cgi.escape(desc)
     return ret
 
-def setup_item(index, title, date, desc):
+def setup_item(index, title, date, desc, author='Anonymous'):
     ret = {}
     ret['anchor'] = "item%d" % index
     ret['title'] = title
     date = time.strptime("%s %s %s" % date, "%Y %m %d")
     ret['pubDate'] = time.strftime("%A %d %B %Y", date)
     ret['description'] = desc
+    ret['author'] = author
     return ret
 
 # RSS generation; note that the <xml bits *must* come at the very top of
@@ -98,7 +99,7 @@ def write_rss(fp, items):
 src_item_template = r"""
 <div class="news">
 <h4><a name="#%(anchor)s">%(title)s</a></h4>
-<h5>%(pubDate)s</h5>
+<h5>%(pubDate)s by %(author)s</h5>
 <p>%(description)s</p>
 </div>
 """
