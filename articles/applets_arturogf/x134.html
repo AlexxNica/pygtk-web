@@ -1,0 +1,359 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML
+><HEAD
+><TITLE
+>The class constructor: __init__</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.7"><LINK
+REL="HOME"
+TITLE="Gnome applets with Python"
+HREF="index.html"><LINK
+REL="PREVIOUS"
+TITLE="The import section"
+HREF="x124.html"><LINK
+REL="NEXT"
+TITLE="The callback methods"
+HREF="x186.html"></HEAD
+><BODY
+CLASS="sect1"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Gnome applets with Python</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="x124.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="x186.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="sect1"
+><H1
+CLASS="sect1"
+><A
+NAME="AEN134"
+>5. The class constructor: __init__</A
+></H1
+><P
+>We're going to see these points in a natural order when coding it. Please look at the final example section to see a functional applet i'm doing for check the cpu throttling states on the new centrino processors and speedstep. Visit the <A
+HREF="http://mnb.uib.es/~gallir/cpudyn/"
+TARGET="_top"
+>cpudyn utility</A
+> for more info.</P
+><DIV
+CLASS="sect2"
+><H2
+CLASS="sect2"
+><A
+NAME="AEN138"
+>5.1. Some instance variable definitions</A
+></H2
+><PRE
+CLASS="programlisting"
+>&#13;        self.timeout_interval = 1000        
+        self.throttling_states = 0
+        self.active_t_state = "T0"
+        self.bus_activity = ""
+        self.actual_cpu_state = "C1"
+        self.lack_t_acpi = 0
+        self.lack_p_acpi = 0
+        self.dict = {}
+        self.tooltip_text = ""
+        self.checks = [0,0,0,0,0]
+         </PRE
+><P
+>Here are the different variables that <TT
+CLASS="filename"
+>sample objects</TT
+> will use to keep itself updated.</P
+></DIV
+><DIV
+CLASS="sect2"
+><H2
+CLASS="sect2"
+><A
+NAME="AEN143"
+>5.2. The GTK widgets definition</A
+></H2
+><P
+>First of all, we need to initializate the gnome applet with call to <TT
+CLASS="filename"
+>gnome.init()</TT
+>. Once this has been done, we can begin to pack the different widgets our applet will be compound of. and connect some callbacks to events in the common way, not the <TT
+CLASS="filename"
+>glade.XML</TT
+> one (see section 4.5.1)</P
+><PRE
+CLASS="programlisting"
+>&#13;        # initializate the gnome internals
+        gnome.init("sample", "1.0")
+
+        self.applet = applet
+
+        self.tooltips = gtk.Tooltips()
+        self.hbox = gtk.HBox()
+        applet.add(self.hbox)
+
+        # add the second button event for the popup menu and the enter mouse event to change the tooltip value
+        self.ev_box = gtk.EventBox()
+        self.ev_box.connect("button-press-event",self.button_press)
+        self.ev_box.connect("enter-notify-event", self.update_info)
+        self.hbox.add(self.ev_box)
+
+        self.prog = gtk.ProgressBar()
+        self.ev_box.add(self.prog)
+      </PRE
+><P
+>This an example of a simple applet with a <TT
+CLASS="filename"
+>gtk.ProgressBar</TT
+> in a hbox, that mantain a <TT
+CLASS="filename"
+>gtk.Tooltip</TT
+> to show some info.</P
+></DIV
+><DIV
+CLASS="sect2"
+><H2
+CLASS="sect2"
+><A
+NAME="AEN152"
+>5.3. Optional timeout callback method</A
+></H2
+><P
+>A common task when programming a gnome applet is to check if something has changed at the system level from time to time. This is resolved with <TT
+CLASS="filename"
+>gtk.timeout_add()</TT
+> method with a <TT
+CLASS="filename"
+>timeout_interval</TT
+> in milliseconds defined at the class variables section.</P
+><PRE
+CLASS="programlisting"
+>         gtk.timeout_add(self.timeout_interval,self.timeout_callback, self)</PRE
+></DIV
+><DIV
+CLASS="sect2"
+><H2
+CLASS="sect2"
+><A
+NAME="AEN158"
+>5.4. Connecting the "destroy" signal and show the applet</A
+></H2
+><P
+>It's important to do this in order to avoid memory leaks when killing the applet process incorrectly.</P
+><PRE
+CLASS="programlisting"
+>&#13;        applet.connect("destroy",self.cleanup)
+        applet.show_all()
+    </PRE
+></DIV
+><DIV
+CLASS="sect2"
+><H2
+CLASS="sect2"
+><A
+NAME="AEN162"
+>5.5. Connecting signals and events to handlers</A
+></H2
+><P
+>When connecting events to handlers we know there are at least two options with GTK programming: with or without <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>glade</I
+></SPAN
+> user interface designer. In this example we will look at both possibilities. We'll use glade for the applet preferences window, as we just used the direct way of doing it with the <TT
+CLASS="filename"
+>connect()</TT
+> method before in the "GTK widgets" section.</P
+><DIV
+CLASS="sect3"
+><H3
+CLASS="sect3"
+><A
+NAME="AEN167"
+>5.5.1. Loading the interface with <TT
+CLASS="filename"
+>glade.XML()</TT
+></A
+></H3
+><P
+>It's quite simple to read a glade interface from pyGTK. All we need to do is to call to the <TT
+CLASS="filename"
+>gtk.glade.XML()</TT
+> method with the .glade file as parameter. After this, we'll define some variables for every widget we are going to use or modify, with <TT
+CLASS="filename"
+>gtk.get_widget('widget name')</TT
+> method. Finally, we must define the callbacks methods in the class definition. Calling <TT
+CLASS="filename"
+>signal_autoconnect()</TT
+> with the class instance as parameter, that in this case will be "self". So, we we'll have this at <TT
+CLASS="filename"
+>[callbacks methods]</TT
+> section:</P
+><PRE
+CLASS="programlisting"
+>&#13;    def on_properties_delete_event(self,widget,event):
+        widget.hide()
+        return gtk.TRUE
+
+    def on_checkbutton1_toggled(self,widget):
+        self.checks[0] = widget.get_active()
+        print self.checks
+    def on_checkbutton2_toggled(self,widget):
+        self.checks[1] = widget.get_active()
+        print self.checks
+    def on_checkbutton3_toggled(self,widget):
+        self.checks[2] = widget.get_active()
+        print self.checks
+    def on_checkbutton4_toggled(self,widget):
+        self.checks[3] = widget.get_active()
+        print self.checks
+    def on_checkbutton5_toggled(self,widget):
+        self.checks[4] = widget.get_active()
+        print self.checks
+    </PRE
+><P
+>Those were our callback methods and now we'll see the connection of them to the glade interface:</P
+><P
+>And the [reading glade XML optionally] section:</P
+><PRE
+CLASS="programlisting"
+>&#13;        wT = gtk.glade.XML("/path/to/file/glade/file.glade")
+        # the way to do it with sample_globals defined will be something like:
+        #   wT = gtk.glade.XML(os.path.join(pglobals.glade_dir, "sample.glade"))
+        #this is optional if you want to have some widget reference kept
+        preferencesDialog = wT.get_widget('properties')
+        self.preferences = preferencesDialog
+        wT.signal_autoconnect(self)
+    </PRE
+><P
+>We can see that the <TT
+CLASS="filename"
+>on_properties_delete_event()</TT
+> handler is used to hide the properties window. It returns gtk.TRUE in order to avoid the destruction of the dialog so we can reuse it later. Remember that returning gtk.TRUE in an event handler stops the event propagation in GTK+. We
+show this dialog when the user clicks on the popup preferences option.</P
+></DIV
+><DIV
+CLASS="sect3"
+><H3
+CLASS="sect3"
+><A
+NAME="AEN181"
+>5.5.2. Using the <TT
+CLASS="filename"
+>gtkWidget.connect()</TT
+> method</A
+></H3
+><P
+>This is the common way of connecting events to handlers, as seen at the "GTK widgets" section. It could be useful when packing some widgets dinamically.</P
+><PRE
+CLASS="programlisting"
+>&#13;          self.ev_box = gtk.EventBox()
+          self.ev_box.connect("button-press-event",self.button_press)
+          self.ev_box.connect("enter-notify-event", self.update_info)
+       </PRE
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="x124.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="x186.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>The import section</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+>&nbsp;</TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>The callback methods</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

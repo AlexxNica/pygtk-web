@@ -18,7 +18,7 @@
 
     <tr>
       <td>Feb 2004</td>
-      <td><a href="http://www.ugr.es/~arturogf/applets/">Gnome applets with Python</a></td>
+      <td><a href="articles/applets_arturogf/">Gnome applets with Python</a></td>
       <td>Arturo G. Ferrer</td>
     </tr>
 
@@ -32,12 +32,6 @@
       <td>Aug 2003</td>
       <td><a href="http://www.linuxjournal.com/article.php?sid=6586">A Beginner's Guide to Using PyGTK and Glade</a></td>
       <td>Dave Aitel</td>
-    </tr>
-
-    <tr>
-      <td>Jul 2003</td>
-      <td><a href="tutorial.html">PyGTK Tutorials</a></td>
-      <td>John Finlay</td>
     </tr>
 
     <tr>
@@ -90,3 +84,4 @@
 </div>
 
 <!--stp:include('foot.src') -->
+

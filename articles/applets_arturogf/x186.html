@@ -1,0 +1,343 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML
+><HEAD
+><TITLE
+>The callback methods</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.7"><LINK
+REL="HOME"
+TITLE="Gnome applets with Python"
+HREF="index.html"><LINK
+REL="PREVIOUS"
+TITLE="The class constructor: __init__"
+HREF="x134.html"><LINK
+REL="NEXT"
+TITLE="Autotools : a brief introduction to the installation process"
+HREF="x207.html"></HEAD
+><BODY
+CLASS="sect1"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Gnome applets with Python</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="x134.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="x207.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="sect1"
+><H1
+CLASS="sect1"
+><A
+NAME="AEN186"
+>6. The callback methods</A
+></H1
+><P
+>To finish our work we need to define the handlers for every event we have defined at the "GTK widgets" section or with the <TT
+CLASS="filename"
+>glade.XML</TT
+> method. For this task, the pyGTK reference manual (see bibliography) is a must see. We need to know the arguments of the handler method for every signal and every event we are catching.</P
+><PRE
+CLASS="programlisting"
+>&#13;        # callback for update the info on the applet periodically
+
+        def update_info(self,widget,event):
+            info = self.read_proc_info();
+            self.tooltips.set_tip(self.ev_box, info[0] + " " + info[1]);
+
+        # callback to create the context menu with 'about' and 'preferences'
+        def button_press(self,widget,event):
+            if event.type == gtk.gdk.BUTTON_PRESS and event.button == 3:
+                self.create_menu()
+
+        def about_info(self,event,data=None):
+        about = gnome.ui.About("CPU performance stats applet","0.1","GPL","Applet to check throttling and performance states",["Arturo Gonzalez"],["Arturo Gonzalez"],"Arturo Gonzalez",self.logo_pixbuf)
+        about.show()
+    
+    def properties(self,event,data=None):
+        self.preferences.show()
+    </PRE
+><DIV
+CLASS="sect2"
+><H2
+CLASS="sect2"
+><A
+NAME="AEN191"
+>6.1. The timeout callback</A
+></H2
+><P
+>This is the callback that should be used in case we need to update some info on the applet from time to time. The important here is the return value of the method. A return value of 0 implies that we want to stop checking the system for changes. If we want to go on checking, we must return a value of 1.</P
+><PRE
+CLASS="programlisting"
+>        
+    def timeout_callback(self,event):
+            self.read_proc_info()
+            ##### here you should update the widgets contents. #####
+            ##### look at the code of the example section      #####
+            ##### to see an approach to this task              #####
+            return 1
+
+    # this function update the info extracted from /proc/acpi
+    def read_proc_info(self):
+
+        # cpu power in mhz
+
+        if (os.path.isfile("/proc/cpuinfo")):
+            f_proc = open("/proc/cpuinfo")
+            for line in f_proc:
+                try:
+                    line.index("cpu MHz")
+                    self.info[5] = line.strip().replace(" ","").split(":")[1]
+                except ValueError:
+                    pass
+        else:
+            self.checks
+        
+        # throttling support
+        if (os.path.isfile("/proc/acpi/processor/CPU0/throttling")):
+            f_throt = open("/proc/acpi/processor/CPU0/throttling","r")
+            cont = 1
+
+            for line in f_throt:
+                if cont == 1:
+                    tmp = re.split('\W+',line)
+                    self.throttling_states = int(tmp[2])
+                else:
+                    # search for * and print self.info
+                    try:
+                        line.index("*")
+                        tmp = line.strip().replace(" ","").replace("*","").split(":")
+                        self.info[0] = tmp[0]
+                        self.info[1] = str(100 - int(tmp[1][:-1])) + "%"
+                        print self.info[1]
+                        
+                        #print self.info
+                        break
+                    except ValueError:
+                        pass
+                    
+                cont = cont + 1
+            f_throt.close()
+        else:
+            self.info[0] = ""
+            self.info[1] = ""
+
+        # power support
+        if (os.path.isfile("/proc/acpi/processor/CPU0/power")):
+            f_per = open("/proc/acpi/processor/CPU0/power","r")
+            cont = 1
+
+            for line in f_per:
+                if cont == 1:
+                    tmp = re.split('\W+',line)
+                    self.active_cpu_state = tmp[2][1]
+                else:
+                    try:
+                        line.index("*")
+                        self.info[2] = line.strip().replace(" ","").replace("*","").split(":")[0]
+                        #print self.info
+                        break
+                    except ValueError:
+                        pass
+                    
+                cont = cont + 1
+            f_per.close()
+        else:
+            self.info[2] = ""
+
+        # 2.6 sys filesystem
+        if (os.path.isfile("/sys/devices/system/cpu/cpu0/cpufreq/scaling_available_governors")):
+            f_sys = open("/sys/devices/system/cpu/cpu0/cpufreq/scaling_available_governors")
+            for line in f_sys:
+                self.governors = re.split(" ", line)
+            f_sys.close()
+        else:
+            self.governors = ""
+
+            
+
+        if (os.path.isfile("/sys/devices/system/cpu/cpu0/cpufreq/scaling_governor")):
+            f_sys = open("/sys/devices/system/cpu/cpu0/cpufreq/scaling_governor")
+            for line in f_sys:
+                self.info[3] = line.strip()
+
+            f_sys.close()
+   
+
+        else:
+            self.info[3] = ""
+
+        if (os.path.isfile("/sys/devices/system/cpu/cpu0/cpufreq/scaling_driver")):
+            f_sys = open("/sys/devices/system/cpu/cpu0/cpufreq/scaling_driver")
+            for line in f_sys:
+                self.info[4] = line.strip()
+
+            f_sys.close()
+        else:
+            self.info[4] = ""
+</PRE
+><P
+>These methods above are from the pycentrino applet 0.3 release, because they are much clearer that in previous versions. We have two main methods: The first one, timeout_callback() is the method called every second, as defined when calling <TT
+CLASS="filename"
+>gtk.timeout_add()</TT
+> in the __init__ method. The second one is a function to read from the <TT
+CLASS="filename"
+>/proc</TT
+> and/or <TT
+CLASS="filename"
+>/sys</TT
+> filesystems and update the content of the instance variable <TT
+CLASS="filename"
+>info</TT
+>. Finally, we'll have something like <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>["T0","0%","C1","powersave","centrino","1400.0"]</I
+></SPAN
+> in the variable.</P
+></DIV
+><DIV
+CLASS="sect2"
+><H2
+CLASS="sect2"
+><A
+NAME="AEN201"
+>6.2. The panel applet "change-orient" signal</A
+></H2
+><P
+>Usually, your applet will be set up on an horizontal panel, but there are cases where you can be interested in placing it on a vertical one. So we need to take this into account when coding the <TT
+CLASS="filename"
+>__init__</TT
+> method, and we also need to hook a callback to the "change-orient" signal, which is triggered when you move the applet from an horizontal panel to a vertical one (or vicerversa) or when you change your panel position, modifying its orientation. The code for this callback:</P
+><PRE
+CLASS="programlisting"
+>&#13;        def change_orientation(self,arg1,data):
+            self.orientation = self.applet.get_orient()
+            # first remove the children of the current box
+            for i in range(len(self.numbers)):
+                self.box.remove(self.numbers[i])
+
+            # now remove the box itself
+            self.big_evbox.remove(self.box)
+
+            # time to create the new box
+            if self.orientation == gnome.applet.ORIENT_UP or self.orientation == gnome.applet.ORIENT_DOWN:
+                self.box = gtk.HBox()
+            else:
+                self.box = gtk.VBox()
+
+            # and now fill it with the numbers
+            for i in range(len(self.numbers)):
+                self.box.pack_start(self.numbers[i])
+
+            # final steps
+            self.big_evbox.add(self.box)
+            self.box.show()
+      </PRE
+><P
+>It's important to realize that deleting all objects inside the HBox or VBox before moving them to the new VBox or HBox is totally necessary. Finally, we only need to show the box.</P
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="x134.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="x207.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>The class constructor: __init__</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+>&nbsp;</TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Autotools : a brief introduction to the installation process</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

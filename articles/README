@@ -1,0 +1,17 @@
+This directory holds source and HTML versions of articles related to
+PyGTK.
+
+- The directory name format is topic_mainauthornick, such as
+  "sprockets_kiko" or "noogie_lgs".
+
+- The subdirectory must contain at least an index.html file.
+
+- If source is included and it is contained in a single file, it should
+  be placed inside the subdirectory and named according to the directory
+  format (using whichever extension reasonable). So, using the examples
+  above, "sprockets_kiko/sprockets_kiko.xml" or "noogie_lgs/noogie_lgs.tex".
+
+- If the source spans multiple files, use a src/ directory under the
+  article subdirectory.
+
+-- kiko (r=lgs,arturogf)

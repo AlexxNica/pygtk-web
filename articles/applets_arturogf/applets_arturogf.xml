@@ -1,0 +1,800 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.1//EN" "/usr/share/sgml/docbook/dtd/xml/4.1.2/docbookx.dtd">
+<article>
+  <title>Gnome applets with Python</title>
+  <articleinfo>
+    <legalnotice>
+      <para>This document is released under the <ulink url="http://www.gnu.org/copyleft/fdl.html">FDL</ulink> license.</para>
+    </legalnotice>
+    <copyright>
+      <year>2004</year>
+      <holder>The GNOME Project</holder>
+    </copyright>
+    <authorgroup>
+    <author>
+        <affiliation>
+          <address><email>arturogf@ugr.es</email></address>
+        </affiliation>
+      <firstname>Arturo</firstname>
+      <surname>González Ferrer</surname>
+        <authorblurb>
+          <para> Universidad de Granada, <email>arturogf@ugr.es</email></para>
+        </authorblurb>
+    </author>
+      <author>
+        <affiliation>
+          <address><email>lgs@sicem.biz</email></address>
+        </affiliation>
+        <firstname>Lorenzo</firstname>
+        <surname>Gil Sánchez</surname>
+        <authorblurb>
+          <para>Universidad de Granada, <email>lgs@sicem.biz</email></para>
+        </authorblurb>
+      </author>
+    </authorgroup>
+    <revhistory>
+    <revision>
+	<revnumber>0.5</revnumber>
+	<date>07 February 2004</date>
+    </revision>
+      <revision>
+        <revnumber>0.4</revnumber>
+        <date>23 January 2004 (added "change-orient" event to callbacks section)</date>
+        <authorinitials>arturogf</authorinitials>
+      </revision>
+      <revision>
+        <revnumber>0.3</revnumber>
+        <date>20 January 2004 (merge 0.2 with the new version. Some updates on bonobo and .server files. Autotools installation).</date>
+        <authorinitials>arturogf</authorinitials>
+      </revision>
+      <revision>
+        <revnumber>0.2</revnumber>
+        <date>15 January 2004 (some grammar and structure corrections)</date>
+        <authorinitials>lgs</authorinitials>
+      </revision>
+      <revision>
+        <revnumber>0.1</revnumber>
+        <date>07 January 2004 (first release)</date>
+        <authorinitials>arturogf</authorinitials>
+        <revdescription>
+          <para>First release of this document. Next versions will include some improvements in all areas.</para>
+        </revdescription>
+      </revision>
+    </revhistory>
+  </articleinfo>
+  <beginpage/>
+  <abstract>
+    <para>This article will cover how to make an applet for the GNOME 2.x desktop with the Python programming language. Usually, GNOME applets are made in C, which has the big advantage of generating compiled executables (this means less memory footprint and faster programs) but in the other hand it's more difficult to do it and it takes more time to write the code. Python programs are developed faster, they have fewer lines of code, and it's an object oriented programming language.  But it's an interpreted language, so the execution speed can be worse. It's up to the reader to decide if it is worthy writing a GNOME applet in Python. One good aproach is to prototype the applet in Python and then write the final version in C. Here we'll explain the necessary steps to write and deploy a simple applet from scratch using Glade 2 and libglade for the dialogs. Look at the bibliography for an in-deep explanation. Another good source of information is the pyGTK mailing list archives.</para>
+    <para>However, with regard to the code shown at the tutorial, we advise you to better look at the example section, where you will find some releases that do like it has been explained here, so you can see it growing from a prototype to a really functional applet.</para>
+</abstract>
+  <sect1>
+    <title>Introduction</title>
+    <para>GNOME 2.x applets need at least two files to get them working:<itemizedlist>
+        <listitem>
+          <para>The executable (in this case the applet code)</para>
+        </listitem>
+        <listitem>
+          <para>The bonobo server component, that must be placed at <filename>/usr/lib/bonobo/servers</filename> by default. This file contains all the information about the resources the applet will use for its execution.</para>
+         </listitem>
+      </itemizedlist>
+</para>
+    <sect2>
+      <title>The applet code skeleton</title>
+      <para>The simplest applet we can write can be found in the gnome-python package documentation (<filename>/usr/share/doc/python2.x-gnome2/examples/applet/applet.py</filename> in DEBIAN-based distributions) or simply in the gnome-python tarball from the original GNOME ftp.</para>
+      <para>
+
+        <warning>
+          <programlisting>place this at /usr/bin/pysample.py</programlisting>
+        </warning>
+      </para>
+      <programlisting>
+        <![CDATA[
+        #!/usr/bin/env python
+        import pygtk
+        pygtk.require('2.0')
+
+        import gtk
+        import gnome.applet
+
+        def sample_factory(applet, iid):
+            label = gtk.Label("Success!")
+            applet.add(label)
+
+            applet.show_all()
+            return gtk.TRUE
+
+        gnome.applet.bonobo_factory("OAFIID:GNOME_PysampleApplet_Factory", 
+                                     gnome.applet.Applet.__gtype__, 
+        ]]>                             "hello", "0", sample_factory)
+
+</programlisting>
+      <para>First, we need to import some Python modules that we will need. The <emphasis>pyGTK</emphasis> module, needed to specify the GTK version used (we'll be using 2.x in this article), the <emphasis>gnome</emphasis> module, that contains all the useful classes and methods about the gnome desktop, i.e. the applet class, and the <emphasis>gtk</emphasis> module, Python bindings for the GTK toolkit.
+ </para>
+      <para>Then, we define the <emphasis>sample factory</emphasis> function to generate applet objects, with a text label "Sucess!". This function receives the object to be initializated (the applet) and the bonobo activation ID that the new factory will implement. It's all that simple. It returns gtk.TRUE if no errors were reported (see the panelapplet reference manual for details). When we call to <filename>gnome.applet.bonobo_factory()</filename>.</para>
+      <para>When we call the <filename>bonobo_factory</filename> method, we need to pass it the following arguments:
+<orderedlist>
+          <listitem>
+            <para>iid: The bonobo-activation iid of the factory.</para>
+          </listitem>
+          <listitem>
+            <para>type : the type of the created object.</para>
+          </listitem>
+          <listitem>
+            <para>description.</para>
+          </listitem>
+          <listitem>
+            <para>version.</para>
+          </listitem>
+          <listitem>
+            <para>factory callback: the name of the factory method.</para>
+          </listitem>
+        </orderedlist>
+</para>
+    </sect2>
+    <sect2>
+      <title>The bonobo .server file</title>
+<para>
+     The second thing we need to get the applet running is to construct the bonobo server file. <filename>bonobo-activation-server</filename>, the GNOME application that tracks information about installed components and brokers components, reads and mantains the component descriptions from <filename>/usr/lib/bonobo/servers/*.server</filename>. These files provide an XML description of a component's capabilities which can be queried and manipulated by clients using the activation client library. <filename>Bonobo-activation-server</filename>, also ensures that the minimum neccessary number of servers for your display setup are running.
+</para>
+      <para>Bonobo activation server is nothing but a daemon implementing a set of CORBA interfaces. These CORBA interfaces implement a name service for the set of CORBA servers installed on your system. GNOME Object Activation Framework daemon (OAFD) knows about all the CORBA servers in your system, running or not. The OAF daemon will activate those servers if you ask for them. Each server is described by its .server file which contains among other things the IDL interfaces it implements, some specific properties and an IID (Implementation ID). Each IID has to be globally unique, and its format is pretty simple:</para>
+      <programlisting>               OAFIID:program_name:UUID</programlisting>
+      <para>The bonobo factories are CORBA objects that allow the creation of other new CORBA objects. This is a common practice in GNOME. The use of factories will allow us to use only an executable to get several instances of the component.</para>
+      <para>So we need to define the .server file and place it at the location mentioned before:</para>
+      <programlisting>
+        <![CDATA[
+        <oaf_info>
+        <oaf_server iid="OAFIID:GNOME_PysampleApplet_Factory"
+                    type="exe" location="/usr/bin/pysample.py">
+
+                <oaf_attribute name="repo_ids" type="stringv">
+                        <item value="IDL:Bonobo/GenericFactory:1.0"/>
+                        <item value="IDL:Bonobo/Unknown:1.0"/>
+                </oaf_attribute>
+                <oaf_attribute name="name" type="string" value="Python applet example"/>
+                <oaf_attribute name="description" type="string" value="Python applet example"/>
+        </oaf_server>
+
+        <oaf_server iid="OAFIID:GNOME_PysampleApplet"
+                    type="factory" location="OAFIID:GNOME_PysampleApplet_Factory">
+
+                <oaf_attribute name="repo_ids" type="stringv">
+                        <item value="IDL:GNOME/Vertigo/PanelAppletShell:1.0"/>
+                        <item value="IDL:Bonobo/Control:1.0"/>
+                        <item value="IDL:Bonobo/Unknown:1.0"/>
+                </oaf_attribute>
+                <oaf_attribute name="name" type="string" value="Python applet example"/>
+                <oaf_attribute name="description" type="string" value="Python applet example"/>
+                <oaf_attribute name="panel:category" type="string" value="Utility"/>
+                <oaf_attribute name="panel:icon" type="string" value="bug-buddy.png"/>
+        </oaf_server>
+        </oaf_info>
+        ]]>
+</programlisting>
+      <para>The .server file registers two unique OAF identifiers, and give the activation-server the description of how the objects must be created. The first one is the Factory, that is created when the .py script is executed. The second is the applet itself, and is created asking the Factory how to do it. When we do the "add to panel" action in GNOME, it takes the OAF identifiers that are supposed to implement the "IDL:GNOME/Vertigo/PanelAppletShell:1.0" in its "repo_ids" attribute. The submenu is determined by the "panel:category" attribute, the icon from "panel:icon", the text displayed at the menu comes from "name" and the tooltip text from "description".</para>
+      <para>The <filename>sample_factory()</filename> function is called when a new applet is created. It receives a container that should be populated with the applet contents.</para>
+    </sect2>
+  </sect1>
+  <sect1>
+    <title>Running the applet in its own window</title>
+    <para>A common issue when developping an applet is the debug process which means knowing what it's failing and why. As an applet is nothing but a GTK+ application we can use an additional command line argument like "run-in-window" to put it in <emphasis>window-mode</emphasis> by creating a GTK+ window and inserting the applet in it.</para>
+    <programlisting>
+    if len(sys.argv) == 2 and sys.argv[1] == "run-in-window":   
+        main_window = gtk.Window(gtk.WINDOW_TOPLEVEL)
+        main_window.set_title("Python Applet")
+        main_window.connect("destroy", gtk.mainquit) 
+        app = gnome.applet.Applet()
+        sample_factory(app, None)
+        app.reparent(main_window)
+        main_window.show_all()
+        gtk.main()
+        sys.exit()
+    </programlisting>
+    <para>We can see how the applet object use the <filename>gtk.Widget</filename> <emphasis>reparent()</emphasis> method to change its parent to the GTK+ Window "main_window".</para>
+  </sect1>
+  <sect1>
+   <title>Moving on: Object Oriented Applets</title>
+    <para>Now that we know the basic steps to create and run the applet, we're going to structure the code in a simple way. We'll create a <filename>sample</filename> class, that will contain all the applet code. The new sample_applet_factory will call the class constructor:</para>
+
+    <programlisting>
+        def sample_applet_factory(applet, iid):
+            Sample(applet,iid)
+            return gtk.TRUE
+    </programlisting>
+    <sect2>
+      <title>The class definition</title>
+    <para>The <filename>sample</filename> class will have the following skeleton, that we'll explain soon:</para>    
+      <programlisting>
+
+        [import section]
+
+        class Sample:
+
+              [class methods]
+
+              [callbacks methods]
+              
+              .....
+              
+              [optional timeout callback method]
+           
+              [create popup menu with the applet options]
+              
+              [
+               __init__ method
+ 
+                        [some instance variable definitions]          
+
+                        [signals handlers definitions]
+
+                        [widget definitions]
+
+                        [optionally reading glade.XML]
+
+                        [signal_autoconnect to handlers]
+              ]
+     </programlisting>
+    </sect2>
+  </sect1>
+  <sect1>
+    <title>The import section</title>
+    <para>The first line of our python script will be the import section. Here we must include all the python modules we will need for our applet to run:</para>
+    <programlisting>
+            import sys
+            import pygtk
+            pygtk.require('2.0')
+            import gtk
+            import gtk.glade
+            import gnome.applet
+            import gnome.ui
+            import os.path
+            import re
+            import gobject
+            import sample_globals as pglobals
+    </programlisting>
+    <para>
+        As we can see, we need some GTK and GNOME modules, the gobject module (only if we subclass the applet from it) and the sample_globals, that is used in order to have a easy installation with autotools. The file <filename>sample_globals.py</filename> is maked when executing the <filename>configure</filename> script, and it contains the following in my gnome installation:
+        <programlisting>
+            name = "sample"
+            version = "0.2"
+            image_dir = "/usr/share/pixmaps" 
+            glade_dir = "/usr/share/" + name
+        </programlisting>
+    We can use this information to call to <filename>gnome.init()</filename> or <filename>glade.XML()</filename> methods and the ones that use images or icons as parameters, such as the about_box or the applet itself WITHOUT using absolute paths.
+    </para>
+  </sect1>
+  <sect1>
+     <title>The class constructor: __init__</title>
+    <para>We're going to see these points in a natural order when coding it. Please look at the final example section to see a functional applet i'm doing for check the cpu throttling states on the new centrino processors and speedstep. Visit the <ulink url="http://mnb.uib.es/~gallir/cpudyn/">cpudyn utility</ulink> for more info.</para>
+    <sect2>
+      <title>Some instance variable definitions</title>
+      <programlisting>
+        self.timeout_interval = 1000        
+        self.throttling_states = 0
+        self.active_t_state = "T0"
+        self.bus_activity = ""
+        self.actual_cpu_state = "C1"
+        self.lack_t_acpi = 0
+        self.lack_p_acpi = 0
+        self.dict = {}
+        self.tooltip_text = ""
+        self.checks = [0,0,0,0,0]
+         </programlisting>
+      <para>Here are the different variables that <filename>sample objects</filename> will use to keep itself updated.</para>
+       </sect2>
+    <sect2>
+      <title>The GTK widgets definition</title>
+      <para>First of all, we need to initializate the gnome applet with call to <filename>gnome.init()</filename>. Once this has been done, we can begin to pack the different widgets our applet will be compound of. and connect some callbacks to events in the common way, not the <filename>glade.XML</filename> one (see section 4.5.1)</para>
+      <programlisting>
+        # initializate the gnome internals
+        gnome.init("sample", "1.0")
+
+        self.applet = applet
+
+        self.tooltips = gtk.Tooltips()
+        self.hbox = gtk.HBox()
+        applet.add(self.hbox)
+
+        # add the second button event for the popup menu and the enter mouse event to change the tooltip value
+        self.ev_box = gtk.EventBox()
+        self.ev_box.connect("button-press-event",self.button_press)
+        self.ev_box.connect("enter-notify-event", self.update_info)
+        self.hbox.add(self.ev_box)
+
+        self.prog = gtk.ProgressBar()
+        self.ev_box.add(self.prog)
+      </programlisting>
+      <para>This an example of a simple applet with a <filename>gtk.ProgressBar</filename> in a hbox, that mantain a <filename>gtk.Tooltip</filename> to show some info.</para>
+    </sect2>
+    <sect2>
+      <title>Optional timeout callback method</title>
+      <para>A common task when programming a gnome applet is to check if something has changed at the system level from time to time. This is resolved with <filename>gtk.timeout_add()</filename> method with a <filename>timeout_interval</filename> in milliseconds defined at the class variables section.</para>
+      <programlisting>         gtk.timeout_add(self.timeout_interval,self.timeout_callback, self)</programlisting>
+    </sect2>
+    <sect2>
+      <title>Connecting the "destroy" signal and show the applet</title>
+      <para>It's important to do this in order to avoid memory leaks when killing the applet process incorrectly.</para>
+      <programlisting>
+        applet.connect("destroy",self.cleanup)
+        applet.show_all()
+    </programlisting>
+    </sect2>
+    <sect2>
+      <title>Connecting signals and events to handlers</title>
+      <para>When connecting events to handlers we know there are at least two options with GTK programming: with or without <emphasis>glade</emphasis> user interface designer. In this example we will look at both possibilities. We'll use glade for the applet preferences window, as we just used the direct way of doing it with the <filename>connect()</filename> method before in the "GTK widgets" section.</para>
+      <sect3>
+        <title>Loading the interface with <filename>glade.XML()</filename></title>
+        <para>It's quite simple to read a glade interface from pyGTK. All we need to do is to call to the <filename>gtk.glade.XML()</filename> method with the .glade file as parameter. After this, we'll define some variables for every widget we are going to use or modify, with <filename>gtk.get_widget('widget name')</filename> method. Finally, we must define the callbacks methods in the class definition. Calling <filename>signal_autoconnect()</filename> with the class instance as parameter, that in this case will be "self". So, we we'll have this at <filename>[callbacks methods]</filename> section:</para>
+      <programlisting>
+    def on_properties_delete_event(self,widget,event):
+        widget.hide()
+        return gtk.TRUE
+
+    def on_checkbutton1_toggled(self,widget):
+        self.checks[0] = widget.get_active()
+        print self.checks
+    def on_checkbutton2_toggled(self,widget):
+        self.checks[1] = widget.get_active()
+        print self.checks
+    def on_checkbutton3_toggled(self,widget):
+        self.checks[2] = widget.get_active()
+        print self.checks
+    def on_checkbutton4_toggled(self,widget):
+        self.checks[3] = widget.get_active()
+        print self.checks
+    def on_checkbutton5_toggled(self,widget):
+        self.checks[4] = widget.get_active()
+        print self.checks
+    </programlisting>
+        <para>Those were our callback methods and now we'll see the connection of them to the glade interface:</para>
+        <para>And the [reading glade XML optionally] section:</para>
+        <programlisting>
+        wT = gtk.glade.XML("/path/to/file/glade/file.glade")
+        # the way to do it with sample_globals defined will be something like:
+        #   wT = gtk.glade.XML(os.path.join(pglobals.glade_dir, "sample.glade"))
+        #this is optional if you want to have some widget reference kept
+        preferencesDialog = wT.get_widget('properties')
+        self.preferences = preferencesDialog
+        wT.signal_autoconnect(self)
+    </programlisting>
+        <para>We can see that the <filename>on_properties_delete_event()</filename> handler is used to hide the properties window. It returns gtk.TRUE in order to avoid the destruction of the dialog so we can reuse it later. Remember that returning gtk.TRUE in an event handler stops the event propagation in GTK+. We
+show this dialog when the user clicks on the popup preferences option.</para>
+      </sect3>
+      <sect3>
+        <title>Using the <filename>gtkWidget.connect()</filename> method</title>
+        <para>This is the common way of connecting events to handlers, as seen at the "GTK widgets" section. It could be useful when packing some widgets dinamically.</para>
+        <programlisting>
+          self.ev_box = gtk.EventBox()
+          self.ev_box.connect("button-press-event",self.button_press)
+          self.ev_box.connect("enter-notify-event", self.update_info)
+       </programlisting>
+      </sect3>
+    </sect2>
+    </sect1>
+<sect1>
+    <title>The callback methods</title>
+    <para>To finish our work we need to define the handlers for every event we have defined at the "GTK widgets" section or with the <filename>glade.XML</filename> method. For this task, the pyGTK reference manual (see bibliography) is a must see. We need to know the arguments of the handler method for every signal and every event we are catching.</para>
+    <programlisting>
+        # callback for update the info on the applet periodically
+
+        def update_info(self,widget,event):
+            info = self.read_proc_info();
+            self.tooltips.set_tip(self.ev_box, info[0] + " " + info[1]);
+
+        # callback to create the context menu with 'about' and 'preferences'
+        def button_press(self,widget,event):
+            if event.type == gtk.gdk.BUTTON_PRESS and event.button == 3:
+                self.create_menu()
+
+        def about_info(self,event,data=None):
+        about = gnome.ui.About("CPU performance stats applet","0.1","GPL","Applet to check throttling and performance states",["Arturo Gonzalez"],["Arturo Gonzalez"],"Arturo Gonzalez",self.logo_pixbuf)
+        about.show()
+    
+    def properties(self,event,data=None):
+        self.preferences.show()
+    </programlisting>
+    <sect2>
+      <title>The timeout callback</title>
+      <para>This is the callback that should be used in case we need to update some info on the applet from time to time. The important here is the return value of the method. A return value of 0 implies that we want to stop checking the system for changes. If we want to go on checking, we must return a value of 1.</para>
+      <programlisting>        
+    def timeout_callback(self,event):
+            self.read_proc_info()
+            ##### here you should update the widgets contents. #####
+            ##### look at the code of the example section      #####
+            ##### to see an approach to this task              #####
+            return 1
+
+    # this function update the info extracted from /proc/acpi
+    def read_proc_info(self):
+
+        # cpu power in mhz
+
+        if (os.path.isfile("/proc/cpuinfo")):
+            f_proc = open("/proc/cpuinfo")
+            for line in f_proc:
+                try:
+                    line.index("cpu MHz")
+                    self.info[5] = line.strip().replace(" ","").split(":")[1]
+                except ValueError:
+                    pass
+        else:
+            self.checks
+        
+        # throttling support
+        if (os.path.isfile("/proc/acpi/processor/CPU0/throttling")):
+            f_throt = open("/proc/acpi/processor/CPU0/throttling","r")
+            cont = 1
+
+            for line in f_throt:
+                if cont == 1:
+                    tmp = re.split('\W+',line)
+                    self.throttling_states = int(tmp[2])
+                else:
+                    # search for * and print self.info
+                    try:
+                        line.index("*")
+                        tmp = line.strip().replace(" ","").replace("*","").split(":")
+                        self.info[0] = tmp[0]
+                        self.info[1] = str(100 - int(tmp[1][:-1])) + "%"
+                        print self.info[1]
+                        
+                        #print self.info
+                        break
+                    except ValueError:
+                        pass
+                    
+                cont = cont + 1
+            f_throt.close()
+        else:
+            self.info[0] = ""
+            self.info[1] = ""
+
+        # power support
+        if (os.path.isfile("/proc/acpi/processor/CPU0/power")):
+            f_per = open("/proc/acpi/processor/CPU0/power","r")
+            cont = 1
+
+            for line in f_per:
+                if cont == 1:
+                    tmp = re.split('\W+',line)
+                    self.active_cpu_state = tmp[2][1]
+                else:
+                    try:
+                        line.index("*")
+                        self.info[2] = line.strip().replace(" ","").replace("*","").split(":")[0]
+                        #print self.info
+                        break
+                    except ValueError:
+                        pass
+                    
+                cont = cont + 1
+            f_per.close()
+        else:
+            self.info[2] = ""
+
+        # 2.6 sys filesystem
+        if (os.path.isfile("/sys/devices/system/cpu/cpu0/cpufreq/scaling_available_governors")):
+            f_sys = open("/sys/devices/system/cpu/cpu0/cpufreq/scaling_available_governors")
+            for line in f_sys:
+                self.governors = re.split(" ", line)
+            f_sys.close()
+        else:
+            self.governors = ""
+
+            
+
+        if (os.path.isfile("/sys/devices/system/cpu/cpu0/cpufreq/scaling_governor")):
+            f_sys = open("/sys/devices/system/cpu/cpu0/cpufreq/scaling_governor")
+            for line in f_sys:
+                self.info[3] = line.strip()
+
+            f_sys.close()
+   
+
+        else:
+            self.info[3] = ""
+
+        if (os.path.isfile("/sys/devices/system/cpu/cpu0/cpufreq/scaling_driver")):
+            f_sys = open("/sys/devices/system/cpu/cpu0/cpufreq/scaling_driver")
+            for line in f_sys:
+                self.info[4] = line.strip()
+
+            f_sys.close()
+        else:
+            self.info[4] = ""
+</programlisting>
+      <para>These methods above are from the pycentrino applet 0.3 release, because they are much clearer that in previous versions. We have two main methods: The first one, timeout_callback() is the method called every second, as defined when calling <filename>gtk.timeout_add()</filename> in the __init__ method. The second one is a function to read from the <filename>/proc</filename> and/or <filename>/sys</filename> filesystems and update the content of the instance variable <filename>info</filename>. Finally, we'll have something like <emphasis>["T0","0%","C1","powersave","centrino","1400.0"]</emphasis> in the variable.</para>
+    </sect2>
+    <sect2>
+      <title>The panel applet "change-orient" signal</title>
+      <para>Usually, your applet will be set up on an horizontal panel, but there are cases where you can be interested in placing it on a vertical one. So we need to take this into account when coding the <filename>__init__</filename> method, and we also need to hook a callback to the "change-orient" signal, which is triggered when you move the applet from an horizontal panel to a vertical one (or vicerversa) or when you change your panel position, modifying its orientation. The code for this callback:</para>
+      <programlisting>
+        def change_orientation(self,arg1,data):
+            self.orientation = self.applet.get_orient()
+            # first remove the children of the current box
+            for i in range(len(self.numbers)):
+                self.box.remove(self.numbers[i])
+
+            # now remove the box itself
+            self.big_evbox.remove(self.box)
+
+            # time to create the new box
+            if self.orientation == gnome.applet.ORIENT_UP or self.orientation == gnome.applet.ORIENT_DOWN:
+                self.box = gtk.HBox()
+            else:
+                self.box = gtk.VBox()
+
+            # and now fill it with the numbers
+            for i in range(len(self.numbers)):
+                self.box.pack_start(self.numbers[i])
+
+            # final steps
+            self.big_evbox.add(self.box)
+            self.box.show()
+      </programlisting>
+      <para>It's important to realize that deleting all objects inside the HBox or VBox before moving them to the new VBox or HBox is totally necessary. Finally, we only need to show the box.</para>
+    </sect2>
+  </sect1>  
+  <sect1>
+    <title>Autotools : a brief introduction to the installation process</title>
+ <para>Ok, we have our shiny brand new applet running and we are pretty proud of ourselves. Now it's time to learn how to distribute it so the world can be proud too. You may think 'hey, this is Python code, no compilation it's needed, we can just send them the .py files and the applet will work'. Well, it won't because all the paths are absolute to our own machine configuration, icons are needed and .glade files and .server files as well, so we need to distribute them somehow. In UNIX world, this task is commonly done with the <command>./configure --prefix=PATH --other-options</command> command, but it's not so common to know the process of having all the correct files working. I did this task with version 1.7 of <filename>automake</filename> and <filename>aclocal</filename> and <filename>autoconf</filename> 2.58, because some Python macros weren't in 1.4 version. This section is based on some documents on the net (look at bibliography) and my own experience. There is a really good document from German Po in Spanish <ulink url="http://www.ubiobio.cl/~gpoo/documentos/autotools/">here</ulink> so If you can read this language it's your lucky day.</para>
+    <para>So, besides giving the user the facility to install our applet, the nice feature of doing the configure process, is that we can refer to our application files relative to a <command>prefix</command> previously defined.</para>
+    <sect2>
+      <title>The project structure: directories and files needed</title>
+      <para>Each time we make a pyGTK applet we need to have some files in our project. This is an example of what our project directory should contain:</para>
+      <informalexample>
+      <screen>
+            |-- AUTHORS <co id="authors"/>
+            |-- COPYING -> /usr/share/automake-1.7/COPYING <co id="copying"/>
+            |-- ChangeLog <co id="changelog"/>
+            |-- INSTALL -> /usr/share/automake-1.7/INSTALL <co id="install"/>
+            |-- Makefile
+            |-- Makefile.am <co id="makeam"/>
+            |-- Makefile.in 
+            |-- NEWS <co id="news"/>
+            |-- README <co id="readme"/>
+            |-- aclocal.m4 <co id="aclocal"/>
+            |-- config.log
+            |-- config.status
+            |-- configure
+            |-- configure.in <co id="confin"/>
+            |-- images    <co id="images"/>
+            |   |-- Makefile
+            |   |-- Makefile.am
+            |   |-- Makefile.in
+            |   |-- bug-buddy.png
+            |   |-- centrino.gif
+            |   |-- centrino.jpg
+            |   |-- green_led_0.gif
+            |   |-- green_led_1.gif
+            |   |-- green_led_2.gif
+            |   |-- green_led_3.gif
+            |   |-- green_led_4.gif
+            |   |-- green_led_5.gif
+            |   |-- green_led_6.gif
+            |   |-- green_led_7.gif
+            |   |-- green_led_8.gif
+            |   `-- green_led_9.gif
+            |-- install-sh -> /usr/share/automake-1.7/install-sh
+            |-- missing -> /usr/share/automake-1.7/missing
+            |-- mkinstalldirs -> /usr/share/automake-1.7/mkinstalldirs
+            |-- py-compile -> /usr/share/automake-1.7/py-compile
+            |-- servers <co id="servers"/>
+            |   |-- GNOME_SampleApplet.server
+            |   |-- Makefile
+            |   |-- Makefile.am
+            |   `-- Makefile.in
+            `-- src             <co id="src"/>
+                |-- Makefile
+                |-- Makefile.am
+                |-- Makefile.in
+                |-- sample.glade
+                |-- sample.gladep
+                |-- sample.py
+                |-- sample.pyc
+                |-- sample_globals.py
+                |-- sample_globals.py.in <co id="globals"/>
+                |-- sample_globals.pyc
+      </screen>
+
+      <calloutlist>
+        <callout arearefs="authors">
+          <para>It contains the names of who have been working on the application.</para>
+        </callout>
+          <callout arearefs="copying">
+            <para>It specifies the copy and distribution permissions of the application. It's a good idea allowing <command>automake</command> command generate this file, if you want it GPL.</para>
+          </callout>
+          <callout arearefs="changelog">
+            <para>It keep all the changes made to the source and the application itself.</para>
+          </callout>
+          <callout arearefs="install">
+            <para>It contains instalation instructions for our application. <command>automake</command> provides us with a generic file, but you should personalize for your application.</para>
+          </callout>
+          <callout arearefs="news">
+            <para>It's a file with recent changes of the application.</para>
+          </callout>
+          <callout arearefs="readme">
+            <para>It contains a general description of the package, and it's possible to include some aditional instructions.</para>
+          </callout>
+          <callout arearefs="images servers src">
+            <para>This directories will contain the images and icons for our application, the bonobo .server files and the source code and glade files.</para>
+          </callout>
+          <callout arearefs="confin">
+            <para>It contains the verification and construction rules of the project. It is the base for creating the <command>configure</command> script. The rules are written in <emphasis>m4 language.</emphasis></para>
+          </callout>
+          <callout arearefs="makeam">
+            <para>It's the file that <command>automake</command> command will use to generate the <emphasis>Makefile</emphasis> file, needed to construct the application. It must exists a Makefile.am file for every directory in our project.</para>
+          </callout>
+          <callout arearefs="aclocal">
+            <para>aclocal.m4 will be used by <command>autoconf</command> to search for automake macros. It is generated by <command> aclocal-1.7 </command>command.</para>
+          </callout>
+          <callout arearefs="globals">
+            <para><filename>sample_globals.py.in</filename> in the <filename>src/</filename> directory, will contain references to @PREFIX@ and @VERSION@ variables, to define others variables, like image_dir, glade_dir, etc...at the final final, without the <filename>.in</filename> extension</para>
+          </callout>
+      </calloutlist>
+ </informalexample>
+    </sect2>
+    <sect2>
+      <title>Creating these files</title>
+      <para>When creating these files commented in the previous section, we need to put them on this order:
+      <orderedlist>
+          <listitem>
+            <simpara>Place a NEWS and AUTHORS file at the root directory. Makefile.am will search for them.</simpara>
+          </listitem>
+          <listitem>
+            <simpara>The Makefile.am in every directory, the project root directory included. The Makefile.am at the root directory will contain only the subdirs that we need to explore looking for others .am files.</simpara>
+          </listitem>
+          <listitem>
+            <simpara>The configure.in at the root directory.</simpara>
+          </listitem>
+          <listitem>
+            <simpara>The aclocal.m4, that we'll obtain by running <command>aclocal-1.7</command> command at the root directory.</simpara>
+          </listitem>
+          <listitem>
+            <simpara>Running the command <command>automake-1.7 --add-missing</command> at the root directory will create some files more we'll need: COPYING, INSTALL and some links to other utilities, install.sh, mkinstalldirs, py-compile... It will create also the Makefile.in, that next command, autoconf will need.</simpara>
+          </listitem>
+          <listitem>
+            <simpara>Running autoconf at the root directory we will have the final <filename>configure</filename> script.</simpara>
+          </listitem>
+          <listitem>
+            <simpara>We can have some .in files at the src directory, that could be use to generate them without the .in at 'configure' runtime, like a <filename>sample_globals.py.in</filename> that contains some variables like version, programname, or image_dir that will be used in execution time by the applet to find the files it needs.</simpara>
+          </listitem>
+        </orderedlist>
+      </para>
+    </sect2>
+    <sect2>
+      <title>Editing the files Makefile.am and configure.in</title>
+      <para>So we need to edit these files to get things working. If we look at step 2, we need some <filename>Makefile.am</filename> files. The one at the root directory will contain this:
+<programlisting>          SUBDIRS = src images servers</programlisting>
+      It's what we need to explore this directories for others Makefile.am files in order to generate Makefiles files correctly. 
+      </para>
+      <para>The file at the <filename>src/</filename> directory contains:
+       <programlisting>
+            bin_SCRIPTS = sample.py
+
+            sampledir = $(prefix)/bin
+
+            sample_PYTHON = \
+                    sample_globals.py
+
+            uidir = $(datadir)/sample
+            ui_DATA = sample.glade
+
+            DISTCLEANFILES = \
+                   $(ui_DATA) \         
+                   $(bin_SCRIPTS)         
+
+            EXTRA_DIST =  \
+                    $(bin_SCRIPTS) \
+                    $(sample_PYTHON) \
+                    $(ui_DATA)
+       </programlisting>
+      </para>
+      <para>These are the variables needed to our simple applet. Look at the gnome-blog source code (bibliography) if you want to do anything out of the scope of this tutorial, like adding gconf support or gettext.</para>
+
+      <para>Now we must edit the <filename>configure.in</filename> file at the root directory. It use m4 macros to check the software our application will need. This is the code for our simple applet. However, look at gnome-blog or some others GNU applications to have an idea of how to do it more complicated, or the m4 manual at bibliography section:
+<programlisting>
+                AC_INIT(src/sample.py)
+                AM_INIT_AUTOMAKE(sample, 0.2)
+
+                AM_MAINTAINER_MODE
+
+                dnl check for python -- 'dnl' is used for comments
+                AM_PATH_PYTHON
+
+                PKG_CHECK_MODULES(PYGTK, pygtk-2.0)
+                AC_SUBST(PYGTK_CFLAGS)
+                AC_SUBST(PYGTK_LIBS)
+
+                AC_OUTPUT([
+                Makefile
+                src/Makefile
+                src/sample_globals.py
+                images/Makefile
+                servers/Makefile
+                ])
+</programlisting>
+</para>
+      <para>We have some macros to check the .py and init the automake process, and the check if we have the python interpreter and python modules installed correctly.</para>
+    </sect2>
+  </sect1>
+  <sect1>
+    <title>Example applet</title>
+    <para>You can download an <ulink url="http://tad1.ugr.es/applets/software/">example applet</ulink> i'm doing for checking acpi throttling states in new centrino and speedsteps processors. The 0.1 release is almost done like the steps shown in this article. 0.2 release has a better project structure and some improvements at the presentation and code. 0.3 release manage how to update the image icons that mantains the info from filesystem. Future releases will improve the presentation and will take some other factors into account, as it is totally alpha software now. </para>
+  </sect1>
+<bibliography>
+    <bibliodiv>
+      <biblioentry>
+        <abstract>
+          <para><ulink url="http://www.moreaki.com/~lgs/index.html">PyGTK tutorial (spanish translation)</ulink></para>
+        </abstract>
+        <author>
+          <firstname>Lorenzo</firstname>
+          <surname>Gil Sánchez</surname>
+        </author>
+      </biblioentry>
+      <biblioentry>
+        <abstract>
+          <para><ulink url="http://www.moreaki.com/pygtkreference/pygtk2reference/index.html">PyGTK 2.0 Reference Manual</ulink></para>
+        </abstract>
+        <author>
+          <firstname>John</firstname>
+          <surname>Finlay</surname>
+        </author>
+      </biblioentry>
+      <biblioentry>
+        <author>
+          <firstname>Mark</firstname>
+          <surname>McLoughlin</surname>
+        </author>
+        <abstract>
+          <para><ulink url="http://developer.gnome.org/doc/API/2.0/panel-applet/panelapplet.html">PanelApplet Reference Manual</ulink></para>
+        </abstract>
+      </biblioentry>
+      <biblioentry>
+        <abstract>
+          <para><ulink url="http://developer.gnome.org/doc/API/2.0/bonobo-activation/index.html">Bonobo Activation API Reference manual 2.0</ulink></para>
+        </abstract>
+        <author>
+          <firstname>Mathieu</firstname>
+          <surname>Lacage</surname>
+        </author>
+      </biblioentry>
+      <biblioentry>
+        <author>
+          <firstname>Seth</firstname>
+          <surname>Nickell</surname>
+        </author>
+        <abstract>
+          <para><ulink url="http://www.gnome.org/~seth/gnome-blog/">Gnome-blog applet</ulink></para>
+        </abstract>
+      </biblioentry>
+      <biblioentry>
+        <abstract>
+          <para><ulink url="http://www.pycage.de/howto_bonobo.html">Bonobo tutorial for python</ulink></para>
+        </abstract>
+        <author>
+          <firstname>Martin</firstname>
+          <surname>Grimme</surname>
+        </author>
+      </biblioentry>
+      <biblioentry>
+        <author>
+          <firstname>German</firstname>
+          <surname>Poó Caamaño</surname>
+        </author>
+        <abstract>
+          <para><ulink url="http://www.ubiobio.cl/~gpoo/documentos/autotools/">Entendiendo autoconf y automake</ulink>.</para>
+        </abstract>
+      </biblioentry>
+      <biblioentry>
+        <author>
+          <firstname>René</firstname>
+          <surname>Seindal</surname>
+        </author>
+        <abstract>
+          <para><ulink url="http://www.gnu.org/software/m4/manual/html_chapter/m4_toc.html">The GNU m4 manual. A powerful macro processor. </ulink></para>
+        </abstract>
+      </biblioentry>
+    </bibliodiv>
+  </bibliography>
+</article>

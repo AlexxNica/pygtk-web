@@ -1,3 +1,13 @@
+2004-02-20  Christian Reis <kiko@async.com.br>
+
+    * articles/, articles/applets_arturogf/, Makefile: add an articles
+    directory and add the first pygtk-web-hosted article, arturo's "Gnome
+    Applets with Python" tutorial.
+
+    * articles.src: link to the proper place now that it exists.
+
+    * head.src: cleanups and sillyness.
+
 2004-02-19  Lorenzo Gil Sanchez  <lgs@cvs.gnome.org>
 
 	* applications.src: Added Porthole.

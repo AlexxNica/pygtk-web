@@ -1,0 +1,193 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML
+><HEAD
+><TITLE
+>Moving on: Object Oriented Applets</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.7"><LINK
+REL="HOME"
+TITLE="Gnome applets with Python"
+HREF="index.html"><LINK
+REL="PREVIOUS"
+TITLE="Running the applet in its own window"
+HREF="x106.html"><LINK
+REL="NEXT"
+TITLE="The import section"
+HREF="x124.html"></HEAD
+><BODY
+CLASS="sect1"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Gnome applets with Python</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="x106.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="x124.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="sect1"
+><H1
+CLASS="sect1"
+><A
+NAME="AEN114"
+>3. Moving on: Object Oriented Applets</A
+></H1
+><P
+>Now that we know the basic steps to create and run the applet, we're going to structure the code in a simple way. We'll create a <TT
+CLASS="filename"
+>sample</TT
+> class, that will contain all the applet code. The new sample_applet_factory will call the class constructor:</P
+><PRE
+CLASS="programlisting"
+>&#13;        def sample_applet_factory(applet, iid):
+            Sample(applet,iid)
+            return gtk.TRUE
+    </PRE
+><DIV
+CLASS="sect2"
+><H2
+CLASS="sect2"
+><A
+NAME="AEN119"
+>3.1. The class definition</A
+></H2
+><P
+>The <TT
+CLASS="filename"
+>sample</TT
+> class will have the following skeleton, that we'll explain soon:</P
+><PRE
+CLASS="programlisting"
+>&#13;
+        [import section]
+
+        class Sample:
+
+              [class methods]
+
+              [callbacks methods]
+              
+              .....
+              
+              [optional timeout callback method]
+           
+              [create popup menu with the applet options]
+              
+              [
+               __init__ method
+ 
+                        [some instance variable definitions]          
+
+                        [signals handlers definitions]
+
+                        [widget definitions]
+
+                        [optionally reading glade.XML]
+
+                        [signal_autoconnect to handlers]
+              ]
+     </PRE
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="x106.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="x124.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Running the applet in its own window</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+>&nbsp;</TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>The import section</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

@@ -1,6 +1,7 @@
 WEBDIR ?= ${HOME}/www/pygtk-web
 IMGDIR = ${WEBDIR}/img
 DISTDIR = ${WEBDIR}/dist
+ARTICLEDIR = ${WEBDIR}/articles
 
 PYTHON = python2.2
 PROCESSOR = ${PYTHON} stp.py
@@ -21,7 +22,7 @@ CSS_FILES = default.css
 
 all: start_log dirs ${HTML_PAGES} extras finish_log
 
-dirs: ${WEBDIR} ${IMGDIR} ${DISTDIR}
+dirs: ${WEBDIR} ${IMGDIR} ${DISTDIR} ${ARTICLEDIR}
 
 start_log:
 	echo 'Starting to build the PyGTK web'
@@ -36,7 +37,10 @@ ${IMGDIR}:
 	mkdir -p ${IMGDIR}
 
 ${DISTDIR}:
-	mkdir -p ${WEBDIR}/dist
+	mkdir -p ${DISTDIR}
+
+${ARTICLEDIR}:
+	mkdir -p ${ARTICLEDIR}
 
 ${HTML_PAGES}: ${SRC_PAGES} ${COMMON_PAGES}
 
@@ -44,6 +48,7 @@ ${WEBDIR}/%.html: %.src
 	${PROCESSOR} $< > $@
 
 extras: ${CSS_FILES} img/*.png
+	cp -a articles/* ${ARTICLEDIR}
 	cp ${CSS_FILES} ${WEBDIR}
 	cp img/*.png ${IMGDIR}
 	(cd ${DISTDIR}; ${WGET} -qc ${TARBALLS})

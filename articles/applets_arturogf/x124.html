@@ -1,0 +1,177 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML
+><HEAD
+><TITLE
+>The import section</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.7"><LINK
+REL="HOME"
+TITLE="Gnome applets with Python"
+HREF="index.html"><LINK
+REL="PREVIOUS"
+TITLE="Moving on: Object Oriented Applets"
+HREF="x114.html"><LINK
+REL="NEXT"
+TITLE="The class constructor: __init__"
+HREF="x134.html"></HEAD
+><BODY
+CLASS="sect1"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Gnome applets with Python</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="x114.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="x134.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="sect1"
+><H1
+CLASS="sect1"
+><A
+NAME="AEN124"
+>4. The import section</A
+></H1
+><P
+>The first line of our python script will be the import section. Here we must include all the python modules we will need for our applet to run:</P
+><PRE
+CLASS="programlisting"
+>&#13;            import sys
+            import pygtk
+            pygtk.require('2.0')
+            import gtk
+            import gtk.glade
+            import gnome.applet
+            import gnome.ui
+            import os.path
+            import re
+            import gobject
+            import sample_globals as pglobals
+    </PRE
+><P
+>&#13;        As we can see, we need some GTK and GNOME modules, the gobject module (only if we subclass the applet from it) and the sample_globals, that is used in order to have a easy installation with autotools. The file <TT
+CLASS="filename"
+>sample_globals.py</TT
+> is maked when executing the <TT
+CLASS="filename"
+>configure</TT
+> script, and it contains the following in my gnome installation:
+        <PRE
+CLASS="programlisting"
+>&#13;            name = "sample"
+            version = "0.2"
+            image_dir = "/usr/share/pixmaps" 
+            glade_dir = "/usr/share/" + name
+        </PRE
+>
+    We can use this information to call to <TT
+CLASS="filename"
+>gnome.init()</TT
+> or <TT
+CLASS="filename"
+>glade.XML()</TT
+> methods and the ones that use images or icons as parameters, such as the about_box or the applet itself WITHOUT using absolute paths.
+    </P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="x114.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="x134.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Moving on: Object Oriented Applets</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+>&nbsp;</TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>The class constructor: __init__</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

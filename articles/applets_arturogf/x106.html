@@ -1,0 +1,169 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML
+><HEAD
+><TITLE
+>Running the applet in its own window</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.7"><LINK
+REL="HOME"
+TITLE="Gnome applets with Python"
+HREF="index.html"><LINK
+REL="PREVIOUS"
+TITLE="Gnome applets with Python"
+HREF="index.html"><LINK
+REL="NEXT"
+TITLE="Moving on: Object Oriented Applets"
+HREF="x114.html"></HEAD
+><BODY
+CLASS="sect1"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Gnome applets with Python</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="index.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="x114.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="sect1"
+><H1
+CLASS="sect1"
+><A
+NAME="AEN106"
+>2. Running the applet in its own window</A
+></H1
+><P
+>A common issue when developping an applet is the debug process which means knowing what it's failing and why. As an applet is nothing but a GTK+ application we can use an additional command line argument like "run-in-window" to put it in <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>window-mode</I
+></SPAN
+> by creating a GTK+ window and inserting the applet in it.</P
+><PRE
+CLASS="programlisting"
+>&#13;    if len(sys.argv) == 2 and sys.argv[1] == "run-in-window":   
+        main_window = gtk.Window(gtk.WINDOW_TOPLEVEL)
+        main_window.set_title("Python Applet")
+        main_window.connect("destroy", gtk.mainquit) 
+        app = gnome.applet.Applet()
+        sample_factory(app, None)
+        app.reparent(main_window)
+        main_window.show_all()
+        gtk.main()
+        sys.exit()
+    </PRE
+><P
+>We can see how the applet object use the <TT
+CLASS="filename"
+>gtk.Widget</TT
+> <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>reparent()</I
+></SPAN
+> method to change its parent to the GTK+ Window "main_window".</P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="x114.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Gnome applets with Python</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+>&nbsp;</TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Moving on: Object Oriented Applets</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>
