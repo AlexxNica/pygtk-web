@@ -1,3 +1,11 @@
+2004-03-07  Christian Reis <kiko@async.com.br>
+
+	* applications.src: Removed BugTool per Mikhail Sobolev's request --
+	it's not a pygtk app. The bugtool that *is* written in PyGTK is a
+	Bugzilla client written by jrb and alexl and announced at
+	http://www.redhat.com/archives/fedora-devel-list/2003-September/msg00481.html
+	(but I didn't add it because I didn't feel it's "released")
+
 2004-03-14  Lorenzo Gil Sanchez  <lgs@cvs.gnome.org>
 
 	* applications.src: added Mum.
@@ -9,13 +17,13 @@
 
 2004-03-07  Christian Reis <kiko@async.com.br>
 
-    * newsitems.src: added a note about PyGtkSpell to items. Updated the
-    gnome-print bounty item.
+	* newsitems.src: added a note about PyGtkSpell to items. Updated the
+	gnome-print bounty item.
 
 	* index.src: updated the maxlines.
 
-    * downloads.src: minor fixes to text, and using <strong> to make lgs
-    happy.
+	* downloads.src: minor fixes to text, and using <strong> to make lgs
+	happy.
 	
 2004-03-11  Lorenzo Gil Sanchez  <lgs@cvs.gnome.org>
 
@@ -30,8 +38,8 @@
 
 2004-03-07  Christian Reis <kiko@async.com.br>
     
-    * articles.src: added Lars' treeview tutorial, requested by Milton Moura
-    <miltonmoura@sapo.pt>.
+	* articles.src: added Lars' treeview tutorial, requested by Milton
+	Moura <miltonmoura@sapo.pt>.
 
 2004-03-07  Lorenzo Gil Sanchez  <lgs@cvs.gnome.org>
 
@@ -40,12 +48,12 @@
 
 2004-03-05  Christian Reis <kiko@async.com.br>
 
-    * feedback.src: minor visual fixups to first section.
+	* feedback.src: minor visual fixups to first section.
 
-    * developer.src: add links to "Report new bugs", patches pending and open
-    bugs.
+	* developer.src: add links to "Report new bugs", patches pending and
+	open bugs.
 	
-    * newsitems.src: Added an item on 2.2.0 RC1.
+	* newsitems.src: Added an item on 2.2.0 RC1.
 
 2004-03-03  Lorenzo Gil Sanchez  <lgs@cvs.gnome.org>
 
@@ -58,59 +66,60 @@
 
 2004-03-01  Christian Reis <kiko@async.com.br>
 
-    * tutorial.src: added link to version of tutorial in Bahasa Indonesia by
-    Mige Harimurti <mige_harimurti at yahoo dot com> 
+	* tutorial.src: added link to version of tutorial in Bahasa Indonesia
+	by Mige Harimurti <mige_harimurti at yahoo dot com> 
 
 2004-02-29  Christian Reis <kiko@async.com.br>
 
-    * developer.src: fix bonsai link to include gnome-python. Add a line about
-    triage and testcases.
+	* developer.src: fix bonsai link to include gnome-python. Add a line
+	about triage and testcases.
 
-    * downloads.src: add win32 section.
+	* downloads.src: add win32 section.
 
-    * Makefile: Added a "pages" target so you can invoke that without needing
-    to pull and untarring the manuals while testing the site (since that tends
-    to take some time).
+	* Makefile: Added a "pages" target so you can invoke that without
+	needing to pull and untarring the manuals while testing the site
+	(since that tends to take some time).
 
 2004-02-28  Christian Reis <kiko@async.com.br>
 
-    * people.src: added a link and updated johan's entry. Reordered the
-    entries alphabetically, changed the text slightly.
+	* people.src: added a link and updated johan's entry. Reordered the
+	entries alphabetically, changed the text slightly.
 
-    * about.src: minor reorganization, added links and boldified bits of text.
-    Added  a paragraph on the Python language.
+	* about.src: minor reorganization, added links and boldified bits of
+	text.  Added  a paragraph on the Python language.
 
-    * head.src: renamed Welcome for Home; I think it's slightly more
-    understandable.
+	* head.src: renamed Welcome for Home; I think it's slightly more
+	understandable.
 
-    * downloads.src: added links, headers, an opening paragraph and tidied up
-    CVS information slightly.
+	* downloads.src: added links, headers, an opening paragraph and tidied
+	up CVS information slightly.
 
-    * feedback.src, head.src: rename Feedback to Support, and change header.
-    Did minor wording cleanups to the text; fixed a <div> placed too early.
+	* feedback.src, head.src: rename Feedback to Support, and change
+	header.  Did minor wording cleanups to the text; fixed a <div> placed
+	too early.
 
-    * developer.src: reformatted page; added text, convenient links and extra
-    sections. This is just a first shot at where we might want to go with
-    this.
+	* developer.src: reformatted page; added text, convenient links and
+	extra sections. This is just a first shot at where we might want to go
+	with this.
 
-    I ispelled and wrapped things a bit here and there while I was at it.
+	I ispelled and wrapped things a bit here and there while I was at it.
 
 2004-02-27  Christian Reis <kiko@async.com.br>
 
-    * articles/applets_arturogf/x304.html: fix link.
+	* articles/applets_arturogf/x304.html: fix link.
 
 2004-02-25  Christian Reis <kiko@async.com.br>
     
-    * Makefile: use -N (instead of -c) to wget fetches the newer tarballs
-    correctly. Also inverted tar arguments to make Greg happy.
+	* Makefile: use -N (instead of -c) to wget fetches the newer tarballs
+	correctly. Also inverted tar arguments to make Greg happy.
 
-    * developer.src: Fix bug numbers.
+	* developer.src: Fix bug numbers.
 
-    * foot.src, reference.src, tutorial.src: fix dates to use ISO format.
+	* foot.src, reference.src, tutorial.src: fix dates to use ISO format.
 
-    * Makefile, tutorial.src, reference.src: add lgs' spanish translation 
-    of the tutorial, fixing the links to it in the tutorial page. Also updated
-    the tarball sizes.
+	* Makefile, tutorial.src, reference.src: add lgs' spanish translation
+	of the tutorial, fixing the links to it in the tutorial page. Also
+	updated the tarball sizes.
 
 2004-02-23  Lorenzo Gil Sanchez  <lgs@cvs.gnome.org>
 
@@ -136,20 +145,20 @@
 
 2004-02-20  Christian Reis <kiko@async.com.br>
 
-    * index.src, newsitems.src: added item for the GRAMS gnome-print bounty.
+	* index.src, newsitems.src: added item for the GRAMS gnome-print bounty.
 
-    * Makefile: added newsitems.src to the SRC_PAGES list, I forgot all about
-    it when I broke it apart!
+	* Makefile: added newsitems.src to the SRC_PAGES list, I forgot all
+	about it when I broke it apart!
 
-    * applications.src: added fslint (requested by  P@draigBrady.com)
+	* applications.src: added fslint (requested by  P@draigBrady.com)
 
-    * articles/, articles/applets_arturogf/, Makefile: add an articles
-    directory and add the first pygtk-web-hosted article, arturo's "Gnome
-    Applets with Python" tutorial.
+	* articles/, articles/applets_arturogf/, Makefile: add an articles
+	directory and add the first pygtk-web-hosted article, arturo's "Gnome
+	Applets with Python" tutorial.
 
-    * articles.src: link to the proper place now that it exists.
+	* articles.src: link to the proper place now that it exists.
 
-    * head.src: cleanups and sillyness.
+	* head.src: cleanups and sillyness.
 
 2004-02-19  Lorenzo Gil Sanchez  <lgs@cvs.gnome.org>
 
@@ -176,22 +185,23 @@
 
 2004-02-09  Christian Reis <kiko@async.com.br>
 
-    * index.src: changed our main heading to something more enthusiastic if
-      slightly imprecise :-)
+	* index.src: changed our main heading to something more enthusiastic
+	if slightly imprecise :-)
 
-    * applications.src: Added CLAW, did spellcheck, 72-char wrap and cleanup.
+	* applications.src: Added CLAW, did spellcheck, 72-char wrap and cleanup.
 
-    * default.css: minor style updates
+	* default.css: minor style updates
 
-    * index.src, head.src: move out duplicated code into head.src, which has
-      the disadvantage of including the about text everywhere; the proper
-      solution of course is for lgs to provide us with a proper template
-      language :-)
+	* index.src, head.src: move out duplicated code into head.src, which
+	has the disadvantage of including the about text everywhere; the
+	proper solution of course is for lgs to provide us with a proper
+	template language :-)
 
-    * index.src, news.src, newsitems.src: added a new newsitems template which
-      holds news, so we don't duplicate it between the index and news pages.
+	* index.src, news.src, newsitems.src: added a new newsitems template
+	which holds news, so we don't duplicate it between the index and news
+	pages.
 
-    * foot.src: removed spurious line break
+	* foot.src: removed spurious line break
 
 2004-01-22  Lorenzo Gil Sanchez  <lgs@cvs.gnome.org>
 
@@ -203,7 +213,7 @@
 
 2003-01-19  Christian Reis <kiko@async.com.br>
 
-    * applications.src: Added BloGTK.
+	* applications.src: Added BloGTK.
 
 2004-01-19  Lorenzo Gil Sanchez  <lgs@cvs.gnome.org>
 
@@ -264,16 +274,17 @@
 	
 2003-12-13  Christian Reis <kiko@async.com.br>
 
-    * Makefile: add commands to the extras target to pull the reference and
-    tutorial tarballs from John's moeraki.com. Simplified some of the
-    directory creation rules. The Makefile is rebuilding every file when one
-    of them changes, which seems broken, but right now it does the job. 
+	* Makefile: add commands to the extras target to pull the reference
+	and tutorial tarballs from John's moeraki.com. Simplified some of the
+	directory creation rules. The Makefile is rebuilding every file when
+	one of them changes, which seems broken, but right now it does the
+	job. 
 
-    We can move to rsync when it's set up (it's better in dealing with tarball
-    changes than a wget -c).
+	We can move to rsync when it's set up (it's better in dealing with
+	tarball changes than a wget -c).
 
-    * tutorial.src, reference.src: reordered tutorials and commented out lgs'
-    version for now. Relinked tarballs from dist/.
+	* tutorial.src, reference.src: reordered tutorials and commented out
+	lgs' version for now. Relinked tarballs from dist/.
 
 2003-12-12  Lorenzo Gil Sanchez  <lgs@cvs.gnome.org>
 
@@ -286,9 +297,9 @@
 
 2003-12-12  Christian Reis <kiko@async.com.br>
 
-    * Makefile: ensure that CSS and PNGs are copied over by using an extras
-    .PHONY target. This could be nicer (since it will copy them every time we
-    run make)..
+	* Makefile: ensure that CSS and PNGs are copied over by using an
+	extras .PHONY target. This could be nicer (since it will copy them
+	every time we run make)..
 
 2003-12-13  Jeff Waugh  <jdub@perkypants.org>
 
@@ -308,3 +319,4 @@
 	SRC_PAGES. Add CSS_FILES definition. Add rules for creating IMGDIR,
 	TUTDIRS and REFDIRS. Add commands to copy image files and css files.
 
+# vi: set ts=8 sts=8 noexpandtab:
