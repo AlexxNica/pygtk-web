@@ -11,6 +11,15 @@ item = lambda *x: items.append(x)
 #      INSERT TEXT HERE
 #      """)
 
+item("We got RSS!",
+     (2004, 9, 8),
+     """
+     Sridhar R. contributed code to the PyGTK.org website that generates
+     an RSS feed of the latest news items posted. This code has been
+     integrated over the weekend and is currently live. Please send
+     feedback and report problems to pygtk-web at pygtk dot org.
+     """)
+
 item("Devhelp support added to the PyGTK Reference manual v2.4.10",
      (2004, 8, 12),
      """

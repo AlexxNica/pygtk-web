@@ -16,6 +16,10 @@
 	and using format-specific setup_items functions. Hopefully this is
 	good enough to go public.
 
+	* head.src: add a link to the RSS output we now have.
+
+	* newsitems.py: add an item on Sridhar's contributed RSS code!
+
 2004-09-04  Christian Reis <kiko@async.com.br>
 	
 	* feed.py, newsitems.py, news.src, index.src: merge contributed
