@@ -301,7 +301,7 @@
   placed inside a dialog, along with supporting code that handles a lot of the
   mundane details inherent in most gui database apps.</dd>
 
-  <dt><a href="http://pyirc.tuxfamily.org/">PyIRC</a></dt>
+  <dt><a href="http://www.defuze.org/oss/pyirc/index.htm/">PyIRC</a></dt>
   <dd>PyIrc is a Python module which tends to implement RFC 1459 and
   part of RFC 2812. One of the main goal of the project was to provide a
   module completely independent from the interface. As such, you can use
