@@ -6,6 +6,16 @@
 of your favourite Python graphical toolkit. As always testing and bug reports
 are very much appreciated!.</p>
 
+<h4>PyGtkSpell 0.3.1 "Static Cling" released!</h4>
+<h5>Thursday 8th March 2004</h5>
+<p>John (J5) Palmieri released a new version of <a
+href="http://martianrock.com/pygtkspell/">PyGtkSpell</a>, the Python
+bindings for the easy-to-use GtkSpell spell checker. GtkSpell works in
+conjunction with the GtkTextView widget to give programs spell checking
+capabilities with only a few lines of code. Download the <a
+href="http://martianrock.com/dropzone/pygtkspell-0.3.1.tar.gz">PyGtkSpell
+source tarball.</a></p>
+
 <h4>PyGTK 2.2.0 Release Candidate 1</h4>
 <h5>Friday 05th March 2004</h5>
 The first <a href="http://www.gnome.org/~jdahlin/pygtk-2.2.0-RC1.tar.gz

@@ -6,10 +6,11 @@
 
 <h3>Latest news&#8230;</h3>
 
-<!--stp:include('newsitems.src', maxlines=38) -->
+<!--stp:include('newsitems.src', maxlines=46) -->
 
 <center>
-<p>Check the <a href="news.html">News section</a> for older news</p>
+<p><small>Check the <a href="news.html">News section</a> for older
+news</small></p>
 </center>
 
 </div>
