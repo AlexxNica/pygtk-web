@@ -22,6 +22,14 @@
   allows you to connect with many weblog systems such as Blogger,
   Movable Type, pMachine, and more.</dd>
 
+  <dt><a href="http://thecircle.org.au">Circle</a></dt>
+  <dd>The Circle is an open source scalable decentralized peer to peer
+  application. What does that mean? Well, there's no central authority
+  running the show. No entry taxes either, no censorship, and (in theory)
+  no weak point which can break the whole system. No one even owns the source
+  code. As long as there is one Circle peer running, anywhere in the world,
+  there's still a network.</dd>
+
   <dt><a href="http://groundhog.zevallos.com/">CLAW</a></dt>
   <dd>Claw is a file browser designed as an alternative to the default
   browser in XFCE4. It has an icon view rather than a list based user
