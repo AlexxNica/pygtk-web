@@ -19,12 +19,12 @@ SRC_PAGES = index.src about.src screenshots.src news.src downloads.src \
 			tutorial.src reference.src developer.src
 
 HTML_PAGES = $(patsubst %.src, ${WEBDIR}/%.html, ${SRC_PAGES})
-COMMON_PAGES = head.src foot.src
+COMMON_PAGES = head.src foot.src newsitems.py feed.py
 CSS_FILES = default.css
 
 all: start_log pages tarballs finish_log
 
-pages: dirs news ${HTML_PAGES} extras 
+pages: dirs news.rss ${HTML_PAGES} extras 
 
 dirs: ${WEBDIR} ${IMGDIR} ${DISTDIR} ${ARTICLEDIR}
 
@@ -51,14 +51,15 @@ ${HTML_PAGES}: ${SRC_PAGES} ${COMMON_PAGES}
 ${WEBDIR}/%.html: %.src
 	${PROCESSOR} $< > $@
 
-news: newsitems.py
+news.rss: newsitems.py feed.py
 	${PYTHON} feed.py
-	cp news.rss ${WEBDIR}
 
 extras: ${CSS_FILES} img/*.png
 	cp -a articles/* ${ARTICLEDIR}
 	cp ${CSS_FILES} ${WEBDIR}
 	cp img/*.png ${IMGDIR}
+	cp news.rss ${WEBDIR}
+	cp .htaccess ${WEBDIR}/.htaccess
 
 tarballs:
 	-(cd ${DISTDIR}; ${WGET} -KN ${TARBALLS})
@@ -67,4 +68,4 @@ tarballs:
 clean:
 	rm -f ${HTML_PAGES}
 
-.PHONY:	all dirs extras tarballs pages start_log finish_log news
+.PHONY:	all dirs extras tarballs pages start_log finish_log
