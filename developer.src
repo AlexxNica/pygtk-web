@@ -52,11 +52,23 @@ reports.
 </ul>
 
 
-<h4>Long-standing bugs (help wanted!)</h4>
+<h4>Bugs that need attention (help or reviews wanted!)</h4>
 
 <ul>
-   <li><a href="http://bugzilla.gnome.org/show_bug.cgi?id=110261">garbage collector not invoked often enough -> mem leaks</a></li>
-   <li><a href="http://bugzilla.gnome.org/show_bug.cgi?id=81879">GObject properties as descriptors</a></li>
+   <!-- <li><a href=""></a></li> -->
+   <li><a
+   href="http://bugzilla.gnome.org/show_bug.cgi?id=138804">138804</a>:
+   gdk_font_get_display and gdk_pixmap_lookup are now available on win32</li>
+   <li><a href="http://bugzilla.gnome.org/show_bug.cgi?id=121629">121629</a>:
+   Wrapper for gnome-vfs async API</li>
+   <li><a href="http://bugzilla.gnome.org/show_bug.cgi?id=122569">122569</a>:
+   gtk.Window derived class segfaults</li>
+   <li><a
+   href="http://bugzilla.gnome.org/show_bug.cgi?id=126477">126477</a>:pyORBit
+   and threading</li>
+   <li><a
+   href="http://bugzilla.gnome.org/show_bug.cgi?id=81879">81879</a>:GObject
+   properties as descriptors</li>
 </ul>
 
 <h3>CVS Activity</h3>
