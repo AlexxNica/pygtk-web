@@ -1,3 +1,10 @@
+2004-10-05  Lorenzo Gil Sanchez  <lgs@sicem.biz>
+
+	* downloads.src: updated the current version
+
+	* newsitems.py (item): added item for PyGTK 2.4.0, Gnome-Python 2.6.0
+	and PyOrbit 2.0.1
+
 2004-10-04  John Finlay  <finlay@moeraki.com>
 
 	* reference.src: Update version and date info.

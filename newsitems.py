@@ -12,6 +12,18 @@ item = lambda *x: items.append(x)
 #      INSERT TEXT HERE
 #      """)
 
+item("Pygtk 2.4.0, Gnome-Python 2.6.0 and PyOrbit 2.0.1 hit the streets",
+     (2004, 10, 5),
+     """
+     The PyGtk team is very happy to announce the final version of
+     <a href="http://ftp.gnome.org/pub/GNOME/sources/pygtk/2.4/">PyGTK
+     2.4.0</a> and other important related packages like
+     <a href="http://ftp.gnome.org/pub/GNOME/sources/gnome-python/2.6/">Gnome-Python 2.6.0</a> and
+     <a href="http://ftp.gnome.org/pub/GNOME/sources/pyorbit/2.0/">PyOrbit 2.0.1</a>. A lot of exciting functionality from GTK+ 2.4.0 is
+     inside this new version so better applications can be developed with it.
+     As always we are eager to listen your feedback!
+     """)
+
 item("PyGTK 2.4.0 rc1 (aka PyGTK 2.3.97)",
      (2004, 9, 28),
      """
