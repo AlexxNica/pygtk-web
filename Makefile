@@ -1,23 +1,27 @@
 WEBDIR ?= ${HOME}/www/pygtk-web
-IMGDIR = ${HOME}/www/pygtk-web/img
-TUTDIRS = ${HOME}/www/pygtk-web/pygtktutorial \
-		${HOME}/www/pygtk-web/pygtk2tutorial \
-		${HOME}/www/pygtk-web/pygtk2tutorial-lgs
-REFDIRS = ${HOME}/www/pygtk-web/pygtk2reference
+IMGDIR = ${WEBDIR}/img
+DISTDIR = ${WEBDIR}/dist
 
-PYTHON = python2
+PYTHON = python2.2
 PROCESSOR = ${PYTHON} stp.py
 
+WGET = wget # XXX move to rsync
+TARBALLS = http://www.moeraki.com/pygtkreference/pygtk2reference.tgz \
+		   http://www.moeraki.com/pygtktutorial/pygtk2tutorial.tgz \
+		   http://www.moeraki.com/pygtktutorial/pygtktutorial.tgz
+		   # XXX: add lgs' spanish version
+
 SRC_PAGES = index.src about.src screenshots.src news.src downloads.src \
-		 feedback.src applications.src people.src articles.src \
-		tutorial.src reference.src
+			feedback.src applications.src people.src articles.src \
+			tutorial.src reference.src
+
 HTML_PAGES = $(patsubst %.src, ${WEBDIR}/%.html, ${SRC_PAGES})
 COMMON_PAGES = head.src foot.src
 CSS_FILES = default.css
 
 all: dirs ${HTML_PAGES} extras
 
-dirs: ${WEBDIR} ${IMGDIR} ${TUTDIRS} ${REFDIRS}
+dirs: ${WEBDIR} ${IMGDIR} ${DISTDIR}
 
 ${WEBDIR}:
 	mkdir -p ${WEBDIR}
@@ -25,11 +29,8 @@ ${WEBDIR}:
 ${IMGDIR}:
 	mkdir -p ${IMGDIR}
 
-${TUTDIRS}:
-	mkdir -p ${TUTDIRS}
-
-${REFDIRS}:
-	mkdir -p ${REFDIRS}
+${DISTDIR}:
+	mkdir -p ${WEBDIR}/dist
 
 ${HTML_PAGES}: ${SRC_PAGES} ${COMMON_PAGES}
 
@@ -39,6 +40,8 @@ ${WEBDIR}/%.html: %.src
 extras: ${CSS_FILES} img/*.png
 	cp ${CSS_FILES} ${WEBDIR}
 	cp img/*.png ${IMGDIR}
+	(cd ${DISTDIR}; ${WGET} -qc ${TARBALLS})
+	(cd ${WEBDIR}; for f in ${DISTDIR}/*.tgz; do tar xfz $$f ; done)
 
 clean:
 	rm -f ${HTML_PAGES}

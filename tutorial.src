@@ -4,24 +4,26 @@
 
 <h2>PyGTK Tutorials</h2>
         
-<h3>PyGTK Tutorial  for GTK+ 1.x and PyGTK 0.6.x</h3>
- Last updated 3/31/2002<br>
- 
-<ul>
-   <li><a href="pygtktutorial/index.html">Tutorial</a></li>
-   <li><a href="pygtktutorial.tgz">Gzip'd Tarball of Tutorial</a> (1.4MB)</li>
-</ul>
-          
 <h3>PyGTK 2.0 Tutorial for GTK+ 2.0 and PyGTK 2.0.x</h3>
     Version 1.2 Last updated 10/7/2003<br>
  
 <ul>
    <li><a href="pygtk2tutorial/index.html">Tutorial</a></li>
-   <li><a href="pygtk2tutorial.tgz">Gzip'd Tarball of Tutorial</a> (1.60MB)</li>
+   <li><a href="dist/pygtk2tutorial.tgz">Gzip'd Tarball of Tutorial</a> (1.60MB)</li>
 </ul>
 
+<h3>PyGTK Tutorial  for GTK+ 1.x and PyGTK 0.6.x</h3>
+ Last updated 3/31/2002<br>
+ 
+<ul>
+   <li><a href="pygtktutorial/index.html">Tutorial</a></li>
+   <li><a href="dist/pygtktutorial.tgz">Gzip'd Tarball of Tutorial</a> (1.4MB)</li>
+</ul>
+          
+<!-- XXX lgs-hack
 <h3><a href="pygtk2tutorial-lgs/index.html">Tutorial de PyGTK 2.0 para GTK+ 2.0 y PyGTK 2.0.0</a></h3>
 Traducción: Lorenzo Gil Sánchez<br>
+-->
  
 </div>
 

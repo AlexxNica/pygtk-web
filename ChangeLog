@@ -1,3 +1,16 @@
+2003-12-13  Christian Reis <kiko@async.com.br>
+
+    * Makefile: add commands to the extras target to pull the reference and
+    tutorial tarballs from John's moeraki.com. Simplified some of the
+    directory creation rules. The Makefile is rebuilding every file when one
+    of the changes, which seems broken, but right now it does the job. 
+
+    We can move to rsync when it's set up (it's better in dealing with tarball
+    changes than a wget -c).
+
+    * tutorial.src, reference.src: reordered tutorials and commented out lgs'
+    version for now. Relinked tarballs from dist/.
+
 2003-12-12  Lorenzo Gil Sanchez  <lgs@cvs.gnome.org>
 
 	* feedback.src: More information about how to fill a bug report.
@@ -7,7 +20,7 @@
 	* applications.src: Added Red Carpet, Anaconda, Bugtool, Point2Play,
 	Gnome Blog, Sketch and Wing IDE.
 
-2003-12-13  Christian Reis <kiko@async.com.br>
+2003-12-12  Christian Reis <kiko@async.com.br>
 
     * Makefile: ensure that CSS and PNGs are copied over by using an extras
     .PHONY target. This could be nicer (since it will copy them every time we
