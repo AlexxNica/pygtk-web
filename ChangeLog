@@ -1,3 +1,9 @@
+2004-09-29  Lorenzo Gil Sanchez  <lgs@sicem.biz>
+
+	* feed.py: added link support
+
+	* default.css (a): make the rules for 'a' only apply to link elements
+
 2004-09-28  Lorenzo Gil Sanchez  <lgs@sicem.biz>
 
 	* newsitems.py : added item for PyGTK 2.3.97

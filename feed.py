@@ -22,8 +22,9 @@ import time, cgi
 # Convenience function imported by newsitems.py; this is essentially a
 # circular import but it's not really important and uses less files
 #
-def setup_rss_item(title, date, desc):
+def setup_rss_item(index, title, date, desc):
     ret = {}
+    ret['link'] = 'http://www.pygtk.org/news.html#item%d' % index
     ret['title'] = cgi.escape(title)
     date = time.strptime("%s %s %s" % date, "%Y %m %d")
     # XXX someday the time and GMT hack will bite us in the rear
@@ -31,8 +32,9 @@ def setup_rss_item(title, date, desc):
     ret['description'] = cgi.escape(desc)
     return ret
 
-def setup_item(title, date, desc):
+def setup_item(index, title, date, desc):
     ret = {}
+    ret['anchor'] = "item%d" % index
     ret['title'] = title
     date = time.strptime("%s %s %s" % date, "%Y %m %d")
     ret['pubDate'] = time.strftime("%A %d %B %Y", date)
@@ -75,6 +77,7 @@ rss_image = r"""
 rss_item_template = r"""
   <item>
     <title>%(title)s</title>
+    <link>%(link)s</link>
     <pubDate>%(pubDate)s</pubDate>
     <description>%(description)s</description>
   </item>
@@ -82,8 +85,10 @@ rss_item_template = r"""
 
 def write_rss(fp, items):
     sections = [rss_header, rss_image]
-    for item in items:
-        sections.append(rss_item_template % setup_rss_item(*item))
+    n_items = len(items)
+    for index, item in enumerate(items):
+        sections.append(rss_item_template % setup_rss_item(n_items - index,
+                                                           *item))
     sections.append(rss_footer)
     fp.write(''.join(sections))
     
@@ -91,7 +96,7 @@ def write_rss(fp, items):
 
 src_item_template = r"""
 <div class="news">
-<h4>%(title)s</h4>
+<h4><a name="#%(anchor)s">%(title)s</a></h4>
 <h5>%(pubDate)s</h5>
 <p>%(description)s</p>
 </div>
@@ -99,8 +104,9 @@ src_item_template = r"""
 
 def write_src(fp, items):
     sections = []
-    for item in items:
-        sections.append(src_item_template % setup_item(*item))
+    n_items = len(items)
+    for index, item in enumerate(items):
+        sections.append(src_item_template % setup_item(n_items - index, *item))
     fp.write(''.join(sections))
     
 def items_to_rss(items, rss_file, maxitems=0):

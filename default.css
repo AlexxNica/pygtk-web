@@ -11,15 +11,15 @@ a img {
   border: 0;
 }
 
-a {
+a:link {
   color: #0000ff;
 }
 
-a:visited {
+a:link:visited {
   color: #551a8b;
 }
 
-a:active {
+a:link:active {
   color: #ff0000;
 }
 
