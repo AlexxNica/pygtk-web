@@ -1,3 +1,8 @@
+2004-03-01  Christian Reis <kiko@async.com.br>
+
+    * tutorial.src: added link to version of tutorial in Bahasa Indonesia by
+    Mige Harimurti <mige_harimurti at yahoo dot com> 
+
 2004-02-29  Christian Reis <kiko@async.com.br>
 
     * developer.src: fix bonsai link to include gnome-python. Add a line about
