@@ -5,7 +5,7 @@ TUTDIRS = ${HOME}/www/pygtk-web/pygtktutorial \
 		${HOME}/www/pygtk-web/pygtk2tutorial-lgs
 REFDIRS = ${HOME}/www/pygtk-web/pygtk2reference
 
-PYTHON = python2.2
+PYTHON = python2
 PROCESSOR = ${PYTHON} stp.py
 
 SRC_PAGES = index.src about.src screenshots.src news.src downloads.src \
