@@ -1,3 +1,10 @@
+2004-09-31  Christian Reis <kiko@async.com.br>
+
+	* newsitems.py: add a -*- coding header
+
+	* feed.py: use range(len(x)) instead of enumerate to make us
+	python2.2-compliant.
+
 2004-09-30  Lorenzo Gil Sanchez  <lgs@sicem.biz>
 
 	* head.src : added a link in the head section announcing the rss

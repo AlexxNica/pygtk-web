@@ -86,7 +86,8 @@ rss_item_template = r"""
 def write_rss(fp, items):
     sections = [rss_header, rss_image]
     n_items = len(items)
-    for index, item in enumerate(items):
+    for index in range(len(items)):
+        item = items[index]
         sections.append(rss_item_template % setup_rss_item(n_items - index,
                                                            *item))
     sections.append(rss_footer)
@@ -105,7 +106,8 @@ src_item_template = r"""
 def write_src(fp, items):
     sections = []
     n_items = len(items)
-    for index, item in enumerate(items):
+    for index in range(len(items)):
+        item = items[index]
         sections.append(src_item_template % setup_item(n_items - index, *item))
     fp.write(''.join(sections))
     

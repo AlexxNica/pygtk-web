@@ -1,3 +1,4 @@
+# -*- encoding: iso-8859-1 -*-
 # Setup code, stay away
 items = []
 item = lambda *x: items.append(x)
