@@ -1,3 +1,7 @@
+2005-03-21  Christian Reis <kiko@async.com.br>
+
+	* applications.py: added gSmile
+
 2005-03-16  Lorenzo Gil Sanchez  <lgs@sicem.biz>
 
 	* newsitems.py: added 2.6.1 announcement
