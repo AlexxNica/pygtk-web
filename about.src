@@ -4,26 +4,42 @@
 
 <h2>About PyGTK</h2>
 <p>
-GTK is a toolkit for developing graphical applications that run on POSIX 
-systems such as Linux, Windows and MacOS X (provided that the X server 
-for MacOS X has been installed).  It provides a comprehensive set of GUI 
-widgets, can display Unicode bidi text.  It links into the Gnome 
-Accessibility Framework through the ATK library.
+PyGTK provides <b>a convenient wrapper</b> for the <a
+href="http://gtk.org/">GTK+ library</a> for use in <a
+href="http://python.org/">Python</a> programs, taking care of many of
+the boring details such as managing memory and type casting.  When
+combined with PyORBit and gnome-python, it can be used to write full
+featured Gnome applications.
 </p>
 <p>
-PyGTK provides a convenient wrapper for the GTK library for use in 
-Python programs, and takes care of many of the boring details such as 
-managing memory and type casting.  When combined with PyORBit and 
-gnome-python, it can be used to write full featured Gnome applications.
+GTK+ is a GUI toolkit for <b>developing graphical applications</b> that
+run on POSIX systems such as Linux, Windows and MacOS X (provided that
+an X server for MacOS X has been installed).  It provides a
+comprehensive set of <b>widgets</b>, and supports Unicode and
+bidirectional text.  It links into the <b>Gnome Accessibility
+Framework</b> through the ATK library.
 </p>
 <p>
-Like the GTK library itself PyGTK is licensed under the GNU LGPL, so is 
-suitable for use in both free software and proprietary applications.  It 
-is already in use in many applications ranging from small single purpose 
-scripts up to large full features applications.
+Python is an interpreted, interactive, <b>object-oriented programming
+language</b>. It is often compared to Tcl, Perl, Scheme or Java. Python
+combines remarkable power with very clear syntax. It has modules,
+classes, exceptions, very high level dynamic data types, and dynamic
+typing. 
 </p>
+
 <p>
-PyGTK requires GTK >= 2.0 and Python >= 2.2 to build.
+The current version of PyGTK requires GTK+ >= 2.0 and Python >= 2.2 to
+build.
+</p>
+
+<h3>License</h3>
+
+<p>
+Like the GTK+ library itself PyGTK is licensed under the <b>GNU
+LGPL</b>, so is suitable for use in both free software and proprietary
+applications.  It is already in use in <a href="applications.html">many
+applications</a> ranging from small single purpose scripts up to large
+full features applications.
 </p>
 
 </div>
