@@ -24,6 +24,12 @@
     </tr>
 
     <tr>
+      <td>August 2004</td>
+      <td><a href="http://patrick.wagstrom.net/tutorials/pygtkmozembed/pygtkmozembed.html">Creating a GNOME Web Browser with Python</a></td>
+      <td>Patrick Wagstrom</td>
+    </tr>
+
+    <tr>
       <td>July 2004</td>
       <td><a href="http://www.linuxjournal.com/article.php?sid=7421">Rapid
       Application Development with Python and Glade</a></td>
