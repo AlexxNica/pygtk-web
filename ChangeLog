@@ -1,3 +1,9 @@
+2003-12-15  Lorenzo Gil Sanchez <lgs@cvs.gnome.org>
+
+	* img/appwindow.png, img/colorselector.png, messagedialog.png: Changed
+	the old screenshots because they were taken with the spanish locale
+	instead of the english one.
+	
 2003-12-13  Christian Reis <kiko@async.com.br>
 
     * Makefile: add commands to the extras target to pull the reference and
