@@ -1,3 +1,8 @@
+2004-09-08  Christian Reis <kiko@async.com.br>
+
+	* applications.src: fix Mum, broken link reported by Nicolas Girard
+	<nicolas.girard@nerim.net>.
+
 2004-09-04  Christian Reis <kiko@async.com.br>
 	
 	* feed.py, newsitems.py, news.src, index.src: merge contributed
