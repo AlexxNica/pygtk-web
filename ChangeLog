@@ -3,6 +3,8 @@
 	* applications.src: fix Mum, broken link reported by Nicolas Girard
 	<nicolas.girard@nerim.net>.
 
+	* default.css: remove h5's bottom margin.
+
 2004-09-04  Christian Reis <kiko@async.com.br>
 	
 	* feed.py, newsitems.py, news.src, index.src: merge contributed
