@@ -1,3 +1,7 @@
+2005-01-23  Johan Dahlin  <johan@gnome.org>
+
+	* newsitems.py (item): PyGTK 2.5.3
+
 2005-01-20  Lorenzo Gil Sanchez  <lgs@sicem.biz>
 
 	* newsitems.py (item): added an entry about spanish tutorial release
