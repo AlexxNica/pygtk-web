@@ -44,6 +44,8 @@ few books, quite a bit of pizza, or a new disk drive.''
 For more information and the requirements, see the 
 <a href="http://gramps.sourceforge.net/phpwiki/index.php/GnomePrintBounty">
 Gnome Print Bounty page</a> on the GRAMPS wiki.
+<p><strong>Updated 2004-03-11</strong>: Alex Roitman took up the challenge and has
+finished integration of gnome-python with GRAMPS.</p>
 </div>
 
 <div class="news">
