@@ -16,7 +16,7 @@ TARBALLS = http://www.moeraki.com/pygtkreference/pygtk2reference.tgz \
 
 SRC_PAGES = index.src about.src screenshots.src news.src downloads.src \
 			feedback.src applications.src people.src articles.src \
-			tutorial.src reference.src newsitems.src developer.src
+			tutorial.src reference.src developer.src
 
 HTML_PAGES = $(patsubst %.src, ${WEBDIR}/%.html, ${SRC_PAGES})
 COMMON_PAGES = head.src foot.src
@@ -24,7 +24,7 @@ CSS_FILES = default.css
 
 all: start_log pages tarballs finish_log
 
-pages: dirs ${HTML_PAGES} extras 
+pages: dirs news ${HTML_PAGES} extras 
 
 dirs: ${WEBDIR} ${IMGDIR} ${DISTDIR} ${ARTICLEDIR}
 
@@ -51,6 +51,10 @@ ${HTML_PAGES}: ${SRC_PAGES} ${COMMON_PAGES}
 ${WEBDIR}/%.html: %.src
 	${PROCESSOR} $< > $@
 
+news: newsitems.py
+	${PYTHON} feed.py
+	cp news.rss ${WEBDIR}
+
 extras: ${CSS_FILES} img/*.png
 	cp -a articles/* ${ARTICLEDIR}
 	cp ${CSS_FILES} ${WEBDIR}
@@ -63,4 +67,4 @@ tarballs:
 clean:
 	rm -f ${HTML_PAGES}
 
-.PHONY:	all dirs extras tarballs pages start_log finish_log
+.PHONY:	all dirs extras tarballs pages start_log finish_log news

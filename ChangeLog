@@ -1,3 +1,12 @@
+2004-09-04  Christian Reis <kiko@async.com.br>
+	
+	* feed.py, newsitems.py, news.src, index.src: merge contributed
+	RSS-generating code from R. Sridhar <sridharinfinity@users.sf.net>;
+	migrated all news to the newsitems.py format I just invented, and
+	updated the pages to use the versions being generated.
+
+	Keep an eye out for breakage, it should work fine but who knows :-)
+
 2004-08-20  Christian Reis <kiko@async.com.br>
 
 	* applications.src: the claw is dead
