@@ -1,3 +1,11 @@
+2004-01-22  Lorenzo Gil Sanchez  <lgs@cvs.gnome.org>
+
+	* default.css: update the width of h3, h4 and h5 since we don't have
+	the about box in the welcome page anymore.
+
+	* index.src: The index.src does not include head.src because the side
+	bar is slightly different (it includes a small about box).
+
 2003-01-19  Christian Reis <kiko@async.com.br>
 
     * applications.src: Added BloGTK.

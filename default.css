@@ -154,10 +154,6 @@ a:active {
   border-bottom: 1px solid #d6e7ff;
 }
 
-#mainText h3, #mainText h4, #mainText h5 {
-  width: 65%;
-}
-
 div#about {
   float: right;
   padding: 10px;
