@@ -17,6 +17,12 @@
   <tbody>
 
     <tr>
+      <td>Feb 2004</td>
+      <td><a href="http://www.ugr.es/~arturogf/applets/">Gnome applets with Python</a></td>
+      <td>Arturo G. Ferrer</td>
+    </tr>
+
+    <tr>
       <td>Nov 2003</td>
       <td><a href="http://www.sicem.biz/personal/lgs/docs/gobject-python/gobject-tutorial.html">Sub-classing GObject in Python</a></td>
       <td>Lorenzo G. Sanchez</td>

@@ -1,3 +1,7 @@
+2004-02-09  Lorenzo Gil Sanchez  <lgs@cvs.gnome.org>
+
+	* articles.src: added the 'Gnome applets with Python' article
+
 2004-02-09  Christian Reis <kiko@async.com.br>
 
     * index.src: changed our main heading to something more enthusiastic if
