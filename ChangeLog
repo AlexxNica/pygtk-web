@@ -4,6 +4,8 @@
 
     * developer.src: add links to "Report new bugs", patches pending and open
     bugs.
+	
+    * newsitems.src: Added an item on 2.2.0 RC1.
 
 2004-03-03  Lorenzo Gil Sanchez  <lgs@cvs.gnome.org>
 
@@ -115,7 +117,7 @@
 
 2004-02-11  Lorenzo Gil Sanchez  <lgs@cvs.gnome.org>
 
-	* newsitems.src: Added a new about the Gnome applets tutorial.
+	* newsitems.src: Added a new item about the Gnome applets tutorial.
 
 	* index.src: changed the call to include('newsitems.src') to use
 	the new maxlines parameter.

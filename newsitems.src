@@ -1,4 +1,14 @@
 <div class="news">
+<h4>PyGTK 2.2.0 Release Candidate 1</h4>
+<h5>Friday 05th March 2004</h5>
+The first <a href="http://www.gnome.org/~jdahlin/pygtk-2.2.0-RC1.tar.gz
+">release candidate for PyGTK 2.2.0</a> is out. Testing and bug reports
+are very much appreciated! Lorenzo has prepared a <a
+href="http://www.sicem.biz/personal/lgs/cosas/pygtk-2-2-0-changes
+">summary of changes</a>, and you can also check out Bonsai's <a
+href="http://cvs.gnome.org/bonsai/cvsquery.cgi?treeid=default&branch=HEAD&branchtype=match&dir=gnome-python%2Fpygtk&file=&filetype=match&who=&whotype=match&sortby=Date&hours=2&date=explicit&mindate=2003-09-02&maxdate=2004-03-05&cvsroot=%2Fcvs%2Fgnome">detailed
+checkin list</a>.
+
 <h4>gnome-print bounty announced by GRAMPS team</h4>
 <h5>Friday 20th February 2004</h5>
 <a href="http://gramps.sf.net/">GRAMPS</a> is a pygtk/gnome-python based
