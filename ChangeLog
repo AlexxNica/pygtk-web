@@ -1,3 +1,7 @@
+2004-01-14  Johan Dahlin  <johan@gnome.org>
+	
+	* newsitem.py: Add PyGTK 2.5.2
+
 2004-12-23  Johan Dahlin  <johan@gnome.org>
 
 	* applications.src: added Bittorrent.
