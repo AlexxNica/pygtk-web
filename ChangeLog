@@ -1,5 +1,9 @@
 2004-02-23  Xavier Ordoquy  <xordoquy@wanadoo.fr>
 
+	* Makefile: compiles developer.src
+
+2004-02-23  Xavier Ordoquy  <xordoquy@wanadoo.fr>
+
 	* developer.src: central place for the tasks to be done on pygtk.
 
 2004-02-20  Christian Reis <kiko@async.com.br>
