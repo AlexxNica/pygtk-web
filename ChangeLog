@@ -1,0 +1,11 @@
+2003-12-11  John Finlay <finlay@moeraki.com>
+
+	* reference.src Add file
+	* tutorial.src Add file
+	* articles.src Change URL to PyGTK tutorials
+	* head.src Change URL to Pygtk tutorials and reference
+	* Makefile Change WEBDIR and PYTHON definitions. Add definitions for
+	IMGDIR, TUTDIRS and REFDIRS. Add tutorial.src and reference.src to
+	SRC_PAGES. Add CSS_FILES definition. Add rules for creating IMGDIR,
+	TUTDIRS and REFDIRS. Add commands to copy image files and css files.
+
