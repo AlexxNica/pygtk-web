@@ -1,3 +1,7 @@
+2005-02-04  Lorenzo Gil Sanchez  <lgs@sicem.biz>
+
+	* newsitems.py (item): added item for Gazpacho 0.5.0
+
 2005-01-28  Lorenzo Gil Sanchez  <lgs@sicem.biz>
 
 	* newsitems.py : Gazpacho 0.4.0

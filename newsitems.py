@@ -12,6 +12,15 @@ item = lambda *x: items.append(x)
 #      INSERT TEXT HERE
 #      """,
 #      "INSERT AUTHOR HERE")
+item("Gazpacho 0.5.0",
+     (2005, 2, 4),
+     """
+     Next week, next Gazpacho release. Many exciting new features in this
+     0.5.0 version. From here, it will probably only have bug fixes until 1.0.
+     See the <a href="http://www.sicem.biz/pipermail/gazpacho/2005-February/000103.html">announce</a> and get the
+     <a href="http://gruppy.sicem.biz/descargas">files</a>.
+     """,
+     "Lorenzo Gil Sanchez")
 
 item("Gazpacho 0.4.0",
      (2005, 1, 28),
