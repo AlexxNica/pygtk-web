@@ -14,7 +14,7 @@ TARBALLS = http://www.moeraki.com/pygtkreference/pygtk2reference.tgz \
 
 SRC_PAGES = index.src about.src screenshots.src news.src downloads.src \
 			feedback.src applications.src people.src articles.src \
-			tutorial.src reference.src
+			tutorial.src reference.src newsitems.src
 
 HTML_PAGES = $(patsubst %.src, ${WEBDIR}/%.html, ${SRC_PAGES})
 COMMON_PAGES = head.src foot.src
