@@ -8,6 +8,7 @@
 <ul>
    <li><a href="http://bugzilla.gnome.org/show_bug.cgi?id="110261">garbage collector not invoked often enough -> mem leaks</a></li>
    <li><a href="http://bugzilla.gnome.org/show_bug.cgi?id="130164">patch for adding in missing functions in gnome_client</a></li>
+   <li><a href="http://bugzilla.gnome.org/show_bug.cgi?id="81879">GObject properties as descriptors</a></li>
 </ul>
  
 </div>
