@@ -19,9 +19,15 @@ HTML_PAGES = $(patsubst %.src, ${WEBDIR}/%.html, ${SRC_PAGES})
 COMMON_PAGES = head.src foot.src
 CSS_FILES = default.css
 
-all: dirs ${HTML_PAGES} extras
+all: start_log dirs ${HTML_PAGES} extras finish_log
 
 dirs: ${WEBDIR} ${IMGDIR} ${DISTDIR}
+
+start_log:
+	echo 'Starting to build the PyGTK web'
+
+finish_log:
+	echo 'PyGTK web finished'
 
 ${WEBDIR}:
 	mkdir -p ${WEBDIR}
