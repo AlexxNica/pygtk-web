@@ -108,6 +108,10 @@
   <dd>This Program allows simple creation and upload of images galleries on web
   site. Mum is Free Software, released under the GNU GPL.</dd>
 
+  <dt><a href="http://johan.svedberg.pp.se/projects/coding/ontv/">OnTV</a></dt>
+  <dd>OnTV is a GNOME Applet written in Python using PyGTK. It uses XMLTV files
+  to monitor current and upcoming TV programmes.</dd>
+
   <dt>Point2Play</dt>
   <dd>Point2Play is simply a graphical front end for TransGaming's core
   WineX technology which enables you to run Windows applications on

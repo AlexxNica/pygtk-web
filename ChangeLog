@@ -1,3 +1,7 @@
+2004-11-22    <lgs@sicem.biz>
+
+	* applications.src: added OnTv (patch by pachi)
+
 2004-11-19  Christian Reis <kiko@async.com.br>
 
 	* head.src: commenting out bonsai and LXR links, they're dead
