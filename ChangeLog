@@ -1,3 +1,7 @@
+2004-09-28  Lorenzo Gil Sanchez  <lgs@sicem.biz>
+
+	* newsitems.py : added item for PyGTK 2.3.97
+
 2004-09-16  Christian Reis <kiko@async.com.br>
 
 	* applications.src: add DiskSearch as per request from Stefan Saring

@@ -11,6 +11,18 @@ item = lambda *x: items.append(x)
 #      INSERT TEXT HERE
 #      """)
 
+item("PyGTK 2.4.0 rc1 (aka PyGTK 2.3.97)",
+     (2004, 9, 28),
+     """
+     After some nasty threading issues the PyGTK team is proud to announce
+     PyGTK 2.3.97 which will be 2.4.0 if everything goes fine. How will we
+     know that? By intensive testing!! So please,
+     <a href="http://ftp.gnome.org/pub/GNOME/sources/pygtk/2.3/pygtk-2.3.97.tar.gz">download</a>
+     it and test your fancy applications right now! Reports from applications
+     with threads have a bonus added. Read the whole announce at
+     <a href="http://www.daa.com.au/pipermail/pygtk/2004-September/008694.html">the mailing list</a>.
+     """)
+
 item("We got RSS!",
      (2004, 9, 8),
      """
