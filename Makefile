@@ -11,6 +11,7 @@ TARBALLS = http://www.moeraki.com/pygtkreference/pygtk2reference.tgz \
 		   http://www.moeraki.com/pygtkreference/pygtk2reference.tbz2 \
 		   http://www.moeraki.com/pygtktutorial/pygtk2tutorial.tgz \
 		   http://www.moeraki.com/pygtktutorial/pygtktutorial.tgz \
+		   http://www.moeraki.com/pygtktutorial/pygtk2-tut.pdf \
 		   http://www.sicem.biz/personal/lgs/docs/pygtk2tutorial-es.tgz \
 		   http://www.cornets.net/mige/pygtk2tutorial-id/pygtk2tutorial-id.tgz
 

@@ -12,6 +12,17 @@ item = lambda *x: items.append(x)
 #      INSERT TEXT HERE
 #      """)
 
+item("New version of the PyGTK Tutorial released",
+     (2004, 12, 24),
+     """
+     A new version (2.3) of the <a
+     href="http://www.pygtk.org/pygtk2tutorial/index.html">PyGTK
+     Tutorial</a> is available. Changes include the addition of sections
+     on ColorButtons, FontButtons, Actions, ActionGroups and the UIManager
+     and many bug fixes due to: Rafael Villar Burke, Marc Verney, Joey Tsai,
+     Steve George, kraai and Jens Knutson.
+     """)
+
 item("New version of the PyGTK Reference released",
      (2004, 12, 23),
      """

@@ -1,3 +1,11 @@
+2004-12-24  John Finlay  <finlay@moeraki.com>
+
+	* newsitems.py: PyGTK 2.0 Tutorial v2.3
+
+	* Makefile: wget PDF version of Tutorial.
+
+	* tutorial.src: Update for PyGTK 2.0 Tutorial v2.3, Add PDF version.
+
 2004-12-23  John Finlay  <finlay@moeraki.com>
 
 	* reference.src: Update version and date info.

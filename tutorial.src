@@ -5,11 +5,12 @@
 <h2>PyGTK Tutorials</h2>
         
 <h3>PyGTK 2.x (GTK+ 2.x)</h3>
-    Version 2.2 Last updated 2004-08-03<br>
+    Version 2.3 Last updated 2004-12-24<br>
  
 <ul>
    <li><a href="pygtk2tutorial/index.html">Tutorial</a></li>
-   <li><a href="dist/pygtk2tutorial.tgz">Gzip'd Tarball of Tutorial</a> (1.16 MB)</li>
+   <li><a href="dist/pygtk2tutorial.tgz">Gzip'd Tarball of Tutorial</a> (1.13 MB)</li>
+   <li><a href="dist/pygtk2-tut.pdf"> Tutorial PDF Version</a> (2.23 MB)</li>
 </ul>
 
 <h3>PyGTK 0.6.x (GTK+ 1.x)</h3>
