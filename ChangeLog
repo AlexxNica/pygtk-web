@@ -1,3 +1,7 @@
+2004-10-04  John Finlay  <finlay@moeraki.com>
+
+	* reference.src: Update version and date info.
+
 2004-09-31  Christian Reis <kiko@async.com.br>
 
 	* newsitems.py: add a -*- coding header
