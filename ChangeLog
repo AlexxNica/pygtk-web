@@ -1,3 +1,19 @@
+2004-02-09  Christian Reis <kiko@async.com.br>
+
+    * applications.src: Added CLAW, did spellcheck, 72-char wrap and cleanup.
+
+    * default.css: minor style updates
+
+    * index.src, head.src: move out duplicated code into head.src, which has
+      the disadvantage of including the about text everywhere; the proper
+      solution of course is for lgs to provide us with a proper template
+      language :-)
+
+    * index.src, news.src, newsitems.src: added a new newsitems template which
+      holds news, so we don't duplicate it between the index and news pages.
+
+    * foot.src: removed spurious line break
+
 2004-01-22  Lorenzo Gil Sanchez  <lgs@cvs.gnome.org>
 
 	* default.css: update the width of h3, h4 and h5 since we don't have

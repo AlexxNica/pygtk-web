@@ -8,85 +8,15 @@ xml:lang="en-US">
 <link rel="stylesheet" type="text/css" href="default.css">
 </head>
 
-  <body>
+<!--stp:include('head.src') -->
 
-    <div id="header">
-      <a href="http://developer.gnome.org/"><img id="logo" src="img/gnome-64.png" alt="Home" title="Back to the Gnome Developer's home page"></a>
-      <div id="headerNavigation">
-        <a href="http://www.gnome.org/">Users</a> &#x00b7;
-        <a href="http://developer.gnome.org/"><b>Developers</b></a> &#x00b7;
-        <a href="http://cvs.gnome.org/lxr/">LXR</a> &#x00b7;
-        <a href="http://cvs.gnome.org/bonsai/">Bonsai</a> &#x00b7;
-        <a href="http://ftp.gnome.org/pub/GNOME/MIRRORS.html">FTP</a> &#x00b7;
-        <a href="http://bugzilla.gnome.org/">Bugzilla</a> &#x00b7;
-        <a href="http://www.gnome.org/softwaremap/">Software Map</a> &#x00b7;
-        <a href="mailto:pygtk-web@pygtk.org">Contact</a>
-      </div>
-    </div>
-
-    <div id="sidebar">
-
-      <p class="section">About PyGTK</p>
-
-      <p style="font-size: x-small">PyGTK provides a convenient wrapper for the GTK library for use in Python programs, and takes care of many of the boring details such as managing memory and type casting. When combined with PyORBit and gnome-python, it can be used to write full featured Gnome applications. <a href="./about.html">Read more</a></p>
-
-      <p class="section">Main Menu</p>
-      
-      <ul>
-        <li><a href="index.html">Welcome</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="screenshots.html">Screenshots</a></li>
-        <li><a href="news.html">News</a></li>
-        <li><a href="downloads.html">Downloads</a></li>
-        <li><a href="feedback.html">Feedback</a></li>
-        <li><a href="applications.html">Applications</a></li>
-        <li><a href="people.html">People</a></li>
-      </ul>
-
-      <p class="section">Documentation</p>
-      
-      <ul>
-        <li><a href="tutorial.html">Tutorial</a></li>
-        <li><a href="http://www.async.com.br/faq/pygtk/"><acronym title="Frequently Asked Questions" xml:lang="en">FAQ</acronym></a></li>
-        <li><a href="reference.html">Reference Manual</a></li>
-        <li><a href="articles.html">Articles &amp; Tutorials</a></li>
-      </ul>
-
-      <p class="section">Links</p>
-      
-      <ul>
-        <li><a href="http://www.gtk.org"><acronym title="GIMP ToolKit" xml:lang="en">GTK+</acronym></a></li>
-        <li><a href="http://www.gnome.org"><acronym title="GNU Network Object Model Environment" xml:lang="en">GNOME</acronym></a></li>
-        <li><a href="http://www.python.org">Python</a></li>
-      </ul>
-
-    </div>
-    
 <div id="mainText">
 
 <h1>PyGTK's Home Page</h1>
 
 <h3>Latest news&#8230;</h3>
 
-<div class="news">
-<h4>New website</h4>
-<h5>Monday 8th December 2003</h5>
-<p>We are happy to announce a new website for PyGTK. We already had
-extremely good resources like the docs, the mailing list and the FAQ
-but we needed a place to put all together. We hope that with this
-website people will find the information about PyGTK faster and better.</p>
-</div>
-
-<div class="news">
-<h4>PyGTK-2.0.0 is out</h4>
-<h5>Tuesday 2nd September 2003</h5>
-<p>James is pleased to announce version 2.0 of the Python bindings for
-GTK. The new release is available from <a
-href="ftp://ftp.gtk.org">ftp.gtk.org</a> or <a
-href="http://ftp.gnome.org">ftp.gnome.org</a> and its mirrors: <a
-href="ftp://ftp.gtk.org/pub/gtk/python/v2.0/pygtk-2.0.0.tar.gz">ftp://ftp.gtk.org/pub/gtk/python/v2.0/pygtk-2.0.0.tar.gz</a>
-and <a href="http://ftp.gnome.org/pub/GNOME/sources/pygtk/2.0/">http://ftp.gnome.org/pub/GNOME/sources/pygtk/2.0/</a></p>
-</div>
+<!--stp:include('newsitems.src') -->
 
 <p>Check the <a href="news.html">News section</a> for older news</p>
 </div>

@@ -4,25 +4,7 @@
 
 <h2>News</h2>
 
-<div class="news">
-<h4>New website</h4>
-<h5>Monday 8th December 2003</h5>
-<p>We are happy to announce a new website for PyGTK. We already had
-extremely good resources like the docs, the mailing list and the FAQ
-but we needed a place to put all together. We hope that with this
-website people will find the information about PyGTK faster and better.</p>
-</div>
-
-<div class="news">
-<h4>PyGTK-2.0.0 is out</h4>
-<h5>Tuesday 2nd September 2003</h5>
-<p>James is pleased to announce version 2.0 of the Python bindings for
-GTK. The new release is available from <a
-href="ftp://ftp.gtk.org">ftp.gtk.org</a> or <a
-href="http://ftp.gnome.org">ftp.gnome.org</a> and its mirrors: <a
-href="ftp://ftp.gtk.org/pub/gtk/python/v2.0/pygtk-2.0.0.tar.gz">ftp://ftp.gtk.org/pub/gtk/python/v2.0/pygtk-2.0.0.tar.gz</a>
-and <a href="http://ftp.gnome.org/pub/GNOME/sources/pygtk/2.0/">http://ftp.gnome.org/pub/GNOME/sources/pygtk/2.0/</a></p>
-</div>
+<!--stp:include('newsitems.src') -->
 
 </div>
 

@@ -26,6 +26,15 @@ xml:lang="en-US">
     </div>
 
     <div id="sidebar">
+
+        <p class="section">About PyGTK</p> 
+
+        <p style="font-size: x-small">PyGTK provides a convenient wrapper for
+        the GTK library for use in Python programs, and takes care of many of
+        the boring details such as managing memory and type casting. When
+        combined with PyORBit and gnome-python, it can be used to write full
+        featured Gnome applications. <a href="./about.html">Read more</a></p>
+
       <p class="section">Main Menu</p>
       
       <ul>
