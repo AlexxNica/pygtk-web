@@ -27,6 +27,14 @@
       <td><a href="http://www.sicem.biz/personal/lgs/docs/gobject-python/gobject-tutorial.html">Sub-classing GObject in Python</a></td>
       <td>Lorenzo G. Sanchez</td>
     </tr>
+    
+    <tr>
+      <td>Oct 2003</td>
+      <td><a
+      href="http://liw.iki.fi/liw/texts/gtktreeview-tutorial.html">GtkTreeView:
+      A short tutorial</a></td>
+      <td>Lars Wirzenius</td>
+    </tr>
 
     <tr>
       <td>Aug 2003</td>
