@@ -6,6 +6,7 @@ xml:lang="en-US">
 <title>PyGTK</title>
 <link rel="icon" type="image/png" href="http://developer.gnome.org/images/gnome-16.png">
 <link rel="stylesheet" type="text/css" href="default.css">
+<link rel="alternate" type="application/rss+xml" title="Pygtk.org" href="http://www.pygtk.org/news.rss">
 </head>
 
 
