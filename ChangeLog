@@ -1,3 +1,7 @@
+2005-03-07  Lorenzo Gil Sanchez  <lgs@sicem.biz>
+
+	* newsitems.py (item): added 2.6.0 release (pachi)
+
 2005-03-05  John Finlay  <finlay@moeraki.com>
 
 	* newsitems.py: Announce PyGTK Reference 2.5.2
