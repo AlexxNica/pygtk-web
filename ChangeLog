@@ -1,3 +1,7 @@
+2005-01-19  Lorenzo Gil Sanchez  <lgs@sicem.biz>
+
+	* tutorial.src: updated version for spanish tutorial
+
 2005-01-18  Lorenzo Gil Sanchez  <lgs@sicem.biz>
 
 	* newsitems.py (item): some news about gnome-python 2.9.4 and gazpacho
