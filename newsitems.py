@@ -12,6 +12,17 @@ item = lambda *x: items.append(x)
 #      INSERT TEXT HERE
 #      """)
 
+item("New versions of the PyGTK Reference released",
+     (2004, 11, 15),
+     """
+     A new version (2.5.0) of the <a
+     href="http://www.pygtk.org/pygtk2reference/index.html">PyGTK
+     Reference</a> is available. Additions include the new GTK+ 2.5.5
+     AboutDialog, CellRendererCombo, CellRendererProgress, CellView,
+     FileChooserButton, IconView, MenuToolButton widgets and many new
+     functions and methods.
+     """)
+
 item("New tutorial about Glade and PyGTK",
      (2004, 11, 9),
      """
