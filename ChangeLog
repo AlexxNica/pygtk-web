@@ -4,6 +4,10 @@
 
 2004-02-23  Xavier Ordoquy  <xordoquy@wanadoo.fr>
 
+	* developer.src: Added another bug in the list.
+
+2004-02-23  Xavier Ordoquy  <xordoquy@wanadoo.fr>
+
 	* Makefile: compiles developer.src
 
 2004-02-23  Xavier Ordoquy  <xordoquy@wanadoo.fr>
