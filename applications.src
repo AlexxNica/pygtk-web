@@ -90,6 +90,11 @@
   you can quickly arrange relationships between nodes. It is commonly
   used for things like task and knowledge management.</dd>
 
+  <dt><a href="http://upics.sf.net/">Micropics</a></dt>
+  <dd>Micropics is a Gnome 2.x applet that displays changing thumbnails
+  of your favorite photos. When guiding your mouse pointer over the
+  thumbnail, the image zooms out, and you get to see more details.</dd>
+
   <dt><a href="http://nekton.mine.nu/projects/mum/">Mum</a></dt>
   <dd>This Program allows simple creation and upload of images galleries on web
   site. Mum is Free Software, released under the GNU GPL.</dd>
