@@ -1,7 +1,7 @@
 <div class="news">
 
 <h4>PyGTK 2.3.94 (unstable) released</h4>
-<h5>Monday 19th July 2004</h5>
+<h5>Wednesday 21st July 2004</h5>
 <p>The PyGTK team has released PyGTK 2.3.94 today. This is a small bug fix release
 and should be stable enough to use for developing new applications. The official
 announce is <a href="http://www.daa.com.au/pipermail/pygtk/2004-July/008242.html">here</a> and you can download it from
@@ -90,7 +90,7 @@ href="http://martianrock.com/dropzone/pygtkspell-0.3.1.tar.gz">PyGtkSpell
 source tarball.</a></p>
 
 <h4>PyGTK 2.2.0 Release Candidate 1</h4>
-<h5>Friday 05th March 2004</h5>
+<h5>Friday 5th March 2004</h5>
 The first <a href="http://www.gnome.org/~jdahlin/pygtk-2.2.0-RC1.tar.gz
 ">release candidate for PyGTK 2.2.0</a> is out. Testing and bug reports
 are very much appreciated! Lorenzo has prepared a <a
