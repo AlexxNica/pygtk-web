@@ -12,7 +12,7 @@ item = lambda *x: items.append(x)
 #      INSERT TEXT HERE
 #      """)
 
-item("PyGTK 2.5.1 is waiting to be downloaded!",
+item("PyGTK 2.5.2 is waiting to be downloaded!",
      (2005, 1, 10),
      """
      We couldn't wait longer than 10 days of the new year before doing a release,
