@@ -18,11 +18,12 @@
   <dt>Gustavo J. Carneiro</dt>
   <dd>Gustavo is the gnomeprint hacker of the team. But he also has helped in a lot of different things of PyGTK like bug hunting and fixing.</dd>
 
-  <dt><a href="http://www.async.com.br/~kiko/">Christian Reis</a></dt>
-  <dd>Ever seen a better open source project <a href="http://www.async.com.br/faq/pygtk/">FAQ</a>?. Kiko is the man behind this great resource. He is also the one who will answer your email telling you how to fix your problems (well, just your PyGTK problems).</dd>
+  <dt><a href="http://www.async.com.br/~kiko/">Christian Reis</a> a.k.a. kiko</dt>
+  <dd><a href="http://www.async.com.br/faq/pygtk/">FAQ</a> maintainer, general IRC and email support, and purportedly co-maintainer of the 1.2 branch (though he never manages to do much work on it). Also the author of <a href="http://www.async.com.br/projects/kiwi/">Kiwi</a>, a high-level framework for developing applications using PyGTK.</dd>
 
   <dt>Lorenzo G. Sanchez</dt>
   <dd>He just helps with some documentation stuff like translating the PyGTK Tutorial to spanish or the GObject - Python tutorial. Christian and Lorenzo are the ones who are trying to create this website.</dd>
+
 </dl>
 
 </div>

@@ -16,7 +16,17 @@
 
 <h3>Bugzilla</h3>
 
-<p>Finding and reporting bugs is a excellent way of improving PyGTK so please don't hesitate of doing so. If you think something is not working properly you can ask about it in the irc channel or in the mailing list. Then you probably will know if that is a bug. If so, go to <a href="http://bugzilla.gnome.org">http://bugzilla.gnome.org</a> and fill a bug report. Your problem will be fixed faster than you can imagine.</p>
+<p>Finding and reporting bugs is a excellent way of improving PyGTK so please don't hesitate of doing so. If you think something is not working properly you can ask about it in the irc channel or in the mailing list. Then you probably will know if that is a bug. If so, go to <a href="http://bugzilla.gnome.org">http://bugzilla.gnome.org</a> and fill a bug report, your problem will be fixed faster than you can imagine.</p>
+
+<p>To actually fill a bug report follow these simple steps:</p>
+
+<ol>
+  <li><a href="http://bugzilla.gnome.org/createaccount.cgi">Create</a> an account in Bugzilla at Gnome if you already don't have one.</li>
+  <li>Go to the <a href="http://bugzilla.gnome.org/enter_bug.cgi?product=pygtk">pygtk</a>, the <a href="http://bugzilla.gnome.org/enter_bug.cgi?product=pyorbit">pyorbit</a> or the <a href="http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-python">gnome-python</a> enter bug page depending of the product your bug belongs to.</li>
+  <li>If you didn't already login you will have to login at this step.</li>
+  <li>Then fill as much information as you can of form in the Enter Bug page. Try to find a good Summary and Description please.</li>
+  <li>After clicking on the 'Submit Bug Report' you will get to a page where you can upload some files that will get attached to the bug report. Useful files are small code examples that reproduce the bug or stack traces of the crash.</li>
+</ol>
 
 <p>As <a href="http://www.async.com.br/~kiko/">Christian Reis</a> likes to <a href="http://www.async.com.br/~kiko/diary.html?date=04.12.2003">say</a>, "If you won't do it for me, do it for the <a href="http://www.jacksonh.net/jackson/images/godkills_bugs.jpg">kittens</a>"
 </div>

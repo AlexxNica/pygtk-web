@@ -1,3 +1,12 @@
+2003-12-12  Lorenzo Gil Sanchez  <lgs@cvs.gnome.org>
+
+	* feedback.src: More information about how to fill a bug report.
+
+	* people.src: Updated description for kiko.
+
+	* applications.src: Added Red Carpet, Anaconda, Bugtool, Point2Play,
+	Gnome Blog, Sketch and Wing IDE.
+
 2003-12-13  Christian Reis <kiko@async.com.br>
 
     * Makefile: ensure that CSS and PNGs are copied over by using an extras
