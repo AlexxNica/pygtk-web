@@ -32,6 +32,13 @@
 
   <dt><a href="http://gdick.kldp.net/">GDick</a></dt>
   <dd>GDick is a Korean-English dictionary client.</dd>
+  
+  <dt><a href="http://bhepple.freeshell.org/gjots/">gjots</a></dt>
+  <dd>gjots2 is a fairly simple jotter (or outline processor) for your
+  desktop. You can use gjots2 to organise your jottings into a tree
+  structure, adding thoughts and miscellany as you go. You can get it to
+  generate multiple output formats, including HTML, XML, postscript, pdf
+  and man.</dd>
 
   <dt><a href="http://www.gnome.org/~seth/gnome-blog/">Gnome Blog</a></dt>
   <dd>Gnome Blog is an applet that let you post entries to your blog
@@ -40,11 +47,12 @@
   <dt><a href="http://gnochm.sourceforge.net/">GnoCHM</a></dt>
   <dd>GnoCHM is a CHM file viewer for Gnome.</dd>
 
-  <dt><a href="http://gosiege.sourceforge.net/">go siege</a></dt>
+  <dt><a href="http://gosiege.sourceforge.net/">Go Siege</a></dt>
   <dd>Go Siege is a transformation of the ancient Chinese game of
   <a href="http://en.wikipedia.org/wiki/Go_(board_game)">Go</a> into a
   massively multiplayer online game in which hundreds of players can compete
-  simultaneously</dd>
+  simultaneously. The distribution website includes both Windows and
+  Linux packages.</dd>
 
   <dt><a href="http://gramps.sourceforge.net/index.html">gramps</a></dt>
   <dd>Gramps (Genealogical Research and Analysis Management Programming
