@@ -1,5 +1,9 @@
 2005-01-20  Lorenzo Gil Sanchez  <lgs@sicem.biz>
 
+	* newsitems.py (item): added an entry about spanish tutorial release
+
+	* tutorial.src: fixed typo about the version number
+
 	* applications.src: added PyComicsViewer and XPN
 
 2005-01-19  Lorenzo Gil Sanchez  <lgs@sicem.biz>

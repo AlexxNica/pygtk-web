@@ -11,6 +11,20 @@ item = lambda *x: items.append(x)
 #      """
 #      INSERT TEXT HERE
 #      """)
+item("Tutorial de PyGTK en castellano actualizado",
+     (2004, 12, 21),
+     """
+     An updated spanish translation of the PyGTK tutorial by John Finlay has
+     been released. This is the PyGTK way of celebrating this Cervantes' year
+     and also an intent to help everybody having fun while learning PyGTK.
+     Enjoy it at the usual <a href="http://www.pygtk.org/pygtk2tutorial-es/index.html">www.pygtk.org</a> place!.
+
+     Sale una nueva versi&oacute;n actualizada de la traducci&oacute;n del
+     tutorial de PyGTK de John Finlay. De esta manera celebramos este
+     a&ntilde;o Cervantes e intentamos que todo el mundo se lo pase bien
+     aprendiendo PyGTK. Disfruta del excelente tutorial en el lugar habitual
+     <a href="http://www.pygtk.org/pygtk2tutorial-es/index.html">www.pygtk.org</a>!.
+     """)
 
 item("Gazpacho 0.3.2 hits the streets",
      (2005, 1, 17),
