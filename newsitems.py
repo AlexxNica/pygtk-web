@@ -12,6 +12,15 @@ item = lambda *x: items.append(x)
 #      INSERT TEXT HERE
 #      """)
 
+item("New tutorial about Glade and PyGTK",
+     (2004, 11, 09),
+     """
+     Sandino Flores (aka tigrux) has written an excellent tutorial about
+     writting PyGTK applications with Glade and some libraries he wrote so now
+     coding gnome python applications is easier than ever before. Check it
+     out at <a href="http://primates.ximian.com/~sandino/python-glade/">http://primates.ximian.com/~sandino/python-glade/</a>.
+     """)
+
 item("PyGTK 2.4.1 is here!",
      (2004, 11, 04),
      """

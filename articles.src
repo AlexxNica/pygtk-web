@@ -17,6 +17,13 @@
   <tbody>
 
     <tr>
+      <td>November 2004</td>
+      <td><a href="http://primates.ximian.com/~sandino/python-glade/">Writing
+	PyGTK applications in a visual way</a></td>
+      <td>Sandino "tigrux" Flores</td>
+    </tr>
+
+    <tr>
       <td>July 2004</td>
       <td><a href="http://www.linuxjournal.com/article.php?sid=7421">Rapid
       Application Development with Python and Glade</a></td>

@@ -1,3 +1,9 @@
+2004-11-09    <lgs@sicem.biz>
+
+	* newsitems.py (item): added a newsitem for that tutorial
+
+	* articles.src: added a row for tigrux tutorial
+
 2004-11-05    <lgs@sicem.biz>
 
 	* newsitems.py (item): added item for PyGTK 2.4.1 by pachi
