@@ -1,3 +1,7 @@
+2004-02-19  Lorenzo Gil Sanchez  <lgs@cvs.gnome.org>
+
+	* applications.src: Added Porthole.
+
 2004-02-11  Lorenzo Gil Sanchez  <lgs@cvs.gnome.org>
 
 	* newsitems.src: Added a new about the Gnome applets tutorial.

@@ -109,6 +109,12 @@
   Linux. To facilitate setting your computer up Point2Play can help you
   determine if your setup is sufficient for gaming using WineX.</dd>
 
+  <dt><a href="http://porthole.sf.net">Porthole</a></dt>
+  <dd> Porthole is a GTK-based frontend for Portage (the Gentoo package 
+  management system). It features a hierarchial view of packages and supports
+  fast searches and dependency calculations. Porthole also supports basic
+  emerge features (emerge, unmerge, sync, upgrades).</dd>
+
   <dt><a href="http://pyirc.tuxfamily.org/">PyIRC</a></dt>
   <dd>PyIrc is a Python module which tends to implement RFC 1459 and
   part of RFC 2812. One of the main goal of the project was to provide a
