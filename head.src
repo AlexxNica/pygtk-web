@@ -42,9 +42,9 @@ xml:lang="en-US">
       <p class="section">Documentation</p>
       
       <ul>
-        <li><a href="http://www.moeraki.com/pygtktutorial/index.html">Tutorial</a></li>
+        <li><a href="tutorial.html">Tutorial</a></li>
         <li><a href="http://www.async.com.br/faq/pygtk/"><acronym title="Frequently Asked Questions" xml:lang="en">FAQ</acronym></a></li>
-        <li><a href="http://www.moeraki.com/pygtkreference/index.html">Reference</a></li>
+        <li><a href="reference.html">Reference</a></li>
         <li><a href="articles.html">Articles &amp; Tutorials</a></li>
       </ul>
 
