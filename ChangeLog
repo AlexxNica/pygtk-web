@@ -1,3 +1,7 @@
+2004-12-23  Johan Dahlin  <johan@gnome.org>
+
+	* applications.src: added Bittorrent.
+
 2005-01-01  Christian Reis <kiko@async.com.br>
 
 	* newsitems.py: First post! Err, I mean, adding updated news

@@ -16,11 +16,11 @@
 <h3><a name="user">User Applications</a></h3>
 
 <dl>
-  <dt><a href="http://blogfish.sourceforge.net">Blogfish</a></dt>
-  <dd>Blogfish is a Gnome panel applet, written in Python using PyGTK and
-  Gnome-python. It allows you to spread your blog URL, website URL or random
-  thoughts to other users. Good memes survive; bad ones are voted down and
-  go belly up.</dd>
+  <dt><a href="http://www.bittorrent.com/">BitTorrent</a></dt>
+  <dd>Bittorrent is a popular Peer-to-Peer application. Bittorrent is designed
+  to lower the bandwidth required to distribute files. It's one of the most
+  popular application on Sourceforge with over 400 000/downloads a week (as of 
+  Jan 2005) Starting from version 3.9 the user interface is using PyGTK.<dd>
 
   <dt><a href="http://blogtk.sourceforge.net/">BloGTK</a></dt>
   <dd>BloGTK is a weblog client that allows you to post to your weblog
