@@ -13,7 +13,7 @@ item = lambda *x: items.append(x)
 #      """)
 
 item("New tutorial about Glade and PyGTK",
-     (2004, 11, 09),
+     (2004, 11, 9),
      """
      Sandino Flores (aka tigrux) has written an excellent tutorial about
      writting PyGTK applications with Glade and some libraries he wrote so now
@@ -22,7 +22,7 @@ item("New tutorial about Glade and PyGTK",
      """)
 
 item("PyGTK 2.4.1 is here!",
-     (2004, 11, 04),
+     (2004, 11, 4),
      """
      The PyGTK team is pleased to announce PyGTK 2.4.1.
      This is a bugfix release but also some new examples were added too.
