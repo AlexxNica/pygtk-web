@@ -29,11 +29,12 @@ xml:lang="en-US">
 
         <p class="section">About PyGTK</p> 
 
-        <p style="font-size: x-small">PyGTK provides a convenient wrapper for
-        the GTK library for use in Python programs, and takes care of many of
-        the boring details such as managing memory and type casting. When
-        combined with PyORBit and gnome-python, it can be used to write full
-        featured Gnome applications. <a href="./about.html">Read more</a></p>
+        <p style="font-size: x-small; text-align: justify">PyGTK
+        provides a convenient wrapper for the GTK library for use in
+        Python programs, and takes care of many of the boring details
+        such as managing memory and type casting. When combined with
+        PyORBit and gnome-python, it can be used to write full featured
+        Gnome applications. <a href="./about.html">Read more</a></p>
 
       <p class="section">Main Menu</p>
       
@@ -51,9 +52,9 @@ xml:lang="en-US">
       <p class="section">Documentation</p>
       
       <ul>
-        <li><a href="tutorial.html">Tutorial</a></li>
         <li><a href="http://www.async.com.br/faq/pygtk/"><acronym title="Frequently Asked Questions" xml:lang="en">FAQ</acronym></a></li>
-        <li><a href="reference.html">Reference Manual</a></li>
+        <li><a href="tutorial.html">PyGTK Tutorials</a></li>
+        <li><a href="reference.html">PyGTK Reference</a></li>
         <li><a href="articles.html">Articles &amp; Tutorials</a></li>
       </ul>
 
