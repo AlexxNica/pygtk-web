@@ -1,3 +1,18 @@
+2004-02-11  Lorenzo Gil Sanchez  <lgs@cvs.gnome.org>
+
+	* newsitems.src: Added a new about the Gnome applets tutorial.
+
+	* index.src: changed the call to include('newsitems.src') to use
+	the new maxlines parameter.
+
+	* stp.py (include): added a maxlines argument. This way we can print
+	the newest news in the welcome page.
+
+2004-02-10  Lorenzo Gil Sanchez  <lgs@cvs.gnome.org>
+
+	* index.src: remove the html prolog since it is included in the
+	head.src file.
+
 2004-02-09  Lorenzo Gil Sanchez  <lgs@cvs.gnome.org>
 
 	* articles.src: added the 'Gnome applets with Python' article

@@ -1,13 +1,3 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US"
-xml:lang="en-US">
-<head>
-<title>PyGTK</title>
-<link rel="icon" type="image/png" href="http://developer.gnome.org/images/gnome-16.png">
-<link rel="stylesheet" type="text/css" href="default.css">
-</head>
-
 <!--stp:include('head.src') -->
 
 <div id="mainText">
@@ -16,7 +6,7 @@ xml:lang="en-US">
 
 <h3>Latest news&#8230;</h3>
 
-<!--stp:include('newsitems.src') -->
+<!--stp:include('newsitems.src', maxlines=18) -->
 
 <p>Check the <a href="news.html">News section</a> for older news</p>
 </div>
