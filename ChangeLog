@@ -1,3 +1,26 @@
+2004-02-28  Christian Reis <kiko@async.com.br>
+
+    * people.src: added a link and updated johan's entry. Reordered the
+    entries alphabetically, changed the text slightly.
+
+    * about.src: minor reorganization, added links and boldified bits of text.
+    Added  a paragraph on the Python language.
+
+    * head.src: renamed Welcome for Home; I think it's slightly more
+    understandable.
+
+    * downloads.src: added links, headers, an opening paragraph and tidied up
+    CVS information slightly.
+
+    * feedback.src, head.src: rename Feedback to Support, and change header.
+    Did minor wording cleanups to the text; fixed a <div> placed too early.
+
+    * developer.src: reformatted page; added text, convenient links and extra
+    sections. This is just a first shot at where we might want to go with
+    this.
+
+    I ispelled and wrapped things a bit here and there while I was at it.
+
 2004-02-27  Christian Reis <kiko@async.com.br>
 
     * articles/applets_arturogf/x304.html: fix link.
