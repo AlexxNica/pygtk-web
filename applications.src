@@ -119,6 +119,11 @@
   <dt><a href="http://clay.ll.pl/clarence.html">Clarence</a></dt>
   <dd>Clarence is a small GTK+-based programmer's calculator.</dd>
 
+  <dt><a href="http://gaphor.sourceforge.net">Gaphor</a></dt>
+  <dd>Gaphor is the UML modeling tool for GTK/GNOME. It is written in Python
+  using the PyGTK bindings. Some of its features are Class diagrams,
+  new GUI, UML 2.0 compliant data model, easy to use and extend.</dd>
+
   <dt><a href="http://meld.sf.net">Meld</a></dt>
   <dd>Meld is a visual diff and merge tool. It integrates especially
   well with CVS.The diff viewer lets you edit files in place and allows

@@ -1,3 +1,7 @@
+2004-04-13  Lorenzo Gil Sanchez  <lgs@i8100.sicem.biz>
+
+	* applications.src: added Gaphor.
+
 2004-04-08  Lorenzo Gil Sanchez  <lgs@cvs.gnome.org>
 
 	* index.src: modified the include call to add the new item.
