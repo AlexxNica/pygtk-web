@@ -1,3 +1,8 @@
+2004-08-05  Christian Reis <kiko@async.com.br>
+
+	* Makefile: made the tarball unpacking happen even when one of the
+	downloads fail.
+
 2004-07-23  Johan Dahlin  <johan@gnome.org>
 
 	* newsitems.src: 2.3.94
