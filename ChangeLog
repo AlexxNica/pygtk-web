@@ -1,3 +1,11 @@
+2003-12-15  Johan Dahlin  <johan@gnome.org>
+
+	* applications.src: added pyGestor
+
+2003-12-13  Johan Dahlin  <johan@gnome.org>
+
+	* people.src: Fix typo.
+
 2003-12-15  Lorenzo Gil Sanchez  <lgs@cvs.gnome.org>
 
 	* applications.src: added matplotlib and a comment at the end of the

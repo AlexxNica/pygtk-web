@@ -31,7 +31,6 @@
   <dt><a href="http://www.nolongervalid.com/heartbeat/">Heartbeat</a></dt>
   <dd>Heartbeat is a server and service monitoring program written in PyGTK, featuring a XML config and support for unlimited servers and services.</dd>
 
-
   <dt><a href="http://www.async.com.br/projects/kiwi/">Kiwi</a></dt>
   <dd> Kiwi consists of a set of classes and wrappers for PyGTK that were developed to provide a sort of framework for applications. Fully object-oriented, and roughly modeled after Smalltalk's MVC, Kiwi provides a simple, practical way to build forms, windows and widgets that transparently access and display your object data. Kiwi was primarily designed to make implementing the UI for Stoq easier, and it is released under the LGPL.</dd>
 
@@ -45,16 +44,19 @@
   <dd>Point2Play is simply a graphical front end for TransGaming's core WineX technology which enables you to run Windows applications on Linux. To facilitate setting your computer up Point2Play can help you determine if your setup is sufficient for gaming using WineX.</dd>
 
   <dt><a href="http://pyirc.tuxfamily.org/">PyIRC</a></dt>
-  <dd> PyIrc is a Python module which tends to implement RFC 1459 and part of RFC 2812. One of the main goal of the project was to provide a module compltely independant from the interface. As such, you can use the product in every kind of applications. For instance the tarball comes with two clients done in PyGtk and PyQt.</dd>
+  <dd>PyIrc is a Python module which tends to implement RFC 1459 and part of RFC 2812. One of the main goal of the project was to provide a module compltely independant from the interface. As such, you can use the product in every kind of applications. For instance the tarball comes with two clients done in PyGtk and PyQt.</dd>
+
+  <dt><a href="http://www.galilea.cl/gestor">pyGestor</a></dt>
+  <dd>pyGestor is a Chilean accounting software developed for small and medium sized enterprises, The goal of the project is to provide an enterprise resource managment system for the GNOME Desktop.</dd>
 
   <dt><a href="http://jstripchart.sourceforge.net/">PyStripchart Widget Library</a></dt>
   <dd>PyStripchart is a set of widgets for displaying time-sampled data in an interactive "strip chart" form.  The widgets are written in Python and built upon the PyGTK package. PyStripchart is distributed under the GNU LGPL license.</dd>
 
   <dt><a href="http://www.pythoncad.org">PythonCAD</a></dt>
   <dd>PythonCAD is a 2D CAD software that is under development now. Check out its <a href="http://www.pythoncad.org">website</a> for some cool screenshots.</dd>
+
   <dt><a href="http://www.ximian.com/products/redcarpet/">Red Carpet</a></dt>
   <dd> Red Carpet is the leading software management solution for Linux. The intuitive Red Carpet channel organization and automatic dependency and conflict resolution make it easy to install, update and manage software on Linux workstations and servers. New Red Carpet Services support allows users to manage software from Ximian, leading Linux distribution providers and a variety of open-source projects. Red Carpet makes it easy to update and manage Linux desktops with improved package inventory, update history, and remote operation. Red Carpet now offers a choice of client interfaces: the redesigned graphical interface, and the "rug" command line interface, which provides simple, powerful commands and easy scriptability.</dd>
-
 
   <dt>RedHat/Fedora System Admin Tools</dt>
   <dd>If you are using a Redhat/Fedora Linux distribution almost every program that starts with redhat-config-* is made with PyGTK</dt>
@@ -79,7 +81,6 @@
 
   <dt><a href="http://zero-install.sourceforge.net/">Zero Install</a></dt>
   <dd>The Zero Install system makes software installation not merely easy, but unnecessary. Users run their applications directly from the Internet from the software author's pages. Caching makes this as fast as running a normal application after the first time, and allows off-line use.</dd>
-
 
 </dl>
 
