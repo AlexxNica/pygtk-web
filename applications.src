@@ -19,6 +19,9 @@
   <dt><a href="http://gdesklets.gnomedesktop.org/">gDesklets</a></dt>
   <dd>gDesklets provides an advanced architecture for desktop applets -- tiny displays sitting on your desktop in a symbiotic relationship of eye candy and usefulness.</dd>
 
+  <dt><a href="http://gdick.kldp.net/">GDick</a></dt>
+  <dd>GDick is a Korean-English dictionary client.</dd>
+
   <dt><a href="http://www.gnome.org/~seth/gnome-blog/">Gnome Blog</a></dt>
   <dd>Gnome Blog is an applet that let you post entries to your blog right from the gnome panel.</dd>
 
@@ -39,6 +42,9 @@
 
   <dt><a href="http://meld.sf.net">Meld</a></dt>
   <dd>Meld is a visual diff and merge tool. It integrates especially well with CVS.The diff viewer lets you edit files in place and allows easy merges.</dd>
+
+  <dt><a href="http://narim.sourceforge.net">Narim</a></dt>
+  <dd>Narim is a GUI file-name encoding converter written in Python.</dd>
 
   <dt><a href="http://www-stu.pem.cam.ac.uk/~jrk33/plotter/">Plotter</a></dt>
   <dd>Plotter is a GTK+ mathematical graph plotting application. It is written entirely in Python, an object orientated interpreted programming language, using James Henstridge's PyGtk bindings.</dd>
@@ -87,7 +93,7 @@
 
 </dl>
 
-<p>If your application is not listed here and it uses PyGTK please tell <a href="mailto:lgs_AT_cvs.gnome.org">us</a> about it.</p>
+<p>If your application is not listed here and it uses PyGTK please tell <a href="mailto:pygtk-web_AT_pygtk.org">us</a> about it.</p>
 
 </div>
 
