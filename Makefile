@@ -51,8 +51,8 @@ extras: ${CSS_FILES} img/*.png
 	cp -a articles/* ${ARTICLEDIR}
 	cp ${CSS_FILES} ${WEBDIR}
 	cp img/*.png ${IMGDIR}
-	(cd ${DISTDIR}; ${WGET} -qc ${TARBALLS})
-	(cd ${WEBDIR}; for f in ${DISTDIR}/*.tgz; do tar xfz $$f ; done)
+	(cd ${DISTDIR}; ${WGET} -qN ${TARBALLS})
+	(cd ${WEBDIR}; for f in ${DISTDIR}/*.tgz; do tar xzf $$f ; done)
 
 clean:
 	rm -f ${HTML_PAGES}

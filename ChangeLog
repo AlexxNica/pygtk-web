@@ -1,3 +1,8 @@
+2004-02-20  Christian Reis <kiko@async.com.br>
+    
+    * Makefile: use -N (instead of -c) to wget fetches the newer tarballs
+    correctly. Also inverted tar arguments to make Greg happy.
+
 2004-02-23  Lorenzo Gil Sanchez  <lgs@cvs.gnome.org>
 
 	* head.src: Added a menu entry for the developer page.
