@@ -16,11 +16,6 @@
 <h3><a name="user">User Applications</a></h3>
 
 <dl>
-  <dt><a href="http://www.amautacorp.com/projects/ups-monitor/">Amauta
-  UPS monitor</a></dt>
-  <dd> UPS monitor is a graphical monitoring application that lets you watch
-  your UPS status in real time.</dd>
-
   <dt><a href="http://blogfish.sourceforge.net">Blogfish</a></dt>
   <dd>Blogfish is a Gnome panel applet, written in Python using PyGTK and
   Gnome-python. It allows you to spread your blog URL, website URL or random
@@ -35,19 +30,12 @@
 
   <dt><a href="http://thecircle.org.au">Circle</a></dt>
   <dd>The Circle is an open source scalable decentralized peer to peer
-  application. What does that mean? Well, there's no central authority
-  running the show. No entry taxes either, no censorship, and (in theory)
-  no weak point which can break the whole system. No one even owns the source
-  code. As long as there is one Circle peer running, anywhere in the world,
-  there's still a network.</dd>
-
-  <dt><a href="http://groundhog.zevallos.com/">CLAW</a></dt>
-  <dd>Claw is a file browser designed as an alternative to the default
-  browser in XFCE4. It has an icon view rather than a list based user
-  interface. It features drag and drop bookmarks, a quick browser, an
-  autocomplete address bar, dual panes, the ability to drag and drop
-  between separate CLAW browsers, and audio (using mpg123, ogg123, and
-  playwave) and image previews.</dd>
+  application, featuring real-time chat, file sharing and news. There's
+  no central authority running the show.  No entry taxes either, no
+  censorship, and (in theory) no weak point which can break the whole
+  system. No one even owns the source code. As long as there is one
+  Circle peer running, anywhere in the world, there's still a
+  network.</dd>
 
   <dt><a href="http://gdick.kldp.net/">GDick</a></dt>
   <dd>GDick is a Korean-English dictionary client.</dd>
@@ -106,9 +94,6 @@
   <dd>This Program allows simple creation and upload of images galleries on web
   site. Mum is Free Software, released under the GNU GPL.</dd>
 
-  <dt><a href="http://narim.sourceforge.net">Narim</a></dt>
-  <dd>Narim is a GUI file-name encoding converter written in Python.</dd>
-
   <dt>Point2Play</dt>
   <dd>Point2Play is simply a graphical front end for TransGaming's core
   WineX technology which enables you to run Windows applications on
@@ -119,16 +104,6 @@
   <dd>pyGestor is a Chilean accounting software developed for small and
   medium sized enterprises, The goal of the project is to provide an
   enterprise resource management system for the GNOME Desktop.</dd>
-
-  <dt><a href="http://rox.sourceforge.net/phpwiki/">The ROX Desktop</a></dt>
-  <dd>ROX is a fast, user friendly desktop which makes extensive use of
-  drag-and-drop. The interface revolves around the file manager, or
-  filer, following the traditional Unix view that `everything is a file'
-  rather than trying to hide the filesystem beneath start menus,
-  wizards, or druids. The aim is to make a system that is well designed
-  and clearly presented. The ROX style favours using several small
-  programs together instead of creating all-in-one
-  mega-applications.</dd>
 
   <dt><a href="http://sketch.sourceforge.net/">Sketch</a></dt>
   <dd>Sketch, a vector drawing program for Unix</dd>
@@ -200,6 +175,11 @@
 <h3><a name="system">System Utilities</a></h3>
 
 <dl>
+  <dt><a href="http://www.amautacorp.com/projects/ups-monitor/">Amauta
+  UPS monitor</a></dt>
+  <dd>Amauta UPS monitor is a graphical monitoring application that lets
+  you watch your UPS status in real time.</dd>
+
   <dt><a href="http://fedora.redhat.com/projects/anaconda-installer/">Anaconda</a></dt>
   <dd>Anaconda is the installation program for Red Hat distributions.
   During installation, the system's hardware is identified and
@@ -214,12 +194,23 @@
   Linux and Windows and allows a system administrator or penetration tester to
   break into machines on their network. It uses pyGTK 2.0 for the GUI.</dd>
 
+  <dt><a href="http://groundhog.zevallos.com/">CLAW</a></dt>
+  <dd>Claw is a file browser designed as an alternative to the default
+  browser in XFCE4. It has an icon view rather than a list based user
+  interface. It features drag and drop bookmarks, a quick browser, an
+  autocomplete address bar, dual panes, the ability to drag and drop
+  between separate CLAW browsers, and audio (using mpg123, ogg123, and
+  playwave) and image previews.</dd>
+
   <dt><a href="http://www.pixelbeat.org/fslint/">fslint</a></dt>
   <dd>FSlint is a toolkit to find various forms of lint on a filesystem.
   At the moment it reports duplicate files, bad symbolic links,
   troublesome file names, empty directories, non stripped executables,
   temporary files, duplicate/conflicting (binary) names, and unused ext2
   directory blocks.</dd>
+
+  <dt><a href="http://narim.sourceforge.net">Narim</a></dt>
+  <dd>Narim is a GUI file-name encoding converter written in Python.</dd>
 
   <dt><a href="http://www.nolongervalid.com/heartbeat/">Heartbeat</a></dt>
   <dd>Heartbeat is a server and service monitoring program written in
@@ -248,6 +239,16 @@
   <dd> Revelation is a password manager for the GNOME 2 desktop,
   released under the GNU GPL license. It organizes accounts in a tree
   structure, and stores them as AES-encrypted XML files.</dd>
+
+  <dt><a href="http://rox.sourceforge.net/phpwiki/">The ROX Desktop</a></dt>
+  <dd>ROX is a fast, user friendly desktop which makes extensive use of
+  drag-and-drop. The interface revolves around the file manager, or
+  filer, following the traditional Unix view that `everything is a file'
+  rather than trying to hide the filesystem beneath start menus,
+  wizards, or druids. The aim is to make a system that is well designed
+  and clearly presented. The ROX style favours using several small
+  programs together instead of creating all-in-one
+  mega-applications.</dd>
 
   <dt><a href="http://zero-install.sourceforge.net/">Zero Install</a></dt>
   <dd>The Zero Install system makes software installation not merely
