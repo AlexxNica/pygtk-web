@@ -1,3 +1,7 @@
+2005-04-10  John Finlay  <finlay@moeraki.com>
+
+	* newsitems.py: Added ref 2.6.0 announcement
+
 2005-03-21  Christian Reis <kiko@async.com.br>
 
 	* applications.py: added gSmile

@@ -13,6 +13,16 @@ item = lambda *x: items.append(x)
 #      """,
 #      "INSERT AUTHOR HERE")
 
+item("Version 2.6.0 of the PyGTK Reference released",
+     (2005, 4, 10),
+     """
+     A new version (2.6.0) of the <a
+     href="http://www.pygtk.org/pygtk2reference/index.html">PyGTK
+     Reference</a> is available. This is mostly a bug fix release with
+     thanks to John Ehresman, Nikos Kouremenos and Johan Dahlin for bug
+     reports. And thanks to Gian Mario Tagliaretti for a patch.""",
+     'John Finlay')
+
 item("PyGTK 2.6.1 is here!",
      (2005, 3, 15),
      """
