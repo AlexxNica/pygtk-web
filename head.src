@@ -56,9 +56,10 @@ xml:lang="en-US">
       
       <ul>
         <li><a href="http://www.async.com.br/faq/pygtk/index.py?req=index"><acronym title="Frequently Asked Questions" xml:lang="en">FAQ</acronym></a></li>
-        <li><a href="tutorial.html">PyGTK Tutorials</a></li>
-        <li><a href="reference.html">PyGTK Reference</a></li>
-        <li><a href="articles.html">Articles &amp; Tutorials</a></li>
+        <li><a href="http://live.gnome.org/PyGTK">Wiki</a></li>
+        <li><a href="tutorial.html">PyGTK&nbsp;Tutorials</a></li>
+        <li><a href="reference.html">PyGTK&nbsp;Reference</a></li>
+        <li><a href="articles.html">Articles&nbsp;&amp;&nbsp;Tutorials</a></li>
       </ul>
 
       <p class="section">Links</p>
