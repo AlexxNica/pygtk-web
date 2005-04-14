@@ -13,6 +13,25 @@ item = lambda *x: items.append(x)
 #      """,
 #      "INSERT AUTHOR HERE")
 
+item("New version of the PyGTK Tutorial released",
+     (2004, 4, 13),
+     """
+     A new version (2.4) of the <a
+     href="http://www.pygtk.org/pygtk2tutorial/index.html">PyGTK
+     Tutorial</a> is available. The example programs have been updated to 
+     avoid most of the deprecation warnings""",
+     'John Finlay')
+
+item("Version 2.4 of the PyGTK Tutorial released",
+     (2005, 4, 10),
+     """
+     A new version (2.6.0) of the <a
+     href="http://www.pygtk.org/pygtk2reference/index.html">PyGTK
+     Reference</a> is available. This is mostly a bug fix release with
+     thanks to John Ehresman, Nikos Kouremenos and Johan Dahlin for bug
+     reports. And thanks to Gian Mario Tagliaretti for a patch.""",
+     'John Finlay')
+
 item("Version 2.6.0 of the PyGTK Reference released",
      (2005, 4, 10),
      """
