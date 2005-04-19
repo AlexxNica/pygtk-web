@@ -14,7 +14,7 @@ item = lambda *x: items.append(x)
 #      "INSERT AUTHOR HERE")
 
 item("New version of the PyGTK Tutorial released",
-     (2004, 4, 13),
+     (2005, 4, 13),
      """
      A new version (2.4) of the <a
      href="http://www.pygtk.org/pygtk2tutorial/index.html">PyGTK

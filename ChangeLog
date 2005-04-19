@@ -1,3 +1,7 @@
+2005-04-19  Christian Reis <kiko@async.com.br>
+
+	* newsitems.py: It's 2005 :)
+
 2005-04-13  John Finlay  <finlay@moeraki.com>
 
 	* newsitems.py: Added tut 2.4 announcement
