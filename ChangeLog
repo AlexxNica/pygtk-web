@@ -1,3 +1,8 @@
+2005-05-03  Lorenzo Gil Sanchez  <lgs@sicem.biz>
+
+	* applications.src: added DelVJ, OnTV, Serpentine and
+	Smart Package Manager
+
 2005-04-19  Christian Reis <kiko@async.com.br>
 
 	* newsitems.py: It's 2005 :)

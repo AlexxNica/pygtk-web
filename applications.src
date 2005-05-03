@@ -37,6 +37,13 @@
   Circle peer running, anywhere in the world, there's still a
   network.</dd>
 
+  <dt><a href="http://www.delcorp.org/delvj/">DelVJ</a></dt>
+  <dd>DelVJ is a software for realtime video 3d composition and
+  algorithmic remixing that uses gtk, python, glade and puredata.
+  It can be controlled through OSC, and has web and gtk interfaces.
+  Furthermore, it is licensed under GNU's GPL.
+  </dd>
+
   <dt><a href="http://disksearch.sourceforge.net/">DiskSearch</a></dt>
   <dd>DiskSearch is a tool that searches for files on all your removable
   media disks (e.g. CD's, ZIP disks or backup tapes); you can, for
@@ -121,7 +128,7 @@
   <dd>This Program allows simple creation and upload of images galleries on web
   site. Mum is Free Software, released under the GNU GPL.</dd>
 
-  <dt><a href="http://johan.svedberg.pp.se/projects/coding/ontv/">OnTV</a></dt>
+  <dt><a href="http://johan.svedberg.com/projects/coding/ontv/">OnTV</a></dt>
   <dd>OnTV is a GNOME Applet written in Python using PyGTK. It uses XMLTV files
   to monitor current and upcoming TV programmes.</dd>
 
@@ -148,6 +155,12 @@
   <dt><a href="http://fuware.nanocrew.net/pymusique/">PyMusique</a></dt>
   <dd>This application provides a fair interface to the iTunes Music
   Store.</dd>
+
+  <dt><a href="http://s1x.homelinux.net/projects/serpentine/">Serpentine</a>
+  </dt>
+  <dd>Serpentine is a project for mastering audio cds. It features support for
+  all gstreamer formats, playlists, audio extraction from video contents,
+  drag-n-drop from Rhythmbox or Nautilus and an easy to use interface.</dd>
 
   <dt><a href="http://www.skencil.org/">Skencil</a></dt>
   <dd>Skencil, a vector drawing program for Unix formerly known as Sketch</dd>
@@ -272,6 +285,14 @@
   user experience for people who administer GNOME systems. It allows to
   easily manage profiles, GConf keys, and remotely deploy these.
   It is a young project still in early stages but with a bright future.</dd>
+
+  <dt><a href="http://www.smartpm.org/">
+  Smart Package Manager</a></dt>
+  <dd>The Smart Package Manager project has the ambitious objective of
+  creating smart and portable algorithms for solving adequately the problem
+  of managing software upgrading and installation. This tool works in all
+  major distributions, and will bring notable advantages over native tools
+  currently in use (APT, APT-RPM, YUM, URPMI, etc).</dt>
 
   <dt>RedHat/Fedora System Admin Tools</dt>
   <dd>If you are using a Redhat/Fedora Linux distribution almost every
