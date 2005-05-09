@@ -1,0 +1,39 @@
+<!--stp:include('head.src')-->
+
+<div id="mainText">
+
+<h2>Consulting Resources</h2>
+
+<p>PyGTK is made available free of charge, without warranty. Support provided for 
+free by PyGTK team members via email or mailing list also comes without warranty. 
+If you need higher-level support, the following contractors and businesses may 
+be able to help you.</p>
+
+<p>This page lists contractors and businesses who have declared themselves 
+available for Bugzilla consulting work. There is no screening process as a 
+prerequisite to being on this list, and as such, no guarantee is supplied as
+to the quality of their work. If you wish to hire them, you will need to assess
+this for yourself. Listings are in alphabetical order. 
+All information (including comments) appears as given by the person requesting 
+the listing (excepting editorial changes to make it fit the format of this 
+web page).</p>
+
+<p>If you wish to be added to this list, please email pygtk-web@async.com.br 
+with the relevant information.</p>
+
+<h3>Businesses</h3>
+
+<p>
+  <b>Name</b>: Async Open Source <br>
+  <b>Website</b>: <a href="http://www.async.com.br/">http://www.async.com.br/</a> <br>
+  <b>Services</b>: PyGTK consulting, customization, embedding, extending, training <br>
+  <b>Location</b>: São Carlos (SP), Brazil <br>
+  <b>Will work</b>: World-wide, Can Work Remotely, Travel Outside SP, Brazil, At Your Expense <br>
+  <b>Contact</b>: Johan Dahlin <a href="mailto:jdahlin@async.com.br">&lt;jdahlin@async.com.br&gt;</a> +55 16 3501 5394 <br>
+  <b>Comment</b>: Has extensive Python, GTK+ and PyGTK expertise. Does application development, extensions/library wrappings and can also do embedding. Team can and regularly works remotely. Not restricted to working with Brazilian companies. English, Spanish, French, Swedish and Portuguese spoken. <br>
+</p>
+
+
+</div>
+
+<!--stp:include('foot.src') -->

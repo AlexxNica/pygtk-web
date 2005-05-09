@@ -1,6 +1,10 @@
 2005-05-09  Johan Dahlin  <jdahlin@async.com.br>
 
 	* applications.src: Added SMEG
+	
+	* consulting.src: New page
+
+	* head.src, feedback.src: Add links to consulting
 
 2005-05-07  Lorenzo Gil Sanchez  <lgs@sicem.biz>
 
