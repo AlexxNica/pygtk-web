@@ -13,6 +13,18 @@ item = lambda *x: items.append(x)
 #      """,
 #      "INSERT AUTHOR HERE")
 
+item("PyGTK 2.6.2 roars the world!",
+     (2005, 3, 15),
+     """
+     Finally, after almost 2 <b>whole</b> months of waiting, the PyGTK team can produly
+     present the latest stable version. As usually in the stable branch there is only
+     bug fixes.
+     Download it from 
+     <a href="http://ftp.gnome.org/pub/GNOME/sources/pygtk/2.6/">here</a>.
+     The full announcement containing a list of changes can be found at
+     <a href="http://www.daa.com.au/pipermail/pygtk/2005-May/010172.html">the mailing list</a>.""",
+     "Johan Dahlin")
+
 item("New version of the PyGTK Tutorial released",
      (2005, 4, 13),
      """
