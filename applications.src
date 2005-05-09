@@ -327,6 +327,11 @@
   programs together instead of creating all-in-one
   mega-applications.</dd>
 
+  <dt><a href="http://www.realistanew.com/projects/smeg/">SMEG</a><dt>
+  <dd> A simple menu editor for GNOME 2.10 that can edit and add new entries and 
+  menus. It implements the freedesktop.org menu spec but may or may not work 
+  with other Desktop Environments.</dd>
+  
   <dt><a href="http://www.amautacorp.com/staff/Rudd-O/ups-monitor/"> UPS
   monitor</a></dt> <dd>UPS monitor is a graphical monitoring application
   that lets you watch your UPS status in real time.</dd>
