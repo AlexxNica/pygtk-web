@@ -7,17 +7,28 @@ PYTHON = python2.2
 PROCESSOR = ${PYTHON} stp.py
 
 WGET = wget
-TARBALLS = http://www.moeraki.com/pygtkreference/pygtk2reference.tgz \
-		   http://www.moeraki.com/pygtkreference/pygtk2reference.tbz2 \
-		   http://www.moeraki.com/pygtktutorial/pygtk2tutorial.tgz \
-		   http://www.moeraki.com/pygtktutorial/pygtktutorial.tgz \
-		   http://www.moeraki.com/pygtktutorial/pygtk2-tut.pdf \
-		   http://www.sicem.biz/personal/lgs/docs/pygtk2tutorial-es.tgz \
-		   http://www.cornets.net/mige/pygtk2tutorial-id/pygtk2tutorial-id.tgz
+TARBALLS = 								\
+	http://www.moeraki.com/pygtkreference/pygtk2reference.tgz 	\
+	http://www.moeraki.com/pygtkreference/pygtk2reference.tbz2 	\
+	http://www.moeraki.com/pygtktutorial/pygtk2tutorial.tgz 	\
+	http://www.moeraki.com/pygtktutorial/pygtktutorial.tgz 		\
+	http://www.moeraki.com/pygtktutorial/pygtk2-tut.pdf 		\
+	http://www.sicem.biz/personal/lgs/docs/pygtk2tutorial-es.tgz 	\
+	http://www.cornets.net/mige/pygtk2tutorial-id/pygtk2tutorial-id.tgz
 
-SRC_PAGES = index.src about.src screenshots.src news.src downloads.src \
-			feedback.src applications.src people.src articles.src \
-			tutorial.src reference.src developer.src
+SRC_PAGES = 			\
+	about.src 		\
+	applications.src 	\
+	articles.src 		\
+	developer.src 		\
+	downloads.src 		\
+	feedback.src 		\
+	index.src 		\
+	news.src 		\
+	people.src 		\
+	reference.src 		\
+	screenshots.src 	\
+	tutorial.src
 
 HTML_PAGES = $(patsubst %.src, ${WEBDIR}/%.html, ${SRC_PAGES})
 COMMON_PAGES = head.src foot.src newsitems.py feed.py
