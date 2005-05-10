@@ -23,16 +23,25 @@ with the relevant information.</p>
 
 <h3>Businesses</h3>
 
-<p>
-  <b>Name</b>: Async Open Source <br>
-  <b>Website</b>: <a href="http://www.async.com.br/">http://www.async.com.br/</a> <br>
-  <b>Services</b>: PyGTK consulting, customization, embedding, extending, training <br>
-  <b>Location</b>: São Carlos (SP), Brazil <br>
-  <b>Will work</b>: world-wide, can work remotely, Travel Outside SP, Brazil, At Your Expense <br>
-  <b>Contact</b>: Johan Dahlin <a href="mailto:jdahlin@async.com.br">&lt;jdahlin@async.com.br&gt;</a> +55 16 3501 5394 <br>
-  <b>Comment</b>: Has extensive Python, GTK+ and PyGTK expertise. Does application development, extensions/library wrappings and can also do embedding. Team can and regularly works remotely. Not restricted to working with Brazilian companies. English, Spanish, French, Swedish and Portuguese spoken. <br>
-</p>
+<ul class="consulting">
+  <li class="first"><strong>Name</strong>: Async Open Source </li>
+  <li><strong>Website</strong>: <a href="http://www.async.com.br/">http://www.async.com.br/</a> </li>
+  <li><strong>Services</strong>: PyGTK consulting, customization, embedding, extending, training </li>
+  <li><strong>Location</strong>: São Carlos (SP), Brazil </li>
+  <li><strong>Will work</strong>: world-wide, can work remotely, Travel Outside SP, Brazil, At Your Expense </li>
+  <li><strong>Contact</strong>: Johan Dahlin <a href="mailto:jdahlin@async.com.br">&lt;jdahlin@async.com.br&gt;</a> +55 16 3501 5394 </li>
+  <li><strong>Comment</strong>: Has extensive Python, GTK+ and PyGTK expertise. Does application development, extensions/library wrappings and can also do embedding. Team can and regularly works remotely. Not restricted to working with Brazilian companies. English, Spanish, French, Swedish and Portuguese spoken. </li>
+</ul>
 
+<ul class="consulting">
+  <li class="first"><strong>Name</strong>: SICEm S.L.</li>
+  <li><strong>Website</strong>: <a href="http://www.sicem.biz/">http://www.sicem.biz/</a> </li>
+  <li><strong>Services</strong>: IT Consulting, web application development, quality management, consulting, training</li>
+  <li><strong>Location</strong>: Granada, Spain</li>
+  <li><strong>Will work</strong>: In closer regions or abroad at your expenses</li>
+  <li><strong>Contact</strong>: Lorenzo Gil Sanchez <a href="mailto:lgs@sicem.biz">&lt;lgs@sicem.biz&gt;</a></li>
+  <li><strong>Comment</strong>: Over 8 years of experience working in ERP systems, great knowledge of IT concepts and a wide range of technologies. Cross platform solutions and important focus in the support, not the product. </li>
+</ul>
 
 </div>
 

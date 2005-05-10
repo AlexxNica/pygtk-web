@@ -175,3 +175,10 @@ div#about h4 {
   margin: 0;
 }
 
+ul.consulting { 
+  list-style: none
+}
+
+ul.consulting li.first { 
+  list-style: disc
+}

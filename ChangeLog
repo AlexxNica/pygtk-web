@@ -1,3 +1,8 @@
+2005-05-10  Johan Dahlin  <jdahlin@async.com.br>
+
+	* default.css: 
+	* consulting.src: Added Sicem and update style
+
 2005-05-10  Lorenzo Gil Sanchez  <lgs@sicem.biz>
 
 	* Makefile (SRC_PAGES): add consulting.src to the list
