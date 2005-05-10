@@ -292,7 +292,7 @@
   fast searches and dependency calculations. Porthole also supports basic
   emerge features (emerge, unmerge, sync, upgrades).</dd>
 
-  <dt><a href="http://www.gnome.org/~veillard/sabayon/">Sabayon</a></dt>
+  <dt><a href="http://www.gnome.org/projects/sabayon/">Sabayon</a></dt>
   <dd> Sabayon is GNOME's first major design targeted at improving the
   user experience for people who administer GNOME systems. It allows to
   easily manage profiles, GConf keys, and remotely deploy these.
