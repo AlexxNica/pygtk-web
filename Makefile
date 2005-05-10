@@ -20,6 +20,7 @@ SRC_PAGES = 			\
 	about.src 		\
 	applications.src 	\
 	articles.src 		\
+	consulting.src		\
 	developer.src 		\
 	downloads.src 		\
 	feedback.src 		\
