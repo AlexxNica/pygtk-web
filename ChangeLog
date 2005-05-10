@@ -1,3 +1,7 @@
+2005-05-10  Lorenzo Gil Sanchez  <lgs@sicem.biz>
+
+	* applications.src: Added Quod Libet
+
 2005-05-09  Johan Dahlin  <jdahlin@async.com.br>
 
 	* newsitems.py (item): Release 2.6.2
