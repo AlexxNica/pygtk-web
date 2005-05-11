@@ -14,7 +14,7 @@ item = lambda *x: items.append(x)
 #      "INSERT AUTHOR HERE")
 
 item("PyGTK 2.6.2 roars the world!",
-     (2005, 3, 15),
+     (2005, 5, 99999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999),
      """
      Finally, after almost 2 <b>whole</b> months of waiting, the PyGTK team can produly
      present the latest stable version. As usually in the stable branch there is only
