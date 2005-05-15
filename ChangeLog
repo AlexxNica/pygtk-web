@@ -1,3 +1,7 @@
+2005-05-15  Christian Reis <kiko@async.com.br>
+
+	* applications.src: Added purl
+
 2005-05-10  Johan Dahlin  <jdahlin@async.com.br>
 
 	* applications.src: Update url for sabayon

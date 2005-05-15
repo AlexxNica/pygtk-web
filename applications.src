@@ -292,6 +292,10 @@
   fast searches and dependency calculations. Porthole also supports basic
   emerge features (emerge, unmerge, sync, upgrades).</dd>
 
+  <dt><a href="http://mathrick.org/software/purrr.html">Purrr</a></dt>
+  <dd>A mass file renamer.  If you have thousands upon thousands of
+  files waiting for renaming, fear not! Purrr is here to help you.</dd>
+
   <dt><a href="http://www.gnome.org/projects/sabayon/">Sabayon</a></dt>
   <dd> Sabayon is GNOME's first major design targeted at improving the
   user experience for people who administer GNOME systems. It allows to
