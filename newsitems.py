@@ -13,8 +13,34 @@ item = lambda *x: items.append(x)
 #      """,
 #      "INSERT AUTHOR HERE")
 
+item("GnomePython 2.11.2 released",
+     (2005, 5, 18),
+     """
+     This is a development release for testing pleasure.
+     GnomePython 
+     It adds some more methods in the gconf, gnomecanvas and gnomevfs modules.
+     Download it from 
+     <a href="http://ftp.gnome.org/pub/GNOME/sources/gnome-python/2.11/">here</a>.
+     The full announcement with the complete list of changes can be found at
+     <a href="http://www.daa.com.au/pipermail/pygtk/2005-May/010258.html">the mailing list</a>.""",
+     "Rafael Villar Burke")
+
+item("GnomePythonExtras 2.11.2 released",
+     (2005, 5, 18),
+     """
+     This is an unstable release for the joy of testing purpouses.
+     GnomePyhtonExtras provides python interfacing modules for some GNOME
+     libraries not in the Developer Platform, such as gtkhtml2, gnomeapplet, wnck...
+     This release adds some fixes and improvements, and a whole bunch of new
+     documentation contributed by Gian Mario Tagliaretti.
+     Get the source
+     <a href="http://ftp.gnome.org/pub/GNOME/sources/gnome-python-extras/2.11/">here</a>.
+     The full announcement with the complete list of changes can be found at
+     <a href="http://www.daa.com.au/pipermail/pygtk/2005-May/010260.html">the mailing list</a>.""",
+     "Rafael Villar Burke")
+
 item("PyGTK 2.6.2 roars the world!",
-     (2005, 5, 99999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999),
+     (2005, 5, 15),
      """
      Finally, after almost 2 <b>whole</b> months of waiting, the PyGTK team can produly
      present the latest stable version. As usually in the stable branch there is only
