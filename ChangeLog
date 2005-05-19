@@ -1,3 +1,9 @@
+2005-05-19  Rafael Villar Burke <pachi@mmn-arquitectos.com>
+ 
+  	* applications.src: Added Aeternal, The Orange Slice,
+ 	Pybber, PyMServ, RoutePlanner, Tennacles, GnoFract4D, OpenEV,
+	IceMe.
+ 
 2005-05-18  Lorenzo Gil Sanchez  <lgs@sicem.biz>
 
 	* newsitems.py (item): added gnomepython 2.11.2 and

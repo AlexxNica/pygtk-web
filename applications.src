@@ -16,6 +16,10 @@
 <h3><a name="user">User Applications</a></h3>
 
 <dl>
+  <dt><a href="http://home.gna.org/aeternal/index.html">Aeternal</a></dt>
+  <dd>Aeternal is an IRC client that targets the GNOME platform. It aims
+  freedom, usability, security, community participation and scriptability.<dd>
+
   <dt><a href="http://www.bittorrent.com/">BitTorrent</a></dt>
   <dd>Bittorrent is a popular Peer-to-Peer application. Bittorrent is designed
   to lower the bandwidth required to distribute files. It's one of the most
@@ -132,11 +136,25 @@
   <dd>OnTV is a GNOME Applet written in Python using PyGTK. It uses XMLTV files
   to monitor current and upcoming TV programmes.</dd>
 
+  <dt><a href="http://www.nongnu.org/orange-slice/">The Orange Slice</a></dt>
+  <dd>Orange Slice is a subtitle editor, writen in Python/GTK+. It aims at
+  the manipulation of different file formats like SSA, ASS, SUB, SRT, etc.<br>
+  The main goal is to have an easy application to create scripts for
+  subtitling videos. For now it only manages the Sub Station Alpha (SSA)
+  and Advanced Sub Station Alpha (ASS) file formats. You can also import
+  SUB (MicroDVD) files.</dd>
+
   <dt>Point2Play</dt>
   <dd>Point2Play is simply a graphical front end for TransGaming's core
   WineX technology which enables you to run Windows applications on
   Linux. To facilitate setting your computer up Point2Play can help you
   determine if your setup is sufficient for gaming using WineX.</dd>
+
+  <dt><a href="http://pybber.sourceforge.net/">Pybber</a></dt>
+  <dd>Pybber is a single window Jabber client that is being written in Python.
+  <br>The main features of this project are a single window interface, with
+  tabs, and a Gnome panel applet to show client status and the number of
+  messages received since the last window hide.</dd>
 
   <dt><a href="http://borco.net/html/PyComicsViewer/">PyComicsViewer</a></dt>
   <dd>This is a program for viewing compressed comic files (aka cbr, cbz and 
@@ -151,6 +169,10 @@
   <dd>This program shows your position on a map using a GPS system. It can
   record tracks and notes, display the satellites used to determine your
   position, as well as download needed maps from terraserver on the fly.</dd>
+
+  <dt><a href="http://home.gna.org/pymserv/">PyMServ</a></dt>
+  <dd>PyMServ is a graphical client for mserv, a music server. It is written
+  in python using pygtk and gconf to store prefs.</dd>
 
   <dt><a href="http://fuware.nanocrew.net/pymusique/">PyMusique</a></dt>
   <dd>This application provides a fair interface to the iTunes Music
@@ -168,6 +190,13 @@
   display, tag editing, ReplayGain, multimedia keys and an OSD. Its tag editor,
   Ex Falso, can be used independently from the audio player.</dd>
 
+  <dt><a href="http://www.lordsutch.com/chris/routeplanner.html">RoutePlanner
+  </a></dt>
+  <dd>RoutePlanner is a highway trip planner written in Python that will run
+  on a variety of systems. It allows you to determine a route from one city to
+  another, optionally via some other city or cities. You can see the shortest,
+  fastest, or "preferred" route.</dd>
+
   <dt><a href="http://s1x.homelinux.net/projects/serpentine/">Serpentine</a>
   </dt>
   <dd>Serpentine is a project for mastering audio cds. It features support for
@@ -179,6 +208,12 @@
 
   <dt><a href="http://www.nongnu.org/straw/index.html">Straw</a></dt>
   <dd>Straw is a desktop news aggregation for GNOME</dd>
+
+  <dt><a href="http://www.nongnu.org/tennacles/">Tennacles</a></dt>
+  <dd>Tennacles is a tool which will aid artists and designers in the
+  creation of adventure games through a visual integrated development
+  environment. The generated data can be exported to available existent
+  game engines which will play the data.</dd>
 
   <dt><a href="http://voxpak.sourceforge.net/">Voxpak</a></dt>
   <dd>A GUI for playing, recording, editing, renaming etc. voice and fax
@@ -197,6 +232,16 @@
 <h3><a name="scientific">Scientific Applications</a></h3>
 
 <dl>
+  <dt><a href="http://gnofract4d.sourceforge.net/">GnoFract4D</a></dt>
+  <dd>Gnofract 4D is a program which allows you to create beautiful
+  mathematically-based images called fractals. Take a look at the Gallery
+  for some examples.<br>
+  What sets it apart from other fractal programs (and makes it "4D") is the
+  way that it treats the Mandelbrot and Julia sets as different views of the
+  same four-dimensional fractal object. This allows you to create images
+  which are a cross between the two sets and explore their
+  inter-relationships.</dd>
+
   <dt><a href="http://www.unihedron.com/projects/gonvert/gonvert.php">Gonvert</a></dt>
   <dd>Gonvert is a conversion utility that allows conversion between
   many units like CGS, Ancient, Imperial with many categories like
@@ -209,6 +254,10 @@
   <a href="http://www.wolfram.com">Mathematica</a>. Now, we know this is almost
   impossible without more open-source hackers. Meanwhile, we are trying to
   make, at least, an usefull tool!</dd>
+
+  <dt><a href="http://openev.sourceforge.net/">OpenEV</a></dt>
+  <dd>OpenEV is a library, and reference application for viewing and
+  analysing raster and vector geospatial data.</dd>
 
   <dt><a href="http://www-stu.pem.cam.ac.uk/~jrk33/plotter/">Plotter</a></dt>
   <dd>Plotter is a GTK+ mathematical graph plotting application.</dd>
@@ -277,6 +326,11 @@
   troublesome file names, empty directories, non stripped executables,
   temporary files, duplicate/conflicting (binary) names, and unused ext2
   directory blocks.</dd>
+
+  <dt><a href="http://iceme.sourceforge.net">IceMe</a></dt>
+  <dd>A graphical menu editor for IceWM written in Python and GTK.<br>
+  It's licensed under the GPL and features Tree editing with Drag'n'Drop
+  and Cut'n'Paste, shortcut editor, Icon selection dialog...</dd>
 
   <dt><a href="http://narim.sourceforge.net">Narim</a></dt>
   <dd>Narim is a GUI file-name encoding converter written in Python.</dd>
