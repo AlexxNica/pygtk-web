@@ -118,6 +118,10 @@
   tree of simple, collapsible text nodes that is easily modifiable so
   you can quickly arrange relationships between nodes. It is commonly
   used for things like task and knowledge management.</dd>
+  
+  <dt><a href="http://ltool.sf.net/">Lazy Tool</a></dt>
+  <dd>Lazy Tool is a macro-editing application designed to ease common
+  tasks.</dd>
 
   <dt><a href="http://pygps.org/#mapview">Mapview</a></dt>
   <dd>Mapview is a python map browser for Terraserver-usa map tiles. It
