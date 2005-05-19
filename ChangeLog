@@ -58,6 +58,10 @@
 
 2005-04-12  Christian Reis <kiko@async.com.br>
 
+	* applications.src: added Lazy Tool.
+
+2005-04-12  Christian Reis <kiko@async.com.br>
+
 	* head.src: Adding a link to our new Wiki!
 
 2005-04-10  John Finlay  <finlay@moeraki.com>
