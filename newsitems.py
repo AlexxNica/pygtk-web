@@ -13,6 +13,14 @@ item = lambda *x: items.append(x)
 #      """,
 #      "INSERT AUTHOR HERE")
 
+item("GnomePythonExtras documentation now online",
+     (2005, 5, 21),
+     """
+     The documentation for some of the GnomePythonExtras modules is now
+     <a href="http://pygtk.org/reference.html">online</a>.
+     Many thanks to Gian Mario Tagliaretti for writing these docs!""",
+     "Gustavo Carneiro")
+
 item("GnomePython 2.11.2 released",
      (2005, 5, 18),
      """

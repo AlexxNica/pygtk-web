@@ -1,5 +1,7 @@
 2005-05-21  Gustavo J. A. M. Carneiro  <gjc@gnome.org>
 
+	* newsitems.py: Advertise the new docs.
+
 	* Makefile (local-tarballs): Add support for local documentation
 	tarballs.
 
