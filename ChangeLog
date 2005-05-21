@@ -1,3 +1,11 @@
+2005-05-21  Gustavo J. A. M. Carneiro  <gjc@gnome.org>
+
+	* Makefile (local-tarballs): Add support for local documentation
+	tarballs.
+
+	* reference.src: Add links to new Gnome Python Extras reference
+	documentation.
+
 2005-05-19  Rafael Villar Burke <pachi@mmn-arquitectos.com>
  
   	* applications.src: Added Aeternal, The Orange Slice,

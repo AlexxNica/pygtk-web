@@ -13,6 +13,29 @@
    <li><a href="dist/pygtk2reference.tbz2">Bzip2'd Tarball of Reference Manual</a> (594 kB)<br>
 </ul>
 
+<h2>GnomePythonExtras Reference Manual</h2>
+        
+<h3>Python GtkMozembed Reference Manual</h3>
+ 
+<ul>
+   <li><a href="pygtkmozembed/index.html">Reference Manual</a></li>
+   <li><a href="dist/pygtkmozembed.tar.bz2">Bzip2'd Tarball of Reference Manual</a>
+</ul>
+
+<h3>Python GtkSourceView Reference Manual</h3>
+ 
+<ul>
+   <li><a href="pygtksourceview/index.html">Reference Manual</a></li>
+   <li><a href="dist/pygtksourceview.tar.bz2">Bzip2'd Tarball of Reference Manual</a>
+</ul>
+
+<h3>Python GtkSpell Reference Manual</h3>
+ 
+<ul>
+   <li><a href="pygtkspell/index.html">Reference Manual</a></li>
+   <li><a href="dist/pygtkspell.tar.bz2">Bzip2'd Tarball of Reference Manual</a>
+</ul>
+
 </div>
 
 <!--stp:include('foot.src') -->

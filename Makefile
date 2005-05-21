@@ -16,6 +16,11 @@ TARBALLS = 								\
 	http://www.sicem.biz/personal/lgs/docs/pygtk2tutorial-es.tgz 	\
 	http://www.cornets.net/mige/pygtk2tutorial-id/pygtk2tutorial-id.tgz
 
+LOCAL_TARBALLS =				\
+	documentation/pygtkmozembed.tar.bz2	\
+	documentation/pygtksourceview.tar.bz2	\
+	documentation/pygtkspell.tar.bz2
+
 SRC_PAGES = 			\
 	about.src 		\
 	applications.src 	\
@@ -74,9 +79,15 @@ extras: ${CSS_FILES} img/*.png
 	cp news.rss ${WEBDIR}
 	cp .htaccess ${WEBDIR}/.htaccess
 
-tarballs:
+remote-tarballs:
 	-(cd ${DISTDIR}; ${WGET} -KN ${TARBALLS})
 	(cd ${WEBDIR}; for f in ${DISTDIR}/*.tgz; do tar xzf $$f; done)
+
+local-tarballs:
+	cp ${LOCAL_TARBALLS} ${DISTDIR}
+	(srcdir=`pwd`; cd ${WEBDIR}; for f in ${LOCAL_TARBALLS}; do bzip2 -dc $${srcdir}/$$f | tar x; done)
+
+tarballs: local-tarballs remote-tarballs
 
 clean:
 	rm -f ${HTML_PAGES}
