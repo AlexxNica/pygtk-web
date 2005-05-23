@@ -58,8 +58,10 @@
   </dd>
 
   <dt><a href="http://gajim.org/">Gajim</a></dt>
-  <dd> Gajim is a Jabber client based on a plugin system. At this time, 2
-  plugins have been written : one in GTK2 and one that log messages</dd>
+  <dd>Gajim is a GTK+ Jabber Client. The goal of the Gajim project is to
+  provide a full featured and easy to use xmpp client for the GTK+
+  users. Gajim does not require GNOME to run, eventhough it exists with
+  it nicely.</dd>
 
   <dt><a href="http://gdick.kldp.net/">GDick</a></dt>
   <dd>GDick is a Korean-English dictionary client.</dd>
