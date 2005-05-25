@@ -1,3 +1,7 @@
+2005-05-24  Rafael Villar Burke <pachi@mmn-arquitectos.com>
+
+	* applications.src: Added CeeMedia.
+
 2005-05-23  Christian Reis <kiko@async.com.br>
 
 	* applications.src: Fixed up Gajim.
