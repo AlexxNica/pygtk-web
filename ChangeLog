@@ -1,5 +1,7 @@
 2005-05-30  Lorenzo Gil Sanchez  <lgs@sicem.biz>
 
+	* consulting.src: converted to utf8
+
 	* feedback.src: fix typo and link target
 
 2005-05-24  Rafael Villar Burke <pachi@mmn-arquitectos.com>
