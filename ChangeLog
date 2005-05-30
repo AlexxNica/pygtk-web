@@ -1,3 +1,8 @@
+2005-05-30  Gustavo J. A. M. Carneiro  <gjc@gnome.org>
+
+	* documentation/pygtkmozembed.tar.bz2: Update docs with latest
+	Gian Mario Tagliaretti's work.
+
 2005-05-30  Lorenzo Gil Sanchez  <lgs@sicem.biz>
 
 	* consulting.src: converted to utf8
