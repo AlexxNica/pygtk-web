@@ -1,3 +1,9 @@
+2005-06-03  Gustavo J. A. M. Carneiro  <gjc@gnome.org>
+
+	* reference.src: Add pointers to the new gnomeprint reference.
+
+	* Makefile (LOCAL_TARBALLS): Add gnomeprint docs tarball.
+
 2005-05-30  Gustavo J. A. M. Carneiro  <gjc@gnome.org>
 
 	* documentation/pygtkmozembed.tar.bz2: Update docs with latest

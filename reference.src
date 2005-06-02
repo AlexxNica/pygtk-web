@@ -36,6 +36,13 @@
    <li><a href="dist/pygtkspell.tar.bz2">Bzip2'd Tarball of Reference Manual</a>
 </ul>
 
+<h3>Python GnomePrint Reference Manual</h3>
+ 
+<ul>
+   <li><a href="pygnomeprint/index.html">Reference Manual</a></li>
+   <li><a href="dist/pygnomeprint.tar.bz2">Bzip2'd Tarball of Reference Manual</a>
+</ul>
+
 </div>
 
 <!--stp:include('foot.src') -->
