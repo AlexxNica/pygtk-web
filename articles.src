@@ -17,6 +17,14 @@
   <tbody>
 
     <tr>
+      <td>June 2005</td>
+      <td><a href="http://www.gdesklets.org/~pycage/rad-slides.tar.bz2">Rapid
+	Application Development with PyGTK and libglade
+        (GUADEC slides)</a></td>
+      <td>Martin Grimme</td>
+    </tr>
+
+    <tr>
       <td>November 2004</td>
       <td><a href="http://primates.ximian.com/~sandino/python-glade/">Writing
 	PyGTK applications in a visual way</a></td>

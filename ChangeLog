@@ -1,3 +1,9 @@
+2005-06-03  Martin Grimme  <martin@pycage.de>
+
+	* newsitems.py: Added news item for GUADEC slides.
+
+	* articles.src: Added GUADEC slides.
+
 2005-06-03  Gustavo J. A. M. Carneiro  <gjc@gnome.org>
 
 	* reference.src: Add pointers to the new gnomeprint reference.

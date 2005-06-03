@@ -13,6 +13,16 @@ item = lambda *x: items.append(x)
 #      """,
 #      "INSERT AUTHOR HERE")
 
+item("GUADEC slides now online",
+     (2005, 6, 3),
+     """
+     The slides of the "Rapid Application Development with PyGTK and libglade"
+     talk are now
+     <a href="http://www.gdesklets.org/~pycage/rad-slides.tar.bz2">online</a>.
+     The slides show how to use Sandino Flores' simple-glade-codegen for
+     creating applications in no time. An example is included.""",
+     "Martin Grimme")
+
 item("GnomePythonExtras documentation now online",
      (2005, 5, 21),
      """
