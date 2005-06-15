@@ -34,6 +34,18 @@ with the relevant information.</p>
 </ul>
 
 <ul class="consulting">
+  <li class="first"><strong>Name</strong>: Quuxo Software</li>
+  <li><strong>Website</strong>: <a href="http://web.quuxo.com/">http://web.quuxo.com/</a> </li>
+  <li><strong>Services</strong>: PyGTK consulting, support and development </li>
+  <li><strong>Location</strong>: Adelaide, Australia</li>
+  <li><strong>Will work</strong>: Local and worldwide, remote or on-location by negotiation</li>
+  <li><strong>Contact</strong>: Michael Gratton <a href="mailto:michael@quuxo.com">&lt;michael@quuxo.com&gt;</a></li>
+  <li><strong>Comment</strong>: Client and server PyGTK and Python application development.
+Technical support and maintenance for PyGTK applications. PyGTK-related
+consulting services.</li>
+</ul>
+
+<ul class="consulting">
   <li class="first"><strong>Name</strong>: SICEm S.L.</li>
   <li><strong>Website</strong>: <a href="http://www.sicem.biz/">http://www.sicem.biz/</a> </li>
   <li><strong>Services</strong>: IT Consulting, web application development, quality management, consulting, training</li>
@@ -42,6 +54,19 @@ with the relevant information.</p>
   <li><strong>Contact</strong>: Lorenzo Gil Sanchez <a href="mailto:lgs@sicem.biz">&lt;lgs@sicem.biz&gt;</a></li>
   <li><strong>Comment</strong>: Over 8 years of experience working in ERP systems, great knowledge of IT concepts and a wide range of technologies. Cross platform solutions and important focus in the support, not the product. </li>
 </ul>
+
+<!-- TEMPLATE 
+<ul class="consulting">
+  <li class="first"><strong>Name</strong>: </li>
+  <li><strong>Website</strong>: <a href=""></a> </li>
+  <li><strong>Services</strong>: </li>
+  <li><strong>Location</strong>: </li>
+  <li><strong>Will work</strong>: </li>
+  <li><strong>Contact</strong>: <a href="mailto:">&lt;&gt;</a></li>
+  <li><strong>Comment</strong>: </li>
+</ul>
+
+-->
 
 </div>
 
