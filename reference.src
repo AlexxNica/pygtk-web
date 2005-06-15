@@ -43,6 +43,13 @@
    <li><a href="dist/pygnomeprint.tar.bz2">Bzip2'd Tarball of Reference Manual</a>
 </ul>
 
+<h3>Python GnomePrintUI Reference Manual</h3>
+ 
+<ul>
+   <li><a href="pygnomeprintui/index.html">Reference Manual</a></li>
+   <li><a href="dist/pygnomeprintui.tar.bz2">Bzip2'd Tarball of Reference Manual</a>
+</ul>
+
 </div>
 
 <!--stp:include('foot.src') -->
