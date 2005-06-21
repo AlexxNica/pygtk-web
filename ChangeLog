@@ -1,3 +1,8 @@
+2005-06-21  Christian Reis <kiko@async.com.br>
+
+	* .htaccess: make default charset iso-8859-1, as per report by
+	Cory Dodt <corydodt@twistedmatrix.com>
+
 2005-06-16  Gustavo J. A. M. Carneiro  <gjc@gnome.org>
 
 	* Makefile, reference.src, documentation/pygnomeprint.tar.bz2: Add
