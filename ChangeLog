@@ -3,6 +3,8 @@
 	* .htaccess: make default charset iso-8859-1, as per report by
 	Cory Dodt <corydodt@twistedmatrix.com>
 
+	* articles.src: Adding Matplotlib tutorial by Dimitri Pater
+
 2005-06-16  Gustavo J. A. M. Carneiro  <gjc@gnome.org>
 
 	* Makefile, reference.src, documentation/pygnomeprint.tar.bz2: Add

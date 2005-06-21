@@ -18,6 +18,13 @@
 
     <tr>
       <td>June 2005</td>
+      <td><a href="http://www.serpia.com/page9/">PyGTK, Glade and
+      Matplotlib Tutorial</a></td>
+      <td>Dimitri Pater</td>
+    </tr>
+
+    <tr>
+      <td>June 2005</td>
       <td><a href="http://www.gdesklets.org/~pycage/rad-slides.tar.bz2">Rapid
 	Application Development with PyGTK and libglade
         (GUADEC slides)</a></td>
