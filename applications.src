@@ -122,6 +122,10 @@
   System) is an open source genealogy program. It is written in Python,
   using the GTK+/GNOME interface.</dd>
 
+  <dt><a href="http://griffith.vasconunes.net/">Griffith</a></dt>
+  <dd>Griffith is a film collection manager application. It runs under
+  Linux and Windows</dd>
+
   <dt><a href="http://twistedmatrix.com/trac/infogreater/trac">Infogreater</a></dt>
   <dd>Infogreater is pseudo-mindmapping software. Basically, it is a
   tree of simple, collapsible text nodes that is easily modifiable so
