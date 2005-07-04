@@ -28,8 +28,9 @@ including code, documentation and user support (listed alphabetically):
 
   <dt><a href="http://www.async.com.br/~jdahlin/">Johan Dahlin</a></dt>
   <dd>This swede has helped James a lot with PyGTK, specially with the
-  GTK+ 2.x port. Also wrote most of the Bonobo stuff for the gnome-python
-  package.</dd>
+  GTK+ 2.x port. Currently the maintainer of PyGTK. Wrote a big part of 
+  the gnome-python bindings. Also maintains the nautilus-python package.
+  </dd>
 
   <dt>John Finlay</dt>
   <dd>Did practically all the work on the great tutorial and reference
