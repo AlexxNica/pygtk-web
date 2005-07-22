@@ -13,6 +13,14 @@ item = lambda *x: items.append(x)
 #      """,
 #      "INSERT AUTHOR HERE")
 
+item("PyGTK 2.7.1 is released",
+     (2005, 7, 10),
+     """
+     This is a minor release which mostly bug fixes and small (final for 2.7)
+     bug fixes. Fetch it from here: 
+     <a href="http://ftp.gnome.org/pub/GNOME/sources/pygtk/2.7/">here</a>.""",
+     "Johan Dahlin")
+
 item("PyGTK 2.7.0 is released",
      (2005, 7, 10),
      """
