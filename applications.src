@@ -126,6 +126,12 @@
   <dd>Griffith is a film collection manager application. It runs under
   Linux and Windows.</dd>
 
+  <dt><a href="http://guten.sourceforge.net/">Guten</a></dt>
+  <dd>Guten is a utility for reading books published by
+  <a href="http://gutenberg.org/">Project Gutenberg</a>.
+  It provides an interface for browsing, downloading and managing books, as
+  well as reading and bookmarking individual texts.</dd>
+
   <dt><a href="http://twistedmatrix.com/trac/infogreater/trac">Infogreater</a></dt>
   <dd>Infogreater is pseudo-mindmapping software. Basically, it is a
   tree of simple, collapsible text nodes that is easily modifiable so
@@ -201,6 +207,11 @@
   threading of newsgroups, optional expiry of news and mail, filters,
   attachment support, etc.</dd>
 
+  <dt><a href="http://pyradar.sourceforge.net/">PyRadar</a></dt>
+  <dd>This application retrieves and displays radar images from NOAA's
+  NEXRAD radar stations, located around the United States and its
+  territories.</dd>
+
   <dt><a href="http://www.sacredchao.net/quodlibet">Quod Libet</a></dt>
   <dd>Quod Libet is a GTK+ based audio player, music library manager and
   tag editor written in Python. It features regexp-based searches, album cover
@@ -231,6 +242,15 @@
   creation of adventure games through a visual integrated development
   environment. The generated data can be exported to available existent
   game engines which will play the data.</dd>
+
+  <dt><a href="http://timmir.com/wiki/index.php/TimPlayer">TimPlayer</a></dt>
+  <dd>TimPlayer is a home inspired audio player with a simple
+  User Interface and the power of GStreamer.</dd>
+
+  <dt><a href="http://www.tinyerp.com/index.html">TinyERP</a></dt>
+  <dd>Tiny ERP is a free enterprise management software. It covers all
+  domains for small to medium businesses; accounting, stock management,
+  sales, customer relationship, purchases, project management,...</dd>
 
   <dt><a href="http://voxpak.sourceforge.net/">Voxpak</a></dt>
   <dd>A GUI for playing, recording, editing, renaming etc. voice and fax
