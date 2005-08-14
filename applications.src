@@ -167,6 +167,11 @@
   and Advanced Sub Station Alpha (ASS) file formats. You can also import
   SUB (MicroDVD) files.</dd>
 
+  <dt><a href="http://penguintv.sourceforge.net/">PenguinTV</a></dt>
+  <dd>PenguinTV is a RSS feed reader designed from the ground up to work
+  seamlessly with podcasts and video blogs, allowing you to easily enjoy
+  the audio, music, and video published around the web in RSS format.</dd>
+
   <dt>Point2Play</dt>
   <dd>Point2Play is simply a graphical front end for TransGaming's core
   WineX technology which enables you to run Windows applications on
@@ -388,10 +393,16 @@
   files waiting for renaming, fear not! Purrr is here to help you.</dd>
 
   <dt><a href="http://www.gnome.org/projects/sabayon/">Sabayon</a></dt>
-  <dd> Sabayon is GNOME's first major design targeted at improving the
+  <dd>Sabayon is GNOME's first major design targeted at improving the
   user experience for people who administer GNOME systems. It allows to
   easily manage profiles, GConf keys, and remotely deploy these.
   It is a young project still in early stages but with a bright future.</dd>
+
+  <dt><a href="http://freshmeat.net/projects/sbackup/">SBackup</a></dt>
+  <dd>SBackup is a simple backup solution intended for desktop use. It can
+  back up any subset of files and directories using regular expressions and
+  a maximum file size limit to define exclusions. Backups may be saved to
+  any local and remote directories supported by gnome-vfs.</dd>
 
   <dt><a href="http://www.smartpm.org/">
   Smart Package Manager</a></dt>
