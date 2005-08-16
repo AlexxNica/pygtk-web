@@ -1,4 +1,8 @@
-005-08-15  Rafael Villar Burke  <pachi@mmn-arquitectos.com>
+2005-08-16  Rafael Villar Burke  <pachi@mmn-arquitectos.com>
+
+	* applications.src: Added Pygme to the audio section.
+
+2005-08-15  Rafael Villar Burke  <pachi@mmn-arquitectos.com>
 
 	* applications.src: Added Gnome Sudoku and pykanjicard, added
 	music and gaming sections.
