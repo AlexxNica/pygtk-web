@@ -7,6 +7,7 @@
 
 <div style="font-size: x-small">
 <a href="#user">User Apps</a> |
+<a href="#music">Audio Apps</a> |
 <a href="#scientific">Scientific Apps</a> |
 <a href="#devel">Development Tools</a> |
 <a href="#system">System Utilities</a> |
@@ -86,6 +87,16 @@
 
   <dt><a href="http://gnochm.sourceforge.net/">GnoCHM</a></dt>
   <dd>GnoCHM is a CHM file viewer for Gnome.</dd>
+
+  <dt><a href="http://www.amedias.org/~koke/gnome-torrent/">
+  Gnome Torrent</a></dt>
+  <dd>Gnome Torrent is a GNOME BitTorrent frontend.</dd>
+
+  <dt><a href="http://gnome-bt.sourceforge.net/">
+  Gnome BitTorrent Downloader</a></dt>
+  <dd>Gnome BitTorrent Downloader is a "mime-sink" for BitTorrent files. It
+  is not a full frontend to BitTorrent, but just handles the download of
+  torrent files.</dd>
 
   <dt><a href="http://gsmile.sourceforge.net/">gSmile</a></dt>
   <dd>gSmile is an open-source emoticon manager: it helps you to keep

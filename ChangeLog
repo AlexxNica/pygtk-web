@@ -1,3 +1,9 @@
+2005-08-17  Rafael Villar Burke  <pachi@mmn-arquitectos.com>
+
+	* applications.src: Added Gnome Torrent and
+	Gnome BitTorrent Downloader.
+	Added "Music apps" link at the top.
+
 2005-08-16  Rafael Villar Burke  <pachi@mmn-arquitectos.com>
 
 	* applications.src: Added Pygme to the audio section.
