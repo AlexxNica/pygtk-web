@@ -13,6 +13,15 @@ item = lambda *x: items.append(x)
 #      """,
 #      "INSERT AUTHOR HERE")
 
+item("PyGTK 2.8.0 is out!",
+     (2005, 9, 3),
+     """
+     Finally, the new stable version of PyGTK is ready for production usage!
+     Fetch it from here: 
+     <a href="http://ftp.gnome.org/pub/GNOME/sources/pygtk/2.8/pygtk-2.8.0.tar.gz">here</a>.
+     Check out <a href="http://article.gmane.org/gmane.comp.gnome.gtk%2B.python/6874">the release announcement</a> or, for a complete list of changes, read <a href="http://live.gnome.org/PyGTK/WhatsNew28">this page</a> at the wiki.""",
+     "Johan Dahlin")
+
 item("PyGTK 2.7.4 is released",
      (2005, 8, 24),
      """
