@@ -5,12 +5,12 @@
 <h2>PyGTK Reference Manual</h2>
         
 <h3>PyGTK 2.x (GTK+ 2.x) Reference Manual </h3>
-    Version 2.6.0 Last updated 2005-04-10<br>
+    Version 2.8.0 Last updated 2005-09-07<br>
  
 <ul>
    <li><a href="pygtk2reference/index.html">Reference Manual</a></li>
-   <li><a href="dist/pygtk2reference.tgz">Gzip'd Tarball of Reference Manual</a> (861 kB)<br>
-   <li><a href="dist/pygtk2reference.tbz2">Bzip2'd Tarball of Reference Manual</a> (594 kB)<br>
+   <li><a href="dist/pygtk2reference.tgz">Gzip'd Tarball of Reference Manual</a> (889 kB)<br>
+   <li><a href="dist/pygtk2reference.tbz2">Bzip2'd Tarball of Reference Manual</a> (612 kB)<br>
 </ul>
 
 <h2>GnomePythonExtras Reference Manual</h2>
