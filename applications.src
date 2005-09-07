@@ -282,6 +282,11 @@
 
 <h3><a name="games">Games and Gaming Tools</a></h3>
 
+  <dt><a href="http://echelon-applet.sourceforge.net/">Echelon</a></dt>
+  <dd>Echelon is a Gnome panel applet used to monitor a list of game servers.
+  It can show whether some friend joins and can give useful server stats
+  and info. It supports any game the qstat utility does.</dd>
+
   <dt><a href="http://gwp.lunix.com.ar/">GNOME War Pad</a></dt>
   <dd>VGA Planets is a play-by-email space conquest game, it's been played 
   for some years now and have a lot of fans all over the world. It's main 
