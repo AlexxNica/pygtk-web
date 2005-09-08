@@ -375,6 +375,11 @@
   well with CVS.The diff viewer lets you edit files in place and allows
   easy merges.</dd>
 
+  <dt><a href="http://sourceforge.net/projects/pysnippet">PySnippet</a></dt>
+  <dd>PySnippet is a code snippet manager for any language. It features
+  an user defined folder hierarchy, syntax highlighting and XML based
+  data file.</dd>
+
   <dt><a href="http://wingide.com/wingide">Wing IDE</a></dt>
   <dd>Wing IDE is a powerful development environment for the Python
   programming language. Wing IDE and Python are well suited for rapid
