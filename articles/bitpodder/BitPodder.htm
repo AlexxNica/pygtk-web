@@ -1,0 +1,1405 @@
+<html><head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<link rel="File-List" href="http://cksecurity.free.fr/SITE/BitPodder_files/filelist.xml">
+<title>Writing win32 applications with python and glade</title>
+
+<style>
+<!--
+p
+	{
+	font-size:12.0pt;
+	font-family:"Verdana";}
+
+p.Normal, li.Normal, div.Normal
+	{
+	#margin:0cm;
+	margin-bottom:12pt;
+	margin-top:12pt;
+	font-size:12.0pt;
+	font-family:"Verdana";}
+	
+p.Code
+	{
+	margin:0cm;
+	margin-bottom:0pt;
+	font-size:9pt;
+	font-family:"Verdana";}
+
+p.CodeColor
+	{
+	margin:0cm;
+	margin-bottom:0pt;
+	font-size:9pt;
+	font-family:"Verdana";
+	color:rgb(51, 51, 153)}
+
+p.Small
+	{
+	font-size:9.0pt;
+	font-family:"Verdana";}
+
+p.Small2
+	{
+	font-size:10.0pt;
+	font-family:"Verdana";}
+	
+a:link, span.Hyperlink
+	{color:blue;
+	text-decoration:underline;}
+a:visited, span.HyperlinkFollowed
+	{color:purple;
+	text-decoration:underline;}
+pre
+	{margin:0cm;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"Courier New";}
+ol
+	{margin-bottom:0cm;}
+ul
+	{margin-bottom:0cm;}
+-->
+</style></head>
+
+<body link="blue" vlink="purple">
+
+<div class="Section1">
+
+<p class="Normal" style="text-align: center;" align="center"><b><span style="font-size: 18pt; ">Writing
+win32 applications with python and glade</span></b></p>
+
+<p class="Small"><b>Author: Nzeka Gilbert</b></p>
+<p class="Small"><b>Author e-mail: <a href="mailto:khaalel@gmail.com">khaalel@gmail.com</a></b></p>
+<p class="Small"><b>Author website: <a href="http://www.nzeka-labs.com/">www.nzeka-labs.com</a>, <a href="http://korriban-planet.blogspot.com/">http://korriban-planet.blogspot.com/</a></b></p>
+<p class="Small"><b>Document Version: 1.0</b></p>
+
+<br>
+
+<p class="Normal"><b>I] License</b></p>
+<p class="Normal"><b>II] What are we going to do?</b></p>
+<p class="Normal"><b>III] What you should have before starting…</b></p>
+<p class="Normal"><b>IV] What is PyGTK?</b></p>
+<p class="Normal"><b>V] Let us start</b></p>
+<p class="Normal"><b>VI] Building the windows</b></p>
+<p class="Normal"><b>VII] How to code this app in python?</b></p>
+<p class="Normal"><b>VIII] How to compile BitPodder?</b></p>
+
+<br>
+<p class="Normal"><b>I] License</b></p>
+
+<p class="Small2">This tutorial is covered by the FDL.</p>
+<p class="Small2">The program listed here is covered by the GPL.</p>
+
+<br>
+<p class="Normal"><b>II] What are we going to do?</b></p>
+
+<p class="Small2">The
+goal of this article is to build a podcasting tool using Pygtk (Python + Glade
++ Pygtk). This tool, named BitPodder, is a podcasting tool allowing getting
+.torrent files from RSS Feeds. By explaining each step of the making of this
+tool, I hope I will help people having some difficulties with Python and Glade
+under win32 platform.</p>
+
+<br>
+
+<p class="Normal"><b>III] What you should have before starting…</b></p>
+
+<p class="Small2">- python</p>
+<p class="Small2">- Gtk+/Win32 Development Environment  (http://gladewin32.sourceforge.net/)</p>
+<p class="Small2">- Gtk+/Win32 Runtime Environment  (http://gladewin32.sourceforge.net/)</p>
+<p class="Small2">- Pygtk and gtkmm for Win32  (http://www.pcpm.ucl.ac.be/~gustin/win32_ports/)</p>
+<p class="Small2">- Tepache (http://primates.ximian.com/~sandino/python-glade/)</p>
+<p class="Small2">- You can get BitPodder_src.zip the tarball that contains
+the source code of BitPodder at: http://sourceforge.net/projects/korriban</p>
+
+<br>
+
+<p class="Normal"><b>IV] What is PyGTK?</b></p>
+
+<p class="Small2">“PyGTK
+provides <b>a convenient wrapper</b> for the GTK+ library for use in Python
+programs, taking care of many of the boring details such as managing memory and
+type casting. When combined with PyORBit and gnome-python, it can be used to
+write full featured Gnome applications.” 
+(http://www.pygtk.org/about.html)</p>
+
+<br>
+
+<p class="Normal"><b>V] Let us start</b></p>
+
+<p class="Small2">This is the win32 app we will code in this article. The screenshot is not clear but
+the goal is to show you what looks like BitPodder.</p>
+<p class="Small2"><img src="img/image002" border="0" height="403" width="604"></p>
+
+<br>
+
+<p class="Normal"><b>VI] Building the windows</b></p>
+
+<p class="Small2">First,
+we have to create the windows BitPodder will use. Thanks to glade, we can do
+that in a visual way. BitPodder contains a lot of widgets so before continuing
+this article, I hope you already have used glade or you know some widgets and
+know how works signals under GTK+. If all your answers are: no, I advise you to
+read articles like “Writing PyGTK applications in a visual way”
+(http://primates.ximian.com/~sandino/python-glade/) to know how work glade.</p>
+
+<p class="Small2"><img src="img/image004" border="0" height="582" width="605"></p>
+<p class="Small2">1: a GtkCList</p>
+<p class="Small2">2: a GtkComboBoxEntry</p>
+<p class="Small2">3: some GtkButton</p>
+<p class="Small2">4: some GtkToolButton</p>
+<p class="Small2">5: a GtkTextView</p>
+<p class="Small2">6: a GtkStatusbar</p>
+
+<p class="Small2"><img src="img/image006" border="0" height="353" width="592"></p>
+
+<p class="Small2">Now the widgets of the Option page:</p>
+<p class="Small2">7: a GtkCList</p>
+<p class="Small2">8: a GtkEntry</p>
+<p class="Small2">9: some GtkButton</p>
+
+<p class="Small2">I said “page” because to switch between Feeds and Options page, I used a
+GtkNotebook then I hided the tabs of this NoteBook. Here is the real window
+without hiding the tabs of the notebook:</p>
+<p class="Small2"><img src="img/image008" border="0" height="349" width="589"></p>
+<p class="Small2">To hide the tabs, you have to click here:</p>
+<p class="Small2"><img src="img/image010" border="0" height="284" width="301"></p>
+<p class="Small2">I won’t continue to explain how I created the windows of BitPodder project,
+because this article would be so long and you can read the glade file to see how it was made.</p>
+
+<br>
+
+<p class="Normal"><b>VII] How to code this app in python?</b></p>
+
+<p class="Small2">We
+will use a wonderful tool named tepache (http://primates.ximian.com/~sandino/python-glade/tepache/).
+With this tool, it will be possible to generate a python file with clean
+classes allowing controlling the widgets of your glade app.</p>
+<p class="Small2">Before, using tepache, download the tarball, unzip it and then install tepache by doing
+“python setup.py install” (thanks to cmd.exe) in the directory where you unzipped tepache.</p>
+<p class="Small2">Open another cmd.exe window and go where your glade file is. Put tepache in this
+directory then enter the following command in cmd.exe: <b>python tepache xxx.glade</b>. Where xxx.glade is the name of your glade
+file: for me it’s <b>bitpodder.glade</b>.</p>
+<p class="Small2"><img src="img/image012" border="0" height="306" width="604"></p>
+<p class="Small2">If all work fine, you should have 3 new files in the current directory:
+bitpodder.py, bitpodder.py.orig and SimpleGladeApp.py.</p>
+<p class="Small2"><span class="GramE">bitpodder.py</span> is the python file in which we
+will write the python code of the soft.</p>
+<p class="Small2">bitpodder.py.orig
+must not be modify or delete because if you want to update bitpodder.py, after
+having modifying the glade file, tepache will use this file in order to not
+overwrite the code you wrote.</p>
+<p class="Small2">SimpleGladeApp.py contain the python code that your app will execute when the users will do
+default actions like closing the window of your app.</p>
+
+<br>
+
+<table class="TableGrid" style="border: medium none ; background: rgb(243, 243, 243) none repeat scroll 0%; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial; border-collapse: collapse;" border="1" cellpadding="0" cellspacing="0">
+ <tbody><tr>
+  <td style="border: 1pt solid windowtext; padding: 0cm 5.4pt; width: 460.6pt;" valign="top" width="614">
+  <p class="Small2">In
+  a next article, I will explain you how to write your own tepache or your own
+  SimpleGladeApp.py file to customize your app: for example, sometimes, when
+  users close the window of the app, it would be nice to write a file that
+  would contain the last positions of the windows, or information about the
+  user…</p>
+  </td>
+ </tr>
+</tbody></table>
+
+<br>
+
+<p class="Small2">Now, we will open bitpodder.py to add the code of the app.</p>
+<p class="Small2">Bitpodder.py should looks like this:</p>
+
+<br>
+
+<table class="TableGrid" style="border: medium none ; background: rgb(243, 243, 243) none repeat scroll 0%; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial; border-collapse: collapse;" border="1" cellpadding="0" cellspacing="0">
+ <tbody><tr>
+  <td style="border: 1pt solid windowtext; padding: 0cm 5.4pt; width: 460.6pt;" valign="top" width="614">
+  <p class="CodeColor">#!/usr/bin/env python</p>
+  <p class="CodeColor"># -*- coding: UTF8 -*-</p>
+  <br>
+  <p class="CodeColor"># Python module bitpodder.py</p>
+  <p class="CodeColor"># Autogenerated from bitpodder.glade</p>
+  <p class="CodeColor"># Generated on Fri Sep 09 <st1:time minute="38" hour="14"><span style="color: rgb(51, 51, 153);">14:38:31</span></st1:time><span style="color: rgb(51, 51, 153);"> 2005</span></p>
+  <br>
+  <p class="CodeColor"># Warning: Do not modify any context comment such as #--</p>
+  <p class="CodeColor"># They are required to keep user's code</p>
+  <br>
+  <p class="Code">import os</p>
+  <br>
+  <p class="Code">import gtk</p>
+  <br>
+  <p class="Code">from SimpleGladeApp import SimpleGladeApp</p>
+  <p class="Code">from SimpleGladeApp import bindtextdomain</p>
+  <br>
+  <p class="Code">app_name = "bitpodder"</p>
+  <p class="Code">app_version = "0.0.1"</p>
+  <br>
+  <p class="Code">glade_dir = ""</p>
+  <p class="Code">locale_dir = ""</p>
+  <br>
+  <p class="Code">bindtextdomain(app_name, locale_dir)</p>
+  <br>
+  <br>
+  <p class="Code">class BitpodderWindow(SimpleGladeApp):</p>
+  <br>
+  <p class="Code">    def __init__(self, path="bitpodder.glade",</p>
+  <p class="Code">                 root="bitpodder_window",</p>
+  <p class="Code">                 domain=app_name, **kwargs):</p>
+  <p class="Code">        path = os.path.join(glade_dir, path)</p>
+  <p class="Code">        SimpleGladeApp.__init__(self, path, root, domain, **kwargs)</p>
+  <br>
+  <p class="CodeColor">    #-- BitpodderWindow.new {</p>
+  <p class="Code">    def new(self):</p>
+  <p class="Code">        print "A new %s has been
+  created" % self.__class__.__name__</p>
+  <p class="CodeColor">    #-- BitpodderWindow.new }</p>
+  <br>
+  <p class="CodeColor">    #-- BitpodderWindow custom methods {</p>
+  <p class="Code">    <span style="color: rgb(51, 51, 153);">#   Write your own methods here</span></p>
+  <p class="CodeColor">    #-- BitpodderWindow custom methods }</p>
+  <br>
+  <p class="CodeColor">    #-- BitpodderWindow.on_feed_toolbutton_clicked {</p>
+  <p class="Code">    def on_feed_toolbutton_clicked(self, widget, *args):</p>
+  <p class="Code">        print "on_feed_toolbutton_clicked called with self.%s" % widget.get_name()</p>
+  <p class="CodeColor">    #-- BitpodderWindow.on_feed_toolbutton_clicked }</p>
+  <br>
+  <p class="CodeColor">    #-- BitpodderWindow.on_options_toolbutton_clicked {</p>
+  <p class="Code">    def on_options_toolbutton_clicked(self, widget, *args):</p>
+  <p class="Code">        print "on_options_toolbutton_clicked called with self.%s" % widget.get_name()</p>
+  <p class="CodeColor">    #-- BitpodderWindow.on_options_toolbutton_clicked }</p>
+  <br>
+  <p class="CodeColor">    #-- BitpodderWindow.on_xisp_go_button_clicked {</p>
+  <p class="Code">    def on_xisp_go_button_clicked(self, widget, *args):</p>
+  <p class="Code">        print "on_xisp_go_button_clicked called with self.%s" % widget.get_name()</p>
+  <p class="CodeColor">    #-- BitpodderWindow.on_xisp_go_button_clicked }</p>
+  <br>
+  <p class="CodeColor">    #-- BitpodderWindow.on_show_button_clicked {</p>
+  <p class="Code">    def on_show_button_clicked(self, widget, *args):</p>
+  <p class="Code">        print "on_show_button_clicked called with self.%s" % widget.get_name()</p>
+  <p class="CodeColor">    #-- BitpodderWindow.on_show_button_clicked }</p>
+  <br>
+  <p class="CodeColor">    #-- BitpodderWindow.on_xisp_play_button_clicked {</p>
+  <p class="Code">    def on_xisp_play_button_clicked(self, widget, *args):</p>
+  <p class="Code">        print "on_xisp_play_button_clicked called with self.%s" % widget.get_name()</p>
+  <p class="CodeColor">    #-- BitpodderWindow.on_xisp_play_button_clicked }</p>
+  <br>
+  <p class="CodeColor">    #-- BitpodderWindow.on_xisp_results_clist_select_row {</p>
+  <p class="Code">    def on_xisp_results_clist_select_row(self, widget, *args):</p>
+  <p class="Code">        print "on_xisp_results_clist_select_row called with self.%s" % widget.get_name()</p>
+  <p class="CodeColor">    #-- BitpodderWindow.on_xisp_results_clist_select_row }</p>
+  <br>
+  <p class="CodeColor">    #-- BitpodderWindow.on_xisp_add_button_clicked {</p>
+  <p class="Code">    def on_xisp_add_button_clicked(self, widget, *args):</p>
+  <p class="Code">        print "on_xisp_add_button_clicked called with self.%s" % widget.get_name()</p>
+  <p class="CodeColor">    #-- BitpodderWindow.on_xisp_add_button_clicked }</p>
+  <br>
+  <p class="CodeColor">    #-- BitpodderWindow.on_xisp_remove_button_clicked {</p>
+  <p class="Code">    def on_xisp_remove_button_clicked(self, widget, *args):</p>
+  <p class="Code">        print "on_xisp_remove_button_clicked called with self.%s" % widget.get_name()</p>
+  <p class="CodeColor">    #-- BitpodderWindow.on_xisp_remove_button_clicked }</p>
+  <br>
+  <p class="CodeColor">    #-- BitpodderWindow.on_xisp_option_clist_select_row {</p>
+  <p class="Code">    def on_xisp_option_clist_select_row(self, widget, *args):</p>
+  <p class="Code">        print "on_xisp_option_clist_select_row called with self.%s" % widget.get_name()</p>
+  <p class="CodeColor">    #-- BitpodderWindow.on_xisp_option_clist_select_row }</p>
+  <br>
+  <br>
+  <p class="Code">class InfoWindow(SimpleGladeApp):</p>
+  <br>
+  <p class="Code">    def __init__(self, path="bitpodder.glade",</p>
+  <p class="Code">                 root="info_window",</p>
+  <p class="Code">                 domain=app_name, **kwargs):</p>
+  <p class="Code">        path = os.path.join(glade_dir, path)</p>
+  <p class="Code">        SimpleGladeApp.__init__(self, path, root, domain, **kwargs)</p>
+  <br>
+  <p class="CodeColor">    #-- InfoWindow.new {</p>
+  <p class="Code">    def new(self):</p>
+  <p class="Code">        print "A new %s has been created" % self.__class__.__name__</p>
+  <p class="CodeColor">    #-- InfoWindow.new }</p>
+  <br>
+  <p class="CodeColor">    #-- InfoWindow custom methods {</p>
+  <p class="CodeColor">    #   Write your own methods here</p>
+  <p class="CodeColor">    #-- InfoWindow custom methods }</p>
+  <br>
+  <br>
+  <p class="CodeColor">#-- main {</p>
+  <br>
+  <p class="Code">def main():</p>
+  <p class="Code">    bitpodder_window = BitpodderWindow()</p>
+  <p class="Code">    info_window = InfoWindow()</p>
+  <br>
+  <p class="Code">    bitpodder_window.run()</p>
+  <br>
+  <p class="Code">if __name__ == "__main__":</p>
+  <p class="Code">    main()</p>
+  <br>
+  <p class="CodeColor">#-- main }</p>
+  </td>
+ </tr>
+</tbody></table>
+
+<br>
+
+<p class="Small2">But
+we want the code looks like this (it’s the complete code of BitPodder, don’t
+worry I will explain each line after the listing):</p>
+
+<br>
+
+<table class="TableGrid" style="border: medium none ; background: rgb(243, 243, 243) none repeat scroll 0%; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial; border-collapse: collapse;" border="1" cellpadding="0" cellspacing="0">
+ <tbody><tr>
+  <td style="border: 1pt solid windowtext; padding: 0cm 5.4pt; width: 460.6pt;" valign="top" width="614">
+  <p class="CodeColor">#!/usr/bin/env python</p>
+  <p class="CodeColor"># -*- coding: UTF8 -*-</p>
+  <br>
+  <p class="CodeColor"># Python module xpodder.py</p>
+  <p class="CodeColor"># Autogenerated from xpodder.glade</p>
+  <p class="CodeColor"># Generated on <st1:date year="2000" day="6" month="9"><span style="font-size: 9pt;  color: rgb(51, 51, 153);">Tue Sep
+   06 00</st1:date><span style="font-size: 9pt;  color: rgb(51, 51, 153);">:<st1:time minute="46" hour="21"><span style="font-size: 9pt;  color: rgb(51, 51, 153);">21:46</st1:time><span style="font-size: 9pt;  color: rgb(51, 51, 153);"> 2005</p>
+  <br>
+  <p class="CodeColor"># Warning: Do not modify any context comment such as #--</p>
+  <p class="CodeColor"># They are required to keep user's code</p>
+  <br>
+  <p class="Code">import os, re, urllib, urlparse, feedparser, codecs</p>
+  <p class="Code">from sys import *</p>
+  <p class="Code">from os.path import *</p>
+  <p class="Code">from sha import *</p>
+  <p class="Code">from bencode import *</p>
+  <p class="Code">import gtk</p>
+  <br>
+  <p class="Code">from SimpleGladeApp import SimpleGladeApp</p>
+  <p class="Code">from SimpleGladeApp import bindtextdomain</p>
+  <br>
+  <p class="Code">app_name = "bitpodder"</p>
+  <p class="Code">app_version = "0.1"</p>
+  <br>
+  <p class="Code">glade_dir = ""</p>
+  <p class="Code">locale_dir = ""</p>
+  <br>
+  <p class="Code">bindtextdomain(app_name, locale_dir)</p>
+  <p class="Code">XISP_Results_Row_Variable = []</p>
+  <p class="Code">XISP_Options_Row_Variable = []</p>
+  <p class="Code">XISP_Link = ""</p>
+  <br>
+  <p class="Code">class BitPodderWindow(SimpleGladeApp):</p>
+  <br>
+  <p class="Code">    def __init__(self, path="glade\\bitpodder.glade",</p>
+  <p class="Code">                 root="bitpodder_window",</p>
+  <p class="Code">                 domain=app_name, **kwargs):</p>
+  <p class="Code">        path = os.path.join(glade_dir, path)</p>
+  <p class="Code">        SimpleGladeApp.__init__(self, path, root, domain, **kwargs)</p>
+  <br>
+  <p class="CodeColor">    #-- Xendor4ispWindow.new {</p>
+  <p class="Code">    def new(self):</p>
+  <p class="Code">        counter = 0</p>
+  <p class="Code">        self.xisp_results_clist.clear()</p>
+  <p class="Code">        self.xisp_option_clist.clear()</p>
+  <p class="Code">        fdw = open("bitpodder.fwp", 'r').readlines()</p>
+  <p class="Code">        for ligne in fdw:</p>
+  <p class="Code">            lesplit = ligne.split(":?:?:")</p>
+  <p class="Code">            lien = lesplit[1].strip()</p>
+  <p class="Code">            rpln = self.xisp_option_clist.append([lesplit[0], lien])</p>
+  <p class="Code">            rpln = self.xisp_comboboxentry.append_text(lesplit[0])</p>
+  <p class="Code">            counter = counter + 1</p>
+  <p class="Code">        </p>
+  <p class="Code">                   # http://www.pygtk.org/pygtktutorial/sec-statusbars.html</p>
+  <p class="Code">        global xisp_id, xispext_id</p>
+  <p class="Code">        stamess = "  BitPodder     |     " + str(counter) + " subscription(s)"</p>
+  <p class="Code">        xispext_id = self.xisp_statusbar.get_context_id("XISP Statusbar")</p>
+  <p class="Code">        xisp_id = self.xisp_statusbar.push(xispext_id, stamess)</p>
+  <p class="CodeColor">    #-- Xendor4ispWindow.new }</p>
+  <br>
+  <p class="CodeColor">    #-- Xendor4ispWindow custom methods {</p>
+  <p class="CodeColor">    #   Write your own methods here</p>
+  <p class="CodeColor">    #-- Xendor4ispWindow custom methods }</p>
+  <br>
+  <p class="CodeColor">    #-- Xendor4ispWindow.on_feed_toolbutton_clicked {</p>
+  <p class="Code">    def on_feed_toolbutton_clicked(self, widget, *args):</p>
+  <p class="Code">        self.xisp_notebook.set_current_page(0)</p>
+  <p class="CodeColor">    #-- Xendor4ispWindow.on_feed_toolbutton_clicked }</p>
+  <br>
+  <p class="CodeColor">    #-- Xendor4ispWindow.on_options_toolbutton_clicked {</p>
+  <p class="Code">    def on_options_toolbutton_clicked(self, widget, *args):</p>
+  <p class="Code">        self.xisp_notebook.set_current_page(1)</p>
+  <p class="CodeColor">    #-- Xendor4ispWindow.on_options_toolbutton_clicked }</p>
+  <br>
+  <p class="CodeColor">    #-- Xendor4ispWindow.on_xisp_go_button_clicked {</p>
+  <p class="Code">    def on_xisp_go_button_clicked(self, widget, *args):</p>
+  <p class="Code">        self.xisp_results_clist.clear()</p>
+  <p class="Code">        xentry = self.xisp_comboboxentry.child</p>
+  <p class="Code">        xentry = self.xisp_comboboxentry.get_child()</p>
+  <p class="Code">        choosen = xentry.get_text()</p>
+  <br>
+  <p class="Code">        urrl = get_xisp_id(choosen)</p>
+  <br>
+  <p class="Code">        page = urllib.urlopen(urrl).read()</p>
+  <p class="Code">        <span style="font-size: 9pt; ">page = page.replace( '&amp;quot;', '"')</p>
+  <p class="Code">        page = page.replace( '&amp;amp;', '&amp;')</p>
+  <p class="Code">        page = page.replace( '&amp;lt;', '&lt;')</p>
+  <p class="Code">        page = page.replace( '&amp;gt;', '&gt;')</p>
+  <p class="Code">        page = page.replace( '&amp;nbsp;', ' ')</p>
+  <p class="Code">#        t = re.compile('.*&lt;title&gt;[a-zA-Z0-9_].*&lt;/title&gt;')</p>
+  <p class="Code">        p = re.compile('.*url=["\']([^"\']*)["\'].*torrent')</p>
+  <p class="Code">        files = p.findall(page)</p>
+  <p class="Code">#        titless = t.findall(page)</p>
+  <br>
+  <p class="Code">        cou = 0</p>
+  <p class="Code">        for fff in files:</p>
+  <p class="Code">#            na = titless[cou+1].strip("&lt;title&gt;")</p>
+  <p class="Code">#            na = na.strip("&lt;/title&gt;")</p>
+  <p class="Code">#            try:</p>
+  <p class="Code">#                metainfo_file = urllib.urlopen(fff)</p>
+  <p class="Code">#                metainfo = bdecode(metainfo_file.read())</p>
+  <p class="Code">#                info = metainfo['info']</p>
+  <p class="Code">#                na = info['name']</p>
+  <p class="Code">#            except ValueError:</p>
+  <p class="Code">#                   na = os.path.splitext(os.path.split(fff)[1])[0]</p>
+  <p class="Code">#            if info.has_key('length'):</p>
+  <p class="Code">#               na = info['name']</p>
+  <p class="Code">#            else:</p>
+  <p class="Code">#                 na = info['name']</p>
+  <p class="Code">#            na = os.path.splitext(os.path.split(fff)[1])[0]</p>
+  <p class="Code">            na = os.path.splitext(os.path.split(fff)[1])[0]</p>
+  <p class="Code">            scomplink = self.xisp_results_clist.append([na, fff])</p>
+  <p class="Code">            cou = cou + 1</p>
+  <br>
+  <p class="CodeColor">    #-- Xendor4ispWindow.on_xisp_go_button_clicked }</p>
+  <br>
+  <p class="CodeColor">    #-- Xendor4ispWindow.on_xisp_play_button_clicked {</p>
+  <p class="Code">    def on_xisp_play_button_clicked(self, widget, *args):</p>
+  <p class="Code">        if len(XISP_Results_Row_Variable) != 0:</p>
+  <p class="Code">           xrow = XISP_Results_Row_Variable[0]</p>
+  <p class="Code">           scomplink = self.xisp_results_clist.get_text(xrow, 1)</p>
+  <p class="Code">           title = os.path.split(scomplink)[1]</p>
+  <br>
+  <p class="Code">           sharedfolder = 0</p>
+  <p class="Code">           for x in os.listdir(os.getcwd()):</p>
+  <p class="Code">               if x == "Torrents Files": sharedfolder = 1</p>
+  <p class="Code">           </p>
+  <p class="Code">           fol = os.getcwd() + "\\" + "Torrents Files"</p>
+  <p class="Code">           if sharedfolder == 0:</p>
+  <p class="Code">              err = os.mkdir(fol)</p>
+  <p class="Code">        </p>
+  <p class="Code">           title = fol + "\\" + str(title)</p>
+  <p class="Code">           fdm = open(title, 'a')</p>
+  <p class="Code">           fdm.close()</p>
+  <p class="Code">           tor = urllib.urlretrieve(scomplink, title)</p>
+  <p class="CodeColor">    #-- Xendor4ispWindow.on_xisp_play_button_clicked }</p>
+  <br>
+  <p class="CodeColor">    #-- Xendor4ispWindow.on_xisp_results_clist_select_row {</p>
+  <p class="Code">    def on_xisp_results_clist_select_row(self, widget, *args):</p>
+  <p class="Code">        global XISP_Results_Row_Variable</p>
+  <p class="Code">        XISP_Results_Row_Variable = self.xisp_results_clist.selection</p>
+  <p class="CodeColor">    #-- Xendor4ispWindow.on_xisp_results_clist_select_row }</p>
+  <br>
+  <p class="CodeColor">    #-- Xendor4ispWindow.on_show_button_clicked {</p>
+  <p class="Code">    def on_show_button_clicked(self, widget, *args):</p>
+  <p class="Code">        if len(XISP_Results_Row_Variable) != 0:</p>
+  <p class="Code">           xrow = XISP_Results_Row_Variable[0]</p>
+  <p class="Code">           scomplink = self.xisp_results_clist.get_text(xrow, 1)</p>
+  <p class="Code">           global XISP_Link</p>
+  <p class="Code">           XISP_Link = scomplink</p>
+  <p class="Code">           info_window = InfoWindow()</p>
+  <p class="CodeColor">    #-- Xendor4ispWindow.on_show_button_clicked }</p>
+  <br>
+  <p class="CodeColor">    #-- Xendor4ispWindow.on_xisp_add_button_clicked {</p>
+  <p class="Code">    def on_xisp_add_button_clicked(self, widget, *args):</p>
+  <p class="Code">        xtring = self.xisp_add_entry.get_text()</p>
+  <p class="Code">        if xtring != "":</p>
+  <p class="Code">           lurl = xtring</p>
+  <p class="Code">           lxml = feedparser.parse(lurl.strip())</p>
+  <p class="Code">           title = lxml.channel.title</p>
+  <p class="Code">           fdw = open("bitpodder.fwp", 'a')</p>
+  <p class="Code">           if xtring != "":</p>
+  <p class="Code">              ch = title + ":?:?:" + xtring</p>
+  <p class="Code">              fdw.write(ch)</p>
+  <p class="Code">              fdw.write('\n')</p>
+  <p class="Code">           fdw.close()</p>
+  <br>
+  <p class="Code">           xtring = self.xisp_add_entry.set_text("")</p>
+  <p class="Code">           self.xisp_option_clist.clear()</p>
+  <br>
+  <p class="Code">           bitpodder_window = BitPodderWindow()</p>
+  <p class="Code">           self.bitpodder_window.destroy()</p>
+  <br>
+  <p class="CodeColor">    #-- Xendor4ispWindow.on_xisp_add_button_clicked }</p>
+  <br>
+  <p class="CodeColor">    #-- Xendor4ispWindow.on_xisp_remove_button_clicked {</p>
+  <p class="Code">    def on_xisp_remove_button_clicked(self, widget, *args):</p>
+  <p class="Code">        if len(XISP_Options_Row_Variable)!= 0:</p>
+  <p class="Code">           xtrow = XISP_Options_Row_Variable[0]</p>
+  <p class="Code">           if xtrow != "":</p>
+  <p class="Code">              self.xisp_option_clist.remove(xtrow)</p>
+  <br>
+  <p class="Code">           fdw = open("bitpodder.fwp", 'w')</p>
+  <p class="Code">           for drow in range(self.xisp_option_clist.rows):</p>
+  <p class="Code">               ame = self.xisp_option_clist.get_text(drow, 0)</p>
+  <p class="Code">               d = self.xisp_option_clist.get_text(drow, 1)</p>
+  <p class="Code">               ch = ame + ":?:?:" + d</p>
+  <p class="Code">               fdw.write(ch)</p>
+  <p class="Code">               fdw.write('\n')</p>
+  <p class="Code">           fdw.close()</p>
+  <br>
+  <p class="Code">           bitpodder_window = BitPodderWindow()</p>
+  <p class="Code">           self.bitpodder_window.destroy()</p>
+  <br>
+  <p class="CodeColor">    #-- Xendor4ispWindow.on_xisp_remove_button_clicked }</p>
+  <br>
+  <p class="CodeColor">    #-- Xendor4ispWindow.on_xisp_option_clist_select_row {</p>
+  <p class="Code">    def on_xisp_option_clist_select_row(self, widget, *args):</p>
+  <p class="Code">        global XISP_Options_Row_Variable</p>
+  <p class="Code">        XISP_Options_Row_Variable = self.xisp_option_clist.selection</p>
+  <p class="CodeColor">    #-- Xendor4ispWindow.on_xisp_option_clist_select_row }</p>
+  <br>
+  <br>
+  <br>
+  <p class="Code">class InfoWindow(SimpleGladeApp):</p>
+  <br>
+  <p class="Code">    def __init__(self, path="glade\\bitpodder.glade",</p>
+  <p class="Code">                 root="info_window",</p>
+  <p class="Code">                 domain=app_name, **kwargs):</p>
+  <p class="Code">        path = os.path.join(glade_dir, path)</p>
+  <p class="Code">        SimpleGladeApp.__init__(self, path, root, domain, **kwargs)</p>
+  <br>
+  <p class="CodeColor">    #-- InfoWindow.new {</p>
+  <p class="Code">    def new(self):</p>
+  <p class="Code">         global XISP_Link</p>
+  <p class="Code">         link = XISP_Link</p>
+  <br>
+  <p class="Code">         metainfo_file = urllib.urlopen(link)</p>
+  <p class="Code">         metainfo = bdecode(metainfo_file.read())</p>
+  <br>
+  <p class="Code">         info = metainfo['info']</p>
+  <p class="Code">         info_hash = sha(bencode(info))</p>
+  <p class="Code">         txt = "metainfo file.: %s" % basename(link) + "\n"</p>
+  <p class="Code">         txt = txt + "info hash.....:  %s" % info_hash.hexdigest() + "\n"</p>
+  <p class="Code">         piece_length = info['piece length']</p>
+  <p class="Code">         if info.has_key('length'):</p>
+  <p class="Code">            # let's assume we just have a file</p>
+  <p class="Code">            txt = txt + "file name.....:  %s" % info['name'] + "\n"</p>
+  <p class="Code">            file_length = info['length']</p>
+  <p class="Code">            name ='file size.....:  '</p>
+  <p class="Code">         else:</p>
+  <p class="Code">              # let's assume we have a directory structure</p>
+  <p class="Code">              txt = txt + "directory name:  %s" % info['name'] + "\n"</p>
+  <p class="Code">              txt = txt + "files.........:  " + "\n"</p>
+  <p class="Code">              file_length = 0</p>
+  <p class="Code">              for file in info['files']:</p>
+  <p class="Code">                  path = ''</p>
+  <p class="Code">                  for item in file['path']:</p>
+  <p class="Code">                      if (path != ''):</p>
+  <p class="Code">                         path = path + "/"</p>
+  <p class="Code">                      path = path + item</p>
+  <p class="Code">                  txt = txt + "   %s (%d)" % (path, file['length']) + "\n"</p>
+  <p class="Code">                  file_length += file['length']</p>
+  <p class="Code">                  name ='archive size..: '</p>
+  <p class="Code">         piece_number, last_piece_length = divmod(file_length, piece_length)</p>
+  <p class="Code">         txt = txt + "%s %i (%i * %i + %i)" \</p>
+  <p class="Code">               % (name,file_length, piece_number, piece_length, last_piece_length) + "\n"</p>
+  <p class="Code">         txt = txt + "announce url..:  %s" % metainfo['announce'] + "\n"</p>
+  <p class="Code">         if metainfo.has_key('announce-list'):</p>
+  <p class="Code">            list = []</p>
+  <p class="Code">            for tier in metainfo['announce-list']:</p>
+  <p class="Code">                for tracker in tier:</p>
+  <p class="Code">                    list+=[tracker,',']</p>
+  <p class="Code">                <st1:state><st1:place><span style="font-size: 9pt; ">del</st1:place></st1:state><span style="font-size: 9pt; "> list[-1]</p>
+  <p class="Code">                list+=['|']</p>
+  <p class="Code">            <st1:state><st1:place><span style="font-size: 9pt; ">del</st1:place></st1:state><span style="font-size: 9pt; "> list[-1]</p>
+  <p class="Code">            liststring = ''</p>
+  <p class="Code">            for i in list:</p>
+  <p class="Code">                liststring+=i</p>
+  <p class="Code">            txt = txt + "announce-list.:  %s" % liststring + "\n"</p>
+  <p class="Code">         if metainfo.has_key('httpseeds'):</p>
+  <p class="Code">            list = []</p>
+  <p class="Code">            for seed in metainfo['httpseeds']:</p>
+  <p class="Code">                list += [seed,'|']</p>
+  <p class="Code">            <st1:state><st1:place><span style="font-size: 9pt; ">del</st1:place></st1:state><span style="font-size: 9pt; "> list[-1]</p>
+  <p class="Code">            liststring = ''</p>
+  <p class="Code">            for i in list:</p>
+  <p class="Code">                liststring+=i</p>
+  <p class="Code">            txt = txt + "http seeds....:  %s" % liststring + "\n"</p>
+  <p class="Code">         if metainfo.has_key('comment'):</p>
+  <p class="Code">            txt = txt + "comment.......:  %s" % metainfo['comment'] + "\n"</p>
+  <br>
+  <br>
+  <p class="Code">         buf = self.metainfo_textview.get_buffer()</p>
+  <p class="Code">         buf.set_text(txt)</p>
+  <p class="CodeColor">    #-- InfoWindow.new }</p>
+  <br>
+  <p class="CodeColor">    #-- InfoWindow custom methods {</p>
+  <p class="Code">    #   Write your own methods here</p>
+  <p class="CodeColor">    #-- InfoWindow custom methods }</p>
+  <br>
+  <br>
+  <br>
+  <p class="Code">def get_xisp_id(identifiant):</p>
+  <p class="Code">    fdpn = open("bitpodder.fwp").readlines()</p>
+  <p class="Code">    reqxisp = re.compile(identifiant)</p>
+  <p class="Code">    for pe in fdpn:</p>
+  <p class="Code">        if reqxisp.search(pe):</p>
+  <p class="Code">           PeersString = pe.split(":?:?:")</p>
+  <p class="Code">    return PeersString[1]</p>
+  <p class="CodeColor">#-- main {</p>
+  <br>
+  <p class="Code">def main():</p>
+  <p class="Code">    bitpodder_window = BitPodderWindow()</p>
+  <br>
+  <p class="Code">    bitpodder_window.run()</p>
+  <br>
+  <p class="Code">if __name__ == "__main__":</p>
+  <p class="Code">    main()</p>
+  <br>
+  <p class="CodeColor">#-- main }</p>
+  </td>
+ </tr>
+</tbody></table>
+
+<br>
+
+<p class="Small2">Like
+you can see, BitPodder is a small soft of only 300 lines: thanks to python!!!</p>
+<p class="Small2"><i>Ok, ok I promise I will not act like a python prophet lol!!!</i></p>
+<p class="Small2">Let’s start analyzing bitpodder.py (beta) line by line.</p>
+<p class="Small2">Before anything, we have to include some modules:</p>
+
+<br>
+
+<table class="TableGrid" style="border: medium none ; background: rgb(243, 243, 243) none repeat scroll 0%; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial; border-collapse: collapse;" border="1" cellpadding="0" cellspacing="0">
+ <tbody><tr>
+  <td style="border: 1pt solid windowtext; padding: 0cm 5.4pt; width: 460.6pt;" valign="top" width="614">
+  <p class="Code"><span style="">import os, re, urllib, urlparse, feedparser, codecs</span></p>
+  <p class="Code"><span style="">from sys import *</span></p>
+  <p class="Code"><span style="">from os.path import *</span></p>
+  <p class="Code"><span style="">from sha import *</span></p>
+  <p class="Code"><span style="">from bencode import *</span></p>
+  <p class="Code"><span style="">import gtk</span></p>
+  </td>
+ </tr>
+</tbody></table>
+
+<br>
+
+<p class="Small2">Feedparser
+can be found at feedparser.org, and bencode can be found in Bit Torrent
+package. But to make your life easy, you can found these modules in the tarball
+of BitPodder_src.</p>
+<p class="Small2">Then, we have the code generated by tepache:</p>
+
+<br>
+
+<table class="TableGrid" style="border: medium none ; background: rgb(243, 243, 243) none repeat scroll 0%; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial; border-collapse: collapse;" border="1" cellpadding="0" cellspacing="0">
+ <tbody><tr>
+  <td style="border: 1pt solid windowtext; padding: 0cm 5.4pt; width: 460.6pt;" valign="top" width="614">
+  <p class="Code"><span style="">from SimpleGladeApp import SimpleGladeApp</span></p>
+  <p class="Code"><span style="">from SimpleGladeApp import bindtextdomain</span></p>
+  <br>
+  <p class="Code"><span style="">app_name = "bitpodder"</span></p>
+  <p class="Code"><span style="">app_version = "0.1"</span></p>
+  <br>
+  <p class="Code"><span style="">glade_dir = ""</span></p>
+  <p class="Code"><span style="">locale_dir = ""</span></p>
+  <br>
+  <p class="Code"><span style="">bindtextdomain(app_name, locale_dir)</span></p>
+  </td>
+ </tr>
+</tbody></table>
+
+<br>
+
+<p class="Small2">Now, there are 3 global variables we will use in the app:</p>
+
+<br>
+
+<table class="TableGrid" style="border: medium none ; background: rgb(243, 243, 243) none repeat scroll 0%; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial; border-collapse: collapse;" border="1" cellpadding="0" cellspacing="0">
+ <tbody><tr>
+  <td style="border: 1pt solid windowtext; padding: 0cm 5.4pt; width: 460.6pt;" valign="top" width="614">
+  <p class="Code"><span style="">XISP_Results_Row_Variable = []</span></p>
+  <p class="Code"><span style="">XISP_Options_Row_Variable = []</span></p>
+  <p class="Code"><span style="">XISP_Link = ""</span></p>
+  </td>
+ </tr>
+</tbody></table>
+
+<br>
+
+<p class="Small2">Here
+is the entry of the main window class I named in the glade file: <span style="font-size: 9pt; ">bitpodder_window.</span></p>
+<p class="Small2">Like
+you can see: I modify a line:<span style="font-size: 9pt; "> "glade\\bitpodder.glade". </span>Why? Because I decided
+to put the glade file in another directory so I created a new directory named
+“\glade\”. The line contains 2 backslash because \b have a meaning in python
+and we want to annul the backslash coming before the “b”.</p>
+
+<br>
+
+<table class="TableGrid" style="border: medium none ; background: rgb(243, 243, 243) none repeat scroll 0%; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial; border-collapse: collapse;" border="1" cellpadding="0" cellspacing="0">
+ <tbody><tr>
+  <td style="border: 1pt solid windowtext; padding: 0cm 5.4pt; width: 460.6pt;" valign="top" width="614">
+  <p class="Code"><span style="">class BitPodderWindow(SimpleGladeApp):</span></p>
+  <br>
+  <p class="Code"><span style="">    def __init__(self, path="glade\\bitpodder.glade",</span></p>
+  <p class="Code"><span style="">                 root="bitpodder_window",</span></p>
+  <p class="Code"><span style="">                 domain=app_name, **kwargs):</span></p>
+  <p class="Code"><span style="">        path = os.path.join(glade_dir, path)</span></p>
+  <p class="Code"><span style="">        SimpleGladeApp.__init__(self, path, root, domain, **kwargs)</span></p>
+  <br>
+  <p class="CodeColor"><span style="">    #-- Xendor4ispWindow.new {</span></p>
+  </td>
+ </tr>
+</tbody></table>
+
+<br>
+
+<p class="Small2">Now
+we will write the new() method. What is this method? The code inside this
+method will be execute before the window appear, thanks to that we will
+initializate some widgets before they appear.</p>
+<p class="Small2">Let’s
+start by clearing the 2 CLists we use in BitPodder.</p>
+
+<br>
+
+<table class="TableGrid" style="border: medium none ; background: rgb(243, 243, 243) none repeat scroll 0%; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial; border-collapse: collapse;" border="1" cellpadding="0" cellspacing="0">
+ <tbody><tr>
+  <td style="border: 1pt solid windowtext; padding: 0cm 5.4pt; width: 460.6pt;" valign="top" width="614">
+  <p class="Code"><span style="">    def new(self):</span></p>
+  <p class="Code"><span style="">        counter = 0</span></p>
+  <p class="Code"><span style="">        self.xisp_results_clist.clear()</span></p>
+  <p class="Code"><span style="">        self.xisp_option_clist.clear()</span></p>
+  </td>
+ </tr>
+</tbody></table>
+
+<br>
+
+<p class="Small2">Then we will open the file that contains the RSS Feeds links. A line of this file
+looks like this: “BitTorrent @ AnimeSuki.com:?:?:http://www.animesuki.com/rss.php”.</p>
+<p class="Small2">Explication:
+first, there is the name of the feed, then there is this “:?:?:”,  then there is the feed url.</p>
+<p class="Small2">So we open the file and at each line, we will split the line thanks to this:
+“:?:?:”.</p>
+<p class="Small2">Then we add the name and the url of each RSS Feed in the CList of the Option page
+and only the name of each feed in the comboboxentry.</p>
+<p class="Small2">Warning!!! Glade has a bug… you have to add this code in the glade file where the
+comboboxentry is defined: “&lt;property name="items"
+translatable="yes"&gt;&lt;/property&gt;” otherwise you will a
+beautiful error when the app will be launch.</p>
+<p class="Small2">The code that defines the comboboxentry should look like this:</p>
+
+<br>
+
+<table class="TableGrid" style="border: medium none ; background: rgb(243, 243, 243) none repeat scroll 0%; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial; border-collapse: collapse;" border="1" cellpadding="0" cellspacing="0">
+ <tbody><tr>
+  <td style="border: 1pt solid windowtext; padding: 0cm 5.4pt; width: 460.6pt;" valign="top" width="614">
+  <p class="Code">&lt;child&gt;</p>
+  <p class="Code">    &lt;widget class="GtkComboBoxEntry" id="xisp_comboboxentry"&gt;</p>
+  <p class="Code">        &lt;property name="visible"&gt;True&lt;/property&gt;</p>
+  <p class="Code">        &lt;property name="items" translatable="yes"&gt;&lt;/property&gt;</p>
+  <p class="Code">        &lt;property name="add_tearoffs"&gt;False&lt;/property&gt;</p>
+  <p class="Code">        &lt;property name="has_frame"&gt;True&lt;/property&gt;</p>
+  <p class="Code">        &lt;property name="focus_on_click"&gt;True&lt;/property&gt;</p>
+  <p class="Code">    &lt;/widget&gt;</p>
+  <p class="Code">    &lt;packing&gt;</p>
+  <p class="Code">        &lt;property name="padding"&gt;0&lt;/property&gt;</p>
+  <p class="Code">        &lt;property name="expand"&gt;True&lt;/property&gt;</p>
+  <p class="Code">        &lt;property name="fill"&gt;True&lt;/property&gt;</p>
+  <p class="Code">    &lt;/packing&gt;</p>
+  <p class="Code">&lt;/child&gt;</p>
+  </td>
+ </tr>
+</tbody></table>
+
+<br><br>
+
+<br><br>
+
+<table class="TableGrid" style="border: medium none ; background: rgb(243, 243, 243) none repeat scroll 0%; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial; border-collapse: collapse;" border="1" cellpadding="0" cellspacing="0">
+ <tbody><tr>
+  <td style="border: 1pt solid windowtext; padding: 0cm 5.4pt; width: 460.6pt;" valign="top" width="614">
+  <p class="Code">        fdw = open("bitpodder.fwp", 'r').readlines()</p>
+  <p class="Code">        for ligne in fdw:</p>
+  <p class="Code">            lesplit = ligne.split(":?:?:")</p>
+  <p class="Code">            lien = lesplit[1].strip()</p>
+  <p class="Code">            rpln = self.xisp_option_clist.append([lesplit[0], lien])</p>
+  <p class="Code">            rpln = self.xisp_comboboxentry.append_text(lesplit[0])</p>
+  <p class="Code">            counter = counter + 1</p>
+  </td>
+ </tr>
+</tbody></table>
+
+<br>
+
+<p class="Small2">Now we can add the string in the status bar.</p>
+
+<br>
+
+<table class="TableGrid" style="border: medium none ; background: rgb(243, 243, 243) none repeat scroll 0%; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial; border-collapse: collapse;" border="1" cellpadding="0" cellspacing="0">
+ <tbody><tr>
+  <td style="border: 1pt solid windowtext; padding: 0cm 5.4pt; width: 460.6pt;" valign="top" width="614">
+  <p class="Code">                   # http://www.pygtk.org/pygtktutorial/sec-statusbars.html</p>
+  <p class="Code">        global xisp_id, xispext_id</p>
+  <p class="Code">        stamess = "  BitPodder     |     " + str(counter) + " subscription(s)"</p>
+  <p class="Code">        xispext_id = self.xisp_statusbar.get_context_id("XISP Statusbar")</p>
+  <p class="Code">        xisp_id = self.xisp_statusbar.push(xispext_id, stamess)</p>
+  <p class="CodeColor">    #-- Xendor4ispWindow.new }</p>
+  <br>
+  <p class="CodeColor">    #-- Xendor4ispWindow custom methods {</p>
+  <p class="CodeColor">    #   Write your own methods here</p>
+  <p class="CodeColor">    #-- Xendor4ispWindow custom methods }</p>
+  </td>
+ </tr>
+</tbody></table>
+
+<br>
+
+<p class="Small2">Now we will tell the app what to do when users click on Feeds and Options buttons.</p>
+<p class="Small2">Like I said, I used a notebook, so I just have to open the right page: each page is
+identified by a number.</p>
+
+<br>
+
+<table class="TableGrid" style="border: medium none ; background: rgb(243, 243, 243) none repeat scroll 0%; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial; border-collapse: collapse;" border="1" cellpadding="0" cellspacing="0">
+ <tbody><tr>
+  <td style="border: 1pt solid windowtext; padding: 0cm 5.4pt; width: 460.6pt;" valign="top" width="614">
+  <p class="CodeColor">#-- Xendor4ispWindow.on_feed_toolbutton_clicked {</p>
+  <p class="Code">    def on_feed_toolbutton_clicked(self, widget, *args):</p>
+  <p class="Code">        self.xisp_notebook.set_current_page(0)</p>
+  <p class="CodeColor">#-- Xendor4ispWindow.on_feed_toolbutton_clicked }</p>
+  <br>
+  <p class="CodeColor">    #-- Xendor4ispWindow.on_options_toolbutton_clicked {</p>
+  <p class="Code">    def on_options_toolbutton_clicked(self, widget, *args):</p>
+  <p class="Code">        self.xisp_notebook.set_current_page(1)</p>
+  <p class="CodeColor">    #-- Xendor4ispWindow.on_options_toolbutton_clicked }</p>
+  </td>
+ </tr>
+</tbody></table>
+
+<br>
+
+<p class="Small2">Now
+we will tell the app what to do when users click on Go button.</p>
+<p class="Small2">We
+will obtain the feed name the user chooses in the comboboxentry and put it in
+the variable <i>choosen</i>.</p>
+
+<br>
+
+<table class="TableGrid" style="border: medium none ; background: rgb(243, 243, 243) none repeat scroll 0%; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial; border-collapse: collapse;" border="1" cellpadding="0" cellspacing="0">
+ <tbody><tr>
+  <td style="border: 1pt solid windowtext; padding: 0cm 5.4pt; width: 460.6pt;" valign="top" width="614">
+  <p class="CodeColor">    #-- Xendor4ispWindow.on_xisp_go_button_clicked {</p>
+  <p class="Code">    def on_xisp_go_button_clicked(self, widget, *args):</p>
+  <p class="Code">        self.xisp_results_clist.clear()</p>
+  <p class="Code">        xentry = self.xisp_comboboxentry.child</p>
+  <p class="Code">        xentry = self.xisp_comboboxentry.get_child()</p>
+  <p class="Code">        choosen = xentry.get_text()</p>
+  </td>
+ </tr>
+</tbody></table>
+
+<br>
+
+<p class="Small2">After
+having the name, we have to get the url associated with the name so I created a
+function named get_xisp_id() that I will define later. After having the url
+feed, I will read the web page, replace some strings and search all the string
+that look like this “url=http://blablabla.torrent” (you have to know the
+.torrent urls are put in the &lt;enclosure&gt; tag that look like that:
+“&lt;enclosure url="http://www.anime-kraze.org/torrent/[Ani-Kraze]_Tsubasa_Chronicle_-_16_[2CE95BC4].avi.torrent"
+length="14008" type="application/x-bittorrent"/&gt;”). When
+I get all the links BitPodder found, first I will parse the url to obtain the
+.torrent name thanks to os.path.splitext(xxx)[0], then I will add the results
+in the Feeds page’s CList.</p>
+
+<br>
+
+<table class="TableGrid" style="border: medium none ; background: rgb(243, 243, 243) none repeat scroll 0%; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial; border-collapse: collapse;" border="1" cellpadding="0" cellspacing="0">
+ <tbody><tr>
+  <td style="border: 1pt solid windowtext; padding: 0cm 5.4pt; width: 460.6pt;" valign="top" width="614">
+  <p class="Code">        urrl = get_xisp_id(choosen)</p>
+  <br>
+  <p class="Code">        page = urllib.urlopen(urrl).read()</p>
+  <p class="Code">        <span style="font-size: 9pt; ">page = page.replace( '&amp;quot;', '"')</p>
+  <p class="Code">        page = page.replace( '&amp;amp;', '&amp;')</p>
+  <p class="Code">        page = page.replace( '&amp;lt;', '&lt;')</p>
+  <p class="Code">        page = page.replace( '&amp;gt;', '&gt;')</p>
+  <p class="Code">        page = page.replace( '&amp;nbsp;', ' ')</p>
+  <p class="Code">#        t = re.compile('.*&lt;title&gt;[a-zA-Z0-9_].*&lt;/title&gt;')</p>
+  <p class="Code">        p = re.compile('.*url=["\']([^"\']*)["\'].*torrent')</p>
+  <p class="Code">        files = p.findall(page)</p>
+  <p class="Code">#        titless = t.findall(page)</p>
+  <br>
+  <p class="Code">        cou = 0</p>
+  <p class="Code">        for fff in files:</p>
+  <p class="Code">#            na = titless[cou+1].strip("&lt;title&gt;")</p>
+  <p class="Code">#            na = na.strip("&lt;/title&gt;")</p>
+  <p class="Code">#            try:</p>
+  <p class="Code">#                metainfo_file = urllib.urlopen(fff)</p>
+  <p class="Code">#                metainfo = bdecode(metainfo_file.read())</p>
+  <p class="Code">#                info = metainfo['info']</p>
+  <p class="Code">#                na = info['name']</p>
+  <p class="Code">#            except ValueError:</p>
+  <p class="Code">#                   na = os.path.splitext(os.path.split(fff)[1])[0]</p>
+  <p class="Code">#            if info.has_key('length'):</p>
+  <p class="Code">#               na = info['name']</p>
+  <p class="Code">#            else:</p>
+  <p class="Code">#                 na = info['name']</p>
+  <p class="Code">#            na = os.path.splitext(os.path.split(fff)[1])[0]</p>
+  <p class="Code">            na = os.path.splitext(os.path.split(fff)[1])[0]</p>
+  <p class="Code">            scomplink = self.xisp_results_clist.append([na, fff])</p>
+  <p class="Code">            cou = cou + 1</p>
+  <br>
+  <p class="CodeColor">    #-- Xendor4ispWindow.on_xisp_go_button_clicked }</p>
+  </td>
+ </tr>
+</tbody></table>
+
+<br>
+
+<p class="Small2">Now
+we will tell the app what to do when users select a line in the CList.</p>
+<p class="Small2">When
+a row (line) is selected, GTK+ send the number of the line selected in a list. So
+we will use a global variable to be able to use this number with different
+functions.</p>
+
+<br>
+
+<table class="TableGrid" style="border: medium none ; background: rgb(243, 243, 243) none repeat scroll 0%; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial; border-collapse: collapse;" border="1" cellpadding="0" cellspacing="0">
+ <tbody><tr>
+  <td style="border: 1pt solid windowtext; padding: 0cm 5.4pt; width: 460.6pt;" valign="top" width="614">
+  <p class="CodeColor">    #-- Xendor4ispWindow.on_xisp_results_clist_select_row {</p>
+  <p class="Code">    def on_xisp_results_clist_select_row(self, widget, *args):</p>
+  <p class="Code">        global XISP_Results_Row_Variable</p>
+  <p class="Code">        XISP_Results_Row_Variable = self.xisp_results_clist.selection</p>
+  <p class="CodeColor">    #-- Xendor4ispWindow.on_xisp_results_clist_select_row }</p>
+  <br><br>
+  </td>
+ </tr>
+</tbody></table>
+
+<br>
+
+<p class="Small2">Now
+we will tell the app what to do when users click on Download button.</p>
+<p class="Small2">First
+we will check if the global variable we associated to the CList has a value, if
+not we do nothing. If yes, we take the number of the line (row) and take the
+value of the second column of the line (the torrent url) then we download the
+.torrent file in Torrent Files directory (that we create if it’s the first time
+the user download a torrent)</p>
+
+<br>
+
+<table class="TableGrid" style="border: medium none ; background: rgb(243, 243, 243) none repeat scroll 0%; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial; border-collapse: collapse;" border="1" cellpadding="0" cellspacing="0">
+ <tbody><tr>
+  <td style="border: 1pt solid windowtext; padding: 0cm 5.4pt; width: 460.6pt;" valign="top" width="614">
+  <p class="CodeColor">    #-- Xendor4ispWindow.on_xisp_play_button_clicked {</p>
+  <p class="Code">    def on_xisp_play_button_clicked(self, widget, *args):</p>
+  <p class="Code">        if len(XISP_Results_Row_Variable) != 0:</p>
+  <p class="Code">           xrow = XISP_Results_Row_Variable[0]</p>
+  <p class="Code">           scomplink = self.xisp_results_clist.get_text(xrow, 1)</p>
+  <p class="Code">           title = os.path.split(scomplink)[1]</p>
+  <br>
+  <p class="Code">           sharedfolder = 0</p>
+  <p class="Code">           for x in os.listdir(os.getcwd()):</p>
+  <p class="Code">               if x == "Torrents Files": sharedfolder = 1</p>
+  <p class="Code">           </p>
+  <p class="Code">           fol = os.getcwd() + "\\" + "Torrents Files"</p>
+  <p class="Code">           if sharedfolder == 0:</p>
+  <p class="Code">              err = os.mkdir(fol)</p>
+  <p class="Code">        </p>
+  <p class="Code">           title = fol + "\\" + str(title)</p>
+  <p class="Code">           fdm = open(title, 'a')</p>
+  <p class="Code">           fdm.close()</p>
+  <p class="Code">           tor = urllib.urlretrieve(scomplink, title)</p>
+  <p class="CodeColor">    #-- Xendor4ispWindow.on_xisp_play_button_clicked }</p>
+  </td>
+ </tr>
+</tbody></table>
+
+<br><br>
+
+<p class="Small2">Now
+we will tell the app what to do when users click on torrent Info button.</p>
+
+<p class="Small2">Like
+for Download button we try to get the number of the row then the torrent url
+that we will put in a global variable. To finish, we will open the second
+window, in which the user will be able to see information about the torrent.</p>
+
+<br>
+
+<table class="TableGrid" style="border: medium none ; background: rgb(243, 243, 243) none repeat scroll 0%; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial; border-collapse: collapse;" border="1" cellpadding="0" cellspacing="0">
+ <tbody><tr>
+  <td style="border: 1pt solid windowtext; padding: 0cm 5.4pt; width: 460.6pt;" valign="top" width="614">
+  <p class="CodeColor">    #-- Xendor4ispWindow.on_show_button_clicked {</p>
+  <p class="Code">    def on_show_button_clicked(self, widget, *args):</p>
+  <p class="Code">        if len(XISP_Results_Row_Variable) != 0:</p>
+  <p class="Code">           xrow = XISP_Results_Row_Variable[0]</p>
+  <p class="Code">           scomplink = self.xisp_results_clist.get_text(xrow, 1)</p>
+  <p class="Code">           global XISP_Link</p>
+  <p class="Code">           XISP_Link = scomplink</p>
+  <p class="Code">           info_window = InfoWindow()</p>
+  <p class="CodeColor">    #-- Xendor4ispWindow.on_show_button_clicked }</p>
+  </td>
+ </tr>
+</tbody></table>
+
+<br>
+
+<p class="Small2">Now
+we will write the code for the Option page.</p>
+<p class="Small2">Now
+we will tell the app what to do when users click on Add button.</p>
+<p class="Small2">To
+resume the code, when the user will enter the link of an RSS Feed, we will open
+this feed to obtain the name of the channel and then we add this new feed to
+bitpodder.fwp file. To finish, we will reload the app by opening a new window
+and destroying the current window.</p>
+
+<br>
+
+<table class="TableGrid" style="border: medium none ; background: rgb(243, 243, 243) none repeat scroll 0%; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial; border-collapse: collapse;" border="1" cellpadding="0" cellspacing="0">
+ <tbody><tr>
+  <td style="border: 1pt solid windowtext; padding: 0cm 5.4pt; width: 460.6pt;" valign="top" width="614">
+  <p class="CodeColor">    #-- Xendor4ispWindow.on_xisp_add_button_clicked {</p>
+  <p class="Code">    def on_xisp_add_button_clicked(self, widget, *args):</p>
+  <p class="Code">        xtring = self.xisp_add_entry.get_text()</p>
+  <p class="Code">        if xtring != "":</p>
+  <p class="Code">           lurl = xtring</p>
+  <p class="Code">           lxml = feedparser.parse(lurl.strip())</p>
+  <p class="Code">           title = lxml.channel.title</p>
+  <p class="Code">           fdw = open("bitpodder.fwp", 'a')</p>
+  <p class="Code">           if xtring != "":</p>
+  <p class="Code">              ch = title + ":?:?:" + xtring</p>
+  <p class="Code">              fdw.write(ch)</p>
+  <p class="Code">              fdw.write('\n')</p>
+  <p class="Code">           fdw.close()</p>
+  <br>
+  <p class="Code">           xtring = self.xisp_add_entry.set_text("")</p>
+  <p class="Code">           self.xisp_option_clist.clear()</p>
+  <br>
+  <p class="Code">           bitpodder_window = BitPodderWindow()</p>
+  <p class="Code">           self.bitpodder_window.destroy()</p>
+  <br>
+  <p class="CodeColor">    #-- Xendor4ispWindow.on_xisp_add_button_clicked }</p>
+  <br><br>
+  </td>
+ </tr>
+</tbody></table>
+
+<br>
+
+<p class="Small2">Now
+we will tell the app what to do when users click on Remove button.</p>
+<p class="Small2">First
+we check if a line of the CList has been selected, if yes, we remove the line,
+delete the bitpodder.fwd file, create a new bitpodder.fwp file and store the
+remaining lines of the CList. To finish, we will reload the app by opening a
+new window and destroying the current window.</p>
+
+<br>
+
+<table class="TableGrid" style="border: medium none ; background: rgb(243, 243, 243) none repeat scroll 0%; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial; border-collapse: collapse;" border="1" cellpadding="0" cellspacing="0">
+ <tbody><tr>
+  <td style="border: 1pt solid windowtext; padding: 0cm 5.4pt; width: 460.6pt;" valign="top" width="614">
+  <p class="CodeColor">    #-- Xendor4ispWindow.on_xisp_remove_button_clicked {</p>
+  <p class="Code">    def on_xisp_remove_button_clicked(self, widget, *args):</p>
+  <p class="Code">        if len(XISP_Options_Row_Variable)!= 0:</p>
+  <p class="Code">           xtrow = XISP_Options_Row_Variable[0]</p>
+  <p class="Code">           if xtrow != "":</p>
+  <p class="Code">              self.xisp_option_clist.remove(xtrow)</p>
+  <br>
+  <p class="Code">           fdw = open("bitpodder.fwp", 'w')</p>
+  <p class="Code">           for drow in range(self.xisp_option_clist.rows):</p>
+  <p class="Code">               ame = self.xisp_option_clist.get_text(drow, 0)</p>
+  <p class="Code">               d = self.xisp_option_clist.get_text(drow, 1)</p>
+  <p class="Code">               ch = ame + ":?:?:" + d</p>
+  <p class="Code">               fdw.write(ch)</p>
+  <p class="Code">               fdw.write('\n')</p>
+  <p class="Code">           fdw.close()</p>
+  <br>
+  <p class="Code">           bitpodder_window = BitPodderWindow()</p>
+  <p class="Code">           self.bitpodder_window.destroy()</p>
+  <br>
+  <p class="CodeColor">    #-- Xendor4ispWindow.on_xisp_remove_button_clicked }</p>
+  <br>
+  <p class="CodeColor">    #-- Xendor4ispWindow.on_xisp_option_clist_select_row {</p>
+  <p class="Code">    def on_xisp_option_clist_select_row(self, widget, *args):</p>
+  <p class="Code">        global XISP_Options_Row_Variable</p>
+  <p class="Code">        XISP_Options_Row_Variable = self.xisp_option_clist.selection</p>
+  <p class="CodeColor">    #-- Xendor4ispWindow.on_xisp_option_clist_select_row }</p>
+  </td>
+ </tr>
+</tbody></table>
+
+<br>
+
+<p class="Small2">Now
+we will see how work the second window of BitPodder. This window will print informations
+about the torrent, if there are no informations printed: the torrent is not
+valid or a timeoutsocket error appears.</p>
+<p class="Small2">When
+the window is launched, we will check if the global variable XISP_Link contains
+a valid url. If yes, we open the .torrent file without downloading it and
+search for informations.</p>
+<p class="Small2">I
+will not explain how Bram Cohen decided to write the .torrent files; if you are
+interested in Bit Torrent working, I advise you to read the code of Bit Torrent
+that is well written (Bit Torrent is written in python for those who didn’t
+know it) or read my code below, it’s very easy to understand.</p>
+
+<br>
+
+<table class="TableGrid" style="border: medium none ; background: rgb(243, 243, 243) none repeat scroll 0%; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial; border-collapse: collapse;" border="1" cellpadding="0" cellspacing="0">
+ <tbody><tr>
+  <td style="border: 1pt solid windowtext; padding: 0cm 5.4pt; width: 460.6pt;" valign="top" width="614">
+  <p class="Code">class InfoWindow(SimpleGladeApp):</p>
+  <br>
+  <p class="Code">    def __init__(self, path="glade\\bitpodder.glade",</p>
+  <p class="Code">                 root="info_window",</p>
+  <p class="Code">                 domain=app_name, **kwargs):</p>
+  <p class="Code">        path = os.path.join(glade_dir, path)</p>
+  <p class="Code">        SimpleGladeApp.__init__(self, path, root, domain, **kwargs)</p>
+  <br>
+  <p class="CodeColor">    #-- InfoWindow.new {</p>
+  <p class="Code">    def new(self):</p>
+  <p class="Code">         global XISP_Link</p>
+  <p class="Code">         link = XISP_Link</p>
+  <br>
+  <p class="Code">         metainfo_file = urllib.urlopen(link)</p>
+  <p class="Code">         metainfo = bdecode(metainfo_file.read())</p>
+  <br>
+  <p class="Code">         info = metainfo['info']</p>
+  <p class="Code">         info_hash = sha(bencode(info))</p>
+  <p class="Code">         txt = "metainfo file.: %s" % basename(link) + "\n"</p>
+  <p class="Code">         txt = txt + "info hash.....:  %s" % info_hash.hexdigest() + "\n"</p>
+  <p class="Code">         piece_length = info['piece length']</p>
+  <p class="Code">         if info.has_key('length'):</p>
+  <p class="Code">            # let's assume we just have a file</p>
+  <p class="Code">            txt = txt + "file name.....:  %s" % info['name'] + "\n"</p>
+  <p class="Code">            file_length = info['length']</p>
+  <p class="Code">            name ='file size.....:  '</p>
+  <p class="Code">         else:</p>
+  <p class="Code">              # let's assume we have a directory structure</p>
+  <p class="Code">              txt = txt + "directory name:  %s" % info['name'] + "\n"</p>
+  <p class="Code">              txt = txt + "files.........:  " + "\n"</p>
+  <p class="Code">              file_length = 0</p>
+  <p class="Code">              for file in info['files']:</p>
+  <p class="Code">                  path = ''</p>
+  <p class="Code">                  for item in file['path']:</p>
+  <p class="Code">                      if (path != ''):</p>
+  <p class="Code">                         path = path + "/"</p>
+  <p class="Code">                      path = path + item</p>
+  <p class="Code">                  txt = txt + "   %s (%d)" % (path, file['length']) + "\n"</p>
+  <p class="Code">                  file_length += file['length']</p>
+  <p class="Code">                  name ='archive size..: '</p>
+  <p class="Code">         piece_number, last_piece_length = divmod(file_length, piece_length)</p>
+  <p class="Code">         txt = txt + "%s %i (%i * %i + %i)" \</p>
+  <p class="Code">               % (name,file_length, piece_number, piece_length, last_piece_length) + "\n"</p>
+  <p class="Code">         txt = txt + "announce url..:  %s" % metainfo['announce'] + "\n"</p>
+  <p class="Code">         if metainfo.has_key('announce-list'):</p>
+  <p class="Code">            list = []</p>
+  <p class="Code">            for tier in metainfo['announce-list']:</p>
+  <p class="Code">                for tracker in tier:</p>
+  <p class="Code">                    list+=[tracker,',']</p>
+  <p class="Code">                <st1:state><st1:place><span style="font-size: 9pt; ">del</st1:place></st1:state><span style="font-size: 9pt; "> list[-1]</p>
+  <p class="Code">                list+=['|']</p>
+  <p class="Code">            <st1:state><st1:place><span style="font-size: 9pt; ">del</st1:place></st1:state><span style="font-size: 9pt; "> list[-1]</p>
+  <p class="Code">            liststring = ''</p>
+  <p class="Code">            for i in list:</p>
+  <p class="Code">                liststring+=i</p>
+  <p class="Code">            txt = txt + "announce-list.:  %s" % liststring + "\n"</p>
+  <p class="Code">         if metainfo.has_key('httpseeds'):</p>
+  <p class="Code">            list = []</p>
+  <p class="Code">            for seed in metainfo['httpseeds']:</p>
+  <p class="Code">                list += [seed,'|']</p>
+  <p class="Code">            <st1:state><st1:place><span style="font-size: 9pt; ">del</st1:place></st1:state><span style="font-size: 9pt; "> list[-1]</p>
+  <p class="Code">            liststring = ''</p>
+  <p class="Code">            for i in list:</p>
+  <p class="Code">                liststring+=i</p>
+  <p class="Code">            txt = txt + "http seeds....:  %s" % liststring + "\n"</p>
+  <p class="Code">         if metainfo.has_key('comment'):</p>
+  <p class="Code">            txt = txt + "comment.......:  %s" % metainfo['comment'] + "\n"</p>
+  <br>
+  <br>
+  <p class="Code">         buf = self.metainfo_textview.get_buffer()</p>
+  <p class="Code">         buf.set_text(txt)</p>
+  <p class="CodeColor">    #-- InfoWindow.new }</p>
+  <br>
+  <p class="CodeColor">    #-- InfoWindow custom methods {</p>
+  <p class="Code">    #   Write your own methods here</p>
+  <p class="CodeColor">    #-- InfoWindow custom methods }</p>
+  </td>
+ </tr>
+</tbody></table>
+
+<br><br>
+
+<p class="Small2">Now
+to finish the app, we have to define the function get_xisp_id() that will
+return the url associated with the feed name we have to provide it like
+parameter. Then there is the entry point of the python script: the main function
+where we will launch the main window of the app.</p>
+
+<br>
+
+<table class="TableGrid" style="border: medium none ; background: rgb(243, 243, 243) none repeat scroll 0%; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial; border-collapse: collapse;" border="1" cellpadding="0" cellspacing="0">
+ <tbody><tr>
+  <td style="border: 1pt solid windowtext; padding: 0cm 5.4pt; width: 460.6pt;" valign="top" width="614">
+  <p class="Code">def get_xisp_id(identifiant):</p>
+  <p class="Code">    fdpn = open("bitpodder.fwp").readlines()</p>
+  <p class="Code">    reqxisp = re.compile(identifiant)</p>
+  <p class="Code">    for pe in fdpn:</p>
+  <p class="Code">        if reqxisp.search(pe):</p>
+  <p class="Code">           PeersString = pe.split(":?:?:")</p>
+  <p class="Code">    return PeersString[1]</p>
+  <br>
+  <p class="CodeColor">#-- main {</p>
+  <br>
+  <p class="Code">def main():</p>
+  <p class="Code">    bitpodder_window = BitPodderWindow()</p>
+  <br>
+  <p class="Code">    bitpodder_window.run()</p>
+  <br>
+  <p class="Code">if __name__ == "__main__":</p>
+  <p class="Code">    main()</p>
+  <br>
+  <p class="CodeColor">#-- main }</p>
+  </td>
+ </tr>
+</tbody></table>
+
+<br>
+
+<p class="Small2">Now
+try to launch bitpodder.py after having created a new file bitpodder.fwp in the
+same directory where bitpodder.py is located. BitPodder is ready and works
+fine!!!</p>
+
+<br>
+
+<p class="Normal"><b>VIII] How to compile BitPodder?</b></p>
+
+<p class="Small2">To
+compile a python application under windows platform, you have to create a
+setup.py script. This script will use the distutils packages and py2exe.
+Before  writing this setup script, you
+have to download py2exe and install it
+(http://sourceforge.net/projects/py2exe).</p>
+<p class="Small2">Then
+you have to create the setup.py script. There is a good article explaining how
+to create setup.py scripts here:</span><span style="font-size: 10pt; ">http://www.python.org/doc/current/dist/setup-script.html,
+but this article doesn’t explain how to create .exe files with py2exe, so I
+decided to give you the setup.py script I use to compile BitPodder.</p>
+
+<br>
+
+<table class="TableGrid" style="border: medium none ; background: rgb(243, 243, 243) none repeat scroll 0%; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial; border-collapse: collapse;" border="1" cellpadding="0" cellspacing="0">
+ <tbody><tr>
+  <td style="border: 1pt solid windowtext; padding: 0cm 5.4pt; width: 460.6pt;" valign="top" width="614">
+  <p class="Code">#!/usr/bin/env python</p>
+  <p class="Code"># setup.py</p>
+  <p class="Code">from distutils.core import setup</p>
+  <p class="Code">import py2exe</p>
+  <p class="Code">import glob</p>
+  <br>
+  <p class="Code">opts = {</p>
+  <p class="Code">    "py2exe": {</p>
+  <p class="Code">        "includes": "pango,atk,gobject",</p>
+  <p class="Code">        "dll_excludes": [</p>
+  <p class="Code">        "iconv.dll","intl.dll","libatk-1.0-0.dll",</p>
+  <p class="Code">        "libgdk_pixbuf-2.0-0.dll","libgdk-win32-2.0-0.dll",</p>
+  <p class="Code">        "libglib-2.0-0.dll","libgmodule-2.0-0.dll",</p>
+  <p class="Code">        "libgobject-2.0-0.dll","libgthread-2.0-0.dll",</p>
+  <p class="Code">        "libgtk-win32-2.0-0.dll","libpango-1.0-0.dll",</p>
+  <p class="Code">        "libpangowin32-1.0-0.dll"],</p>
+  <p class="Code">        }</p>
+  <p class="Code">    }</p>
+  <br>
+  <p class="Code">setup(</p>
+  <p class="Code">    name = "BitPodder",</p>
+  <p class="Code">    description = ".torrent podcaster from Nzeka Labs",</p>
+  <p class="Code">    version = "0.1",</p>
+  <p class="Code">    author="Nzeka Gilbert",</p>
+  <p class="Code">    author_email="khaalel@gmail.com",</p>
+  <p class="Code">    url="http://www.nzeka-labs.com",</p>
+  <p class="Code">    windows = [</p>
+  <p class="Code">        {"script": "bitpodder.py",</p>
+  <p class="Code">        "icon_resources": [(1, "sage.ico")]</p>
+  <p class="Code">        }</p>
+  <p class="Code">    ],</p>
+  <p class="Code">    options=opts,</p>
+  <p class="Code">    data_files=[("pixmaps", glob.glob("pixmaps/*.png")),</p>
+  <p class="Code">                ("glade", glob.glob("glade/*.*"))</p>
+  <p class="Code">    ],</p>
+  <p class="Code">)</p>
+  </td>
+ </tr>
+</tbody></table>
+
+<br>
+
+<p class="Small2">When
+compiling, don’t forget to put sage.ico in the directory or you will have a
+beautiful error during compilation. If compilation succeeded, you should have 2
+new repertories: \dist\ and \build\.</p>
+<p class="Small2">The
+.exe is in dist repertory. You can delete the build repertory.</p>
+<p class="Small2">If
+you want to create an installer, I advise you to use 7-zip or NSIS (from the
+creators of Winamp). Here is the script I used with zip2exe from NSIS Menu:</p>
+
+<br>
+
+<table class="TableGrid" style="border: medium none ; background: rgb(243, 243, 243) none repeat scroll 0%; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial; border-collapse: collapse;" border="1" cellpadding="0" cellspacing="0">
+ <tbody><tr>
+  <td style="border: 1pt solid windowtext; padding: 0cm 5.4pt; width: 460.6pt;" valign="top" width="614">
+  <p class="Code">;Change this file to customize zip2exe generated installers with a modern interface</p>
+  <br>
+  <p class="Code">!include "MUI.nsh"</p>
+  <br>
+  <p class="Code">!insertmacro MUI_PAGE_DIRECTORY</p>
+  <p class="Code">!insertmacro MUI_PAGE_INSTFILES</p>
+  <br>
+  <p class="Code">!insertmacro MUI_LANGUAGE "English"</p>
+  <br>
+  <p class="Code">Section -post</p>
+  <p class="Code"> SetOutPath $INSTDIR</p>
+  <p class="Code"> CreateShortCut "$DESKTOP\BitPodder.lnk" "$INSTDIR\bitpodder.exe"</p>
+  <p class="Code"> CreateDirectory "$SMPROGRAMS\Nzeka Labs"</p>
+  <p class="Code"> CreateDirectory "$SMPROGRAMS\Nzeka Labs\BitPodder"</p>
+  <p class="Code"> CreateShortCut "$SMPROGRAMS\Nzeka Labs\BitPodder\BitPodder.lnk" "$INSTDIR\bitpodder.exe" ""</p>
+  <p class="Code"> WriteINIStr "$SMPROGRAMS\Nzeka Labs\Nzeka Labs.url" "InternetShortcut" "URL" "http://www.nzeka-labs.com/"</p>
+  <p class="Code"> WriteINIStr "$SMPROGRAMS\Nzeka Labs\Xendor Site.url" "InternetShortcut" "URL" "http://korriban-planet.blogspot.com/"</p>
+  <p class="Code">SectionEnd</p>
+  </td>
+ </tr>
+</tbody></table>
+
+<br>
+
+<p class="Small2">To
+understand what I wrote in this NSIS script, I advise you to read the NSIS
+help.</p>
+<p class="Small2">This
+article is finished. If you find this article interesting and/or useful, please
+send me an email in order to let me know what you think about this article. If
+you find this article boring/null, please send me an email too with suggestion
+to improve the article.</p>
+
+<br>
+
+<p class="Normal"><span style="font-size: 8pt; ">I
+hope my (perhaps bad) english didn’t bother you; it’s not my first language:
+I’m a 18-years-old french.</span></p>
+
+<p class="Normal" style="text-align: center;" align="center"><b><span style="font-size: 18pt; ">END</span></b></p>
+
+</div>
+
+</body></html>
