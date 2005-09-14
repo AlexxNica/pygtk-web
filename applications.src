@@ -255,7 +255,12 @@
   <dt><a href="http://www.solfege.org/">GNU Solfege</a></dt>
   <dd>GNU Solfege is a computer program written to help you practice ear
   training by means of simple and mechanical exercises.</dd>
-  
+
+  <dt><a href="http://www.perli.net/projekte/gpodder/">Gpodder</a></dt>
+  <dd>gPodder is a Podcast reciever/catcher. It manages podcast feeds
+  and automatically downloads all podcasts from as many feeds as
+  you like.</dd>
+
   <dt><a href="http://pygme.sourceforge.net/">Pygme</a></dt>
   <dd>Pygme is a MPlayer fronted written with audio and video songs in
   mind. It has a searchable media library with support for ID3 tags which
