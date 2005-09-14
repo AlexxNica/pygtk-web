@@ -384,6 +384,11 @@
   Editor, well supported Copy&Paste and Undo/Redo capabilities, Templates,
   Project views...</dd>
 
+  <dt><a href="http://users.bigpond.net.au/Peter-Williams/">gquilt</a></dt>
+  <dd>gquilt is GUI wrapper for quilt, a tool for managing a series of
+  patches by keeping track of the changes each patch makes. Patches can
+  be applied, un-applied, refreshed, etc.</dd>
+
   <dt><a href="http://meld.sf.net">Meld</a></dt>
   <dd>Meld is a visual diff and merge tool. It integrates especially
   well with CVS.The diff viewer lets you edit files in place and allows
