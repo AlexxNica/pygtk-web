@@ -49,6 +49,11 @@
   Circle peer running, anywhere in the world, there's still a
   network.</dd>
 
+  <dt><a href="http://comix.sourceforge.net/">Comix</a></dt>
+  <dd>Comix is a comic book viewer. It reads zip, rar, tar, tar.gz
+  and tar.bz2 archives (often called .cbz, .cbr and .cbt) as well as
+  normal image files.</dd>
+
   <dt><a href="http://www.delcorp.org/delvj/">DelVJ</a></dt>
   <dd>DelVJ is a software for realtime video 3d composition and
   algorithmic remixing that uses gtk, python, glade and puredata.
@@ -433,6 +438,11 @@
   troublesome file names, empty directories, non stripped executables,
   temporary files, duplicate/conflicting (binary) names, and unused ext2
   directory blocks.</dd>
+
+  <dt><a href="http://autoficon.sourceforge.net/">GXFormer (Autoficon)</a></dt>
+  <dd>GXFormer is a Transformer GUI, a daemon which transforms file types
+  easily by just renaming them (i.e. changing extension). The daemon uses
+  FAM to track files and later act on them.</dd>
 
   <dt><a href="http://iceme.sourceforge.net">IceMe</a></dt>
   <dd>A graphical menu editor for IceWM written in Python and GTK.<br>
