@@ -185,6 +185,11 @@
   <br>The main features of this project are a single window interface, with
   tabs, and a Gnome panel applet to show client status and the number of
   messages received since the last window hide.</dd>
+  
+  <dt><a href="http://sourceforge.net/projects/pybridge/">PyBridge</a></dt>
+  <dd>Online bridge made easy. PyBridge is a suite of programs that allow
+  you to play contract bridge, with other human players or artificial
+  computer players ("bots"), over a local network or the Internet.</dd>
 
   <dt><a href="http://borco.net/html/PyComicsViewer/">PyComicsViewer</a></dt>
   <dd>This is a program for viewing compressed comic files (aka cbr, cbz and 
