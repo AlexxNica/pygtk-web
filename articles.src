@@ -15,16 +15,24 @@
   </thead>
 
   <tbody>
+  
+    <tr>
+      <td>Sep 2005</td>
+      <td><a href="articles/bitpodder/BitPodder.htm">
+      Writing win32 applications with python and glade</a>
+      <a href="articles/bitpodder/BitPodder_doc.pdf>[PDF (520kb)]</a></td>
+      <td>Nzeka Gilbert</td>
+    </tr>
 
     <tr>
-      <td>June 2005</td>
+      <td>Jun 2005</td>
       <td><a href="http://www.serpia.com/page9/">PyGTK, Glade and
       Matplotlib Tutorial</a></td>
       <td>Dimitri Pater</td>
     </tr>
 
     <tr>
-      <td>June 2005</td>
+      <td>Jun 2005</td>
       <td><a href="http://www.gdesklets.org/~pycage/rad-slides.tar.bz2">Rapid
 	Application Development with PyGTK and libglade
         (GUADEC slides)</a></td>
@@ -32,27 +40,27 @@
     </tr>
 
     <tr>
-      <td>November 2004</td>
+      <td>Nov 2004</td>
       <td><a href="http://primates.ximian.com/~sandino/python-glade/">Writing
 	PyGTK applications in a visual way</a></td>
       <td>Sandino "tigrux" Flores</td>
     </tr>
 
     <tr>
-      <td>August 2004</td>
+      <td>Aug 2004</td>
       <td><a href="http://patrick.wagstrom.net/tutorials/pygtkmozembed/pygtkmozembed.html">Creating a GNOME Web Browser with Python</a></td>
       <td>Patrick Wagstrom</td>
     </tr>
 
     <tr>
-      <td>July 2004</td>
+      <td>Jul 2004</td>
       <td><a href="http://www.linuxjournal.com/article.php?sid=7421">Rapid
       Application Development with Python and Glade</a></td>
       <td>David Reed</td>
     </tr>
 
     <tr>
-      <td>July 2004</td>
+      <td>Jul 2004</td>
       <td><a
       href="http://www.gnome.org/~newren/tutorials/developing-with-gnome/">Developing with Gnome (in C, C++, Perl and Python)</a></td>
       <td>Elijah P. Newren</td>
