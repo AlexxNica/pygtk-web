@@ -411,6 +411,12 @@
   <dd>PySnippet is a code snippet manager for any language. It features
   an user defined folder hierarchy, syntax highlighting and XML based
   data file.</dd>
+  
+  <dt><a href="http://qa-assistant.berlios.de">QA Assistant</a></dt>
+  <dd>QA Assistant helps with running Quality Assurance on any project.
+  It allows to point and click through a list of potential problem areas,
+  lets writing short summaries for the problems found, and finally
+  creates a report to be submited to an automated tracking system.</dd>
 
   <dt><a href="http://wingide.com/wingide">Wing IDE</a></dt>
   <dd>Wing IDE is a powerful development environment for the Python
