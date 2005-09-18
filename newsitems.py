@@ -13,6 +13,17 @@ item = lambda *x: items.append(x)
 #      """,
 #      "INSERT AUTHOR HERE")
 
+item("Version 2.8.1 of the PyGTK Reference released", (2005, 9, 17), """ A
+     new version (2.8.1) of the <a
+     href="http://www.pygtk.org/pygtk2reference/index.html">PyGTK
+     Reference</a> is available. This release adds documentation on: the
+     pangocairo module and its CaiorContext and CairoFontMap classes; the
+     gdk.PangoRenderer class; the pango.Renderer class; the pango.LayoutLine
+     class. Other additions include: gdk.Drawable.cairo_create() method,
+     gobject.child_watch_add() and gobject.spawn_async() functions, and
+     gtk.binding_entry_remove() function. Some bug fixes were made thanks to
+     Nikos Kouremenos.""", 'John Finlay')
+
 item("Version 2.8.0 of the PyGTK Reference released", (2005, 9, 7), """ A
      new version (2.8.0) of the <a
      href="http://www.pygtk.org/pygtk2reference/index.html">PyGTK
