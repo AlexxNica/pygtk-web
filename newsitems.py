@@ -13,6 +13,13 @@ item = lambda *x: items.append(x)
 #      """,
 #      "INSERT AUTHOR HERE")
 
+item("New article -  Writing win32 applications with python and glade",
+     (2005, 9, 17), """Learn how to write pygtk applications on win32
+     and create your own podcasting tool at the same time. You can start
+     with this tutorial by Nzeka Gilbert
+     <a href="http://pygtk.org/articles/bitpodder/BitPodder.htm">here</a>.
+     """, 'Rafael Villar Burke')
+
 item("Version 2.8.1 of the PyGTK Reference released", (2005, 9, 17), """ A
      new version (2.8.1) of the <a
      href="http://www.pygtk.org/pygtk2reference/index.html">PyGTK

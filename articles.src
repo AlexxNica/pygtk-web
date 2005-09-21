@@ -18,9 +18,11 @@
   
     <tr>
       <td>Sep 2005</td>
-      <td><a href="articles/bitpodder/BitPodder.htm">
-      Writing win32 applications with python and glade</a>
-      <a href="articles/bitpodder/BitPodder_doc.pdf>[PDF (520kb)]</a></td>
+      <td>
+        <a href="articles/bitpodder/BitPodder.htm">
+        Writing win32 applications with python and glade</a>
+        <a href="articles/bitpodder/BitPodder_doc.pdf">[PDF (520kb)]</a>
+      </td>
       <td>Nzeka Gilbert</td>
     </tr>
 
