@@ -221,6 +221,11 @@
   NEXRAD radar stations, located around the United States and its
   territories.</dd>
 
+  <dt><a href="http://pysudoku.sourceforge.net/">PySudoku</a></dt>
+  <dd>PySudoku is a text and graphical program to create or resolve sudokus.
+  It can also print and write sudoku images.</dd>
+
+
   <dt><a href="http://www.lordsutch.com/chris/routeplanner.html">RoutePlanner
   </a></dt>
   <dd>RoutePlanner is a highway trip planner written in Python that will run

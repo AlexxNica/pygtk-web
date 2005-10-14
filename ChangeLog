@@ -1,3 +1,7 @@
+2005-10-14  Rafael Villar Burke  <pachi@mmn-arquitectos.com>
+
+	* applications.src: Added PySudoku
+
 2005-10-04  Johan Dahlin  <jdahlin@async.com.br>
 
 	* newsitems.py (item): PyGTK 2.8.2
