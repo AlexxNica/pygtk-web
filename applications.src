@@ -185,7 +185,14 @@
   <br>The main features of this project are a single window interface, with
   tabs, and a Gnome panel applet to show client status and the number of
   messages received since the last window hide.</dd>
-  
+
+  <dt><a href="http://pybliographer.org/">Pybliographer</a></dt>
+  <dd>Pybliographer is a framework and GUI tool for managing bibliographic
+  databases. It provides powerful editing capabilities, a nice hierarchical
+  search mechanism, direct insertion of references into LyX and Kile, direct
+  queries on Medline, and more. It currently supports the BibTeX, ISI,
+  Medline, Ovid and Refer file formats.</dd>
+ 
   <dt><a href="http://sourceforge.net/projects/pybridge/">PyBridge</a></dt>
   <dd>Online bridge made easy. PyBridge is a suite of programs that allow
   you to play contract bridge, with other human players or artificial
