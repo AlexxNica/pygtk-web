@@ -223,6 +223,10 @@
   threading of newsgroups, optional expiry of news and mail, filters,
   attachment support, etc.</dd>
 
+  <dd><a href="">PyNeighborhood</a> is a GUI frontend for the samba tools,
+  such as smbclient, smbmount etc. Using it you can browse and use SMB
+  network shares.</dd>
+
   <dt><a href="http://pyradar.sourceforge.net/">PyRadar</a></dt>
   <dd>This application retrieves and displays radar images from NOAA's
   NEXRAD radar stations, located around the United States and its
