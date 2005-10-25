@@ -317,6 +317,11 @@
   all gstreamer formats, playlists, audio extraction from video contents,
   drag-n-drop from Rhythmbox or Nautilus and an easy to use interface.</dd>
 
+  <dt><a href="http://soundconverter.berlios.de/">Soundconverter</a></dt>
+  <dd>Soundconverter is simple sound converter application for the GNOME
+  environment. It reads anything the GStreamer library can read, and writes
+  WAV, FLAC, MP3, and Ogg Vorbis files.</dd>
+
   <dt><a href="http://timmir.com/wiki/index.php/TimPlayer">TimPlayer</a></dt>
   <dd>TimPlayer is a home inspired audio player with a simple
   User Interface and the power of GStreamer.</dd>
