@@ -607,6 +607,12 @@
   in your application. Each class is either a dialog or a widget that should be
   placed inside a dialog, along with supporting code that handles a lot of the
   mundane details inherent in most gui database apps.</dd>
+  
+  <dt><a href="http://svn.berlios.de/viewcvs/ggap/moo/trunk/moo/moopython/plugins/pyconsole.py?view=markup">PyConsole</a></dt>
+  <dd>PyConsole is a PyGTK widget that exposes a Python console using a
+  TextView widget. It runs on all gtk-supported platforms and features
+  completion and history. Its expected use case is to be embedded and used
+  to inspect other applications internals.</dd>
 
   <dt><a href="http://www.defuze.org/oss/pyirc/index.htm">PyIRC</a></dt>
   <dd>PyIrc is a Python module which tends to implement RFC 1459 and
