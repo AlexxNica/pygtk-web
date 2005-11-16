@@ -207,6 +207,11 @@
   medium sized enterprises, The goal of the project is to provide an
   enterprise resource management system for the GNOME Desktop.</dd>
 
+  <dt><a href="http://pygmy.sourceforge.net/">Pygmy</a></dt>
+  <dd>Pygmy is a GNOME mail client. It features folder hierarchy,
+  multipart messages, MIME support, message filters, address book,
+  GnuPG support and GtkHTML support for message viewing.</dd>
+
   <dt><a href="http://pygps.org/">pyGPS</a></dt>
   <dd>This program shows your position on a map using a GPS system. It can
   record tracks and notes, display the satellites used to determine your
