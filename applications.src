@@ -433,6 +433,11 @@
 
   <dt><a href="http://pida.berlios.de">Pida</a></dt>
   <dd>Pida is an IDE which embeds vim and other editors and tools.</dd>
+  
+  <dt><a href="http://freshmeat.net/projects/pygg">PyGG</a></dt>
+  <dd>PyGG (PyGTK and Glade) is a Python module intended to ease the usage
+  of Glade with PyGTK. It transparently handles the loading of Glade files
+  and the connection of callbacks.</dd>
 
   <dt><a href="http://sourceforge.net/projects/pysnippet">PySnippet</a></dt>
   <dd>PySnippet is a code snippet manager for any language. It features
