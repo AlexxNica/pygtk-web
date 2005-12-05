@@ -1,5 +1,10 @@
 2005-12-05  Rafael Villar Burke  <pachi@mmn-arquitectos.com>
 
+        * people.src: Added myself to the list :)
+	* MAINTAINERS: Added file with a list of latest commiters
+	
+2005-12-05  Rafael Villar Burke  <pachi@mmn-arquitectos.com>
+
 	* articles/cairo-pygtk-widgets/
 	* articles/cairo-pygtk-widgets/cairo-pygtk-widgets.htm
 	* articles/cairo-pygtk-widgets/cairo-pygtk-widgets.css
