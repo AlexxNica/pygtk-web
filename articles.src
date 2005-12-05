@@ -18,8 +18,8 @@
 
     <tr>
       <td>Dec 2005</td>
-      <td><p><a href="./articles/cairo-pygtk-widgets/cairo-pygtk-widgets.htm">Writing a Widget Using Cairo and PyGTK 2.8</a></p>
-          <p><a href="http://www.oluyede.org/blog/writing-a-widget-using-cairo-and-pygtk-28/">Original source</a></p></td>
+      <td><a href="./articles/cairo-pygtk-widgets/cairo-pygtk-widgets.htm">Writing a Widget Using Cairo and PyGTK 2.8</a><br>
+          <a href="http://www.oluyede.org/blog/writing-a-widget-using-cairo-and-pygtk-28/">Original source</a></td>
       <td>Lawrence Oluyede</td>
     </tr>
 
