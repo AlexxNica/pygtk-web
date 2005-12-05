@@ -1,3 +1,9 @@
+2005-12-05  Rafael Villar Burke  <pachi@mmn-arquitectos.com>
+
+	* articles.src: Add article "Writing a Widget Using
+	Cairo and PyGTK 2.8" by Lawrence Oluyede (patch by
+	Gian Mario Tagliaretti)
+
 2005-11-30  Rafael Villar Burke  <pachi@mmn-arquitectos.com>
 
 	* articles.src: Add temporarily offline notice

@@ -15,7 +15,13 @@
   </thead>
 
   <tbody>
-  
+
+    <tr>
+      <td>Jun 2005</td>
+      <td><a href="http://www.oluyede.org/blog/writing-a-widget-using-cairo-and-pygtk-28/">Writing a Widget Using Cairo and PyGTK 2.8</a></td>
+      <td>Lawrence Oluyede</td>
+    </tr>
+
     <tr>
       <td>Sep 2005</td>
       <td>
@@ -150,4 +156,3 @@
 </div>
 
 <!--stp:include('foot.src') -->
-
