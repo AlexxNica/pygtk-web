@@ -16,12 +16,11 @@ item = lambda *x: items.append(x)
 item("New article - Writing a Widget Using Cairo and PyGTK 2.8",
      (2005, 12, 05), """Learn how to write pygtk widgets using the
      new Cairo API.
-     <a href="http://www.oluyede.org/blog/writing-a-widget-using-cairo-and-pygtk-28/">
-     The article</a> translates to pygtk concepts and idioms
-     an article by Davyd Madeley on
+     <a href="./articles/cairo-pygtk-widgets/cairo-pygtk-widgets.htm">
+     The article</a> translates Davyd Madeley's
      <a href="http://gnomejournal.org/article/34/writing-a-widget-using-cairo-and-gtk28">
-     Writing GTK+ widgets using Cairo</a>.
-     The article has been cooked by Lawrence Oluyede.
+     Writing a Widget Using Cairo and GTK+2.8</a> into pygtk concepts
+     and idioms. The article has been cooked by Lawrence Oluyede.
      """, 'Rafael Villar Burke')
 
 item("PyGTK 2.8.2 released",
