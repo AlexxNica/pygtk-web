@@ -1,5 +1,20 @@
 2005-12-05  Rafael Villar Burke  <pachi@mmn-arquitectos.com>
 
+	* articles/cairo-pygtk-widgets/
+	* articles/cairo-pygtk-widgets/cairo-pygtk-widgets.htm
+	* articles/cairo-pygtk-widgets/cairo-pygtk-widgets.css
+	* articles/cairo-pygtk-widgets/clock_ex1.png
+	* articles/cairo-pygtk-widgets/clock_ex2.png
+	* articles/cairo-pygtk-widgets/clock_ex3.png
+	* articles/cairo-pygtk-widgets/clock_ex1.py
+	* articles/cairo-pygtk-widgets/clock_ex2.py
+	* articles/cairo-pygtk-widgets/clock_ex3.py
+	* articles/cairo-pygtk-widgets/*: Added previous files
+	to hold a local copy of the article.
+	* articles.src: fix typo
+
+2005-12-05  Rafael Villar Burke  <pachi@mmn-arquitectos.com>
+
 	* newsitems.py: news entry for the article "Writing
 	a Widget Using Cairo and PyGTK 2.8" by Lawrence Oluyede
 

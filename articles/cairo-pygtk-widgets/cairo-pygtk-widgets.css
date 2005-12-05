@@ -1,0 +1,154 @@
+/*  
+Theme Name: A song for the lovers
+Theme URI: http://www.oluyede.org/blog
+Description: Your theme
+Version: 1
+Author: You
+Author URI: http://binarybonsai.com/
+
+	Kubrick v1.5
+	 http://binarybonsai.com/kubrick/
+
+	This theme was designed and built by Michael Heilemann,
+	whose blog you will find at http://binarybonsai.com/
+
+	The CSS, XHTML and design is released under GPL:
+	http://www.opensource.org/licenses/gpl-license.php
+	
+
+	*** REGARDING IMAGES ***
+	All CSS that involves the use of images, can be found in the 'index.php' file.
+	This is to ease installation inside subdirectories of a server.
+
+	Have fun, and don't be afraid to contact me if you have questions.
+*/
+
+/* Begin Typography & Colors */
+body {
+	#font-size: 62.5%; /* Resets 1em to 10px */
+	font-size: 10pt;
+	font-family: 'Lucida Grande', Verdana, Arial, Sans-Serif;
+	color: #333;
+	text-align: left;
+	}
+
+.alt {
+	background-color: #f8f8f8;
+	border-top: 1px solid #ddd;
+	border-bottom: 1px solid #ddd;
+	}
+
+h1, h2, h3 {
+	font-family: 'Trebuchet MS', 'Lucida Grande', Verdana, Arial, Sans-Serif;
+	font-weight: bold;
+	}
+
+h1 {
+	font-size: 4em;
+	text-align: center;
+	}
+
+h2 {
+	font-size: 1.6em;
+	}
+
+h3 {
+	font-size: 1.3em;
+	}
+
+h1, h1 a, h1 a:hover, h1 a:visited, .description {
+	text-decoration: none;
+	color: white;
+	}
+
+h2, h2 a, h2 a:visited, h3, h3 a, h3 a:visited {
+	color: #333;
+	}
+
+h2, h2 a, h2 a:hover, h2 a:visited, h3, h3 a, h3 a:hover, h3 a:visited, #sidebar h2, #wp-calendar caption, cite {
+	text-decoration: none;
+	}
+	
+code {
+	font: 1.1em 'Courier New', Courier, Fixed;
+	}
+
+a, h2 a:hover, h3 a:hover {
+	color: #06c;
+	text-decoration: none;
+	}
+
+a:hover {
+	color: #147;
+	text-decoration: underline;
+	}
+
+/* End Typography & Colors */
+
+/* Begin Structure */
+body {
+	margin: 0;
+	padding: 0; 
+	}
+/* End Structure */
+
+
+
+/*	Begin Headers */
+h1 {
+	padding-top: 70px;
+	margin: 0;
+	}
+
+h2 {
+	margin: 30px 0 0;
+	}
+
+h3 {
+	padding: 0;
+	margin: 30px 0 0;
+	}
+/* End Headers */
+
+/* Begin Images */
+p img {
+	padding: 0;
+	max-width: 100%;
+	}
+
+/* End Images */
+
+/********************************************************************************
+ * CodeHighlight Classes
+ *******************************************************************************/
+.hl-surround {
+    -moz-border-radius: 5px;
+    background-color: #F9FBFC;
+    border: 1px solid #C3CED9;
+    padding: 8px;
+    margin-bottom: 5px;
+    #width: 400px;
+    overflow: auto;
+    text-align: left;
+}
+
+.hl-surround, .hl-surround pre, .hl-surround span { font: normal 9pt 'Courier New', monospace;}
+
+.hl-default     { color: Black; }
+.hl-code        { color: Gray; }
+.hl-brackets    { color: Olive; }
+.hl-comment     { color: #ffa500; } /* Orange */
+.hl-quotes      { color: #8b0000; } /* Dark red */
+.hl-string      { color: Red; }
+.hl-identifier  { color: Blue; }
+.hl-builtin     { color: Teal; }
+.hl-reserved    { color: Green; }
+.hl-inlinedoc   { color: Blue; }
+.hl-var         { color: #00008b; } /* Dark blue */
+.hl-url         { color: Blue; }
+.hl-special     { color: Navy; }
+.hl-number      { color: Maroon; }
+.hl-inlinetags  { color: Blue; }
+.hl-main        { background-color: transparent; }
+
+.hl-main pre { margin: 0; padding: 0; }

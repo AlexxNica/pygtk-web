@@ -1,0 +1,173 @@
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Writing a Widget Using Cairo and PyGTK 2.8</title>
+<link rel="stylesheet" href="./cairo-pygtk-widgets.css" type="text/css" media="screen">
+</head>
+
+<body>
+  	
+<h2> Writing a Widget Using Cairo and PyGTK 2.8 </h2>
+
+<div class="entrytext">
+<p> This article is a Python version by <a href="http://www.oluyede.org/">Lawrence Oluyede</a>
+    of the brand new article titled
+    <a href="http://gnomejournal.org/article/34/writing-a-widget-using-cairo-and-gtk28">
+    Writing a Widget Using Cairo and GTK+2.8 </a> available on
+    <a href="http://gnomejournal.org/"> The GNOME Journal </a>
+    website. It is written by <a href="http://www.livejournal.com/users/davyd/"> Davyd Madeley </a>
+</p>
+<p> I’ll not make modifications to the text except for differences between C and Python.</p>
+
+<h3> Writing a Widget Using Cairo and PyGTK 2.8 </h3>
+
+<p> Cairo is a powerful 2-dimensional graphics library designed to support a number of modern graphics techniques including stroking, alpha blending and antialiasing. It supports multiple output formats, which allows developers to use the same code to display graphics on the screen, print them to the printer or accellerate them with OpenGL. </p>
+<p> As of GTK+ 2.8, GTK+ has been integrated with the Cairo 1.0 rendering library, giving developers access to this flexible graphics API. PyGTK added Cairo support in the 2.8 version. See the
+    <a href="http://live.gnome.org/PyGTK/WhatsNew28#head-2022c1fddd7df3a85fc01618a0a9dbd1e35d8e97"> wiki </a>
+    for further info. </p>
+<p> Section 1 of this article looks at the more mundane work required to implement a complete PyGTK widget that uses Cairo. Section 2 looks at using Cairo to do actual drawing. If you simply want to draw inside an existing widget or simple GtkDrawingArea with Cairo, you can skip straight to Section 2. Later chapters will cover emitting signals from your widget and some of the features in the Cairo drawing API. </p>
+
+<h4> Step 1. Writing a GObject </h4>
+<p> While it is possible to simply start using Cairo drawing to draw inside a drawing area, many times you will want to be able to write your own custom widget that you can use over and over again. Much of this chapter can be used for the development of many widgets, not just ones using Cairo. </p>
+<p> The first step to writing your own custom widget is creating a new GObject to use with that widget. GObjects can get quite complicated, but we’re going to look at the basics for writing our widget. </p>
+<p> Since we are writing a widget that will be drawn on with Cairo, it will be easiest to inherit GtkDrawingArea, which inherits GtkWidget, GtkObject and finally GObject. GtkDrawingArea already implements a lot of functions we need for our widget and will save us from writing a lot of code. </p>
+<p> In clock.py you’ll want to define our new class: </p>
+
+<div class="hl-surround" ><div class="hl-main"><pre><span class="hl-reserved">class </span><span class="hl-identifier">EggClockFace</span><span class="hl-brackets">(</span><span class="hl-identifier">gtk</span><span class="hl-code">.</span><span class="hl-identifier">DrawingArea</span><span class="hl-brackets">)</span><span class="hl-default">:
+    </span><span class="hl-reserved">pass</span></pre></div></div>
+
+<p> We will call our object EggClockFace. </p>
+<p> When the class is initialised the __init__() method is going to be called. Since we’re doing drawing, we’re going to need to override the parent’s expose handler. So in clock.py: </p>
+
+<div class="hl-surround" ><div class="hl-main"><pre><span class="hl-reserved">def </span><span class="hl-identifier">__init__</span><span class="hl-brackets">(</span><span class="hl-identifier">self</span><span class="hl-brackets">)</span><span class="hl-default">:
+    </span><span class="hl-identifier">gtk</span><span class="hl-default">.</span><span class="hl-identifier">DrawingArea</span><span class="hl-default">.</span><span class="hl-identifier">__init__</span><span class="hl-brackets">(</span><span class="hl-identifier">self</span><span class="hl-brackets">)
+    </span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">connect</span><span class="hl-brackets">(</span><span class="hl-quotes">&quot;</span><span class="hl-string">expose_event</span><span class="hl-quotes">&quot;</span><span class="hl-code">, </span><span class="hl-identifier">self</span><span class="hl-code">.</span><span class="hl-identifier">expose</span><span class="hl-brackets">)</span></pre></div></div>
+
+<p> Our <em> expose_event </em> event handler will be like this: </p>
+<div class="hl-surround" ><div class="hl-main"><pre><span class="hl-reserved">def </span><span class="hl-identifier">expose</span><span class="hl-brackets">(</span><span class="hl-identifier">self</span><span class="hl-code">, </span><span class="hl-identifier">widget</span><span class="hl-code">, </span><span class="hl-identifier">event</span><span class="hl-brackets">)</span><span class="hl-default">:
+    </span><span class="hl-reserved">return False</span></pre></div></div>
+
+<p> You’ll also want to write a main() function so you can see something: </p>
+
+<div class="hl-surround" ><div class="hl-main"><pre><span class="hl-reserved">def </span><span class="hl-identifier">main</span><span class="hl-brackets">()</span><span class="hl-default">:
+    </span><span class="hl-identifier">window</span><span class="hl-default"> = </span><span class="hl-identifier">gtk</span><span class="hl-default">.</span><span class="hl-identifier">Window</span><span class="hl-brackets">()
+    </span><span class="hl-identifier">clock</span><span class="hl-default"> = </span><span class="hl-identifier">EggClockFace</span><span class="hl-brackets">()
+    
+    </span><span class="hl-identifier">window</span><span class="hl-default">.</span><span class="hl-identifier">add</span><span class="hl-brackets">(</span><span class="hl-identifier">clock</span><span class="hl-brackets">)
+    </span><span class="hl-identifier">window</span><span class="hl-default">.</span><span class="hl-identifier">connect</span><span class="hl-brackets">(</span><span class="hl-quotes">&quot;</span><span class="hl-string">destroy</span><span class="hl-quotes">&quot;</span><span class="hl-code">, </span><span class="hl-identifier">gtk</span><span class="hl-code">.</span><span class="hl-identifier">main_quit</span><span class="hl-brackets">)
+    </span><span class="hl-identifier">window</span><span class="hl-default">.</span><span class="hl-identifier">show_all</span><span class="hl-brackets">()
+    
+    </span><span class="hl-identifier">gtk</span><span class="hl-default">.</span><span class="hl-identifier">main</span><span class="hl-brackets">()</span></pre></div></div>
+
+<p> So, if you’ve made it this far. You should have a file that look like
+    <a href="./clock_ex1.py"> clock_ex1.py </a>.</p>
+<p> Run it with <em> $ python clock_ex1.py </em></p>
+<p> And it should look something like this: </p>
+<p>     <img src="./clock_ex1.png" alt="clock window example"> </p>
+<p> Pretty neat, huh? Well… maybe not yet. Now we need to draw something in there! </p>
+
+<h4> Step 2. Drawing with Cairo </h4>
+
+<p> When things need drawing in GTK+ an “expose-event” will be emitted. As you’ll recall from Step 1, we put the stub for an expose handler in our code. When an expose event occurs, GTK+ will also give us other information, including the area of the widget that we need to redraw. All of this information is contained within the GdkEventExpose object. </p>
+<p> In order to do drawing with Cairo we need a Cairo context. We can get it for a GdkWindow (this is what you’re drawing into). You should be aware that a GdkWindow is not like a GtkWindow and that all sorts of widgets have one or more GdkWindows inside them for doing drawing. If you can’t keep track of all the names, don’t worry too much, you’ll get the hang of it eventually. </p>
+<p> You can access the GdkWindow of most widgets (such as a GtkDrawingArea) by accessing the window member of the widget object. So to get our cairo context we can extend our expose stub to look like this: </p>
+
+<div class="hl-surround" ><div class="hl-main"><pre><span class="hl-reserved">def </span><span class="hl-identifier">expose</span><span class="hl-brackets">(</span><span class="hl-identifier">self</span><span class="hl-code">, </span><span class="hl-identifier">widget</span><span class="hl-code">, </span><span class="hl-identifier">event</span><span class="hl-brackets">)</span><span class="hl-default">:
+    </span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">context</span><span class="hl-default"> = </span><span class="hl-identifier">widget</span><span class="hl-default">.</span><span class="hl-identifier">window</span><span class="hl-default">.</span><span class="hl-identifier">cairo_create</span><span class="hl-brackets">()
+    
+    </span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">draw</span><span class="hl-brackets">(</span><span class="hl-identifier">self</span><span class="hl-code">.</span><span class="hl-identifier">context</span><span class="hl-brackets">)
+    
+    </span><span class="hl-reserved">return False</span></pre></div></div>
+
+<p> This will redraw the entire widget on each expose event. To make things faster we might like to set a clip region. </p>
+
+<div class="hl-surround" ><div class="hl-main"><pre><span class="hl-reserved">def </span><span class="hl-identifier">expose</span><span class="hl-brackets">(</span><span class="hl-identifier">self</span><span class="hl-code">, </span><span class="hl-identifier">widget</span><span class="hl-code">, </span><span class="hl-identifier">event</span><span class="hl-brackets">)</span><span class="hl-default">:
+    </span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">context</span><span class="hl-default"> = </span><span class="hl-identifier">widget</span><span class="hl-default">.</span><span class="hl-identifier">window</span><span class="hl-default">.</span><span class="hl-identifier">cairo_create</span><span class="hl-brackets">()
+    
+    </span><span class="hl-comment"># set a clip region for the expose event
+    </span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">context</span><span class="hl-default">.</span><span class="hl-identifier">rectangle</span><span class="hl-brackets">(</span><span class="hl-identifier">event</span><span class="hl-code">.</span><span class="hl-identifier">area</span><span class="hl-code">.</span><span class="hl-identifier">x</span><span class="hl-code">, </span><span class="hl-identifier">event</span><span class="hl-code">.</span><span class="hl-identifier">area</span><span class="hl-code">.</span><span class="hl-identifier">y</span><span class="hl-code">,
+                           </span><span class="hl-identifier">event</span><span class="hl-code">.</span><span class="hl-identifier">area</span><span class="hl-code">.</span><span class="hl-identifier">width</span><span class="hl-code">, </span><span class="hl-identifier">event</span><span class="hl-code">.</span><span class="hl-identifier">area</span><span class="hl-code">.</span><span class="hl-identifier">height</span><span class="hl-brackets">)
+    </span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">context</span><span class="hl-default">.</span><span class="hl-identifier">clip</span><span class="hl-brackets">()
+    
+    </span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">draw</span><span class="hl-brackets">(</span><span class="hl-identifier">self</span><span class="hl-code">.</span><span class="hl-identifier">context</span><span class="hl-brackets">)
+    
+    </span><span class="hl-reserved">return False</span></pre></div></div>
+
+<p> Now we actually need to draw something. Drawing instructions in Cairo work by describing paths and then stroking them. Think of it like tracing your design out with a pencil and then inking it in with a pen. You can choose a variety of different pens with different nibs and colors, but each stroking is done with a particular pen. You can also do other actions like filling a path with a solid color as well as being able to preserve a path so that you can stroke around it after you fill it. </p>
+<p> Firstly, we’re trying to draw a clock face, so we need to do a little bit of simple geometry. The size of our canvas is stored in the widget object as the member “allocation”. Therefore, we can find out the center of our canvas (x, y) pretty easily: </p>
+
+<div class="hl-surround" ><div class="hl-main"><pre><span class="hl-identifier">rect</span><span class="hl-default"> = </span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">get_allocation</span><span class="hl-brackets">()
+</span><span class="hl-identifier">x</span><span class="hl-default"> = </span><span class="hl-identifier">rect</span><span class="hl-default">.</span><span class="hl-identifier">x</span><span class="hl-default"> + </span><span class="hl-identifier">rect</span><span class="hl-default">.</span><span class="hl-identifier">width</span><span class="hl-default"> / </span><span class="hl-number">2
+
+</span><span class="hl-identifier">y</span><span class="hl-default"> = </span><span class="hl-identifier">rect</span><span class="hl-default">.</span><span class="hl-identifier">y</span><span class="hl-default"> + </span><span class="hl-identifier">rect</span><span class="hl-default">.</span><span class="hl-identifier">height</span><span class="hl-default"> / </span><span class="hl-number">2</span></pre></div></div>
+
+<p> Since we want to draw a circle, we can work out the biggest radius that we’re able to draw based on the size of our canvas: </p>
+
+<div class="hl-surround" style="height:28px;"><div class="hl-main"><pre><span class="hl-identifier">radius</span><span class="hl-default"> = </span><span class="hl-builtin">min</span><span class="hl-brackets">(</span><span class="hl-identifier">rect</span><span class="hl-code">.</span><span class="hl-identifier">width</span><span class="hl-code"> / </span><span class="hl-number">2</span><span class="hl-code">, </span><span class="hl-identifier">rect</span><span class="hl-code">.</span><span class="hl-identifier">height</span><span class="hl-code"> / </span><span class="hl-number">2</span><span class="hl-brackets">)</span><span class="hl-default"> - </span><span class="hl-number">5</span></pre></div></div>
+
+<p> To draw the clock face we want to describe an arc centered at (x, y) and sweep between 0 and 2? radians. </p>
+
+<div class="hl-surround" style="height:28px;"><div class="hl-main"><pre><span class="hl-identifier">context</span><span class="hl-default">.</span><span class="hl-identifier">arc</span><span class="hl-brackets">(</span><span class="hl-identifier">x</span><span class="hl-code">, </span><span class="hl-identifier">y</span><span class="hl-code">, </span><span class="hl-identifier">radius</span><span class="hl-code">, </span><span class="hl-number">0</span><span class="hl-code">, </span><span class="hl-number">2</span><span class="hl-code"> * </span><span class="hl-identifier">math</span><span class="hl-code">.</span><span class="hl-identifier">pi</span><span class="hl-brackets">)</span></pre></div></div>
+
+<p> We then want to fill that circle with white and then stroke around that white circle with a black outline. </p>
+
+<div class="hl-surround" ><div class="hl-main"><pre><span class="hl-identifier">context</span><span class="hl-default">.</span><span class="hl-identifier">set_source_rgb</span><span class="hl-brackets">(</span><span class="hl-number">1</span><span class="hl-code">, </span><span class="hl-number">1</span><span class="hl-code">, </span><span class="hl-number">1</span><span class="hl-brackets">)
+</span><span class="hl-identifier">context</span><span class="hl-default">.</span><span class="hl-identifier">fill_preserve</span><span class="hl-brackets">()
+
+</span><span class="hl-identifier">context</span><span class="hl-default">.</span><span class="hl-identifier">set_source_rgb</span><span class="hl-brackets">(</span><span class="hl-number">0</span><span class="hl-code">, </span><span class="hl-number">0</span><span class="hl-code">, </span><span class="hl-number">0</span><span class="hl-brackets">)
+</span><span class="hl-identifier">context</span><span class="hl-default">.</span><span class="hl-identifier">stroke</span><span class="hl-brackets">()</span></pre></div></div>
+
+<p> It will look rather like this: </p>
+<p><img src="./clock_ex2.png" alt="clock window example, now with the clock surface painted"> </p>
+<p> Your file at this point should look like
+    <a href="./clock_ex2.py"> clock_ex2.py </a>.</p>
+<p> We can also add a marker for each hour on the clock face. Using a bit of geometry again, we know that we need to divide 2? into 12 pieces, which means that each line is ?/6 radians apart. </p>
+<p> We want to draw a line from just inside the circle to the edge of the circle. We can define the path for a line using cairo’s move_to() and line_to(). </p>
+
+<div class="hl-surround" ><div class="hl-main"><pre><span class="hl-reserved">for </span><span class="hl-identifier">i </span><span class="hl-reserved">in </span><span class="hl-builtin">xrange</span><span class="hl-brackets">(</span><span class="hl-number">12</span><span class="hl-brackets">)</span><span class="hl-default">:
+    </span><span class="hl-identifier">inset</span><span class="hl-default"> = </span><span class="hl-number">0.1</span><span class="hl-default"> * </span><span class="hl-identifier">radius
+            
+    context</span><span class="hl-default">.</span><span class="hl-identifier">move_to</span><span class="hl-brackets">(</span><span class="hl-identifier">x</span><span class="hl-code"> + </span><span class="hl-brackets">(</span><span class="hl-identifier">radius</span><span class="hl-code"> - </span><span class="hl-identifier">inset</span><span class="hl-brackets">)</span><span class="hl-code"> * </span><span class="hl-identifier">math</span><span class="hl-code">.</span><span class="hl-identifier">cos</span><span class="hl-brackets">(</span><span class="hl-identifier">i</span><span class="hl-code"> * </span><span class="hl-identifier">math</span><span class="hl-code">.</span><span class="hl-identifier">pi</span><span class="hl-code"> / </span><span class="hl-number">6</span><span class="hl-brackets">)</span><span class="hl-code">,
+                               </span><span class="hl-identifier">y</span><span class="hl-code"> + </span><span class="hl-brackets">(</span><span class="hl-identifier">radius</span><span class="hl-code"> - </span><span class="hl-identifier">inset</span><span class="hl-brackets">)</span><span class="hl-code"> * </span><span class="hl-identifier">math</span><span class="hl-code">.</span><span class="hl-identifier">sin</span><span class="hl-brackets">(</span><span class="hl-identifier">i</span><span class="hl-code"> * </span><span class="hl-identifier">math</span><span class="hl-code">.</span><span class="hl-identifier">pi</span><span class="hl-code"> / </span><span class="hl-number">6</span><span class="hl-brackets">))
+    </span><span class="hl-identifier">context</span><span class="hl-default">.</span><span class="hl-identifier">line_to</span><span class="hl-brackets">(</span><span class="hl-identifier">x</span><span class="hl-code"> + </span><span class="hl-identifier">radius</span><span class="hl-code"> * </span><span class="hl-identifier">math</span><span class="hl-code">.</span><span class="hl-identifier">cos</span><span class="hl-brackets">(</span><span class="hl-identifier">i</span><span class="hl-code"> * </span><span class="hl-identifier">math</span><span class="hl-code">.</span><span class="hl-identifier">pi</span><span class="hl-code"> / </span><span class="hl-number">6</span><span class="hl-brackets">)</span><span class="hl-code">,
+                            </span><span class="hl-identifier">y</span><span class="hl-code"> + </span><span class="hl-identifier">radius</span><span class="hl-code"> * </span><span class="hl-identifier">math</span><span class="hl-code">.</span><span class="hl-identifier">sin</span><span class="hl-brackets">(</span><span class="hl-identifier">i</span><span class="hl-code"> * </span><span class="hl-identifier">math</span><span class="hl-code">.</span><span class="hl-identifier">pi</span><span class="hl-code"> / </span><span class="hl-number">6</span><span class="hl-brackets">))
+    </span><span class="hl-identifier">context</span><span class="hl-default">.</span><span class="hl-identifier">stroke</span><span class="hl-brackets">()</span></pre></div></div>
+
+<p> We could also mark the tick for every quarter more strongly than the hour marks. </p>
+
+<div class="hl-surround" ><div class="hl-main"><pre><span class="hl-reserved">for </span><span class="hl-identifier">i </span><span class="hl-reserved">in </span><span class="hl-builtin">xrange</span><span class="hl-brackets">(</span><span class="hl-number">12</span><span class="hl-brackets">)</span><span class="hl-default">:
+    </span><span class="hl-identifier">context</span><span class="hl-default">.</span><span class="hl-identifier">save</span><span class="hl-brackets">()
+            
+    </span><span class="hl-reserved">if </span><span class="hl-identifier">i</span><span class="hl-default"> % </span><span class="hl-number">3</span><span class="hl-default"> == </span><span class="hl-number">0</span><span class="hl-default">:
+        </span><span class="hl-identifier">inset</span><span class="hl-default"> = </span><span class="hl-number">0.2</span><span class="hl-default"> * </span><span class="hl-identifier">radius
+    </span><span class="hl-reserved">else</span><span class="hl-default">:
+        </span><span class="hl-identifier">inset</span><span class="hl-default"> = </span><span class="hl-number">0.1</span><span class="hl-default"> * </span><span class="hl-identifier">radius
+        context</span><span class="hl-default">.</span><span class="hl-identifier">set_line_width</span><span class="hl-brackets">(</span><span class="hl-number">0.5</span><span class="hl-code"> * </span><span class="hl-identifier">context</span><span class="hl-code">.</span><span class="hl-identifier">get_line_width</span><span class="hl-brackets">())
+            
+     </span><span class="hl-identifier">context</span><span class="hl-default">.</span><span class="hl-identifier">move_to</span><span class="hl-brackets">(</span><span class="hl-identifier">x</span><span class="hl-code"> + </span><span class="hl-brackets">(</span><span class="hl-identifier">radius</span><span class="hl-code"> - </span><span class="hl-identifier">inset</span><span class="hl-brackets">)</span><span class="hl-code"> * </span><span class="hl-identifier">math</span><span class="hl-code">.</span><span class="hl-identifier">cos</span><span class="hl-brackets">(</span><span class="hl-identifier">i</span><span class="hl-code"> * </span><span class="hl-identifier">math</span><span class="hl-code">.</span><span class="hl-identifier">pi</span><span class="hl-code"> / </span><span class="hl-number">6</span><span class="hl-brackets">)</span><span class="hl-code">,
+                                </span><span class="hl-identifier">y</span><span class="hl-code"> + </span><span class="hl-brackets">(</span><span class="hl-identifier">radius</span><span class="hl-code"> - </span><span class="hl-identifier">inset</span><span class="hl-brackets">)</span><span class="hl-code"> * </span><span class="hl-identifier">math</span><span class="hl-code">.</span><span class="hl-identifier">sin</span><span class="hl-brackets">(</span><span class="hl-identifier">i</span><span class="hl-code"> * </span><span class="hl-identifier">math</span><span class="hl-code">.</span><span class="hl-identifier">pi</span><span class="hl-code"> / </span><span class="hl-number">6</span><span class="hl-brackets">))
+     </span><span class="hl-identifier">context</span><span class="hl-default">.</span><span class="hl-identifier">line_to</span><span class="hl-brackets">(</span><span class="hl-identifier">x</span><span class="hl-code"> + </span><span class="hl-identifier">radius</span><span class="hl-code"> * </span><span class="hl-identifier">math</span><span class="hl-code">.</span><span class="hl-identifier">cos</span><span class="hl-brackets">(</span><span class="hl-identifier">i</span><span class="hl-code"> * </span><span class="hl-identifier">math</span><span class="hl-code">.</span><span class="hl-identifier">pi</span><span class="hl-code"> / </span><span class="hl-number">6</span><span class="hl-brackets">)</span><span class="hl-code">,
+                             </span><span class="hl-identifier">y</span><span class="hl-code"> + </span><span class="hl-identifier">radius</span><span class="hl-code"> * </span><span class="hl-identifier">math</span><span class="hl-code">.</span><span class="hl-identifier">sin</span><span class="hl-brackets">(</span><span class="hl-identifier">i</span><span class="hl-code"> * </span><span class="hl-identifier">math</span><span class="hl-code">.</span><span class="hl-identifier">pi</span><span class="hl-code"> / </span><span class="hl-number">6</span><span class="hl-brackets">))
+     </span><span class="hl-identifier">context</span><span class="hl-default">.</span><span class="hl-identifier">stroke</span><span class="hl-brackets">()
+     </span><span class="hl-identifier">context</span><span class="hl-default">.</span><span class="hl-identifier">restore</span><span class="hl-brackets">()</span></pre></div></div>
+
+<p> You can see here that we’ve used two new functions save() and restore(). These functions allow us to manipulate a stack of cairo states. To save our old values for the pen width, we simply put it on the stack. We can then modify that width and stroke some paths. Finally we can simply restore the old state again once we’re ready. This is an easy way to not have to keep track of your existing drawing defaults throughout each stage of a drawing operation. </p>
+<p> Your Python file should look like
+    <a href="./clock_ex3.py"> clock_ex3.py </a>
+with the new drawing instructions. </p>
+<p> If you run it with </p>
+<p><em> $ python clock_ex3.py </em></p>
+
+<p> you will get a blank clock face: </p>
+<p><img src="./clock_ex3.png" alt="clock window example, now with the clock surface painted and ticks"> </p>
+<p> So we’ve covered the basics of drawing something on your canvas and making sure that GTK+ redraws it when it is exposed. Next time we’ll look at how to extend your widget with an API so that we can actually start drawing content on it and implementing signals so that we can receive updated information. </p>
+<p> If you want to learn more about Cairo and the Cairo drawing API, see their website:
+    <a href="So%20we%E2%80%99ve%20covered%20the%20basics%20of%20drawing%20something%20on%20your%20canvas%20and%20making%20sure%20that%20GTK+%20redraws%20it%20when%20it%20is%20exposed.%20Next%20time%20we%E2%80%99ll%20look%20at%20how%20to%20extend%20your%20widget%20with%20an%20API%20so%20that%20we%20can%20actually%20start%20drawing%20content%20on%20it%20and%20implementing%20signals%20so%20that%20we%20can%20receive%20updated%20information.%3C/p%3E%0A%09%3Cp%3EIf%20you%20want%20to%20learn%20more%20about%20Cairo%20and%20the%20Cairo%20drawing%20API,%20see%20their%20website:%20%3Ca%20href=" http://www.cairographics.org=""> http://www.cairographics.org/ </a>.</p>
+
+<strong><em>
+<p> This work is licensed under a
+    <a href="http://creativecommons.org/licenses/by-sa/2.0/"> Creative Commons License </a>
+</p>
+<p> – Friday, December 2nd 2005 </p>
+</em>
+</strong>
+</body>
