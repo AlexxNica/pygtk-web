@@ -13,6 +13,11 @@ item = lambda *x: items.append(x)
 #      """,
 #      "INSERT AUTHOR HERE")
 
+item("New reference docs - GnomeVFS",
+     (2006, 1, 02), """Thanks to the hard work of David Trowbridge,
+     <a href="pygnomevfs/index.html">documentation</a> of the gnomevfs python module (from GnomePython)
+     has started.  It is not complete yet, however, any help is appreciated.""", 'Gustavo Carneiro')
+
 item("New article - Writing a Widget Using Cairo and PyGTK 2.8",
      (2005, 12, 05), """Learn how to write pygtk widgets using the
      new Cairo API.

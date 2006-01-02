@@ -21,7 +21,8 @@ LOCAL_TARBALLS =				\
 	documentation/pygtksourceview.tar.bz2	\
 	documentation/pygtkspell.tar.bz2	\
 	documentation/pygnomeprint.tar.bz2	\
-	documentation/pygnomeprintui.tar.bz2
+	documentation/pygnomeprintui.tar.bz2	\
+	documentation/pygnomevfs.tar.bz2
 
 SRC_PAGES = 			\
 	about.src 		\

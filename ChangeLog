@@ -1,3 +1,11 @@
+2006-01-02  Gustavo J. A. M. Carneiro  <gjc@gnome.org>
+
+	* newsitems.py: Announce new docs.
+
+	* Makefile (LOCAL_TARBALLS),
+	* documentation/pygnomevfs.tar.bz2,
+	* reference.src:  Add pygnomevfs docs, by David Trowbridge.
+
 2005-12-05  Rafael Villar Burke  <pachi@mmn-arquitectos.com>
 
         * people.src: Added myself to the list :)
