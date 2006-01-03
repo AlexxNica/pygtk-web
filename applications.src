@@ -578,7 +578,12 @@
   <dd> A simple menu editor for GNOME 2.10 that can edit and add new entries and 
   menus. It implements the freedesktop.org menu spec but may or may not work 
   with other Desktop Environments.</dd>
-  
+
+  <dt><a href="http://www.fabriziotarizzo.org/sw/torapplet/">TorApplet</a><dt>
+
+  <dd>It's a GNOME applet for managing and monitoring the TOR daemon (TOR is an
+anonymous Internet communication system: <a href="http://tor.eff.org">http://tor.eff.org</a>).</dd>
+
   <dt><a href="http://www.amautacorp.com/staff/Rudd-O/ups-monitor/"> UPS
   monitor</a></dt> <dd>UPS monitor is a graphical monitoring application
   that lets you watch your UPS status in real time.</dd>

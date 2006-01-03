@@ -1,3 +1,9 @@
+2006-01-03  Johan Dahlin  <jdahlin@async.com.br>
+
+	* applications.src: Add TorApplet
+
+	* articles.src: Update URL for Dimitri Paters tutorial.
+
 2006-01-03  Rafael Villar Burke  <pachi@mmn-arquitectos.com>
 
 	* applications.src: Added Gnome-schedule
