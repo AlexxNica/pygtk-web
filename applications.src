@@ -492,6 +492,13 @@
   temporary files, duplicate/conflicting (binary) names, and unused ext2
   directory blocks.</dd>
 
+  <dt><a href="http://http://gnome-schedule.sourceforge.net/">
+  Gnome-schedule</a></dt>
+  <dd>Gnome-schedule is a grapichal user interface to the applications used
+  to schedule tasks 'crontab' and 'at'. It supports periodically run and
+  run once tasks, titles and icons to identify tasks, an lets you define
+  task templates.</dd>
+
   <dt><a href="http://autoficon.sourceforge.net/">GXFormer (Autoficon)</a></dt>
   <dd>GXFormer is a Transformer GUI, a daemon which transforms file types
   easily by just renaming them (i.e. changing extension). The daemon uses
