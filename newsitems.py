@@ -13,6 +13,12 @@ item = lambda *x: items.append(x)
 #      """,
 #      "INSERT AUTHOR HERE")
 
+item("PyGObject 2.9.0 released",
+     (2006, 1, 9),
+     """2.9.0 marks the first release of PyGObject, the python bindings for GObject. It has just been split off from PyGTK and is now a separate package. Fetch it  <a href="http://ftp.gnome.org/pub/GNOME/sources/pygobject/2.9/pygobject-2.9.0.tar.gz">here</a>.
+     Check out <a href="http://mail.gnome.org/archives/gnome-announce-list/2006-January/msg00023.html">the release announcement</a>.""",
+     "Johan Dahlin")
+
 item("New reference docs - GnomeVFS",
      (2006, 1, 02), """Thanks to the hard work of David Trowbridge,
      <a href="pygnomevfs/index.html">documentation</a> of the gnomevfs python module (from GnomePython)
