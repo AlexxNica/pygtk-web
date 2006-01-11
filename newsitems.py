@@ -13,6 +13,18 @@ item = lambda *x: items.append(x)
 #      """,
 #      "INSERT AUTHOR HERE")
 
+# http://news.gmane.org/gmane.comp.gnome.gtk%2B.python/
+
+item("PyGTK 2.8.4 released",
+     (2005, 10, 4),
+     """
+     PyGTK 2.8.4 contains only a small amount of bug fixes. The main feature is
+     that it can be built against pygobject, so it's suitable for inclusing in
+     GNOME 2.14. It can be fetched 
+     <a href="http://ftp.gnome.org/pub/GNOME/sources/pygtk/2.8/pygtk-2.8.4.tar.gz">here</a>.
+     Check out <a href="http://article.gmane.org/gmane.comp.gnome.gtk%2B.python/7525">the release announcement</a> or, for a complete list of changes, read <a href="http://live.gnome.org/PyGTK/WhatsNew28">this page</a> at the wiki.""",
+     "Johan Dahlin")
+
 item("PyGObject 2.9.0 released",
      (2006, 1, 9),
      """2.9.0 marks the first release of PyGObject, the python bindings for GObject. It has just been split off from PyGTK and is now a separate package. Fetch it  <a href="http://ftp.gnome.org/pub/GNOME/sources/pygobject/2.9/pygobject-2.9.0.tar.gz">here</a>.

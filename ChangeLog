@@ -1,3 +1,7 @@
+2006-01-11  Johan Dahlin  <jdahlin@async.com.br>
+
+	* newsitems.py (item): 2.8.4
+
 2006-01-09  Johan Dahlin  <jdahlin@async.com.br>
 
 	* newsitems.py (item): PyGObject 2.9.0
