@@ -1,3 +1,7 @@
+2006-01-13  Johan Dahlin  <jdahlin@async.com.br>
+
+	* articles/cairo-pygtk-widgets/cairo-pygtk-widgets.htm: Fix links.
+
 2006-01-11  Johan Dahlin  <jdahlin@async.com.br>
 
 	* newsitems.py (item): 2.8.4
