@@ -1,0 +1,252 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+
+  <title>C&oacute;mo hacer Widgets con PyGTK y Cairo.</title>
+  <style type="text/css">
+  pre {font-size: 14px;background-color: #99eeff;width: 50%;padding: 15px;margin: 20px;border: 1px dashed}
+  </style>
+</head>
+
+<body>
+
+<p> 
+&Eacute;ste tutorial est&aacute; basado originalmente en <a href="http://pygtk.org/articles/cairo-pygtk-widgets/cairo-pygtk-widgets.htm">&eacute;sta obra</a> extra&iacute;&shy;da de <a href="http://www.pygtk.org">www.pygtk.org</a>, no es una tradudcci&oacute;n literal, y extiende su contenido.
+</p>
+
+
+
+
+<p>NOTA: Para poder ejecutar el c&oacute;digo vamos a necesitar la versi&oacute;n 2.8 de pygtk y pycairo.</p>
+
+
+<h4>Primeros Pasos</h4>
+
+
+<p>Lo primero que debemos hacer es importar las librerias que vamos a necesitar:</p>
+
+<br>
+
+
+<pre><tt><b><font color="#0000ff">import</font></b> gtk<br><b><font color="#0000ff">import</font></b> gtk<font color="#990000">.</font>gdk<br><b><font color="#0000ff">import</font></b> math<br></tt></pre>
+
+<br>
+
+<p>Lo siguiente ser&aacute;; crear una nueva clase, que heredar&aacute; de la clase <a href="http://pygtk.org/pygtk2reference/class-gtkdrawingarea.html">gtk.DrawingArea</a>
+(&aacute;rea de dibujado) que es el area que utilizaremos para capturar
+los eventos y dibujar en ella el resultado de las funciones que
+utilicemos en cairo, a&ntilde;adiremos tambi&eacute;n un
+constructor por defecto:</p>
+<br>
+
+<pre><tt><b><font color="#0000ff">class</font></b> <b><font color="#000000">SemiCirculo</font></b><font color="#990000">(</font>gtk<font color="#990000">.</font>DrawingArea<font color="#990000">)</font><font color="#990000">:</font>
+        <b><font color="#0000ff">def</font></b> <b><font color="#000000">__init__</font></b><font color="#990000">(</font>self<font color="#990000">)</font><font color="#990000">:</font>
+                gtk<font color="#990000">.</font>DrawingArea<font color="#990000">.</font><b><font color="#000000">__init__</font></b><font color="#990000">(</font>self<font color="#990000">)</font>
+</tt>
+</pre>
+
+<p>A continuaci&oacute;n a&ntilde;adiremos el prototipo de dos de los
+m&eacute;todos que vamos a necesitar, uno de ellos se encargar&aacute;
+de llevar a cabo las tareas de dibujado y el otro, ser&aacute; el
+manejador del evento <a href="http://pygtk.org/pygtk2reference/class-gtkwidget.html#signal-gtkwidget--expose-event">expose</a>, que es el evento que ocurre cuando se redibuja el widget, por ejemplo al moverlo o al pasar una ventana por encima:
+</p>
+
+
+<pre><tt><b><font color="#0000ff">class</font></b> <b><font color="#000000">SemiCirculo</font></b><font color="#990000">(</font>gtk<font color="#990000">.</font>DrawingArea<font color="#990000">)</font><font color="#990000">:</font>
+        <b><font color="#0000ff">def</font></b> <b><font color="#000000">__init__</font></b><font color="#990000">(</font>self<font color="#990000">)</font><font color="#990000">:</font>
+                gtk<font color="#990000">.</font>DrawingArea<font color="#990000">.</font><b><font color="#000000">__init__</font></b><font color="#990000">(</font>self<font color="#990000">)</font>
+                self<font color="#990000">.</font><b><font color="#000000">connect</font></b><font color="#990000">(</font><font color="#ff0000">"expose-event"</font><font color="#990000">,</font> self<font color="#990000">.</font>expose<font color="#990000">)</font>
+
+        <b><font color="#0000ff">def</font></b> <b><font color="#000000">expose</font></b><font color="#990000">(</font>self<font color="#990000">,</font> widget<font color="#990000">,</font> event<font color="#990000">)</font><font color="#990000">:</font>
+                <b><font color="#0000ff">pass</font></b>
+
+        <b><font color="#0000ff">def</font></b> <b><font color="#000000">draw</font></b><font color="#990000">(</font>self<font color="#990000">,</font> context<font color="#990000">)</font><font color="#990000">:</font>
+                <b><font color="#0000ff">pass</font></b>
+</tt>
+</pre>
+
+<h4>Prueba Inicial</h4>
+
+<p>Ahora ya podemos ejecutar nuestro programa, aunque no har&aacute;
+nada, lo que haremos es crear una funci&oacute;n principal donde
+crearemos una ventana y una instancia de nuestra clase, dicha
+funci&oacute;n ser&aacute; llamada s&oacute;lo en caso de que se
+ejecute nuestro fuente como un script:
+</p>
+
+<pre><tt><b><font color="#0000ff">def</font></b> <b><font color="#000000">main</font></b><font color="#990000">(</font><font color="#990000">)</font><font color="#990000">:</font>
+        window <font color="#990000">=</font> gtk<font color="#990000">.</font><b><font color="#000000">Window</font></b><font color="#990000">(</font><font color="#990000">)</font>
+        semicirculo <font color="#990000">=</font> <b><font color="#000000">SemiCirculo</font></b><font color="#990000">(</font><font color="#990000">)</font>
+
+        <i><font color="#9a1900"># A&Atilde;&plusmn;adimos nuestro widget a la ventana</font></i>
+        window<font color="#990000">.</font><b><font color="#000000">add</font></b><font color="#990000">(</font>semicirculo<font color="#990000">)</font>
+        <i><font color="#9a1900"># Conectamos el evento destroy con la salida del bucle de eventos</font></i>
+        window<font color="#990000">.</font><b><font color="#000000">connect</font></b><font color="#990000">(</font><font color="#ff0000">"destroy"</font><font color="#990000">,</font> gtk<font color="#990000">.</font>main_quit<font color="#990000">)</font>
+        <i><font color="#9a1900"># Dibujamos toda la ventana</font></i>
+        window<font color="#990000">.</font><b><font color="#000000">show_all</font></b><font color="#990000">(</font><font color="#990000">)</font>
+
+        <i><font color="#9a1900"># Comenzamos el bucle de eventos</font></i>
+        gtk<font color="#990000">.</font><b><font color="#000000">main</font></b><font color="#990000">(</font><font color="#990000">)</font>
+
+<b><font color="#0000ff">if</font></b> __name__ <font color="#990000">=</font><font color="#990000">=</font> <font color="#ff0000">"__main__"</font><font color="#990000">:</font>
+        <b><font color="#000000">main</font></b><font color="#990000">(</font><font color="#990000">)</font>
+</tt></pre>
+
+<p>
+El fichero fuente deberia &eacute;star tal que asi: <a href="ejemplo_1.py">ejemplo_1.py</a>
+<br/>
+Lo ejecutamos, y obtenemos el siguiente resultado:
+<br/>
+[arc@synaptia:~]$ python2.4 ejemplo_1.py
+<br/><br/>
+<img src="window_1.jpg">
+</p>
+
+
+<b>Dibujando</b>
+<p>Como vemos, aun no hemos hecho nada interesante, a
+continuaci&oacute;n vamos a dibujar el semicirculo, lo primero
+ser&aacute; crear la funci&oacute;n draw:</p>
+
+
+<pre><tt>       <b><font color="#0000ff">def</font></b> <b><font color="#000000">draw</font></b><font color="#990000">(</font>self<font color="#990000">,</font> context<font color="#990000">)</font><font color="#990000">:</font>
+                <i><font color="#9a1900">#Adquirimos las coordenadas de origen</font></i>
+                <i><font color="#9a1900">#y el tama&Atilde;&plusmn;o del rectangulo del widget,</font></i>
+                <i><font color="#9a1900">#situando en las variable x e y</font></i>
+                <i><font color="#9a1900">#el centro del rectangulo.</font></i>
+                rect <font color="#990000">=</font> self<font color="#990000">.</font><b><font color="#000000">get_allocation</font></b><font color="#990000">(</font><font color="#990000">)</font>
+                x <font color="#990000">=</font> rect<font color="#990000">.</font>x <font color="#990000">+</font> rect<font color="#990000">.</font>width <font color="#990000">/</font> <font color="#993399">2</font>
+                y <font color="#990000">=</font> rect<font color="#990000">.</font>y <font color="#990000">+</font> rect<font color="#990000">.</font>height <font color="#990000">/</font> <font color="#993399">2</font>
+
+                <i><font color="#9a1900">#hallamos el radio</font></i>
+                radius <font color="#990000">=</font> <b><font color="#000000">min</font></b><font color="#990000">(</font>rect<font color="#990000">.</font>width <font color="#990000">/</font> <font color="#993399">2</font><font color="#990000">,</font> rect<font color="#990000">.</font>height <font color="#990000">/</font> <font color="#993399">2</font><font color="#990000">)</font> <font color="#990000">-</font> <font color="#993399">5</font>
+
+                <i><font color="#9a1900">#Dibujamos un arco</font></i>
+                context<font color="#990000">.</font><b><font color="#000000">arc</font></b><font color="#990000">(</font>x<font color="#990000">,</font> y<font color="#990000">,</font> radius<font color="#990000">,</font> <font color="#993399">0</font><font color="#990000">,</font><font color="#990000">(</font><font color="#993399">1</font> <font color="#990000">*</font> math<font color="#990000">.</font>pi<font color="#990000">)</font><font color="#990000">)</font>
+
+                <i><font color="#9a1900">#Elegimos el color de relleno y lo vertemos</font></i>
+                context<font color="#990000">.</font><b><font color="#000000">set_source_rgb</font></b><font color="#990000">(</font><font color="#993399">0.7</font><font color="#990000">,</font> <font color="#993399">0.8</font><font color="#990000">,</font> <font color="#993399">0.1</font><font color="#990000">)</font>
+                context<font color="#990000">.</font><b><font color="#000000">fill_preserve</font></b><font color="#990000">(</font><font color="#990000">)</font>
+
+                <i><font color="#9a1900">#Elegimos el color del borde y lo dibujamos</font></i>
+                context<font color="#990000">.</font><b><font color="#000000">set_source_rgb</font></b><font color="#990000">(</font><font color="#993399">0</font><font color="#990000">,</font> <font color="#993399">0</font><font color="#990000">,</font> <font color="#993399">0</font><font color="#990000">)</font>
+                context<font color="#990000">.</font><b><font color="#000000">stroke</font></b><font color="#990000">(</font><font color="#990000">)</font>
+</tt>
+</pre>
+
+<p>Ahora debemos desarrollar el c&oacute;digo del manejador del evento:</p>
+
+<pre><tt>       <b><font color="#0000ff">def</font></b> <b><font color="#000000">expose</font></b><font color="#990000">(</font>self<font color="#990000">,</font> widget<font color="#990000">,</font> event<font color="#990000">)</font><font color="#990000">:</font>
+                <i><font color="#9a1900">#Creamos un contexto de dibujo cairo</font></i>
+                self<font color="#990000">.</font>context <font color="#990000">=</font> widget<font color="#990000">.</font>window<font color="#990000">.</font><b><font color="#000000">cairo_create</font></b><font color="#990000">(</font><font color="#990000">)</font>
+
+                <i><font color="#9a1900">#Ajustamos el tama&Atilde;&plusmn;o del contexto al del widget</font></i>
+                self<font color="#990000">.</font>context<font color="#990000">.</font><b><font color="#000000">rectangle</font></b><font color="#990000">(</font>event<font color="#990000">.</font>area<font color="#990000">.</font>x<font color="#990000">,</font> event<font color="#990000">.</font>area<font color="#990000">.</font>y<font color="#990000">,</font>
+                                event<font color="#990000">.</font>area<font color="#990000">.</font>width<font color="#990000">,</font> event<font color="#990000">.</font>area<font color="#990000">.</font>height<font color="#990000">)</font>
+                self<font color="#990000">.</font>context<font color="#990000">.</font><b><font color="#000000">clip</font></b><font color="#990000">(</font><font color="#990000">)</font>
+
+                <i><font color="#9a1900">#Llamamos a la funci&oacute;n de dibujado</font></i>
+                self<font color="#990000">.</font><b><font color="#000000">draw</font></b><font color="#990000">(</font>self<font color="#990000">.</font>context<font color="#990000">)</font>
+                <b><font color="#0000ff">return</font></b> False<br></tt>
+</pre>
+
+<p>
+El ejemplo hasta ahora deberia quedar asi: <a href="ejemplo_2.py">ejemplo_2.py</a>
+Ahora ya tenemos un semicirculo que se redimensiona al mismo tiempo que la ventana:
+<br/>
+<img src="window_2.jpg">
+</p>
+
+<b>Creando eventos nuevos</b>
+<br>
+
+<p>DrawingArea, por defecto, no captura los eventos de pulsaci&oacute;n
+y movimiento del rat&oacute;n, asi que hay que
+a&Atilde;&plusmn;adirselos a mano en el constrcutor:</p>
+
+<pre><tt><b><font color="#0000ff">class</font></b> <b><font color="#000000">EggClockFace</font></b><font color="#990000">(</font>gtk<font color="#990000">.</font>DrawingArea<font color="#990000">)</font><font color="#990000">:</font>
+        <b><font color="#0000ff">def</font></b> <b><font color="#000000">__init__</font></b><font color="#990000">(</font>self<font color="#990000">)</font><font color="#990000">:</font>
+                gtk<font color="#990000">.</font>DrawingArea<font color="#990000">.</font><b><font color="#000000">__init__</font></b><font color="#990000">(</font>self<font color="#990000">)</font>
+                self<font color="#990000">.</font><b><font color="#000000">add_events</font></b><font color="#990000">(</font>gtk<font color="#990000">.</font>gdk<font color="#990000">.</font>BUTTON_PRESS_MASK <font color="#990000">|</font>
+                                gtk<font color="#990000">.</font>gdk<font color="#990000">.</font>BUTTON1_MOTION_MASK<font color="#990000">)</font>
+</tt></pre>
+
+<p>
+Ahora debemos crear los manejadores de los dos nuevos eventos, como miembros de nuestra clase SemiCirculo:
+</p>
+
+<pre><tt>       <b><font color="#0000ff">def</font></b> <b><font color="#000000">pressing</font></b><font color="#990000">(</font>self<font color="#990000">,</font> widget<font color="#990000">,</font> event<font color="#990000">)</font><font color="#990000">:</font>
+                <b><font color="#0000ff">pass</font></b>
+
+        <b><font color="#0000ff">def</font></b> <b><font color="#000000">moving</font></b><font color="#990000">(</font>self<font color="#990000">,</font> widget<font color="#990000">,</font> event<font color="#990000">)</font><font color="#990000">:</font>
+                <b><font color="#0000ff">pass</font></b>
+</tt></pre>
+
+<p>
+Ahora conectamos los eventos con los nuevos manejadores:
+</p>
+
+<pre><tt><b><font color="#0000ff">class</font></b> <b><font color="#000000"><span style="font-family: monospace;">SemiCirculo</span></font></b><font color="#990000">(</font>gtk<font color="#990000">.</font>DrawingArea<font color="#990000">)</font><font color="#990000">:</font>
+        <b><font color="#0000ff">def</font></b> <b><font color="#000000">__init__</font></b><font color="#990000">(</font>self<font color="#990000">)</font><font color="#990000">:</font>
+                gtk<font color="#990000">.</font>DrawingArea<font color="#990000">.</font><b><font color="#000000">__init__</font></b><font color="#990000">(</font>self<font color="#990000">)</font>
+                self<font color="#990000">.</font><b><font color="#000000">add_events</font></b><font color="#990000">(</font>gtk<font color="#990000">.</font>gdk<font color="#990000">.</font>BUTTON_PRESS_MASK <font color="#990000">|</font>
+                                gtk<font color="#990000">.</font>gdk<font color="#990000">.</font>BUTTON1_MOTION_MASK<font color="#990000">)</font>
+
+                self<font color="#990000">.</font><b><font color="#000000">connect</font></b><font color="#990000">(</font><font color="#ff0000">"expose_event"</font><font color="#990000">,</font> self<font color="#990000">.</font>expose<font color="#990000">)</font>
+                self<font color="#990000">.</font><b><font color="#000000">connect</font></b><font color="#990000">(</font><font color="#ff0000">"button_press_event"</font><font color="#990000">,</font> self<font color="#990000">.</font>pressing<font color="#990000">)</font>
+                self<font color="#990000">.</font><b><font color="#000000">connect</font></b><font color="#990000">(</font><font color="#ff0000">"motion_notify_event"</font><font color="#990000">,</font> self<font color="#990000">.</font>moving<font color="#990000">)</font>
+</tt>
+</pre>
+
+<p>Ahora queremos que el semicirculo, tras haber hecho click y sin
+soltar previamente, se mueva en la misma direcci&oacute;n en la medida
+que nos desplacemos en el eje X, para ello, el manejador debe guardar
+la coordenada de referencia, es decir, la posici&oacute;n del
+rat&oacute;n cuando se produce el evento button-press (el click
+izquierdo):
+</p>
+
+<pre><tt>       <b><font color="#0000ff">def</font></b> <b><font color="#000000">pressing</font></b><font color="#990000">(</font>self<font color="#990000">,</font> widget<font color="#990000">,</font> event<font color="#990000">)</font><font color="#990000">:</font>
+                self<font color="#990000">.</font>pressing_x <font color="#990000">=</font> event<font color="#990000">.</font>x<br></tt></pre>
+
+<p>Y ahora el manejador de movimiento:</p>
+<pre><tt>       <b><font color="#0000ff">def</font></b> <b><font color="#000000">moving</font></b><font color="#990000">(</font>self<font color="#990000">,</font> widget<font color="#990000">,</font> event<font color="#990000">)</font><font color="#990000">:</font>
+                <i><font color="#9a1900">#Determinamos si nos movemos a la izquierda</font></i>
+                <i><font color="#9a1900">#o hacia la derecha</font></i>
+                <b><font color="#0000ff">if</font></b> <font color="#990000">(</font>self<font color="#990000">.</font>pressing_x <font color="#990000">-</font> event<font color="#990000">.</font>x<font color="#990000">)</font> <font color="#990000">&gt;</font> <font color="#993399">1</font><font color="#990000">:</font>
+                        self<font color="#990000">.</font>desp <font color="#990000">=</font> self<font color="#990000">.</font>desp <font color="#990000">+</font> <font color="#993399">0.1</font>
+                <b><font color="#0000ff">else</font></b><font color="#990000">:</font>
+                        self<font color="#990000">.</font>desp <font color="#990000">=</font> self<font color="#990000">.</font>desp <font color="#990000">-</font> <font color="#993399">0.1</font>
+
+                self<font color="#990000">.</font>pressing_x <font color="#990000">=</font> event<font color="#990000">.</font>x<br><br>                <i><font color="#9a1900">#Volvemos a dibujar el contexto</font></i>
+                self<font color="#990000">.</font><b><font color="#000000">draw</font></b><font color="#990000">(</font>self<font color="#990000">.</font>context<font color="#990000">)</font>
+                <i><font color="#9a1900">#Redibujamos el widget</font></i>
+                self<font color="#990000">.</font><b><font color="#000000">queue_draw</font></b><font color="#990000">(</font><font color="#990000">)</font>
+
+</tt>
+</pre>
+<p>Ya solo nos falta, determinar un desplazamiento por defecto en el
+constructor y sumar el desplazamiento en la funci&oacute;n que dibuja
+el arco:
+</p>
+<pre><tt><b><font color="#0000ff">class</font></b> <b><font color="#000000"><span style="font-family: monospace;">SemiCirculo</span></font></b><font color="#990000">(</font>gtk<font color="#990000">.</font>DrawingArea<font color="#990000">)</font><font color="#990000">:</font><br>        <b><font color="#0000ff">def</font></b> <b><font color="#000000">__init__</font></b><font color="#990000">(</font>self<font color="#990000">)</font><font color="#990000">:</font><br>                gtk<font color="#990000">.</font>DrawingArea<font color="#990000">.</font><b><font color="#000000">__init__</font></b><font color="#990000">(</font>self<font color="#990000">)</font><br>                self<font color="#990000">.</font><b><font color="#000000">add_events</font></b><font color="#990000">(</font>gtk<font color="#990000">.</font>gdk<font color="#990000">.</font>BUTTON_PRESS_MASK <font color="#990000">|</font><br>                                gtk<font color="#990000">.</font>gdk<font color="#990000">.</font>BUTTON1_MOTION_MASK<font color="#990000">)</font><br><br>                self<font color="#990000">.</font><b><font color="#000000">connect</font></b><font color="#990000">(</font><font color="#ff0000">"expose_event"</font><font color="#990000">,</font> self<font color="#990000">.</font>expose<font color="#990000">)</font><br>                self<font color="#990000">.</font><b><font color="#000000">connect</font></b><font color="#990000">(</font><font color="#ff0000">"button_press_event"</font><font color="#990000">,</font> self<font color="#990000">.</font>pressing<font color="#990000">)</font><br>                self<font color="#990000">.</font><b><font color="#000000">connect</font></b><font color="#990000">(</font><font color="#ff0000">"motion_notify_event"</font><font color="#990000">,</font> self<font color="#990000">.</font>moving<font color="#990000">)</font><br><br>                <i><font color="#9a1900">#Desplazamiento</font></i><br>                self<font color="#990000">.</font>desp <font color="#990000">=</font> <font color="#993399">0</font><br><br><br></tt>
+</pre>
+<br>
+
+<p>
+Y por &uacute;ltimo, modificamos la funci&oacute;n que dibuja el arco:
+</p>
+<pre><tt>               context<font color="#990000">.</font><b><font color="#000000">arc</font></b><font color="#990000">(</font>x<font color="#990000">,</font> y<font color="#990000">,</font> radius<font color="#990000">,</font> <font color="#993399">0</font> <font color="#990000">+</font> self<font color="#990000">.</font>desp <font color="#990000">,</font>
+                                <font color="#990000">(</font><font color="#993399">1</font> <font color="#990000">*</font> math<font color="#990000">.</font>pi<font color="#990000">)</font> <font color="#990000">+</font> self<font color="#990000">.</font>desp<font color="#990000">)</font>
+</tt>
+</pre>
+<p>
+Finalmente el fichero nos quedar&aacute; asi: <a href="ejemplo_3.py">ejemplo_3.py</a><br/>
+<img src="window_3.jpg">
+<br>
+
+</p>
+<br/><br/><br/>
+<p>Alberto Ruiz - &Eacute;ste documento est&aacute; registrado bajo una licencia <a href="http://creativecommons.org/licenses/by-sa/2.0/">Creative Commons</a></p>
+</body>
+</html>

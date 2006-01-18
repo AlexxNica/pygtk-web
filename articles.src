@@ -15,6 +15,12 @@
   </thead>
 
   <tbody>
+  
+    <tr>
+      <td>Jan 2006</td>
+      <td><a href="./articles/cairo-pygtk-widget-signals-es/cairo-pygtk-widget-signals.html">C&oacute;mo hacer widgets con Pygtk y Cairo 2.8</a></td>
+      <td>Alberto Ruiz</td>
+    </tr>
 
     <tr>
       <td>Dec 2005</td>

@@ -1,3 +1,15 @@
+2006-01-18  Rafael Villar Burke  <pachi@mmn-arquitectos.com>
+
+	* articles/cairo-pygtk-widget-signals-es
+	* articles/cairo-pygtk-widget-signals-es/cairo-pygtk-widget-signals.html
+	* articles/cairo-pygtk-widget-signals-es/ejemplo_1.py
+	* articles/cairo-pygtk-widget-signals-es/ejemplo_2.py
+	* articles/cairo-pygtk-widget-signals-es/ejemplo_3.py
+	* articles/cairo-pygtk-widget-signals-es/window_1.py
+	* articles/cairo-pygtk-widget-signals-es/window_2.py
+	* articles/cairo-pygtk-widget-signals-es/window_3.py
+	* articles.src: New article by Alberto Ruiz
+
 2006-01-13  Johan Dahlin  <jdahlin@async.com.br>
 
 	* articles/cairo-pygtk-widgets/cairo-pygtk-widgets.htm: Fix links.
