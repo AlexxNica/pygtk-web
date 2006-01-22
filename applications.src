@@ -103,6 +103,10 @@
   is not a full frontend to BitTorrent, but just handles the download of
   torrent files.</dd>
 
+  <dt><a href="http://www.nongnu.org/gnomolicious/">Gnomolicious</a></dt>
+  <dd>Gnomolicious is an GNOME  applet that help you post links on the
+  del.icio.us site simply by drag'n'dropping them.</dd>
+
   <dt><a href="http://gsmile.sourceforge.net/">gSmile</a></dt>
   <dd>gSmile is an open-source emoticon manager: it helps you to keep
   your emoticons and smilies organized and to find them quickly whenever
