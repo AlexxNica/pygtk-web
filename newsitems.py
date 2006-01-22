@@ -15,8 +15,17 @@ item = lambda *x: items.append(x)
 
 # http://news.gmane.org/gmane.comp.gnome.gtk%2B.python/
 
+item("New article - C&oacute;mo hacer widgets con Pygtk y Cairo 2.8",
+     (2006, 1, 23),
+     """This new article expands on previous articles on
+     how to write pygtk widgets using the new avaliable Cairo API.
+     <a href="./articles/cairo-pygtk-widget-signals-es/cairo-pygtk-widget-signals.html">
+     The article</a> has been written (in spanish) by Alberto Ruiz.
+     """,
+     'Rafael Villar Burke')
+
 item("PyGTK 2.8.4 released",
-     (2005, 10, 4),
+     (2006, 1, 11),
      """
      PyGTK 2.8.4 contains only a small amount of bug fixes. The main feature is
      that it can be built against pygobject, so it's suitable for inclusing in
