@@ -15,6 +15,22 @@ item = lambda *x: items.append(x)
 
 # http://news.gmane.org/gmane.comp.gnome.gtk%2B.python/
 
+item("GnomePythonDesktop 2.13.3 and GnomePythonExtras 2.13.3 released",
+     (2006, 1, 24),
+     """
+     <a href="http://ftp.gnome.org/pub/GNOME/sources/gnome-python-desktop/2.13/">GnomePythonDesktop</a>
+     provides python interfacing modules for some GNOME
+     libraries part of the GNOME Desktop (gnomeapplet,
+     gnomeprint, gnomeprint.ui, gtksourceview, wnck, totem.plparser,
+     gtop, nautilusburn, mediaprofiles, metacity).
+     
+     <a href="http://ftp.gnome.org/pub/GNOME/sources/gnome-python-extras/2.13/">GnomePythonExtras</a>
+     provides python interfacing modules for some GNOME
+     libraries not part of the Developer or Desktop platforms (gtkhtml2,
+     egg.trayicon, egg.recent, gtkspell, gtkmozembed, gdl, gda, gksu, gksu.ui).
+     """,
+     'Rafael Villar Burke')
+
 item("New article - C&oacute;mo hacer widgets con Pygtk y Cairo 2.8",
      (2006, 1, 23),
      """This new article expands on previous articles on

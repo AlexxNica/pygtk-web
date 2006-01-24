@@ -1,3 +1,8 @@
+2006-01-24  Rafael Villar Burke  <pachi@mmn-arquitectos.com>
+
+	* newsitems.py: added GnomePythonExtras and GnomePythonDesktop
+	release announcements.
+
 2006-01-23  Rafael Villar Burke  <pachi@mmn-arquitectos.com>
 
 	* newsitems.py: added Alberto Ruiz's article and fix date typo
