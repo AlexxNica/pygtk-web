@@ -1,3 +1,16 @@
+2006-01-27  Rafael Villar Burke  <pachi@mmn-arquitectos.com>
+
+	* applications.src:
+	- Add Deskbar Applet and Wah!cade.
+	- Add a link to the games section in the navigation bar.
+	- Change name from music to audio as anchor name.
+	- Move PySudoku and PyBridge to the games section.
+	- Move VoxPak to the audio section.
+	- Add video section.
+	- Move DelVJ, Micropics, Mum, Nixory, Orange Slice, PenguinTV,
+	PyRadar and Skencil to the video section.
+	- Fix markup and trim end spaces.
+
 2006-01-24  Rafael Villar Burke  <pachi@mmn-arquitectos.com>
 
 	* newsitems.py: added GnomePythonExtras and GnomePythonDesktop

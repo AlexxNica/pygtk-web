@@ -7,7 +7,9 @@
 
 <div style="font-size: x-small">
 <a href="#user">User Apps</a> |
-<a href="#music">Audio Apps</a> |
+<a href="#audio">Audio Apps</a> |
+<a href="#video">Graphics and Video Apps</a> |
+<a href="#games">Games and Gaming Tools</a> |
 <a href="#scientific">Scientific Apps</a> |
 <a href="#devel">Development Tools</a> |
 <a href="#system">System Utilities</a> |
@@ -17,6 +19,7 @@
 <h3><a name="user">User Applications</a></h3>
 
 <dl>
+
   <dt><a href="http://home.gna.org/aeternal/index.html">Aeternal</a></dt>
   <dd>Aeternal is an IRC client that targets the GNOME platform. It aims
   freedom, usability, security, community participation and scriptability.<dd>
@@ -24,7 +27,7 @@
   <dt><a href="http://www.bittorrent.com/">BitTorrent</a></dt>
   <dd>Bittorrent is a popular Peer-to-Peer application. Bittorrent is designed
   to lower the bandwidth required to distribute files. It's one of the most
-  popular application on Sourceforge with over 400 000/downloads a week (as of 
+  popular application on Sourceforge with over 400 000/downloads a week (as of
   Jan 2005) Starting from version 3.9 the user interface is using PyGTK.<dd>
 
   <dt><a href="http://blogtk.sourceforge.net/">BloGTK</a></dt>
@@ -54,12 +57,12 @@
   and tar.bz2 archives (often called .cbz, .cbr and .cbt) as well as
   normal image files.</dd>
 
-  <dt><a href="http://www.delcorp.org/delvj/">DelVJ</a></dt>
-  <dd>DelVJ is a software for realtime video 3d composition and
-  algorithmic remixing that uses gtk, python, glade and puredata.
-  It can be controlled through OSC, and has web and gtk interfaces.
-  Furthermore, it is licensed under GNU's GPL.
-  </dd>
+  <dt><a href="http://raphael.slinckx.net/deskbar/">Deskbar Applet</a></dt>
+  <dd>DeskbarApplet provides an omnipresent versatile search interface.
+  By typing search terms into an entry in your panel you are presented with
+  the search results as you type.<br><br>
+  Seaches are handled by a series of plugins which can be managed using
+  a simple interface.</dd>
 
   <dt><a href="http://disksearch.sourceforge.net/">DiskSearch</a></dt>
   <dd>DiskSearch is a tool that searches for files on all your removable
@@ -78,7 +81,7 @@
 
   <dt><a href="http://gdick.kldp.net/">GDick</a></dt>
   <dd>GDick is a Korean-English dictionary client.</dd>
-  
+
   <dt><a href="http://bhepple.freeshell.org/gjots/">gjots</a></dt>
   <dd>gjots2 is a fairly simple jotter (or outline processor) for your
   desktop. You can use gjots2 to organise your jottings into a tree
@@ -148,35 +151,9 @@
   <dd>Mapview is a python map browser for Terraserver-usa map tiles. It
   allows for edition of track files.</dd>
 
-  <dt><a href="http://upics.sf.net/">Micropics</a></dt>
-  <dd>Micropics is a Gnome 2.x applet that displays changing thumbnails
-  of your favorite photos. When guiding your mouse pointer over the
-  thumbnail, the image zooms out, and you get to see more details.</dd>
-
-  <dt><a href="http://nekton.mine.nu/archives/category/projects/mum/">Mum</a></dt>
-  <dd>This Program allows simple creation and upload of images galleries on web
-  site. Mum is Free Software, released under the GNU GPL.</dd>
-
-  <dt><a href="http://nixory.sourceforge.net/">Nixory</a></dt>
-  <dd>Nixory,is an Anti Spyware program for Mozilla Firefox planned to
-  remove malicious data mining.</dd>
-
   <dt><a href="http://johan.svedberg.com/projects/coding/ontv/">OnTV</a></dt>
   <dd>OnTV is a GNOME Applet written in Python using PyGTK. It uses XMLTV files
   to monitor current and upcoming TV programs.</dd>
-
-  <dt><a href="http://www.nongnu.org/orange-slice/">The Orange Slice</a></dt>
-  <dd>Orange Slice is a subtitle editor, writen in Python/GTK+. It aims at
-  the manipulation of different file formats like SSA, ASS, SUB, SRT, etc.<br>
-  The main goal is to have an easy application to create scripts for
-  subtitling videos. For now it only manages the Sub Station Alpha (SSA)
-  and Advanced Sub Station Alpha (ASS) file formats. You can also import
-  SUB (MicroDVD) files.</dd>
-
-  <dt><a href="http://penguintv.sourceforge.net/">PenguinTV</a></dt>
-  <dd>PenguinTV is a RSS feed reader designed from the ground up to work
-  seamlessly with podcasts and video blogs, allowing you to easily enjoy
-  the audio, music, and video published around the web in RSS format.</dd>
 
   <dt>Point2Play</dt>
   <dd>Point2Play is simply a graphical front end for TransGaming's core
@@ -196,14 +173,9 @@
   search mechanism, direct insertion of references into LyX and Kile, direct
   queries on Medline, and more. It currently supports the BibTeX, ISI,
   Medline, Ovid and Refer file formats.</dd>
- 
-  <dt><a href="http://sourceforge.net/projects/pybridge/">PyBridge</a></dt>
-  <dd>Online bridge made easy. PyBridge is a suite of programs that allow
-  you to play contract bridge, with other human players or artificial
-  computer players ("bots"), over a local network or the Internet.</dd>
 
   <dt><a href="http://borco.net/html/PyComicsViewer/">PyComicsViewer</a></dt>
-  <dd>This is a program for viewing compressed comic files (aka cbr, cbz and 
+  <dd>This is a program for viewing compressed comic files (aka cbr, cbz and
   cba files) as easy as possible.</dd>
 
   <dt><a href="http://www.galilea.cl/gestor">pyGestor</a></dt>
@@ -237,16 +209,6 @@
   such as smbclient, smbmount etc. Using it you can browse and use SMB
   network shares.</dd>
 
-  <dt><a href="http://pyradar.sourceforge.net/">PyRadar</a></dt>
-  <dd>This application retrieves and displays radar images from NOAA's
-  NEXRAD radar stations, located around the United States and its
-  territories.</dd>
-
-  <dt><a href="http://pysudoku.sourceforge.net/">PySudoku</a></dt>
-  <dd>PySudoku is a text and graphical program to create or resolve sudokus.
-  It can also print and write sudoku images.</dd>
-
-
   <dt><a href="http://www.lordsutch.com/chris/routeplanner.html">RoutePlanner
   </a></dt>
   <dd>RoutePlanner is a highway trip planner written in Python that will run
@@ -259,9 +221,6 @@
   <dd>Shrinking Man is an application for tracking your weight and the calories
   consumed each day. It integrates well with the GNOME desktop environment.</dd>
 
-  <dt><a href="http://www.skencil.org/">Skencil</a></dt>
-  <dd>Skencil, a vector drawing program for Unix formerly known as Sketch</dd>
-
   <dt><a href="http://www.nongnu.org/straw/index.html">Straw</a></dt>
   <dd>Straw is a desktop news aggregation for GNOME</dd>
 
@@ -269,12 +228,6 @@
   <dd>Tiny ERP is a free enterprise management software. It covers all
   domains for small to medium businesses; accounting, stock management,
   sales, customer relationship, purchases, project management,...</dd>
-
-  <dt><a href="http://voxpak.sourceforge.net/">Voxpak</a></dt>
-  <dd>A GUI for playing, recording, editing, renaming etc. voice and fax
-  messages. Includes scripts for popping up sticky-notes or requesters
-  with caller id info. Renames voice/fax messages to date+callerid.
-  Includes a small Kaptain version for KDE.</dd>
 
   <dt><a href="http://xpn.altervista.org/index-en.html">XPN</a></dt>
   <dd>XPN is a multiplatform newsreader written in Python+GTK2. It is unicode
@@ -290,7 +243,9 @@
 
 </dl>
 
-<h3><a name="music">Music and Audio-related Applications</a></h3>
+<h3><a name="audio">Music and Audio-related Applications</a></h3>
+
+<dl>
 
   <dt><a href="http://www.solfege.org/">GNU Solfege</a></dt>
   <dd>GNU Solfege is a computer program written to help you practice ear
@@ -335,7 +290,64 @@
   <dd>TimPlayer is a home inspired audio player with a simple
   User Interface and the power of GStreamer.</dd>
 
+  <dt><a href="http://voxpak.sourceforge.net/">Voxpak</a></dt>
+  <dd>A GUI for playing, recording, editing, renaming etc. voice and fax
+  messages. Includes scripts for popping up sticky-notes or requesters
+  with caller id info. Renames voice/fax messages to date+callerid.
+  Includes a small Kaptain version for KDE.</dd>
+
+</dl>
+
+<h3><a name="video">Graphics and Video Applications</a></h3>
+
+<dl>
+
+  <dt><a href="http://www.delcorp.org/delvj/">DelVJ</a></dt>
+  <dd>DelVJ is a software for realtime video 3d composition and
+  algorithmic remixing that uses gtk, python, glade and puredata.
+  It can be controlled through OSC, and has web and gtk interfaces.
+  Furthermore, it is licensed under GNU's GPL.
+  </dd>
+
+  <dt><a href="http://upics.sf.net/">Micropics</a></dt>
+  <dd>Micropics is a Gnome 2.x applet that displays changing thumbnails
+  of your favorite photos. When guiding your mouse pointer over the
+  thumbnail, the image zooms out, and you get to see more details.</dd>
+
+  <dt><a href="http://nekton.mine.nu/archives/category/projects/mum/">Mum</a></dt>
+  <dd>This Program allows simple creation and upload of images galleries on web
+  site. Mum is Free Software, released under the GNU GPL.</dd>
+
+  <dt><a href="http://nixory.sourceforge.net/">Nixory</a></dt>
+  <dd>Nixory is an Anti Spyware program for Mozilla Firefox planned to
+  remove malicious data mining.</dd>
+
+  <dt><a href="http://www.nongnu.org/orange-slice/">The Orange Slice</a></dt>
+  <dd>Orange Slice is a subtitle editor, writen in Python/GTK+. It aims at
+  the manipulation of different file formats like SSA, ASS, SUB, SRT, etc.<br>
+  The main goal is to have an easy application to create scripts for
+  subtitling videos. For now it only manages the Sub Station Alpha (SSA)
+  and Advanced Sub Station Alpha (ASS) file formats. You can also import
+  SUB (MicroDVD) files.</dd>
+
+  <dt><a href="http://penguintv.sourceforge.net/">PenguinTV</a></dt>
+  <dd>PenguinTV is a RSS feed reader designed from the ground up to work
+  seamlessly with podcasts and video blogs, allowing you to easily enjoy
+  the audio, music, and video published around the web in RSS format.</dd>
+
+  <dt><a href="http://pyradar.sourceforge.net/">PyRadar</a></dt>
+  <dd>This application retrieves and displays radar images from NOAA's
+  NEXRAD radar stations, located around the United States and its
+  territories.</dd>
+
+  <dt><a href="http://www.skencil.org/">Skencil</a></dt>
+  <dd>Skencil, a vector drawing program for Unix formerly known as Sketch</dd>
+
+</dl>
+
 <h3><a name="games">Games and Gaming Tools</a></h3>
+
+<dl>
 
   <dt><a href="http://echelon-applet.sourceforge.net/">Echelon</a></dt>
   <dd>Echelon is a Gnome panel applet used to monitor a list of game servers.
@@ -343,10 +355,10 @@
   and info. It supports any game the qstat utility does.</dd>
 
   <dt><a href="http://gwp.lunix.com.ar/">GNOME War Pad</a></dt>
-  <dd>VGA Planets is a play-by-email space conquest game, it's been played 
-  for some years now and have a lot of fans all over the world. It's main 
+  <dd>VGA Planets is a play-by-email space conquest game, it's been played
+  for some years now and have a lot of fans all over the world. It's main
   website is http://www.vgaplanets.com . GNOME War Pad is a VGA Planets GNOME
-  client being developed since 2002, is getting a very useful state and it's 
+  client being developed since 2002, is getting a very useful state and it's
   gaining contributions from several areas.</dd>
 
   <dt><a href="http://gnome-sudoku.sourceforge.net/">GNOME Sudoku</a></dt>
@@ -361,15 +373,31 @@
   simultaneously. The distribution website includes both Windows and
   Linux packages.</dd>
 
+  <dt><a href="http://sourceforge.net/projects/pybridge/">PyBridge</a></dt>
+  <dd>Online bridge made easy. PyBridge is a suite of programs that allow
+  you to play contract bridge, with other human players or artificial
+  computer players ("bots"), over a local network or the Internet.</dd>
+
+  <dt><a href="http://pysudoku.sourceforge.net/">PySudoku</a></dt>
+  <dd>PySudoku is a text and graphical program to create or resolve sudokus.
+  It can also print and write sudoku images.</dd>
+
   <dt><a href="http://www.nongnu.org/tennacles/">Tennacles</a></dt>
   <dd>Tennacles is a tool which will aid artists and designers in the
   creation of adventure games through a visual integrated development
   environment. The generated data can be exported to available existent
   game engines which will play the data.</dd>
 
+  <dt><a href="http://www.anti-particle.com/wahcade.shtml">Wah!cade</a></dt>
+  <dd>Wah!cade is a front end for the M.A.M.E. arcade game emulator.
+  It's been designed with arcade cabinet projects / controls in mind.</dd>
+
+</dl>
+
 <h3><a name="scientific">Scientific Applications</a></h3>
 
 <dl>
+
   <dt><a href="http://gnofract4d.sourceforge.net/">GnoFract4D</a></dt>
   <dd>Gnofract 4D is a program which allows you to create beautiful
   mathematically-based images called fractals. Take a look at the Gallery
@@ -410,6 +438,7 @@
 <h3><a name="devel">Development Tools</a></h3>
 
 <dl>
+
   <dt><a href="http://clay.ll.pl/clarence.html">Clarence</a></dt>
   <dd>Clarence is a small GTK+-based programmer's calculator.</dd>
 
@@ -437,7 +466,7 @@
 
   <dt><a href="http://pida.berlios.de">Pida</a></dt>
   <dd>Pida is an IDE which embeds vim and other editors and tools.</dd>
-  
+
   <dt><a href="http://freshmeat.net/projects/pygg">PyGG</a></dt>
   <dd>PyGG (PyGTK and Glade) is a Python module intended to ease the usage
   of Glade with PyGTK. It transparently handles the loading of Glade files
@@ -447,7 +476,7 @@
   <dd>PySnippet is a code snippet manager for any language. It features
   an user defined folder hierarchy, syntax highlighting and XML based
   data file.</dd>
-  
+
   <dt><a href="http://qa-assistant.berlios.de">QA Assistant</a></dt>
   <dd>QA Assistant helps with running Quality Assurance on any project.
   It allows to point and click through a list of potential problem areas,
@@ -475,6 +504,7 @@
 <h3><a name="system">System Utilities</a></h3>
 
 <dl>
+
   <dt><a href="http://fedora.redhat.com/projects/anaconda-installer/">Anaconda</a></dt>
   <dd>Anaconda is the installation program for Red Hat distributions.
   During installation, the system's hardware is identified and
@@ -530,7 +560,7 @@
   services.</dd>
 
   <dt><a href="http://porthole.sf.net">Porthole</a></dt>
-  <dd> Porthole is a GTK-based frontend for Portage (the Gentoo package 
+  <dd> Porthole is a GTK-based frontend for Portage (the Gentoo package
   management system). It features a hierarchial view of packages and supports
   fast searches and dependency calculations. Porthole also supports basic
   emerge features (emerge, unmerge, sync, upgrades).</dd>
@@ -587,8 +617,8 @@
   mega-applications.</dd>
 
   <dt><a href="http://www.realistanew.com/projects/smeg/">SMEG</a><dt>
-  <dd> A simple menu editor for GNOME 2.10 that can edit and add new entries and 
-  menus. It implements the freedesktop.org menu spec but may or may not work 
+  <dd> A simple menu editor for GNOME 2.10 that can edit and add new entries and
+  menus. It implements the freedesktop.org menu spec but may or may not work
   with other Desktop Environments.</dd>
 
   <dt><a href="http://www.fabriziotarizzo.org/sw/torapplet/">TorApplet</a><dt>
@@ -606,7 +636,7 @@ anonymous Internet communication system: <a href="http://tor.eff.org">http://tor
   Internet from the software author's pages. Caching makes this as fast
   as running a normal application after the first time, and allows
   off-line use.</dd>
-  
+
 </dl>
 
 <h3><a name="libraries">Libraries, Widgets and Modules</a></h3>
@@ -641,7 +671,7 @@ anonymous Internet communication system: <a href="http://tor.eff.org">http://tor
   in your application. Each class is either a dialog or a widget that should be
   placed inside a dialog, along with supporting code that handles a lot of the
   mundane details inherent in most gui database apps.</dd>
-  
+
   <dt><a href="http://svn.berlios.de/viewcvs/ggap/moo/trunk/moo/moopython/plugins/pyconsole.py?view=markup">PyConsole</a></dt>
   <dd>PyConsole is a PyGTK widget that exposes a Python console using a
   TextView widget. It runs on all gtk-supported platforms and features
