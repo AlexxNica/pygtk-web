@@ -1,6 +1,12 @@
 2006-01-27  Rafael Villar Burke  <pachi@mmn-arquitectos.com>
 
 	* applications.src:
+	- New Networking and Communication Tools category.
+	- Move a lot of existing entries to that section.
+
+2006-01-27  Rafael Villar Burke  <pachi@mmn-arquitectos.com>
+
+	* applications.src:
 	- Add Deskbar Applet and Wah!cade.
 	- Add a link to the games section in the navigation bar.
 	- Change name from music to audio as anchor name.

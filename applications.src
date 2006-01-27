@@ -10,6 +10,7 @@
 <a href="#audio">Audio Apps</a> |
 <a href="#video">Graphics and Video Apps</a> |
 <a href="#games">Games and Gaming Tools</a> |
+<a href="#networking">Networking and Communication Tools</a> |
 <a href="#scientific">Scientific Apps</a> |
 <a href="#devel">Development Tools</a> |
 <a href="#system">System Utilities</a> |
@@ -20,37 +21,12 @@
 
 <dl>
 
-  <dt><a href="http://home.gna.org/aeternal/index.html">Aeternal</a></dt>
-  <dd>Aeternal is an IRC client that targets the GNOME platform. It aims
-  freedom, usability, security, community participation and scriptability.<dd>
-
-  <dt><a href="http://www.bittorrent.com/">BitTorrent</a></dt>
-  <dd>Bittorrent is a popular Peer-to-Peer application. Bittorrent is designed
-  to lower the bandwidth required to distribute files. It's one of the most
-  popular application on Sourceforge with over 400 000/downloads a week (as of
-  Jan 2005) Starting from version 3.9 the user interface is using PyGTK.<dd>
-
-  <dt><a href="http://blogtk.sourceforge.net/">BloGTK</a></dt>
-  <dd>BloGTK is a weblog client that allows you to post to your weblog
-  from Linux without the need for a separate browser window. It
-  allows you to connect with many weblog systems such as Blogger,
-  Movable Type, pMachine, and more.</dd>
-
   <dt><a href="http://ceemedia.sourceforge.net/">CeeMedia</a></dt>
   <dd>CeeMedia is a Movie Catalog application which tries to be
   feature complete, as well as easy to use.
   Its list of features include: media info metadata; cast and crew display;
   status information about lending, etc; internet searches; comments;
   drag'n drop of movie covers...</dd>
-
-  <dt><a href="http://thecircle.org.au">Circle</a></dt>
-  <dd>The Circle is an open source scalable decentralized peer to peer
-  application, featuring real-time chat, file sharing and news. There's
-  no central authority running the show.  No entry taxes either, no
-  censorship, and (in theory) no weak point which can break the whole
-  system. No one even owns the source code. As long as there is one
-  Circle peer running, anywhere in the world, there's still a
-  network.</dd>
 
   <dt><a href="http://comix.sourceforge.net/">Comix</a></dt>
   <dd>Comix is a comic book viewer. It reads zip, rar, tar, tar.gz
@@ -73,12 +49,6 @@
   needs to be prefilled once by adding all your disks to it.
   </dd>
 
-  <dt><a href="http://gajim.org/">Gajim</a></dt>
-  <dd>Gajim is a GTK+ Jabber Client. The goal of the Gajim project is to
-  provide a full featured and easy to use xmpp client for the GTK+
-  users. Gajim does not require GNOME to run, eventhough it exists with
-  it nicely.</dd>
-
   <dt><a href="http://gdick.kldp.net/">GDick</a></dt>
   <dd>GDick is a Korean-English dictionary client.</dd>
 
@@ -89,26 +59,8 @@
   generate multiple output formats, including HTML, XML, postscript, pdf
   and man.</dd>
 
-  <dt><a href="http://www.gnome.org/~seth/gnome-blog/">Gnome Blog</a></dt>
-  <dd>Gnome Blog is an applet that let you post entries to your blog
-  right from the gnome panel.</dd>
-
   <dt><a href="http://gnochm.sourceforge.net/">GnoCHM</a></dt>
   <dd>GnoCHM is a CHM file viewer for Gnome.</dd>
-
-  <dt><a href="http://www.amedias.org/~koke/gnome-torrent/">
-  Gnome Torrent</a></dt>
-  <dd>Gnome Torrent is a GNOME BitTorrent frontend.</dd>
-
-  <dt><a href="http://gnome-bt.sourceforge.net/">
-  Gnome BitTorrent Downloader</a></dt>
-  <dd>Gnome BitTorrent Downloader is a "mime-sink" for BitTorrent files. It
-  is not a full frontend to BitTorrent, but just handles the download of
-  torrent files.</dd>
-
-  <dt><a href="http://www.nongnu.org/gnomolicious/">Gnomolicious</a></dt>
-  <dd>Gnomolicious is an GNOME  applet that help you post links on the
-  del.icio.us site simply by drag'n'dropping them.</dd>
 
   <dt><a href="http://gsmile.sourceforge.net/">gSmile</a></dt>
   <dd>gSmile is an open-source emoticon manager: it helps you to keep
@@ -161,12 +113,6 @@
   Linux. To facilitate setting your computer up Point2Play can help you
   determine if your setup is sufficient for gaming using WineX.</dd>
 
-  <dt><a href="http://pybber.sourceforge.net/">Pybber</a></dt>
-  <dd>Pybber is a single window Jabber client that is being written in Python.
-  <br>The main features of this project are a single window interface, with
-  tabs, and a Gnome panel applet to show client status and the number of
-  messages received since the last window hide.</dd>
-
   <dt><a href="http://pybliographer.org/">Pybliographer</a></dt>
   <dd>Pybliographer is a framework and GUI tool for managing bibliographic
   databases. It provides powerful editing capabilities, a nice hierarchical
@@ -183,11 +129,6 @@
   medium sized enterprises, The goal of the project is to provide an
   enterprise resource management system for the GNOME Desktop.</dd>
 
-  <dt><a href="http://pygmy.sourceforge.net/">Pygmy</a></dt>
-  <dd>Pygmy is a GNOME mail client. It features folder hierarchy,
-  multipart messages, MIME support, message filters, address book,
-  GnuPG support and GtkHTML support for message viewing.</dd>
-
   <dt><a href="http://pygps.org/">pyGPS</a></dt>
   <dd>This program shows your position on a map using a GPS system. It can
   record tracks and notes, display the satellites used to determine your
@@ -197,17 +138,6 @@
   <dd>PyKanjiCard is a flash card program to aid learning japanese
   writing in hiragana, katakana and kanji. You can select words composed
   only by characters you already known.</dd>
-
-  <dt><a href="http://www.soul-less.pwp.blueyonder.co.uk/pyne/">Pyne</a></dt>
-  <dd>Pyne is a graphical offline newsreader and emailer written in Python.
-  Multiple POP3, IMAP4, SMTP, and NNTP boxes are supported. Features include
-  threading of newsgroups, optional expiry of news and mail, filters,
-  attachment support, etc.</dd>
-
-  <dt><a href="http://pyneighborhood.sourceforge.net/">PyNeighborhood</a></dt>
-  <dd>PyNeighborhood is a GUI frontend for the samba tools,
-  such as smbclient, smbmount etc. Using it you can browse and use SMB
-  network shares.</dd>
 
   <dt><a href="http://www.lordsutch.com/chris/routeplanner.html">RoutePlanner
   </a></dt>
@@ -221,25 +151,11 @@
   <dd>Shrinking Man is an application for tracking your weight and the calories
   consumed each day. It integrates well with the GNOME desktop environment.</dd>
 
-  <dt><a href="http://www.nongnu.org/straw/index.html">Straw</a></dt>
-  <dd>Straw is a desktop news aggregation for GNOME</dd>
-
   <dt><a href="http://www.tinyerp.com/index.html">TinyERP</a></dt>
   <dd>Tiny ERP is a free enterprise management software. It covers all
   domains for small to medium businesses; accounting, stock management,
   sales, customer relationship, purchases, project management,...</dd>
 
-  <dt><a href="http://xpn.altervista.org/index-en.html">XPN</a></dt>
-  <dd>XPN is a multiplatform newsreader written in Python+GTK2. It is unicode
-  compliant and has features like scoring/action rules, configurable
-  attribution lines and random taglines, search facilities and filtered
-  views, import/export newsrc ...</dd>
-
-  <dt><a href="http://www.rastersoft.com/programas/z88transfer.html">
-  Z88transfer</a></dt>
-  <dd>Z88transfer is a graphical utility to transfer files between a PC
-  and a Z88 computer. It is also able to import and export transparently
-  from Abiword to Pipedream and vice-versa during the transfer itself.</dd>
 
 </dl>
 
@@ -391,6 +307,98 @@
   <dt><a href="http://www.anti-particle.com/wahcade.shtml">Wah!cade</a></dt>
   <dd>Wah!cade is a front end for the M.A.M.E. arcade game emulator.
   It's been designed with arcade cabinet projects / controls in mind.</dd>
+
+</dl>
+
+<h3><a name="networking">Networking and Communication Tools</a></h3>
+
+<dl>
+
+  <dt><a href="http://home.gna.org/aeternal/index.html">Aeternal</a></dt>
+  <dd>Aeternal is an IRC client that targets the GNOME platform. It aims
+  freedom, usability, security, community participation and scriptability.<dd>
+
+  <dt><a href="http://www.bittorrent.com/">BitTorrent</a></dt>
+  <dd>Bittorrent is a popular Peer-to-Peer application. Bittorrent is designed
+  to lower the bandwidth required to distribute files. It's one of the most
+  popular application on Sourceforge with over 400 000/downloads a week (as of
+  Jan 2005) Starting from version 3.9 the user interface is using PyGTK.<dd>
+
+  <dt><a href="http://blogtk.sourceforge.net/">BloGTK</a></dt>
+  <dd>BloGTK is a weblog client that allows you to post to your weblog
+  from Linux without the need for a separate browser window. It
+  allows you to connect with many weblog systems such as Blogger,
+  Movable Type, pMachine, and more.</dd>
+
+  <dt><a href="http://thecircle.org.au">Circle</a></dt>
+  <dd>The Circle is an open source scalable decentralized peer to peer
+  application, featuring real-time chat, file sharing and news. There's
+  no central authority running the show.  No entry taxes either, no
+  censorship, and (in theory) no weak point which can break the whole
+  system. No one even owns the source code. As long as there is one
+  Circle peer running, anywhere in the world, there's still a
+  network.</dd>
+
+  <dt><a href="http://gajim.org/">Gajim</a></dt>
+  <dd>Gajim is a GTK+ Jabber Client. The goal of the Gajim project is to
+  provide a full featured and easy to use xmpp client for the GTK+
+  users. Gajim does not require GNOME to run, eventhough it exists with
+  it nicely.</dd>
+
+  <dt><a href="http://www.gnome.org/~seth/gnome-blog/">Gnome Blog</a></dt>
+  <dd>Gnome Blog is an applet that let you post entries to your blog
+  right from the gnome panel.</dd>
+
+  <dt><a href="http://www.amedias.org/~koke/gnome-torrent/">
+  Gnome Torrent</a></dt>
+  <dd>Gnome Torrent is a GNOME BitTorrent frontend.</dd>
+
+  <dt><a href="http://gnome-bt.sourceforge.net/">
+  Gnome BitTorrent Downloader</a></dt>
+  <dd>Gnome BitTorrent Downloader is a "mime-sink" for BitTorrent files. It
+  is not a full frontend to BitTorrent, but just handles the download of
+  torrent files.</dd>
+
+  <dt><a href="http://www.nongnu.org/gnomolicious/">Gnomolicious</a></dt>
+  <dd>Gnomolicious is an GNOME  applet that help you post links on the
+  del.icio.us site simply by drag'n'dropping them.</dd>
+
+  <dt><a href="http://pybber.sourceforge.net/">Pybber</a></dt>
+  <dd>Pybber is a single window Jabber client that is being written in Python.
+  <br>The main features of this project are a single window interface, with
+  tabs, and a Gnome panel applet to show client status and the number of
+  messages received since the last window hide.</dd>
+
+  <dt><a href="http://pygmy.sourceforge.net/">Pygmy</a></dt>
+  <dd>Pygmy is a GNOME mail client. It features folder hierarchy,
+  multipart messages, MIME support, message filters, address book,
+  GnuPG support and GtkHTML support for message viewing.</dd>
+
+  <dt><a href="http://www.soul-less.pwp.blueyonder.co.uk/pyne/">Pyne</a></dt>
+  <dd>Pyne is a graphical offline newsreader and emailer written in Python.
+  Multiple POP3, IMAP4, SMTP, and NNTP boxes are supported. Features include
+  threading of newsgroups, optional expiry of news and mail, filters,
+  attachment support, etc.</dd>
+
+  <dt><a href="http://pyneighborhood.sourceforge.net/">PyNeighborhood</a></dt>
+  <dd>PyNeighborhood is a GUI frontend for the samba tools,
+  such as smbclient, smbmount etc. Using it you can browse and use SMB
+  network shares.</dd>
+
+  <dt><a href="http://www.nongnu.org/straw/index.html">Straw</a></dt>
+  <dd>Straw is a desktop news aggregation for GNOME</dd>
+
+  <dt><a href="http://xpn.altervista.org/index-en.html">XPN</a></dt>
+  <dd>XPN is a multiplatform newsreader written in Python+GTK2. It is unicode
+  compliant and has features like scoring/action rules, configurable
+  attribution lines and random taglines, search facilities and filtered
+  views, import/export newsrc ...</dd>
+
+  <dt><a href="http://www.rastersoft.com/programas/z88transfer.html">
+  Z88transfer</a></dt>
+  <dd>Z88transfer is a graphical utility to transfer files between a PC
+  and a Z88 computer. It is also able to import and export transparently
+  from Abiword to Pipedream and vice-versa during the transfer itself.</dd>
 
 </dl>
 
