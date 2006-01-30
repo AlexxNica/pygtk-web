@@ -163,6 +163,11 @@
 
 <dl>
 
+  <dt><a href="http://www.flumotion.net/">Flumotion</a></dt>
+  <dd>Flumotion is a streaming media server.
+  It features intuitive graphical administration tools to easily set up
+  and manipulate audio and video streams.</dd>
+
   <dt><a href="http://www.solfege.org/">GNU Solfege</a></dt>
   <dd>GNU Solfege is a computer program written to help you practice ear
   training by means of simple and mechanical exercises.</dd>
@@ -250,6 +255,12 @@
   <dd>PenguinTV is a RSS feed reader designed from the ground up to work
   seamlessly with podcasts and video blogs, allowing you to easily enjoy
   the audio, music, and video published around the web in RSS format.</dd>
+
+  <dt><a href="http://www.pitivi.org/">Piviti</a></dt>
+  <dd>PiTiVi is a Non-Linear video editor. It allows users to easily edit
+  audio/video projects: Capture audio and video; mix, resize, cut, apply
+  effects to audio/video sources; and Render/Save the projects to any format
+  supported by the GStreamer framework.</dd>
 
   <dt><a href="http://pyradar.sourceforge.net/">PyRadar</a></dt>
   <dd>This application retrieves and displays radar images from NOAA's
