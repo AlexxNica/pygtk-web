@@ -230,6 +230,11 @@
   Furthermore, it is licensed under GNU's GPL.
   </dd>
 
+  <dt><a href="http://live.gnome.org/Istanbul">Istanbul</a></dt>
+  <dd>Istanbul is a desktop session recorder for the Free Desktop.
+  It records your session into an Ogg Theora video file. It works on
+  Gnome, KDE, XFCE and others.</dd>
+
   <dt><a href="http://upics.sf.net/">Micropics</a></dt>
   <dd>Micropics is a Gnome 2.x applet that displays changing thumbnails
   of your favorite photos. When guiding your mouse pointer over the
@@ -266,6 +271,13 @@
   <dd>This application retrieves and displays radar images from NOAA's
   NEXRAD radar stations, located around the United States and its
   territories.</dd>
+
+  <dt><a href="http://seamless.sourceforge.net/">Seamless DVD Player</a></dt>
+  <dd>Seamless is a software DVD player, a program that allows you to watch
+  DVD movies on your laptop or desktop computer. It supports menus, angles
+  and many other popular DVD features. Seamless offers a simple graphical
+  user interface, that can be controlled with either the keyboard or a
+  remote control.</dd>
 
   <dt><a href="http://www.skencil.org/">Skencil</a></dt>
   <dd>Skencil, a vector drawing program for Unix formerly known as Sketch</dd>
