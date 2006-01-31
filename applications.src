@@ -723,7 +723,7 @@ anonymous Internet communication system: <a href="http://tor.eff.org">http://tor
   Python and built upon the PyGTK package. PyStripchart is distributed
   under the GNU LGPL license.</dd>
 
-  <dt><a href="http://freshmeat.net/projects/rtgraph/?topic_id=135%2C912">rtgraph</a></dt>
+  <dt><a href="http://rtgraph.sourceforge.net/">rtgraph</a></dt>
   <dd>rtgraph is a Python package providing several widgets for graphing
   data in real-time, using PyGTK, and UI components for controlling the
   graphs.</dd>
