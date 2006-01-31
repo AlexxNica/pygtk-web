@@ -632,7 +632,7 @@
   the "rug" command line interface, which provides simple, powerful
   commands and easy scriptability.</dd>
 
-  <dt><a href="http://oss.wired-networks.net/revelation/">Revelation</a></dt>
+  <dt><a href="http://oss.codepoet.no/revelation/">Revelation</a></dt>
   <dd> Revelation is a password manager for the GNOME 2 desktop,
   released under the GNU GPL license. It organizes accounts in a tree
   structure, and stores them as AES-encrypted XML files.</dd>
