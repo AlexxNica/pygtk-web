@@ -606,7 +606,7 @@
   easily manage profiles, GConf keys, and remotely deploy these.
   It is a young project still in early stages but with a bright future.</dd>
 
-  <dt><a href="http://freshmeat.net/projects/sbackup/">SBackup</a></dt>
+  <dt><a href="http://sbackup.sourceforge.net/">SBackup</a></dt>
   <dd>SBackup is a simple backup solution intended for desktop use. It can
   back up any subset of files and directories using regular expressions and
   a maximum file size limit to define exclusions. Backups may be saved to
