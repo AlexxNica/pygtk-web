@@ -191,6 +191,10 @@
   and automatically downloads all podcasts from as many feeds as
   you like.</dd>
 
+  <dt><a href="http://jasonfield.com/trac/public/">JonoEdit</a></dt>
+  <dd>JonoEdit is an audio editor and recorder, similar to Cubase, which
+  tries to make Jono Bacon happy.</dd>
+
   <dt><a href="http://www.nongnu.org/orange-slice/">The Orange Slice</a></dt>
   <dd>Orange Slice is a subtitle editor, writen in Python/GTK+. It aims at
   the manipulation of different file formats like SSA, ASS, SUB, SRT, etc.<br>
