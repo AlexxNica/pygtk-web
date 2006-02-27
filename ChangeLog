@@ -1,5 +1,9 @@
 2006-02-27  Rafael Villar Burke  <pachi@mmn-arquitectos.com>
 
+	* newsitems.py: Added new article by Lawrence Oluyede to news.
+
+2006-02-27  Rafael Villar Burke  <pachi@mmn-arquitectos.com>
+
 	* articles/cairo-pygtk-widgets/
 	* articles/cairo-pygtk-widgets/cairo-pygtk-widgets2.htm
 	* articles/cairo-pygtk-widgets/geom-1.png

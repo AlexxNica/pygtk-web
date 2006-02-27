@@ -14,6 +14,17 @@ item = lambda *x: items.append(x)
 #      "INSERT AUTHOR HERE")
 
 # http://news.gmane.org/gmane.comp.gnome.gtk%2B.python/
+item("New article - Writing a Widget Using Cairo and PyGTK 2.8, Part2",
+     (2006, 02, 27), """Continue to learn how to write pygtk widgets using the
+     new Cairo API.
+     <a href="./articles/cairo-pygtk-widgets/cairo-pygtk-widgets2.htm">
+     This article</a> is a translation of Davyd Madeley's
+     <a href="http://gnomejournal.org/article/36/writing-a-widget-using-cairo-and-gtk28-part-2">
+     Writing a Widget Using Cairo and GTK+2.8, Part 2</a> article using pygtk
+     concepts and idioms. It has been cooked for you by Lawrence Oluyede and
+     its firt part is reachable
+     <a href="./articles/cairo-pygtk-widgets/cairo-pygtk-widgets.htm">here</a>.
+     """, 'Rafael Villar Burke')
 
 item("GnomePythonDesktop 2.13.3 and GnomePythonExtras 2.13.3 released",
      (2006, 1, 24),
