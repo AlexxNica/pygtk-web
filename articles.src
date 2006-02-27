@@ -15,7 +15,13 @@
   </thead>
 
   <tbody>
-  
+     <tr>
+      <td>Feb 2006</td>
+      <td><a href="./articles/cairo-pygtk-widgets/cairo-pygtk-widgets2.htm">Writing a Widget Using Cairo and PyGTK 2.8, Part 2</a><br>
+          <a href="http://www.oluyede.org/blog/writing-a-widget-using-cairo-and-pygtk-28-part-2/">Original source</a></td>
+      <td>Lawrence Oluyede</td>
+    </tr>
+
     <tr>
       <td>Jan 2006</td>
       <td><a href="./articles/cairo-pygtk-widget-signals-es/cairo-pygtk-widget-signals.html">C&oacute;mo hacer widgets con Pygtk y Cairo 2.8</a></td>

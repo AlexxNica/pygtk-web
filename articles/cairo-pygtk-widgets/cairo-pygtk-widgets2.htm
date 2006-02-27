@@ -1,0 +1,267 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+
+
+
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>A song for the lovers » Writing a Widget Using Cairo and PyGTK 2.8, Part 2</title>
+	<link rel="stylesheet" href="./cairo-pygtk-widgets.css" type="text/css" media="screen">
+
+	<style type="text/css">.delicious-tags{font-family:arial,sans-serif}.delicious-tags a img{border:0;display:inline;margin:0 0 0 3px;padding:0}.delicious-tags a{text-decoration:none}.delicious-tags a:hover{text-decoration:underline}.delicious-tags ul{list-style-type:none;margin:0;padding:0; text-align:justify}.delicious-cloud li{display:inline;text-align:justify;background-image:none !important;padding:0;margin:0}.delicious-cloud .delicious-tag-count{padding-left:0.2em;font-size:11px}.delicious-cloud li:before{content:"" !important}</style></head><body>
+
+<h2>Writing a Widget Using Cairo and PyGTK 2.8, Part 2</h2>
+
+<div class="entrytext">
+	<p>This article is a Python version of the brand new article titled <a href="http://gnomejournal.org/article/36/writing-a-widget-using-cairo-and-gtk28-part-2">Writing a Widget Using Cairo and GTK+2.8, Part 2</a> available on <a href="http://gnomejournal.org/">The GNOME Journal</a> website. It is written by <a href="http://www.livejournal.com/users/davyd/">Davyd Madeley</a></p>
+	<p>I'll not make modifications to the text except for differences between C and Python.</p>
+	<p>You can find the first part of this article here: <a href="./cairo-pygtk-widgets.htm">Writing a Widget Using Cairo and PyGTK 2.8</a></p>
+	
+	<h4>Step 3. Making it Tick</h4>
+	
+	<p>Making
+the clock run is as simple as starting a timer that calls a callback.
+However, we might also want to be able to set a different time on our
+clock, so we'll store the time for the clock inside the widget. We
+don't want to let people change the time directly, in
+object-orientation speak, we want to make the time variable private. </p>
+	<p>Python,
+in its "trust the programmer" philosophy usually use a convention (the
+single "_" underscore) to identify a variable as private. I implemented
+the public API as a property in this way:</p>
+
+	<div class="hl-surround"><div class="hl-main"><pre><span class="hl-comment"># public access to the time member
+</span><span class="hl-reserved">def </span><span class="hl-identifier">_get_time</span><span class="hl-brackets">(</span><span class="hl-identifier">self</span><span class="hl-brackets">)</span><span class="hl-default">:
+    </span><span class="hl-reserved">return </span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">_time
+</span><span class="hl-reserved">def </span><span class="hl-identifier">_set_time</span><span class="hl-brackets">(</span><span class="hl-identifier">self</span><span class="hl-code">, </span><span class="hl-identifier">datetime</span><span class="hl-brackets">)</span><span class="hl-default">:
+    </span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">_time</span><span class="hl-default"> = </span><span class="hl-identifier">datetime
+    self</span><span class="hl-default">.</span><span class="hl-identifier">redraw_canvas</span><span class="hl-brackets">()
+</span><span class="hl-identifier">time</span><span class="hl-default"> = </span><span class="hl-builtin">property</span><span class="hl-brackets">(</span><span class="hl-identifier">_get_time</span><span class="hl-code">, </span><span class="hl-identifier">_set_time</span><span class="hl-brackets">)</span></pre></div></div>
+	<p>Now you can externally access the time property as if it's a simple object member.</p>
+	<p>We can use the property in the update() method which will update the clock with the new time:</p>
+	<div class="hl-surround"><div class="hl-main"><pre><span class="hl-reserved">def </span><span class="hl-identifier">update</span><span class="hl-brackets">(</span><span class="hl-identifier">self</span><span class="hl-brackets">)</span><span class="hl-default">:
+    </span><span class="hl-comment"># update the time
+    </span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">time</span><span class="hl-default"> = </span><span class="hl-identifier">datetime</span><span class="hl-default">.</span><span class="hl-identifier">now</span><span class="hl-brackets">()
+
+    </span><span class="hl-reserved">return True </span><span class="hl-comment"># keep running this event</span></pre></div>
+  </div>
+
+	<p>Notice
+that this method returns a boolean value (true). Functions passed as
+timeout events return a boolean value. If the value is true, the event
+will be run again; if the value is false it will not. There is also a
+method that we haven't defined yet, redraw_canvas(). This method will
+redraw the canvas for us. From the manual page for GtkDrawingArea (our
+parent class), we are told to use gdk.Window.invalidate_rect(), to
+reexpose the canvas (and cause it to redraw). In order to make our
+event happen now, we should also call gdk.Window.process_all_updates().
+Our redraw function looks like this:</p>
+
+	<div class="hl-surround"><div class="hl-main"><pre><span class="hl-reserved">def </span><span class="hl-identifier">redraw_canvas</span><span class="hl-brackets">(</span><span class="hl-identifier">self</span><span class="hl-brackets">)</span><span class="hl-default">:
+    </span><span class="hl-reserved">if </span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">window</span><span class="hl-default">:
+        </span><span class="hl-identifier">alloc</span><span class="hl-default"> = </span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">get_allocation</span><span class="hl-brackets">()
+        </span><span class="hl-identifier">rect</span><span class="hl-default"> = </span><span class="hl-identifier">gdk</span><span class="hl-default">.</span><span class="hl-identifier">Rectangle</span><span class="hl-brackets">(</span><span class="hl-number">0</span><span class="hl-code">, </span><span class="hl-number">0</span><span class="hl-code">, </span><span class="hl-identifier">alloc</span><span class="hl-code">.</span><span class="hl-identifier">width</span><span class="hl-code">, </span><span class="hl-identifier">alloc</span><span class="hl-code">.</span><span class="hl-identifier">height</span><span class="hl-brackets">)
+        </span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">window</span><span class="hl-default">.</span><span class="hl-identifier">invalidate_rect</span><span class="hl-brackets">(</span><span class="hl-identifier">rect</span><span class="hl-code">, </span><span class="hl-reserved">True</span><span class="hl-brackets">)
+        </span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">window</span><span class="hl-default">.</span><span class="hl-identifier">process_updates</span><span class="hl-brackets">(</span><span class="hl-reserved">True</span><span class="hl-brackets">)</span></pre></div>
+  </div>
+  
+	<p>Drawing
+the hands requires us to think about a little geometry. For the hour
+hand, the hand is rotated around 30� for each hour and then a 1/2� more
+per minute.</p>
+
+	<p><img src="./geom-1.png" alt="cairo_clock_geometry"></p>
+	<p>So to draw the hour hand, we might do something like:</p>
+	
+	<div class="hl-surround"><div class="hl-main"><pre><span class="hl-identifier">context</span><span class="hl-default">.</span><span class="hl-identifier">save</span><span class="hl-brackets">()
+</span><span class="hl-identifier">context</span><span class="hl-default">.</span><span class="hl-identifier">set_line_width</span><span class="hl-brackets">(</span><span class="hl-number">2.5</span><span class="hl-code"> * </span><span class="hl-identifier">context</span><span class="hl-code">.</span><span class="hl-identifier">get_line_width</span><span class="hl-brackets">())
+</span><span class="hl-identifier">context</span><span class="hl-default">.</span><span class="hl-identifier">move_to</span><span class="hl-brackets">(</span><span class="hl-identifier">x</span><span class="hl-code">, </span><span class="hl-identifier">y</span><span class="hl-brackets">)
+</span><span class="hl-identifier">context</span><span class="hl-default">.</span><span class="hl-identifier">line_to</span><span class="hl-brackets">(</span><span class="hl-identifier">x</span><span class="hl-code"> + </span><span class="hl-identifier">radius</span><span class="hl-code"> / </span><span class="hl-number">2</span><span class="hl-code"> * </span><span class="hl-identifier">math</span><span class="hl-code">.</span><span class="hl-identifier">sin</span><span class="hl-brackets">(
+       </span><span class="hl-identifier">math</span><span class="hl-code">.</span><span class="hl-identifier">pi</span><span class="hl-code"> / </span><span class="hl-number">6</span><span class="hl-code"> * </span><span class="hl-identifier">hours</span><span class="hl-code"> + </span><span class="hl-identifier">math</span><span class="hl-code">.</span><span class="hl-identifier">pi</span><span class="hl-code"> / </span><span class="hl-number">360</span><span class="hl-code"> * </span><span class="hl-identifier">minutes</span><span class="hl-brackets">)</span><span class="hl-code">,
+                        </span><span class="hl-identifier">y</span><span class="hl-code"> + </span><span class="hl-identifier">radius</span><span class="hl-code"> / </span><span class="hl-number">2</span><span class="hl-code"> * -</span><span class="hl-identifier">math</span><span class="hl-code">.</span><span class="hl-identifier">cos</span><span class="hl-brackets">(
+       </span><span class="hl-identifier">math</span><span class="hl-code">.</span><span class="hl-identifier">pi</span><span class="hl-code"> / </span><span class="hl-number">6</span><span class="hl-code"> * </span><span class="hl-identifier">hours</span><span class="hl-code"> + </span><span class="hl-identifier">math</span><span class="hl-code">.</span><span class="hl-identifier">pi</span><span class="hl-code"> / </span><span class="hl-number">360</span><span class="hl-code"> * </span><span class="hl-identifier">minutes</span><span class="hl-brackets">))
+</span><span class="hl-identifier">context</span><span class="hl-default">.</span><span class="hl-identifier">stroke</span><span class="hl-brackets">()
+</span><span class="hl-identifier">context</span><span class="hl-default">.</span><span class="hl-identifier">restore</span><span class="hl-brackets">()</span></pre></div></div>
+	<p>The minute hand and the seconds hand each rotate 6° per minute/second. The minute hand is easily implemented as:</p>
+	<div class="hl-surround"><div class="hl-main"><pre><span class="hl-identifier">context</span><span class="hl-default">.</span><span class="hl-identifier">move_to</span><span class="hl-brackets">(</span><span class="hl-identifier">x</span><span class="hl-code">, </span><span class="hl-identifier">y</span><span class="hl-brackets">)
+</span><span class="hl-identifier">context</span><span class="hl-default">.</span><span class="hl-identifier">line_to</span><span class="hl-brackets">(</span><span class="hl-identifier">x</span><span class="hl-code"> + </span><span class="hl-identifier">radius</span><span class="hl-code"> * </span><span class="hl-number">0.75</span><span class="hl-code"> * </span><span class="hl-identifier">math</span><span class="hl-code">.</span><span class="hl-identifier">sin</span><span class="hl-brackets">(</span><span class="hl-identifier">math</span><span class="hl-code">.</span><span class="hl-identifier">pi</span><span class="hl-code"> / </span><span class="hl-number">30</span><span class="hl-code"> * </span><span class="hl-identifier">minutes</span><span class="hl-brackets">)</span><span class="hl-code">,
+                       </span><span class="hl-identifier">y</span><span class="hl-code"> + </span><span class="hl-identifier">radius</span><span class="hl-code"> * </span><span class="hl-number">0.75</span><span class="hl-code"> * -</span><span class="hl-identifier">math</span><span class="hl-code">.</span><span class="hl-identifier">cos</span><span class="hl-brackets">(</span><span class="hl-identifier">math</span><span class="hl-code">.</span><span class="hl-identifier">pi</span><span class="hl-code"> / </span><span class="hl-number">30</span><span class="hl-code"> * </span><span class="hl-identifier">minutes</span><span class="hl-brackets">))
+</span><span class="hl-identifier">context</span><span class="hl-default">.</span><span class="hl-identifier">stroke</span><span class="hl-brackets">()</span></pre></div>
+  </div>
+
+	<p>Finally, we need to set it running, in __init__() we will add our timeout function:</p>
+	
+	<div class="hl-surround"><div class="hl-main"><pre><span class="hl-reserved">def </span><span class="hl-identifier">__init__</span><span class="hl-brackets">(</span><span class="hl-identifier">self</span><span class="hl-brackets">)</span><span class="hl-default">:
+    </span><span class="hl-builtin">super</span><span class="hl-brackets">(</span><span class="hl-identifier">EggClockFace</span><span class="hl-code">, </span><span class="hl-identifier">self</span><span class="hl-brackets">)</span><span class="hl-default">.</span><span class="hl-identifier">__init__</span><span class="hl-brackets">()
+    </span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">connect</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">expose_event</span><span class="hl-quotes">"</span><span class="hl-code">, </span><span class="hl-identifier">self</span><span class="hl-code">.</span><span class="hl-identifier">expose</span><span class="hl-brackets">)
+
+    </span><span class="hl-comment"># make it private
+    </span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">_time</span><span class="hl-default"> = </span><span class="hl-reserved">None
+
+    </span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">update</span><span class="hl-brackets">()
+    </span><span class="hl-comment"># update the clock once a second
+    </span><span class="hl-identifier">gobject</span><span class="hl-default">.</span><span class="hl-identifier">timeout_add</span><span class="hl-brackets">(</span><span class="hl-number">1000</span><span class="hl-code">, </span><span class="hl-identifier">self</span><span class="hl-code">.</span><span class="hl-identifier">update</span><span class="hl-brackets">)</span></pre></div>
+  </div>
+  
+	<p>We're left with <a href="./clock_ex4.py">clock_ex4.py</a> which you can run with:</p>
+	<p><em>$ python clock_ex4.py</em></p>
+	<p>and should look like this:</p>
+	<p><img src="./clock.gif" alt="animated clock example"></p>
+	<h4>Extra: Making the Picture Tick</h4>
+	
+	<p>The animated GIF of the clock ticking was done with a tool called <em>byzanz</em>.
+I simply recorded 60 seconds of the clock. In order to find out the
+window location for byzanz-record, I added this to the main function
+after gtk.Widget.show_all():</p>
+
+	<div class="hl-surround"><div class="hl-main"><pre><span class="hl-identifier">rect</span><span class="hl-default"> = </span><span class="hl-identifier">gdk</span><span class="hl-default">.</span><span class="hl-identifier">Rectangle</span><span class="hl-brackets">()
+</span><span class="hl-identifier">rect</span><span class="hl-default"> = </span><span class="hl-identifier">window</span><span class="hl-default">.</span><span class="hl-identifier">window</span><span class="hl-default">.</span><span class="hl-identifier">get_frame_extents</span><span class="hl-brackets">()
+</span><span class="hl-reserved">print </span><span class="hl-quotes">"</span><span class="hl-string">-x %i -y %i -w %i -h %i</span><span class="hl-quotes">"</span><span class="hl-default"> % </span><span class="hl-brackets">(</span><span class="hl-identifier">rect</span><span class="hl-code">.</span><span class="hl-identifier">x</span><span class="hl-code">, </span><span class="hl-identifier">rect</span><span class="hl-code">.</span><span class="hl-identifier">y</span><span class="hl-code">, </span><span class="hl-identifier">rect</span><span class="hl-code">.</span><span class="hl-identifier">width</span><span class="hl-code">, </span><span class="hl-identifier">rect</span><span class="hl-code">.</span><span class="hl-identifier">height</span><span class="hl-brackets">)</span></pre></div>
+  </div>
+  
+	<p>This printed settings that I could paste onto my other command line:</p>
+	<p><em> $ byzanz-record -d 60 $GEOMETRY -l clock.gif</em></p>
+	
+	<h4>Step 4: Emitting Signals</h4>
+	
+	<p>So
+far we've written a GObject with opaque property storage and we've used
+Cairo to draw our clock face. However the GTK+ widgets we commonly
+interact with also offer public APIs and emit signals to notify us when
+certain events take place. We will add a signal to say when someone is
+dragging the minute hand around.</p>
+	<p>Firstly we need to decide on
+what our signal is going to send and add this our file. We will
+implement a "time_changed" signal that along with the object also gives
+the time in hours and minutes that the clock has now been set to. If we
+were connecting this signal, our callback would look something like
+this:</p>
+
+	<div class="hl-surround"><div class="hl-main"><pre><span class="hl-reserved">def </span><span class="hl-identifier">time_changed_cb</span><span class="hl-brackets">(</span><span class="hl-identifier">widget</span><span class="hl-code">, </span><span class="hl-identifier">hours</span><span class="hl-code">, </span><span class="hl-identifier">minutes</span><span class="hl-brackets">)</span><span class="hl-default">:
+    </span><span class="hl-reserved">pass</span></pre></div></div>
+	<p>Finally we need to register our signal in the class:</p>
+	<div class="hl-surround"><div class="hl-main"><pre><span class="hl-identifier">__gsignals__</span><span class="hl-default"> = </span><span class="hl-builtin">dict</span><span class="hl-brackets">(</span><span class="hl-identifier">time_changed</span><span class="hl-code">=</span><span class="hl-brackets">(</span><span class="hl-identifier">gobject</span><span class="hl-code">.</span><span class="hl-identifier">SIGNAL_RUN_FIRST</span><span class="hl-code">,
+                                                        </span><span class="hl-identifier">gobject</span><span class="hl-code">.</span><span class="hl-identifier">TYPE_NONE</span><span class="hl-code">,
+                                                        </span><span class="hl-brackets">(</span><span class="hl-identifier">gobject</span><span class="hl-code">.</span><span class="hl-identifier">TYPE_INT</span><span class="hl-code">, </span><span class="hl-identifier">gobject</span><span class="hl-code">.</span><span class="hl-identifier">TYPE_INT</span><span class="hl-brackets">)))</span></pre></div></div>
+
+	<p>More information on gobject.signal_new can be found in the documentation.</p>
+	<p>Next
+we have to implement a button_press_event handler so that we can
+determine when someone has actually clicked on a hand. We can override
+the signals for button_press_event, button_release_event and
+motion_notify_handler at the same time as replacing the expose_event.
+In __init()__:</p>
+
+	<div class="hl-surround"><div class="hl-main"><pre><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">connect</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">expose_event</span><span class="hl-quotes">"</span><span class="hl-code">, </span><span class="hl-identifier">self</span><span class="hl-code">.</span><span class="hl-identifier">expose</span><span class="hl-brackets">)
+</span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">connect</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">button_press_event</span><span class="hl-quotes">"</span><span class="hl-code">, </span><span class="hl-identifier">self</span><span class="hl-code">.</span><span class="hl-identifier">button_press</span><span class="hl-brackets">)
+</span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">connect</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">button_release_event</span><span class="hl-quotes">"</span><span class="hl-code">, </span><span class="hl-identifier">self</span><span class="hl-code">.</span><span class="hl-identifier">button_release</span><span class="hl-brackets">)
+</span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">connect</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">motion_notify_event</span><span class="hl-quotes">"</span><span class="hl-code">, </span><span class="hl-identifier">self</span><span class="hl-code">.</span><span class="hl-identifier">motion_notify</span><span class="hl-brackets">)</span></pre></div></div>
+
+	<p>From
+reading the documentation for GtkDrawingArea, our parent class, you
+will see that button events and motion events are masked out, so we
+will need to set them so that we receive events for processing. We need
+to do this for each EggClockFace, so in __init__() we'll add:</p>
+
+	<div class="hl-surround"><div class="hl-main"><pre><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">add_events</span><span class="hl-brackets">(</span><span class="hl-identifier">gdk</span><span class="hl-code">.</span><span class="hl-identifier">BUTTON_PRESS_MASK</span><span class="hl-code"> |
+                        </span><span class="hl-identifier">gdk</span><span class="hl-code">.</span><span class="hl-identifier">BUTTON_RELEASE_MASK</span><span class="hl-code"> |
+                        </span><span class="hl-identifier">gdk</span><span class="hl-code">.</span><span class="hl-identifier">POINTER_MOTION_MASK</span><span class="hl-brackets">)</span></pre></div></div>
+
+	<p>The
+line formed by the bearing of the hand is infinitely thin, so we can't
+expect a user to be able to click on it. It would be nice to detect if
+the user clicked within 5 pixels of the line. To do this we require
+some more geometry.</p>
+	<p>We know that (sin φ, cos φ) is a point on
+the unit circle, that is it has magnitude 1. Thus a vector from the
+origin to (sin φ, cos φ) will be a unit vector, we will name it <b>l</b>. We will also take a vector <b>p</b> which is the vector from the origin to the point where the user clicked.</p>
+	<p>This would give vector components equal to:</p>
+	
+	<div class="hl-surround"><div class="hl-main"><pre><span class="hl-identifier">px</span><span class="hl-default"> = </span><span class="hl-identifier">event</span><span class="hl-default">.</span><span class="hl-identifier">x</span><span class="hl-default"> - </span><span class="hl-identifier">widget</span><span class="hl-default">.</span><span class="hl-identifier">get_allocation</span><span class="hl-brackets">()</span><span class="hl-default">.</span><span class="hl-identifier">width</span><span class="hl-default"> / </span><span class="hl-number">2
+</span><span class="hl-identifier">py</span><span class="hl-default"> = </span><span class="hl-identifier">widget</span><span class="hl-default">.</span><span class="hl-identifier">get_allocation</span><span class="hl-brackets">()</span><span class="hl-default">.</span><span class="hl-identifier">height</span><span class="hl-default"> / </span><span class="hl-number">2</span><span class="hl-default"> - </span><span class="hl-identifier">event</span><span class="hl-default">.</span><span class="hl-identifier">y
+lx</span><span class="hl-default"> = </span><span class="hl-identifier">math</span><span class="hl-default">.</span><span class="hl-identifier">sin</span><span class="hl-brackets">(</span><span class="hl-identifier">math</span><span class="hl-code">.</span><span class="hl-identifier">pi</span><span class="hl-code"> / </span><span class="hl-number">30</span><span class="hl-code"> * </span><span class="hl-identifier">minutes</span><span class="hl-brackets">)
+</span><span class="hl-identifier">ly</span><span class="hl-default"> = </span><span class="hl-identifier">math</span><span class="hl-default">.</span><span class="hl-identifier">cos</span><span class="hl-brackets">(</span><span class="hl-identifier">math</span><span class="hl-code">.</span><span class="hl-identifier">pi</span><span class="hl-code"> / </span><span class="hl-number">30</span><span class="hl-code"> * </span><span class="hl-identifier">minutes</span><span class="hl-brackets">)</span></pre></div></div>
+
+	<p>Simple reasoning will tell us that there exists a point u<b>l</b> where <b>l</b> is perpendicular to (u<b>l</b> – <b>p</b>) (which is the shortest distance between the point and the line and is what we want to measure).</p>
+	<p>We can project <b>p</b> onto <b>l</b> using the dot product such that u = <b>p</b>.<b>l</b>. The dot product can be done mathematically like so:</p>
+	<div class="hl-surround" style="height: 28px;"><div class="hl-main"><pre><span class="hl-identifier">u</span><span class="hl-default"> = </span><span class="hl-identifier">lx</span><span class="hl-default"> * </span><span class="hl-identifier">px</span><span class="hl-default"> + </span><span class="hl-identifier">ly</span><span class="hl-default"> * </span><span class="hl-identifier">py</span></pre></div></div>
+	<p><img src="./geom-2.png" alt="cairo_clock_geometry_2"></p>
+	<p>If
+u comes out to be a negative number we'll ignore it, this means that
+the user clicked on the opposite side of the clock to where the hand
+is. Finally, the magnitude of the distance can be found. If the
+magnitude of the distance (squared) is less then 5 pixels (squared) we
+can set the private member _dragging to be true (we used squared values
+here because we have no need to do a slow sqrt()).</p>
+
+	<div class="hl-surround"><div class="hl-main"><pre><span class="hl-reserved">if </span><span class="hl-identifier">u</span><span class="hl-default"> &lt; </span><span class="hl-number">0</span><span class="hl-default">:
+    </span><span class="hl-reserved">return False
+
+</span><span class="hl-identifier">d2</span><span class="hl-default"> = </span><span class="hl-identifier">math</span><span class="hl-default">.</span><span class="hl-builtin">pow</span><span class="hl-brackets">(</span><span class="hl-identifier">px</span><span class="hl-code"> - </span><span class="hl-identifier">u</span><span class="hl-code"> * </span><span class="hl-identifier">lx</span><span class="hl-code">, </span><span class="hl-number">2</span><span class="hl-brackets">)</span><span class="hl-default"> + </span><span class="hl-identifier">math</span><span class="hl-default">.</span><span class="hl-builtin">pow</span><span class="hl-brackets">(</span><span class="hl-identifier">py</span><span class="hl-code"> - </span><span class="hl-identifier">u</span><span class="hl-code"> * </span><span class="hl-identifier">ly</span><span class="hl-code">, </span><span class="hl-number">2</span><span class="hl-brackets">)
+</span><span class="hl-reserved">if </span><span class="hl-identifier">d2</span><span class="hl-default"> &lt; </span><span class="hl-number">25</span><span class="hl-default">: </span><span class="hl-comment"># 5 pixels away from the line
+    </span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">_dragging</span><span class="hl-default"> = </span><span class="hl-reserved">True</span></pre></div>
+  </div>
+
+	<p>We
+now need to implement handlers for the motion_notify_event and
+button_release_event. Both of these signal handlers share a lot of
+their code, so we can move it out into another method,
+emit_time_changed_signal(). The geometry for this method is simply the
+reverse of the geometry that we used to draw the hands on the clock
+face.</p>
+
+	<div class="hl-surround"><div class="hl-main"><pre><span class="hl-reserved">def </span><span class="hl-identifier">emit_time_changed_signal</span><span class="hl-brackets">(</span><span class="hl-identifier">self</span><span class="hl-code">, </span><span class="hl-identifier">x</span><span class="hl-code">, </span><span class="hl-identifier">y</span><span class="hl-brackets">)</span><span class="hl-default">:
+    </span><span class="hl-comment"># decode the minute hand
+    # normalize the coordinates around the origin
+    </span><span class="hl-identifier">x</span><span class="hl-default"> -= </span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">get_allocation</span><span class="hl-brackets">()</span><span class="hl-default">.</span><span class="hl-identifier">width</span><span class="hl-default"> / </span><span class="hl-number">2
+    </span><span class="hl-identifier">y</span><span class="hl-default"> -= </span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">get_allocation</span><span class="hl-brackets">()</span><span class="hl-default">.</span><span class="hl-identifier">height</span><span class="hl-default"> / </span><span class="hl-number">2
+
+    </span><span class="hl-comment"># phi is a bearing from north clockwise, use the same geometry as we
+    # did to position the minute hand originally
+    </span><span class="hl-identifier">phi</span><span class="hl-default"> = </span><span class="hl-identifier">math</span><span class="hl-default">.</span><span class="hl-identifier">atan2</span><span class="hl-brackets">(</span><span class="hl-identifier">x</span><span class="hl-code">, -</span><span class="hl-identifier">y</span><span class="hl-brackets">)
+    </span><span class="hl-reserved">if </span><span class="hl-identifier">phi</span><span class="hl-default"> &lt; </span><span class="hl-number">0</span><span class="hl-default">:
+        </span><span class="hl-identifier">phi</span><span class="hl-default"> += </span><span class="hl-identifier">math</span><span class="hl-default">.</span><span class="hl-identifier">pi</span><span class="hl-default"> * </span><span class="hl-number">2
+
+    </span><span class="hl-identifier">hour</span><span class="hl-default"> = </span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">time</span><span class="hl-default">.</span><span class="hl-identifier">hour
+    minute</span><span class="hl-default"> = </span><span class="hl-identifier">phi</span><span class="hl-default"> * </span><span class="hl-number">30</span><span class="hl-default"> / </span><span class="hl-identifier">math</span><span class="hl-default">.</span><span class="hl-identifier">pi
+
+    </span><span class="hl-comment"># update the offset
+    </span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">_minute_offset</span><span class="hl-default"> = </span><span class="hl-identifier">minute</span><span class="hl-default"> - </span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">time</span><span class="hl-default">.</span><span class="hl-identifier">minute
+    self</span><span class="hl-default">.</span><span class="hl-identifier">redraw_canvas</span><span class="hl-brackets">()
+
+    </span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">emit</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">time_changed</span><span class="hl-quotes">"</span><span class="hl-code">, </span><span class="hl-identifier">hour</span><span class="hl-code">, </span><span class="hl-identifier">minute</span><span class="hl-brackets">)</span></pre></div>
+  </div>
+  
+	<p>The
+time_changed signal is actually sent to all listeners by emit(). You
+may also notice the variable _minute_offset, we use this to know how
+far out of phase the minute hand is with the current time. This offset
+has to be added to any other requests for the current time. I will
+leave it as an exercise to the reader to implement a similar offset for
+the hour hand.</p>
+	<p>After all of this our two signals handlers from above are simply:</p>
+	
+	<div class="hl-surround"><div class="hl-main"><pre><span class="hl-reserved">def </span><span class="hl-identifier">motion_notify</span><span class="hl-brackets">(</span><span class="hl-identifier">self</span><span class="hl-code">, </span><span class="hl-identifier">widget</span><span class="hl-code">, </span><span class="hl-identifier">event</span><span class="hl-brackets">)</span><span class="hl-default">:
+    </span><span class="hl-reserved">if </span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">_dragging</span><span class="hl-default">:
+        </span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">emit_time_changed_signal</span><span class="hl-brackets">(</span><span class="hl-identifier">event</span><span class="hl-code">.</span><span class="hl-identifier">x</span><span class="hl-code">, </span><span class="hl-identifier">event</span><span class="hl-code">.</span><span class="hl-identifier">y</span><span class="hl-brackets">)
+
+</span><span class="hl-reserved">def </span><span class="hl-identifier">button_release</span><span class="hl-brackets">(</span><span class="hl-identifier">self</span><span class="hl-code">, </span><span class="hl-identifier">widget</span><span class="hl-code">, </span><span class="hl-identifier">event</span><span class="hl-brackets">)</span><span class="hl-default">:
+    </span><span class="hl-reserved">if </span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">_dragging</span><span class="hl-default">:
+        </span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">_dragging</span><span class="hl-default"> = </span><span class="hl-reserved">False
+        </span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">emit_time_changed_signal</span><span class="hl-brackets">(</span><span class="hl-identifier">event</span><span class="hl-code">.</span><span class="hl-identifier">x</span><span class="hl-code">, </span><span class="hl-identifier">event</span><span class="hl-code">.</span><span class="hl-identifier">y</span><span class="hl-brackets">)
+
+    </span><span class="hl-reserved">return False</span></pre></div></div>
+	<p>Of course, in order to find out when our signal is emitted, we only need to connect a signal handler to the clock in main():</p>
+	<div class="hl-surround"><div class="hl-main"><pre><span class="hl-identifier">clock</span><span class="hl-default">.</span><span class="hl-identifier">connect</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">time_changed</span><span class="hl-quotes">"</span><span class="hl-code">, </span><span class="hl-identifier">time_changed_cb</span><span class="hl-brackets">)
+
+</span><span class="hl-reserved">def </span><span class="hl-identifier">time_changed_cb</span><span class="hl-brackets">(</span><span class="hl-identifier">widget</span><span class="hl-code">, </span><span class="hl-identifier">hours</span><span class="hl-code">, </span><span class="hl-identifier">minutes</span><span class="hl-brackets">)</span><span class="hl-default">:
+    </span><span class="hl-reserved">print </span><span class="hl-quotes">"</span><span class="hl-string">::time-changed - %02i:%02i</span><span class="hl-quotes">"</span><span class="hl-default"> % </span><span class="hl-brackets">(</span><span class="hl-identifier">hours</span><span class="hl-code">, </span><span class="hl-identifier">minutes</span><span class="hl-brackets">)</span></pre></div>
+  </div>
+  
+	<p>Putting it all together, you should have 
+	<a href="./clock_ex5.py">clock_ex5.py</a>.</p>
+	<p>That's it! You now know how to implement a GObject, draw things inside that
+GObject, add private data, add signals and animate the object. This
+forms pretty much everything you need to write your own GtkWidget.</p>
+
+	<p><b>UPDATE:</b> thanks to Johan Dahlin for the hints on __gsignals__.</p>
+</div>
+</body></html>

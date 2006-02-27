@@ -1,3 +1,15 @@
+2006-02-27  Rafael Villar Burke  <pachi@mmn-arquitectos.com>
+
+	* articles/cairo-pygtk-widgets/
+	* articles/cairo-pygtk-widgets/cairo-pygtk-widgets2.htm
+	* articles/cairo-pygtk-widgets/geom-1.png
+	* articles/cairo-pygtk-widgets/geom-2.png
+	* articles/cairo-pygtk-widgets/clock.gif
+	* articles/cairo-pygtk-widgets/clock_ex4.py
+	* articles/cairo-pygtk-widgets/clock_ex5.py
+	* :Added previous files to hold a local copy of the article.
+	* articles.src: add article by Lawrence Oluyede
+
 2006-02-23  Rafael Villar Burke  <pachi@mmn-arquitectos.com>
 
 	* applications.src: Changed JonoEdit to Jokosher and its URL
