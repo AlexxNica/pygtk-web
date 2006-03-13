@@ -568,6 +568,12 @@
   installation to be scripted for unattended operation. This makes
   deploying hundreds or thousands of systems very easy</dd>
 
+  <dt><a href="http://bandsaw.sourceforge.net/">Band Shaw</a></dt>
+  <dd>Band Saw is a syslog monitoring program for the GNOME desktop. It uses
+  filters to define which messages should generate alerts and can be combined
+  with syslog's remote logging functionality to provides a scalable and easily
+  deployed monitoring solution.</dd>
+
   <dt><a href="http://www.immunitysec.com/CANVAS/">CANVAS</a></dt>
   <dd>CANVAS is a commercial network intrusion product, which runs under both
   Linux and Windows and allows a system administrator or penetration tester to
