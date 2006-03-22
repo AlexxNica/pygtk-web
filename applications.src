@@ -279,6 +279,9 @@
 
 <dl>
 
+  <dt><a href="http://globs.sourceforge.net/">GL O.B.S.</a></dt>
+  <dd>GLOBS is an Open Benchmark Suite for the GL language.</dd>
+
   <dt><a href="http://live.gnome.org/Istanbul">Istanbul</a></dt>
   <dd>Istanbul is a desktop session recorder for the Free Desktop.
   It records your session into an Ogg Theora video file. It works on
