@@ -471,6 +471,10 @@
   length, mass, numbers, etc. All units converted values shown at once
   as you type. Easy to add/change your own units.</dd>
 
+  <dt><a href="http://www.stambouliote.de/mezogis">mezoGIS</a></dt>
+  <dd>mezoGIS is a GIS application, a graphical interface to query
+  and analyse spatial data stored in a PostGIS database.</dd>
+
   <dt><a href="http://numexp.sourceforge.net/">NumExp</a></dt>
   <dd>NumExp is a family of open-source applications for numeric computation.
   When it was created, the idea was to make a powerfull tool like
