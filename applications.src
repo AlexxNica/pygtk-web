@@ -280,7 +280,11 @@
 <dl>
 
   <dt><a href="http://globs.sourceforge.net/">GL O.B.S.</a></dt>
-  <dd>GLOBS is an Open Benchmark Suite for the GL language.</dd>
+  <dd>GLOBS is an Open Benchmark Suite for the GL language.It is based
+  around a PyGTK interface that launches OpenGL programs feeding them
+  with a common CLI options set which will affect their behaviour,
+  then receives back their statistical output. Benchmarks are easy to
+  create and add.</dd>
 
   <dt><a href="http://live.gnome.org/Istanbul">Istanbul</a></dt>
   <dd>Istanbul is a desktop session recorder for the Free Desktop.
