@@ -569,6 +569,9 @@
 <h3><a name="system">System Utilities</a></h3>
 
 <dl>
+  <dt><a href="http://www.realistanew.com/projects/alacarte/">Alacarte</a></dt>
+  <dd>Alacarte is a simple menu editor for GNOME. With a click you can type
+  type to edit, add, or delete menu entries. It is freedesktop.org compliant</dd>
 
   <dt><a href="http://fedora.redhat.com/projects/anaconda-installer/">Anaconda</a></dt>
   <dd>Anaconda is the installation program for Red Hat distributions.
