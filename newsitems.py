@@ -14,6 +14,16 @@ item = lambda *x: items.append(x)
 #      "INSERT AUTHOR HERE")
 
 # http://news.gmane.org/gmane.comp.gnome.gtk%2B.python/
+item("PyGTK 2.8.5 released",
+     (2006, 3, 30),
+     """
+     PyGTK 2.8.5 contains only a small amount of bug fixes. The main feature is
+     that it can be built against pygobject, so it's suitable for inclusing in
+     GNOME 2.14. It can be fetched
+     <a href="http://ftp.gnome.org/pub/GNOME/sources/pygtk/2.8/pygtk-2.8.5.tar.gz">here</a>.
+     Check out <a href="http://article.gmane.org/gmane.comp.gnome.gtk%2B.python/7917">the release announcement</a> or, for a complete list of changes, read <a href="http://live.gnome.org/PyGTK/WhatsNew28">this page</a> at the wiki.""",
+     "Johan Dahlin")
+
 item("New article - Writing a Widget Using Cairo and PyGTK 2.8, Part2",
      (2006, 02, 27), """Continue to learn how to write pygtk widgets using the
      new Cairo API.
