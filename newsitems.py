@@ -14,6 +14,16 @@ item = lambda *x: items.append(x)
 #      "INSERT AUTHOR HERE")
 
 # http://news.gmane.org/gmane.comp.gnome.gtk%2B.python/
+item("PyGTK 2.9.0 released",
+     (2006, 3, 30),
+     """
+     PyGTK 2.9.0 is the first release in the 2.9.x series. It's unstable, so
+     it should be used with caution. Lot's of new apis were added,
+     It can be fetched from:
+     <a href="http://ftp.gnome.org/pub/GNOME/sources/pygtk/2.9/pygtk-2.9.0.tar.gz">here</a>.
+     Check out <a href="http://article.gmane.org/gmane.comp.gnome.gtk%2B.python/7973">the release announcement</a> or, for a complete list of changes, read <a href="http://live.gnome.org/PyGTK/WhatsNew210">this page</a> at the wiki.""",
+     "Johan Dahlin")
+
 item("PyGTK 2.8.5 released",
      (2006, 3, 30),
      """

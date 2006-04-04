@@ -1,3 +1,7 @@
+2006-04-04  Johan Dahlin  <jdahlin@async.com.br>
+
+	* newsitems.py (item): PyGTK 2.9.0
+
 2006-03-30  Johan Dahlin  <jdahlin@async.com.br>
 
 	* newsitems.py (item): PyGTK 2.8.4
