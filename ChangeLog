@@ -1,3 +1,9 @@
+2006-04-07  Johan Dahlin  <jdahlin@async.com.br>
+
+	* head.src: 
+	* foot.src: Update, remove bonsai, lxr and software map,
+	defunct. Make the link more relevant to pygtk.
+
 2006-04-04  Johan Dahlin  <jdahlin@async.com.br>
 
 	* newsitems.py (item): PyGTK 2.9.0
