@@ -14,6 +14,16 @@ item = lambda *x: items.append(x)
 #      "INSERT AUTHOR HERE")
 
 # http://news.gmane.org/gmane.comp.gnome.gtk%2B.python/
+item("PyGTK 2.8.6 released",
+     (2006, 4, 12),
+     """
+     PyGTK 2.8.6 is a bug fix only release. An important leak was fixed by Michael Smith, so
+     if you had issues with leaky enums and flags, then this release is for you.
+     It can be fetched
+     <a href="http://ftp.gnome.org/pub/GNOME/sources/pygtk/2.8/pygtk-2.8.6.tar.gz">here</a>.
+     Check out <a href="http://article.gmane.org/gmane.comp.gnome.gtk%2B.python/8028">the release announcement</a> or, for a complete list of changes, read <a href="http://live.gnome.org/PyGTK/WhatsNew28">this page</a> at the wiki.""",
+     "Johan Dahlin")
+
 item("PyGTK 2.9.0 released",
      (2006, 3, 30),
      """
