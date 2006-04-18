@@ -529,8 +529,13 @@
   well with CVS.The diff viewer lets you edit files in place and allows
   easy merges.</dd>
 
-  <dt><a href="http://pida.vm.bytemark.co.uk/projects/pida">Pida</a></dt>
-  <dd>Pida is an IDE which embeds vim and other editors and tools.</dd>
+  <dt><a href="http://pida.berlios.de/">Pida</a></dt>
+  <dd>Pida is an IDE which embeds other editors and tools to create a powerful
+  IDE. It currently features: full code editing (syntax highlighting, code
+  completion, automatic indenting, block commenting...), project management,
+  version control management, Python debugger and profiler, GTK graphical
+  user interface building and rapid application design or Pastebin
+  integration.</dd>
 
   <dt><a href="http://freshmeat.net/projects/pygg">PyGG</a></dt>
   <dd>PyGG (PyGTK and Glade) is a Python module intended to ease the usage
