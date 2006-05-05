@@ -1,3 +1,16 @@
+2006-05-05  Christian Reis  <kiko@async.com.br>
+
+	* foot.src, newsitems.py, tutorial.src,
+	  articles/applets_arturogf/applets_arturogf.xml,
+	  articles/applets_arturogf/b308.html,
+	  articles/applets_arturogf/index.html,
+	  articles/bitpodder/BitPodder.htm,
+	  articles/cairo-pygtk-widgets/cairo-pygtk-widgets.htm,
+	  articles/cairo-pygtk-widgets/clock_ex1.py: convert to utf-8
+	* .htaccess: set utf-8 as our default encoding; finally undo the mess
+	I made by assuming iso-8859-1 when in fact we had
+	content with mixed encodings in our tree.
+
 2006-05-05  Johan Dahlin  <jdahlin@async.com.br>
 
 	* newsitems.py (item): Add Kiwi 1.8.9 and Gazpacho 0.6.6.
@@ -213,7 +226,7 @@
 
 2005-12-05  Rafael Villar Burke  <pachi@mmn-arquitectos.com>
 
-        * people.src: Added myself to the list :)
+	* people.src: Added myself to the list :)
 	* MAINTAINERS: Added file with a list of latest commiters
 	
 2005-12-05  Rafael Villar Burke  <pachi@mmn-arquitectos.com>
@@ -288,7 +301,7 @@
 
 2005-09-21  Rafael Villar Burke  <pachi@mmn-arquitectos.com>
 
-        * articles.src: Fix missing end-quotes
+	* articles.src: Fix missing end-quotes
 	* newsitems.py: Added new article notice by Nzeka Gilbert
 	* applications.src: Added Scribes
 
@@ -299,12 +312,12 @@
 
 2005-09-15  Rafael Villar Burke  <pachi@mmn-arquitectos.com>
 
-        * applications.src: Added QA-Assistant
+	* applications.src: Added QA-Assistant
 
 2005-09-14  Rafael Villar Burke  <pachi@mmn-arquitectos.com>
 
 	* applications.src: Added gpodder, Nixory, gquilt, GXFormer
-                            Comix, Pida, PyBridge.
+	Comix, Pida, PyBridge.
 	* articles.src: Added bitpodder article (by Netza Gilbert)
 
 2005-09-13  Rafael Villar Burke  <pachi@mmn-arquitectos.com>

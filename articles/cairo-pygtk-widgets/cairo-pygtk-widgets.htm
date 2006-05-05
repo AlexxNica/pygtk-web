@@ -1,5 +1,4 @@
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
 <title>Writing a Widget Using Cairo and PyGTK 2.8</title>
 <link rel="stylesheet" href="./cairo-pygtk-widgets.css" type="text/css" media="screen">
 </head>
@@ -16,7 +15,7 @@
     <a href="http://gnomejournal.org/"> The GNOME Journal</a>
     website. It is written by <a href="http://www.livejournal.com/users/davyd/"> Davyd Madeley</a>
 </p>
-<p> I’ll not make modifications to the text except for differences between C and Python.</p>
+<p> Iâ€™ll not make modifications to the text except for differences between C and Python.</p>
 
 <h3> Writing a Widget Using Cairo and PyGTK 2.8 </h3>
 
@@ -28,15 +27,15 @@
 
 <h4> Step 1. Writing a GObject </h4>
 <p> While it is possible to simply start using Cairo drawing to draw inside a drawing area, many times you will want to be able to write your own custom widget that you can use over and over again. Much of this chapter can be used for the development of many widgets, not just ones using Cairo. </p>
-<p> The first step to writing your own custom widget is creating a new GObject to use with that widget. GObjects can get quite complicated, but we’re going to look at the basics for writing our widget. </p>
+<p> The first step to writing your own custom widget is creating a new GObject to use with that widget. GObjects can get quite complicated, but weâ€™re going to look at the basics for writing our widget. </p>
 <p> Since we are writing a widget that will be drawn on with Cairo, it will be easiest to inherit GtkDrawingArea, which inherits GtkWidget, GtkObject and finally GObject. GtkDrawingArea already implements a lot of functions we need for our widget and will save us from writing a lot of code. </p>
-<p> In clock.py you’ll want to define our new class: </p>
+<p> In clock.py youâ€™ll want to define our new class: </p>
 
 <div class="hl-surround" ><div class="hl-main"><pre><span class="hl-reserved">class </span><span class="hl-identifier">EggClockFace</span><span class="hl-brackets">(</span><span class="hl-identifier">gtk</span><span class="hl-code">.</span><span class="hl-identifier">DrawingArea</span><span class="hl-brackets">)</span><span class="hl-default">:
     </span><span class="hl-reserved">pass</span></pre></div></div>
 
 <p> We will call our object EggClockFace. </p>
-<p> When the class is initialised the __init__() method is going to be called. Since we’re doing drawing, we’re going to need to override the parent’s expose handler. So in clock.py: </p>
+<p> When the class is initialised the __init__() method is going to be called. Since weâ€™re doing drawing, weâ€™re going to need to override the parentâ€™s expose handler. So in clock.py: </p>
 
 <div class="hl-surround" ><div class="hl-main"><pre><span class="hl-reserved">def </span><span class="hl-identifier">__init__</span><span class="hl-brackets">(</span><span class="hl-identifier">self</span><span class="hl-brackets">)</span><span class="hl-default">:
     </span><span class="hl-identifier">gtk</span><span class="hl-default">.</span><span class="hl-identifier">DrawingArea</span><span class="hl-default">.</span><span class="hl-identifier">__init__</span><span class="hl-brackets">(</span><span class="hl-identifier">self</span><span class="hl-brackets">)
@@ -46,7 +45,7 @@
 <div class="hl-surround" ><div class="hl-main"><pre><span class="hl-reserved">def </span><span class="hl-identifier">expose</span><span class="hl-brackets">(</span><span class="hl-identifier">self</span><span class="hl-code">, </span><span class="hl-identifier">widget</span><span class="hl-code">, </span><span class="hl-identifier">event</span><span class="hl-brackets">)</span><span class="hl-default">:
     </span><span class="hl-reserved">return False</span></pre></div></div>
 
-<p> You’ll also want to write a main() function so you can see something: </p>
+<p> Youâ€™ll also want to write a main() function so you can see something: </p>
 
 <div class="hl-surround" ><div class="hl-main"><pre><span class="hl-reserved">def </span><span class="hl-identifier">main</span><span class="hl-brackets">()</span><span class="hl-default">:
     </span><span class="hl-identifier">window</span><span class="hl-default"> = </span><span class="hl-identifier">gtk</span><span class="hl-default">.</span><span class="hl-identifier">Window</span><span class="hl-brackets">()
@@ -58,17 +57,17 @@
     
     </span><span class="hl-identifier">gtk</span><span class="hl-default">.</span><span class="hl-identifier">main</span><span class="hl-brackets">()</span></pre></div></div>
 
-<p> So, if you’ve made it this far. You should have a file that look like
+<p> So, if youâ€™ve made it this far. You should have a file that look like
     <a href="./clock_ex1.py"> clock_ex1.py</a>.</p>
 <p> Run it with <em> $ python clock_ex1.py </em></p>
 <p> And it should look something like this: </p>
 <p>     <img src="./clock_ex1.png" alt="clock window example"> </p>
-<p> Pretty neat, huh? Well… maybe not yet. Now we need to draw something in there! </p>
+<p> Pretty neat, huh? Wellâ€¦ maybe not yet. Now we need to draw something in there! </p>
 
 <h4> Step 2. Drawing with Cairo </h4>
 
-<p> When things need drawing in GTK+ an “expose-event” will be emitted. As you’ll recall from Step 1, we put the stub for an expose handler in our code. When an expose event occurs, GTK+ will also give us other information, including the area of the widget that we need to redraw. All of this information is contained within the GdkEventExpose object. </p>
-<p> In order to do drawing with Cairo we need a Cairo context. We can get it for a GdkWindow (this is what you’re drawing into). You should be aware that a GdkWindow is not like a GtkWindow and that all sorts of widgets have one or more GdkWindows inside them for doing drawing. If you can’t keep track of all the names, don’t worry too much, you’ll get the hang of it eventually. </p>
+<p> When things need drawing in GTK+ an â€œexpose-eventâ€ will be emitted. As youâ€™ll recall from Step 1, we put the stub for an expose handler in our code. When an expose event occurs, GTK+ will also give us other information, including the area of the widget that we need to redraw. All of this information is contained within the GdkEventExpose object. </p>
+<p> In order to do drawing with Cairo we need a Cairo context. We can get it for a GdkWindow (this is what youâ€™re drawing into). You should be aware that a GdkWindow is not like a GtkWindow and that all sorts of widgets have one or more GdkWindows inside them for doing drawing. If you canâ€™t keep track of all the names, donâ€™t worry too much, youâ€™ll get the hang of it eventually. </p>
 <p> You can access the GdkWindow of most widgets (such as a GtkDrawingArea) by accessing the window member of the widget object. So to get our cairo context we can extend our expose stub to look like this: </p>
 
 <div class="hl-surround" ><div class="hl-main"><pre><span class="hl-reserved">def </span><span class="hl-identifier">expose</span><span class="hl-brackets">(</span><span class="hl-identifier">self</span><span class="hl-code">, </span><span class="hl-identifier">widget</span><span class="hl-code">, </span><span class="hl-identifier">event</span><span class="hl-brackets">)</span><span class="hl-default">:
@@ -93,14 +92,14 @@
     </span><span class="hl-reserved">return False</span></pre></div></div>
 
 <p> Now we actually need to draw something. Drawing instructions in Cairo work by describing paths and then stroking them. Think of it like tracing your design out with a pencil and then inking it in with a pen. You can choose a variety of different pens with different nibs and colors, but each stroking is done with a particular pen. You can also do other actions like filling a path with a solid color as well as being able to preserve a path so that you can stroke around it after you fill it. </p>
-<p> Firstly, we’re trying to draw a clock face, so we need to do a little bit of simple geometry. The size of our canvas is stored in the widget object as the member “allocation”. Therefore, we can find out the center of our canvas (x, y) pretty easily: </p>
+<p> Firstly, weâ€™re trying to draw a clock face, so we need to do a little bit of simple geometry. The size of our canvas is stored in the widget object as the member â€œallocationâ€. Therefore, we can find out the center of our canvas (x, y) pretty easily: </p>
 
 <div class="hl-surround" ><div class="hl-main"><pre><span class="hl-identifier">rect</span><span class="hl-default"> = </span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">get_allocation</span><span class="hl-brackets">()
 </span><span class="hl-identifier">x</span><span class="hl-default"> = </span><span class="hl-identifier">rect</span><span class="hl-default">.</span><span class="hl-identifier">x</span><span class="hl-default"> + </span><span class="hl-identifier">rect</span><span class="hl-default">.</span><span class="hl-identifier">width</span><span class="hl-default"> / </span><span class="hl-number">2
 
 </span><span class="hl-identifier">y</span><span class="hl-default"> = </span><span class="hl-identifier">rect</span><span class="hl-default">.</span><span class="hl-identifier">y</span><span class="hl-default"> + </span><span class="hl-identifier">rect</span><span class="hl-default">.</span><span class="hl-identifier">height</span><span class="hl-default"> / </span><span class="hl-number">2</span></pre></div></div>
 
-<p> Since we want to draw a circle, we can work out the biggest radius that we’re able to draw based on the size of our canvas: </p>
+<p> Since we want to draw a circle, we can work out the biggest radius that weâ€™re able to draw based on the size of our canvas: </p>
 
 <div class="hl-surround" style="height:28px;"><div class="hl-main"><pre><span class="hl-identifier">radius</span><span class="hl-default"> = </span><span class="hl-builtin">min</span><span class="hl-brackets">(</span><span class="hl-identifier">rect</span><span class="hl-code">.</span><span class="hl-identifier">width</span><span class="hl-code"> / </span><span class="hl-number">2</span><span class="hl-code">, </span><span class="hl-identifier">rect</span><span class="hl-code">.</span><span class="hl-identifier">height</span><span class="hl-code"> / </span><span class="hl-number">2</span><span class="hl-brackets">)</span><span class="hl-default"> - </span><span class="hl-number">5</span></pre></div></div>
 
@@ -121,7 +120,7 @@
 <p> Your file at this point should look like
     <a href="./clock_ex2.py"> clock_ex2.py</a>.</p>
 <p> We can also add a marker for each hour on the clock face. Using a bit of geometry again, we know that we need to divide 2? into 12 pieces, which means that each line is ?/6 radians apart. </p>
-<p> We want to draw a line from just inside the circle to the edge of the circle. We can define the path for a line using cairo’s move_to() and line_to(). </p>
+<p> We want to draw a line from just inside the circle to the edge of the circle. We can define the path for a line using cairoâ€™s move_to() and line_to(). </p>
 
 <div class="hl-surround" ><div class="hl-main"><pre><span class="hl-reserved">for </span><span class="hl-identifier">i </span><span class="hl-reserved">in </span><span class="hl-builtin">xrange</span><span class="hl-brackets">(</span><span class="hl-number">12</span><span class="hl-brackets">)</span><span class="hl-default">:
     </span><span class="hl-identifier">inset</span><span class="hl-default"> = </span><span class="hl-number">0.1</span><span class="hl-default"> * </span><span class="hl-identifier">radius
@@ -150,7 +149,7 @@
      </span><span class="hl-identifier">context</span><span class="hl-default">.</span><span class="hl-identifier">stroke</span><span class="hl-brackets">()
      </span><span class="hl-identifier">context</span><span class="hl-default">.</span><span class="hl-identifier">restore</span><span class="hl-brackets">()</span></pre></div></div>
 
-<p> You can see here that we’ve used two new functions save() and restore(). These functions allow us to manipulate a stack of cairo states. To save our old values for the pen width, we simply put it on the stack. We can then modify that width and stroke some paths. Finally we can simply restore the old state again once we’re ready. This is an easy way to not have to keep track of your existing drawing defaults throughout each stage of a drawing operation. </p>
+<p> You can see here that weâ€™ve used two new functions save() and restore(). These functions allow us to manipulate a stack of cairo states. To save our old values for the pen width, we simply put it on the stack. We can then modify that width and stroke some paths. Finally we can simply restore the old state again once weâ€™re ready. This is an easy way to not have to keep track of your existing drawing defaults throughout each stage of a drawing operation. </p>
 <p> Your Python file should look like
     <a href="./clock_ex3.py">clock_ex3.py</a>
 with the new drawing instructions. </p>
@@ -159,7 +158,7 @@ with the new drawing instructions. </p>
 
 <p> you will get a blank clock face: </p>
 <p><img src="./clock_ex3.png" alt="clock window example, now with the clock surface painted and ticks"> </p>
-<p> So we’ve covered the basics of drawing something on your canvas and making sure that GTK+ redraws it when it is exposed. Next time we’ll look at how to extend your widget with an API so that we can actually start drawing content on it and implementing signals so that we can receive updated information. </p>
+<p> So weâ€™ve covered the basics of drawing something on your canvas and making sure that GTK+ redraws it when it is exposed. Next time weâ€™ll look at how to extend your widget with an API so that we can actually start drawing content on it and implementing signals so that we can receive updated information. </p>
 <p> If you want to learn more about Cairo and the Cairo drawing API, see their website:
     <a href="http://www.cairographics.org">http://www.cairographics.org/</a>.</p>
 
@@ -167,7 +166,7 @@ with the new drawing instructions. </p>
 <p> This work is licensed under a
     <a href="http://creativecommons.org/licenses/by-sa/2.0/"> Creative Commons License</a>
 </p>
-<p> – Friday, December 2nd 2005 </p>
+<p> â€“ Friday, December 2nd 2005 </p>
 </em>
 </strong>
 </body>

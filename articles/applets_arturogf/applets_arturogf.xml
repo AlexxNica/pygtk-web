@@ -16,7 +16,7 @@
           <address><email>arturogf@ugr.es</email></address>
         </affiliation>
       <firstname>Arturo</firstname>
-      <surname>Gonz·lez Ferrer</surname>
+      <surname>Gonz√°lez Ferrer</surname>
         <authorblurb>
           <para> Universidad de Granada, <email>arturogf@ugr.es</email></para>
         </authorblurb>
@@ -26,7 +26,7 @@
           <address><email>lgs@sicem.biz</email></address>
         </affiliation>
         <firstname>Lorenzo</firstname>
-        <surname>Gil S·nchez</surname>
+        <surname>Gil S√°nchez</surname>
         <authorblurb>
           <para>Universidad de Granada, <email>lgs@sicem.biz</email></para>
         </authorblurb>
@@ -729,7 +729,7 @@ show this dialog when the user clicks on the popup preferences option.</para>
         </abstract>
         <author>
           <firstname>Lorenzo</firstname>
-          <surname>Gil S·nchez</surname>
+          <surname>Gil S√°nchez</surname>
         </author>
       </biblioentry>
       <biblioentry>
@@ -780,7 +780,7 @@ show this dialog when the user clicks on the popup preferences option.</para>
       <biblioentry>
         <author>
           <firstname>German</firstname>
-          <surname>PoÛ CaamaÒo</surname>
+          <surname>Po√≥ Caama√±o</surname>
         </author>
         <abstract>
           <para><ulink url="http://www.ubiobio.cl/~gpoo/documentos/autotools/">Entendiendo autoconf y automake</ulink>.</para>
@@ -788,7 +788,7 @@ show this dialog when the user clicks on the popup preferences option.</para>
       </biblioentry>
       <biblioentry>
         <author>
-          <firstname>RenÈ</firstname>
+          <firstname>Ren√©</firstname>
           <surname>Seindal</surname>
         </author>
         <abstract>

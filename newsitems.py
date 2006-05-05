@@ -1,4 +1,4 @@
-# -*- encoding: iso-8859-1 -*-
+# -*- encoding: utf-8
 # Setup code, stay away
 items = []
 item = lambda *x: items.append(x)
@@ -773,7 +773,7 @@ item("gnome-print bounty announced by GRAMPS team",
 item("Gnome applets tutorial",
      (2004, 2, 10),
      """
-     Arturo Gonz·lez has written a great tutorial on building applets
+     Arturo Gonz√°lez has written a great tutorial on building applets
      for the Gnome panel in our favourite language. Check it out in the <a
      href="articles.html">Articles</a> section. By the way, Arturo says
      ''comments and suggestions are more than welcome!''
