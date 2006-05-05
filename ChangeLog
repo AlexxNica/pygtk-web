@@ -1,3 +1,7 @@
+2006-05-05  Johan Dahlin  <jdahlin@async.com.br>
+
+	* newsitems.py (item): Add Kiwi 1.8.9 and Gazpacho 0.6.6.
+
 2006-04-18  Rafael Villar Burke  <pachi@mmn-arquitectos.com>
 
 	* applications.src: Update Pida information

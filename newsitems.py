@@ -14,6 +14,28 @@ item = lambda *x: items.append(x)
 #      "INSERT AUTHOR HERE")
 
 # http://news.gmane.org/gmane.comp.gnome.gtk%2B.python/
+item("Gazpacho 0.6.6 released",
+     (2006, 5, 3),
+     """
+     After more than 3 months and 30 bugzilla reports, closed Gazpacho 0.6.6
+     has finally been released. This releases is the first one that takes
+     advantages of kiwi features and it provides better defaults for
+     common widgets, multiple selection support and it can now open up
+     compressed files (gzip and bzip2).<br>
+     <small><a href="http://article.gmane.org/gmane.comp.gnome.gtk%2B.python/8119">Read the complete release announcement</a></small>.""",
+     "Johan Dahlin")
+
+item("Kiwi 1.9.8 released",
+     (2006, 4, 25),
+     """
+     New features in this release are improved distribution support,
+     a replacement for distutils.setup() which makes it easier to distribute
+     graphical and internationalized python applications. Included are also
+     improvements and bugfixes for ObjectList, KiwiEntry masks and
+     threading fixes for the Kiwi UI Test.<br>
+     <small><a href="http://article.gmane.org/gmane.comp.gnome.gtk%2B.python/8081">Read the complete release announcement</a></small>.""",
+     "Johan Dahlin")
+
 item("PyGTK 2.8.6 released",
      (2006, 4, 12),
      """
