@@ -1,3 +1,13 @@
+2006-05-09  Gustavo J. A. M. Carneiro  <gjc@gnome.org>
+
+	* documentation/pygnomeprint.tar.bz2:
+	* documentation/pygnomeprintui.tar.bz2:
+	* documentation/pygnomevfs.tar.bz2:
+	* documentation/pygtkmozembed.tar.bz2:
+	* documentation/pygtksourceview.tar.bz2:
+	* documentation/pygtkspell.tar.bz2: New documentation tarballs,
+	now with encoding changed to utf-8.
+
 2006-05-05  Christian Reis  <kiko@async.com.br>
 
 	* foot.src, newsitems.py, tutorial.src,
