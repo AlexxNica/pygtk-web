@@ -1,0 +1,310 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head> <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>learning python » Blog Archive » Creating a GUI using PyGTK
+            and Glade</title>
+        <link rel="stylesheet"
+        href="./resources/style.css" type="text/css" media="screen">
+    </head>
+
+    <body>
+
+	<div id="content" class="widecolumn">
+	<div class="post" id="post-23">
+		<h2><a href="http://www.learningpython.com/2006/05/07/creating-a-gui-using-pygtk-and-glade/" rel="bookmark" title="Permanent Link: Creating a GUI using PyGTK and Glade">Creating a GUI using PyGTK and Glade</a></h2>
+        <p><small>Article by Mark Mruss, originally posted on <a href="http://www.learningpython.com/2006/05/07/creating-a-gui-using-pygtk-and-glade/">www.learningpython.com</small></p>
+		<div class="entrytext">
+            <p>After spending some time creating a <a
+                href="http://www.learningpython.com/category/python/tkinter/">GUI
+                using TKinter</a> and having it be pretty easy, but getting
+            frustrated by how linked my code and the GUI was, I decided to look
+            into creating a GUI using another toolkit. After looking around at
+            the options for a while I settled on using <a
+                href="http://www.pygtk.org/">PyGTK</a> and <a
+                href="http://glade.gnome.org/">Glade</a></p>
+
+        <p>The reason I decided upon using these two technologies is because
+        they are cross platform and using GLADE satisfies my wish to separate
+        the code form the GUI.</p>
+
+        <p>If you've never heard of Glade before,
+        it's "a User Interface Builder for GTK+ and GNOME". It generates XML
+        files which describe the desired GUI.</p>
+
+        <p>I'll let the pyGTK website
+        describe what PyGTK is:</p>
+
+        <blockquote><p>PyGTK provides a convenient wrapper for the GTK+ library for
+        use in Python programs, taking care of many of the boring details such
+        as managing memory and type casting. When combined with PyORBit and
+        gnome-python, it can be used to write full featured Gnome
+        applications.</p></blockquote>
+
+        <p>So there you go, I'm writing this on my freshly installed Debian
+        system.  If you are running Debian, or a Debian based distribution
+        getting PyGTK and Glade is pretty simple:</p>
+
+	    <div class="hl-surround">
+        	<div class="hl-main"><pre>apt-get install python-gtk python-glade2</pre>
+	        </div>
+    	</div>
+
+        <p>Now lets create our first simple GUI, this is what you will be
+        greeted with when you first start GLADE:</p> <p><a
+            href="http://www.learningpython.com/images/glade_01.png"><img
+            style="margin: 0pt 10px 10px 0pt; cursor: pointer;"
+            src="./resources/small_glade_01.png" alt="Python RSS Reader"
+            border="0"></a></p> <p><a id="more-23"></a></p> <p>What we need to
+        do is press the "Window" button on the GLADE palette to create our base
+        window. We can then edit the properties of the window in the Properties
+        Window:</p> <p><a
+            href="http://www.learningpython.com/images/glade_02.png"><img
+            style="margin: 0pt 10px 10px 0pt; cursor: pointer;"
+            src="./resources/small_glade_02.png" alt="Python RSS Reader"
+            border="0"></a></p> <p>We'll call our window MainWindow and we will
+        set the title to be "Hello World… Again!".</p> <p>If you are used to
+        using an integrated GUI builder, for example Visual Studio, using glade
+        might feel a bit strange the first few times. Especially since you
+        don't actually place your controls anywhere you want on the screen,
+        instead you "pack" them. Strangely enough (at least for me) it actually
+        seems like this is the way the most GUI builders work and applications
+        like Visual Studio are actually the odd ones.</p> <p>Either way back to
+        the tutorial, the first thing we are going to do is add a label to tell
+        the user to click the button (of course we could just put this text on
+        the button, but how much fun is only one widget?). Since GTK used
+        containers to pack widgets the first thing that we need to do is add a
+        container. We are going to place the label above the Button so we will
+        use a Vertical Box with two rows. To add the vertical Box, simply click
+        on it in the Glade Pallet, and then click on our main window. A small
+        dialog will come up and ask you how many rows you want, we want two in
+        this case.</p> <p>The next thing we'll do is add the label by clicking
+        on the label button in the GLADE balled and then click on the first row
+        in the container that we just created. We'll keep the default name
+        (lable1) but we will change the text to be: "Please click on the
+        button!". Changing the text is done in the Glade Properties window,
+        which if you have not noticed by now, displays, and allows you to edit,
+        the properties of the currently selected widget.</p> <p>The next thing
+        we'll do is add a button in the same way that we added the Label widget
+        except we will add it in the second row. We will call the button
+        btnHelloWorld, and set it's label to be "Click me!"</p> <p>We now need
+        to set our project options, I'm going to call this project PyHelloWorld
+        and save it in my projects/PyHelloWorld folder.</p> <p><a
+            href="http://www.learningpython.com/images/glade_03.png"><img
+            style="margin: 0pt 10px 10px 0pt; cursor: pointer;"
+            src="./resources/small_glade_03.png" alt="Python RSS Reader"
+            border="0"></a></p> <p>So that's it, you'll see in the PyHelloWorld
+        folder, that two files have been created, one is the glade project file
+        and has the .gladep extension, and the other is our glade GUI XML file
+        with the extension .glade.</p> <p>Now we need to create a python
+        program that will load the glade file and display it. So in the same
+        folder I am going to create a file called PyHelloWorld.py.</p> <p><img
+        style="margin: 0pt 10px 10px 0pt;"
+        src="./resources/directory01.png" alt="PyGame Window"
+        border="0"></p> <p>Now the first thing we are going to have to do is
+        import all of the libraries that we need for our project:</p>
+
+<div class="hl-surround">
+	<div class="hl-main"><pre><span class="hl-comment">#!/usr/bin/env python
+
+</span><span class="hl-reserved">import </span><span class="hl-identifier">sys
+</span><span class="hl-reserved">try</span><span class="hl-default">:
+ 	</span><span class="hl-reserved">import </span><span class="hl-identifier">pygtk
+  	pygtk</span><span class="hl-default">.</span><span class="hl-identifier">require</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">2.0</span><span class="hl-quotes">"</span><span class="hl-brackets">)
+</span><span class="hl-reserved">except</span><span class="hl-default">:
+  	</span><span class="hl-reserved">pass
+try</span><span class="hl-default">:
+	</span><span class="hl-reserved">import </span><span class="hl-identifier">gtk
+  	</span><span class="hl-reserved">import </span><span class="hl-identifier">gtk</span><span class="hl-default">.</span><span class="hl-identifier">glade
+</span><span class="hl-reserved">except</span><span class="hl-default">:
+	</span><span class="hl-identifier">sys</span><span class="hl-default">.</span><span class="hl-identifier">exit</span><span class="hl-brackets">(</span><span class="hl-number">1</span><span class="hl-brackets">)</span></pre>
+	</div>
+</div>
+
+    <p>The next thing that we need to do is create our main class, I'm going to
+    call it HellowWorldGTK. The we will use write the __init__ function to load
+    our glade file:</p>
+
+<div class="hl-surround">
+	<div class="hl-main"><pre><span class="hl-reserved">class </span><span class="hl-identifier">HellowWorldGTK</span><span class="hl-default">:
+	</span><span class="hl-quotes">"""</span><span class="hl-string">This is an Hello World GTK application</span><span class="hl-quotes">"""
+
+	</span><span class="hl-reserved">def </span><span class="hl-identifier">__init__</span><span class="hl-brackets">(</span><span class="hl-identifier">self</span><span class="hl-brackets">)</span><span class="hl-default">:
+		
+		</span><span class="hl-comment">#Set the Glade file
+		</span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">gladefile</span><span class="hl-default"> = </span><span class="hl-quotes">"</span><span class="hl-string">pyhelloworld.glade</span><span class="hl-quotes">"  
+	        </span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">wTree</span><span class="hl-default"> = </span><span class="hl-identifier">gtk</span><span class="hl-default">.</span><span class="hl-identifier">glade</span><span class="hl-default">.</span><span class="hl-identifier">XML</span><span class="hl-brackets">(</span><span class="hl-identifier">self</span><span class="hl-code">.</span><span class="hl-identifier">gladefile</span><span class="hl-brackets">) 
+		
+		</span><span class="hl-comment">#Get the Main Window, and connect the "destroy" event
+		</span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">window</span><span class="hl-default"> = </span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">wTree</span><span class="hl-default">.</span><span class="hl-identifier">get_widget</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">MainWindow</span><span class="hl-quotes">"</span><span class="hl-brackets">)
+		</span><span class="hl-identifier">if </span><span class="hl-brackets">(</span><span class="hl-identifier">self</span><span class="hl-code">.</span><span class="hl-identifier">window</span><span class="hl-brackets">)</span><span class="hl-default">:
+			</span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">window</span><span class="hl-default">.</span><span class="hl-identifier">connect</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">destroy</span><span class="hl-quotes">"</span><span class="hl-code">, </span><span class="hl-identifier">gtk</span><span class="hl-code">.</span><span class="hl-identifier">main_quit</span><span class="hl-brackets">)</span></pre>
+	</div>
+</div>
+
+    <p>The first thing that we do (after defining the class) is specify the
+    glade file that we are going to use and create a <a
+        href="http://www.pygtk.org/pygtk2reference/class-gladexml.html">gtk.glade.XML</a>
+    object using our glade file.  Here is a description of the object taken
+    from the pyGTK2 reference:</p>
+
+    <blockquote><p> This object represents an `instantiation' of an XML
+        interface description. When one of these objects is created, the XML
+        file is read, and the interface is created. The gtk.glade.XML object
+        then provides an interface for accessing the widgets in the interface
+        by the names assigned to them inside the XML description.</p> <p>The
+        gtk.glade.XML object can also be used to connect handlers to the named
+        signals in the description. Libglade also provides an interface by
+        which it can look up the signal handler names in the program's symbol
+        table and automatically connect as many handlers up as it can that
+        way.</p></blockquote>
+
+    <p>So what we are doing when we create our gtk.glade.XML object is creating
+    and loading our main interface.</p> <p>The next thing that we go is get an
+    instance to our main window and connect the "destroy" event with the <a
+        href="http://www.pygtk.org/pygtk2reference/gtk-functions.html#function-gtk--main-quit">get.main_quit()</a>
+    function. This basically quits our application when the main window is
+    closed. Otherwise the application will continue to run when the main window
+    is closed (which we obviously don't want).</p> <p>That's it for our
+    HelloWorldGTK class, the next thing that we need to do is create an
+    instance of our class and then start the GTK main loop:</p>
+
+<div class="hl-surround">
+	<div class="hl-main"><pre><span class="hl-reserved">if </span><span class="hl-identifier">__name__</span><span class="hl-default"> == </span><span class="hl-quotes">"</span><span class="hl-string">__main__</span><span class="hl-quotes">"</span><span class="hl-default">:
+	</span><span class="hl-identifier">hwg</span><span class="hl-default"> = </span><span class="hl-identifier">HellowWorldGTK</span><span class="hl-brackets">()
+	</span><span class="hl-identifier">gtk</span><span class="hl-default">.</span><span class="hl-identifier">main</span><span class="hl-brackets">()</span></pre>
+	</div>
+</div>
+
+    <p>That's it, pretty easy so far, if you run this file you will be greeted
+    with our little GTK window that doesn't do anything yet except quit
+    properly when you close the window.</p> <p><img style="margin: 0pt 10px
+    10px 0pt;" src="./resources/gtkhelloworld.png" alt="PyGame Window"
+    border="0"></p> <p>The next step is to connect the button click event to a
+    function. To do this we will need to use Glade again to edit our
+    interface.</p> <p>In the main window we need to select our button object
+    and then in the properties Window select the "Signals" tab. There we will
+    add a new signal by clicking on the signal browse button (…) and
+    selecting "clicked". This will create a handler called
+    "on_btnHelloWorld_clicked" by default. We could change the name of this
+    handler if we wanted but for now the default is good enough.</p> <p><img
+    style="margin: 0pt 10px 10px 0pt;" src="./resources/glade_04.png"
+    alt="PyGame Window" border="0"></p> <p>That's it for the work in Glade, now
+    what we need to do is connect that event to something in our code.
+    Fortunately this is pretty easily done using the <a
+        href="http://www.pygtk.org/pygtk2reference/class-gladexml.html#method-gladexml--signal-autoconnect">gtk.glade.XML.signal_autoconnect</a>
+    function.</p>
+
+	<div class="hl-surround">
+		<div class="hl-main"><pre><span class="hl-comment">#Create our dictionay and connect it
+</span><span class="hl-identifier">dic</span><span class="hl-default"> = { </span><span class="hl-quotes">"</span><span class="hl-string">on_btnHelloWorld_clicked</span><span class="hl-quotes">"</span><span class="hl-default"> : </span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">btnHelloWorld_clicked</span><span class="hl-default">,
+	</span><span class="hl-quotes">"</span><span class="hl-string">on_MainWindow_destroy</span><span class="hl-quotes">"</span><span class="hl-default"> : </span><span class="hl-identifier">gtk</span><span class="hl-default">.</span><span class="hl-identifier">main_quit</span><span class="hl-default"> }
+</span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">wTree</span><span class="hl-default">.</span><span class="hl-identifier">signal_autoconnect</span><span class="hl-brackets">(</span><span class="hl-identifier">dic</span><span class="hl-brackets">)</span></pre>
+	</div>
+</div>
+
+    <p>Basically the dictionary is created using the name of the event, and the
+    function to connect it to. You can see that we connect our button's click
+    event with a new function, and that we connect the "on_MainWindow_destroy"
+    event with the gtk.mainquit() function, this basically is a replacement for
+    our earlier code that quit the program when the window is closed. If you
+    want to use that version of the dictionary you should go and add the
+    destroy event to the main window in glade.</p> <p>The next thing to do is
+    create our btnHelloWorld_clicked function to the HellowWorldGTK class:</p>
+
+	<div class="hl-surround">
+		<div class="hl-main"><pre><span class="hl-reserved">def </span><span class="hl-identifier">btnHelloWorld_clicked</span><span class="hl-brackets">(</span><span class="hl-identifier">self</span><span class="hl-code">, </span><span class="hl-identifier">widget</span><span class="hl-brackets">)</span><span class="hl-default">:
+	</span><span class="hl-reserved">print </span><span class="hl-quotes">"</span><span class="hl-string">Hello World!</span><span class="hl-quotes">"</span></pre>
+	</div>
+</div>
+
+    <p>Pretty simple!  Now when we run it, and click on the "Click Me!" button
+    we see "Hello World!" written our to the command line.</p> <p>That's it for
+    this lesson, but so far I really like what I see working with PyGTK and
+    Glade.  Here is the full source:</p>
+
+	<div class="hl-surround">
+		<div class="hl-main"><pre><span class="hl-comment">#!/usr/bin/env python
+
+</span><span class="hl-reserved">import </span><span class="hl-identifier">sys
+</span><span class="hl-reserved">try</span><span class="hl-default">:
+ 	</span><span class="hl-reserved">import </span><span class="hl-identifier">pygtk
+  	pygtk</span><span class="hl-default">.</span><span class="hl-identifier">require</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">2.0</span><span class="hl-quotes">"</span><span class="hl-brackets">)
+</span><span class="hl-reserved">except</span><span class="hl-default">:
+  	</span><span class="hl-reserved">pass
+try</span><span class="hl-default">:
+	</span><span class="hl-reserved">import </span><span class="hl-identifier">gtk
+  	</span><span class="hl-reserved">import </span><span class="hl-identifier">gtk</span><span class="hl-default">.</span><span class="hl-identifier">glade
+</span><span class="hl-reserved">except</span><span class="hl-default">:
+	</span><span class="hl-identifier">sys</span><span class="hl-default">.</span><span class="hl-identifier">exit</span><span class="hl-brackets">(</span><span class="hl-number">1</span><span class="hl-brackets">)
+
+</span><span class="hl-reserved">class </span><span class="hl-identifier">HellowWorldGTK</span><span class="hl-default">:
+	</span><span class="hl-quotes">"""</span><span class="hl-string">This is an Hello World GTK application</span><span class="hl-quotes">"""
+
+	</span><span class="hl-reserved">def </span><span class="hl-identifier">__init__</span><span class="hl-brackets">(</span><span class="hl-identifier">self</span><span class="hl-brackets">)</span><span class="hl-default">:
+		
+		</span><span class="hl-comment">#Set the Glade file
+		</span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">gladefile</span><span class="hl-default"> = </span><span class="hl-quotes">"</span><span class="hl-string">pyhelloworld.glade</span><span class="hl-quotes">"  
+	        </span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">wTree</span><span class="hl-default"> = </span><span class="hl-identifier">gtk</span><span class="hl-default">.</span><span class="hl-identifier">glade</span><span class="hl-default">.</span><span class="hl-identifier">XML</span><span class="hl-brackets">(</span><span class="hl-identifier">self</span><span class="hl-code">.</span><span class="hl-identifier">gladefile</span><span class="hl-brackets">) 
+		
+		</span><span class="hl-comment">#Create our dictionay and connect it
+		</span><span class="hl-identifier">dic</span><span class="hl-default"> = { </span><span class="hl-quotes">"</span><span class="hl-string">on_btnHelloWorld_clicked</span><span class="hl-quotes">"</span><span class="hl-default"> : </span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">btnHelloWorld_clicked</span><span class="hl-default">,
+			</span><span class="hl-quotes">"</span><span class="hl-string">on_MainWindow_destroy</span><span class="hl-quotes">"</span><span class="hl-default"> : </span><span class="hl-identifier">gtk</span><span class="hl-default">.</span><span class="hl-identifier">main_quit</span><span class="hl-default"> }
+		</span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">wTree</span><span class="hl-default">.</span><span class="hl-identifier">signal_autoconnect</span><span class="hl-brackets">(</span><span class="hl-identifier">dic</span><span class="hl-brackets">)
+
+	</span><span class="hl-reserved">def </span><span class="hl-identifier">btnHelloWorld_clicked</span><span class="hl-brackets">(</span><span class="hl-identifier">self</span><span class="hl-code">, </span><span class="hl-identifier">widget</span><span class="hl-brackets">)</span><span class="hl-default">:
+		</span><span class="hl-reserved">print </span><span class="hl-quotes">"</span><span class="hl-string">Hello World!</span><span class="hl-quotes">"
+
+
+</span><span class="hl-reserved">if </span><span class="hl-identifier">__name__</span><span class="hl-default"> == </span><span class="hl-quotes">"</span><span class="hl-string">__main__</span><span class="hl-quotes">"</span><span class="hl-default">:
+	</span><span class="hl-identifier">hwg</span><span class="hl-default"> = </span><span class="hl-identifier">HellowWorldGTK</span><span class="hl-brackets">()
+	</span><span class="hl-identifier">gtk</span><span class="hl-default">.</span><span class="hl-identifier">main</span><span class="hl-brackets">()</span></pre>
+	</div>
+</div>
+
+    <p>Helpful links:</p>
+    <p>
+    <a href="http://www.linuxjournal.com/article/6586">http://www.linuxjournal.com/article/6586</a><br>
+    <a href="http://www.async.com.br/%7Ekiko/pygtk-web/articles/bitpodder/BitPodder.htm">http://www.async.com.br/~kiko/pygtk-web/articles/bitpodder/BitPodder.htm</a><br>
+    <a href="http://www.linuxjournal.com/article/7421">http://www.linuxjournal.com/article/7421</a><br>
+    <a href="http://www.pygtk.org/articles.html">http://www.pygtk.org/articles.html</a><br>
+    <a href="http://www.pygtk.org/tutorial.html">http://www.pygtk.org/tutorial.html</a>
+    </p>
+
+</div>
+
+        </div>
+
+        <div id="footer"> <p> <!--Creative Commons License--><a rel="license"
+                href="http://creativecommons.org/licenses/by-nc-sa/2.5/"><img
+                alt="Creative Commons License"
+                src="./resources/somerights20.png"
+                border="0"></a><br>This work is licensed under a <br><a
+                rel="license"
+                href="http://creativecommons.org/licenses/by-nc-sa/2.5/">Creative
+                Commons Attribution-NonCommercial-ShareAlike 2.5
+                License</a>.<!--/Creative Commons License--><!-- <rdf:RDF
+            xmlns="http://web.resource.org/cc/"
+            xmlns:dc="http://purl.org/dc/elements/1.1/"
+            xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"> <Work
+            rdf:about=""> <license
+            rdf:resource="http://creativecommons.org/licenses/by-nc-sa/2.5/" />
+            <dc:title>LearningPython</dc:title> <dc:date>2006</dc:date>
+            <dc:description>one man's journey into python...a blog about
+            learning pyhon</dc:description> <dc:creator><Agent><dc:title>Mark
+            Mruss</dc:title></Agent></dc:creator>
+            <dc:rights><Agent><dc:title>Mark
+            Mruss</dc:title></Agent></dc:rights> <dc:type
+            rdf:resource="http://purl.org/dc/dcmitype/Text" /> <dc:source
+            rdf:resource="http://www.learningpython.com" /> </Work> <License
+            rdf:about="http://creativecommons.org/licenses/by-nc-sa/2.5/"><permits
+            rdf:resource="http://web.resource.org/cc/Reproduction"/><permits
+            rdf:resource="http://web.resource.org/cc/Distribution"/><requires
+            rdf:resource="http://web.resource.org/cc/Notice"/><requires
+            rdf:resource="http://web.resource.org/cc/Attribution"/><prohibits
+            rdf:resource="http://web.resource.org/cc/CommercialUse"/><permits
+            rdf:resource="http://web.resource.org/cc/DerivativeWorks"/><requires
+            rdf:resource="http://web.resource.org/cc/ShareAlike"/></License></rdf:RDF>
+            --> </p> </div>
+
+	</div>
+</body></html>

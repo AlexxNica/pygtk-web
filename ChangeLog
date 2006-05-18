@@ -1,3 +1,16 @@
+2006-05-19  Rafael Villar Burke  <pachi@mmn-arquitectos.com>
+
+	* articles/pygtk-glade-gui//Creating_a_GUI_using_PyGTK_and_Glade.htm
+	* articles/pygtk-glade-gui/resources/directory01.png
+	* articles/pygtk-glade-gui/resources/glade_04.png
+	* articles/pygtk-glade-gui/resources/gtkhelloworld.png
+	* articles/pygtk-glade-gui/resources/small_glade_01.png
+	* articles/pygtk-glade-gui/resources/small_glade_02.png
+	* articles/pygtk-glade-gui/resources/small_glade_03.png
+	* articles/pygtk-glade-gui/resources/somerights20.png
+	* articles/pygtk-glade-gui/resources/style.css: new article by
+	Mark Mruss
+
 2006-05-09  Gustavo J. A. M. Carneiro  <gjc@gnome.org>
 
 	* documentation/pygnomeprint.tar.bz2:
