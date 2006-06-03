@@ -192,7 +192,10 @@
   <dd>GNU Solfege is a computer program written to help you practice ear
   training by means of simple and mechanical exercises.</dd>
 
-  <dt><a href="http://gpixpod.sourceforge.net/">GPixPod</a></d/t>
+  <dt><a href="http://hpc-external.jcu.edu.au/~nigel/index.php/GHDTV/HomePage">gHDTV</a></dt>
+  <dd>gHDTV is a DVB channel changer for MPlayer.</dd>
+
+  <dt><a href="http://gpixpod.sourceforge.net/">GPixPod</a></dt>
   <dd>GPixPod is a free software app to upload and manage photos on recent
   Apple iPod models.</dd>
 
@@ -391,6 +394,12 @@
   system. No one even owns the source code. As long as there is one
   Circle peer running, anywhere in the world, there's still a
   network.</dd>
+
+  <dt><a href="http://foff.sourceforge.net/">Free Open FTP Face</a></dt>
+  <dd>Free Open FTP Face is a lightweight graphical (GTK+) FTP client. It is
+  multiplatform, easy to use, has a built in text viewer, image viewer, and
+  one-click gzip (de)/compression. Although it is a functional GUI, you can
+  also input OS and FTP commands.  </dd>
 
   <dt><a href="http://gajim.org/">Gajim</a></dt>
   <dd>Gajim is a GTK+ Jabber Client. The goal of the Gajim project is to
