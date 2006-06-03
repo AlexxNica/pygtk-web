@@ -1,5 +1,10 @@
 2006-06-03  Rafael Villar Burke  <pachi@mmn-arquitectos.com>
 
+	* articles.src: Add new article application-pygtk-glade
+	* newsitems.py: Add new article entry
+
+2006-06-03  Rafael Villar Burke  <pachi@mmn-arquitectos.com>
+
 	* articles/application-pygtk-glade/Building_an_Application_with_PyGTK_and_Glade.htm
 	* articles/application-pygtk-glade/resources/pywine_01.png
 	* articles/application-pygtk-glade/resources/pywine_02.png
