@@ -1,0 +1,529 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head> <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>Building an Application with PyGTK and Glade</title>
+		<link rel="stylesheet" href="./resources/style.css" type="text/css" media="screen">
+    </head>
+
+	<body>
+
+	<div id="content" class="widecolumn">
+	<div class="post" id="post-25">
+			<h2><a href="http://www.learningpython.com/2006/05/30/building-an-application-with-pygtk-and-glade/" rel="bookmark" title="Permanent Link: Building an Application with PyGTK and Glade">Building an Application with PyGTK and Glade</a></h2>
+			<p><small>Article by Mark Mruss, originally posted on <a href="http://www.learningpython.com/2006/05/30/building-an-application-with-pygtk-and-glade/">www.learningpython.com</a></small></p>
+			<div class="entrytext">
+					<p>After
+working with PyGTK and Glade for my first tutorial, I decided to write
+another more complex tutorial but I couldn't think of a topic (<strong>Note</strong>:
+If you have any suggestions for any tutorials or posts I'd love to hear
+them) so I decided to work on creating a simple application and
+hopefully useful topics would arise from there.</p>
+	<p>The idea I
+came up with (which will hopefully be simple) is to create a program
+that will allow me to keep track of the different types of wine that I
+drink and how much I like them. It's something I've wanted to write for
+a while so I thought it would be good to combine learning PyGTK and
+doing it.</p>
+	<p>I'm going to call the project PyWine.  The full source and Glade file for this tutorial can be found <a href="./resources/PyWine.tar.gz">here</a> </p>
+	<p>The
+first thing to do is start a new Glade project in the projects
+directory called PyWine. Create a new Window, call it "mainWindow", and
+set the title to be "PyWine". Then add a handler to the destroy signal
+just like in the first tutorial.</p>
+	<p>Next I add a Vertical Box to
+the Window with 4 rows, (from top to bottom) one row for a Menu bar,
+one row for a Toolbar, one row for a Tree or List View, and the final
+row for a Status Bar. Name the Tree View "wineView"</p>
+	<p><img style="margin: 10px;" src="./resources/pywine_01.png" alt="Python Glade" border="0"></p>
+	<p><a id="more-25"></a></p>
+	<p>The
+Tree or List View that we added to the window will be used to display
+the wines information to the user. So the first thing that we are going
+to want to do is allow the user to add a wine to the dialog. To do this
+we are going to use a menu command and a Toolbar button.</p>
+	<p>The
+first thing to add is a toolbar button. To do this simply select the
+toolbar button in the Pallet and click on the toolbar that we added to
+the window. This should add a strange looking button to your toolbar.
+Now we are going to edit the toolbar buttons properties on the Widget
+tab. We'll set it's name to be "tbAddWine", it's label to be "Add
+Wine", and it's icon to be the stock add icon.</p>
+	<p><img style="margin: 10px;" src="./resources/pywine_02.png" alt="Python Glade" border="0"></p>
+	<p>Now
+we'll add a handler for the tbAddWine button's click event but this
+time instead of calling it the default "on_tbAddWine_clicked" we'll
+call the handler "on_AddWine".</p>
+	<h3>Adding to the Menu Bar</h3>
+	<p>Now
+we are going to work on the menu, since we want people to be able to
+add items from the taskbar button or from the Menu Bar. So click on the
+Menu Bar in the window and go to the Widget tab in the properties
+window. Then click on the "Edit Menus..." button to edit the Menu Bar.</p>
+	<p>Now
+click the Add button to add a new top level menu item, and sets it's
+label to be "_Add". Then select the Add item in the menu list and click
+the "Add Child" button, this will create a sub-menu withing the Add
+menu. Set the new items label to be "_Wine" and set it's handler to be:
+"on_AddWine".</p>
+	<p>You'll notice that the handled for the Add toolbar button clicked event and the <code>Add | Wine</code>
+menu activation are the same. This is because both of those two widgets
+will be performing the exact same task, adding a wine to our wine list.</p>
+	<p><a href="http://www.learningpython.com/images/pywine_01/pywine_03.png"><img style="margin: 10px;" src="./resources/small_pywine_03.png" alt="Python Glade Menu Editor" border="0"></a></p>
+	<p>So what's going to happen when the user clicks on the Add Wine button or selects <code>Add | Wine</code>
+from the menu, is a dialog will pop up allowing them to enter in
+details about the wine. If they choose the "Ok" button to end the
+dialog the wine information that they entered will be added to the
+ListView.</p>
+	<h3>Creating a dialog</h3>
+	<p>So the next thing that
+we need to do is create the dialog that the user will use to add a new
+wine. For this example we'll keep things pretty simple and let the user
+enter the wine name, the winery, the year it was bottled, and the grape
+variety.</p>
+	<p>So to create a new dialog simply click the Dialog
+button on the Glade Palette window. This should bring up the New Dialog
+window, in it choose the "Standard button layout" option with Cancel
+and Ok as the buttons. Now set the dialogs name to be "wineDlg" and
+it's window title to be "Add Wine".</p>
+	<p>Next we will use a table
+to lay things out in our wineDlg, add the table to your dialog (in the
+normal way that you add widgets to a window) and set the number or rows
+to be 4 and the number of columns to be 2. Then we'll fill in the
+spaces of the table with Label and Text Entry widgets until the dialog
+looks something like this:</p>
+	<p><img style="margin: 10px;" src="./resources/pywine_04.png" alt="Python Glade Menu Editor" border="0"></p>
+	<p>I
+added three pixels of spacing between the rows of the table, this
+setting can be found on the widget tab of the table's properties. If
+you are having trouble selecting the table you can select <code>View | Show Widget Tree</code>
+from the menu in the main Glade window and select the table in the
+widget tree. Or you can hold down the SIFT key and left click on the
+widgets in the table, this will allow you to cycle through the widgets
+on the dialog.</p>
+	<p>Now we are going to have to name all of the edit fields on the dialog, name then: enWine, enWinery, enGrape, and enYear.</p>
+	<h3>The Python Code</h3>
+	<p>Now
+we are going to take that code and get it working, we'll call our
+python file pywine.py and create it in our /projects/PyWine directory
+(the same directory where we created our glade files). The following is
+the basic code that we will use (most of it taken form the first <a href="http://www.learningpython.com/2006/05/07/creating-a-gui-using-pygtk-and-glade/">PyGTk/Glade tutorial</a>):</p>
+	<div class="hl-surround" style="height: 280px;"><div class="hl-main"><pre><span class="hl-comment">#!/usr/bin/env python
+
+</span><span class="hl-reserved">import </span><span class="hl-identifier">sys
+</span><span class="hl-reserved">try</span><span class="hl-default">:
+ 	</span><span class="hl-reserved">import </span><span class="hl-identifier">pygtk
+  	pygtk</span><span class="hl-default">.</span><span class="hl-identifier">require</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">2.0</span><span class="hl-quotes">"</span><span class="hl-brackets">)
+</span><span class="hl-reserved">except</span><span class="hl-default">:
+  	</span><span class="hl-reserved">pass
+try</span><span class="hl-default">:
+	</span><span class="hl-reserved">import </span><span class="hl-identifier">gtk
+  	</span><span class="hl-reserved">import </span><span class="hl-identifier">gtk</span><span class="hl-default">.</span><span class="hl-identifier">glade
+</span><span class="hl-reserved">except</span><span class="hl-default">:
+	</span><span class="hl-identifier">sys</span><span class="hl-default">.</span><span class="hl-identifier">exit</span><span class="hl-brackets">(</span><span class="hl-number">1</span><span class="hl-brackets">)
+
+</span><span class="hl-reserved">class </span><span class="hl-identifier">pyWine</span><span class="hl-default">:
+	</span><span class="hl-quotes">"""</span><span class="hl-string">This is the PyWine application</span><span class="hl-quotes">"""
+
+	</span><span class="hl-reserved">def </span><span class="hl-identifier">__init__</span><span class="hl-brackets">(</span><span class="hl-identifier">self</span><span class="hl-brackets">)</span><span class="hl-default">:
+		
+		</span><span class="hl-comment">#Set the Glade file
+		</span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">gladefile</span><span class="hl-default"> = </span><span class="hl-quotes">"</span><span class="hl-string">pywine.glade</span><span class="hl-quotes">"  
+		</span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">wTree</span><span class="hl-default"> = </span><span class="hl-identifier">gtk</span><span class="hl-default">.</span><span class="hl-identifier">glade</span><span class="hl-default">.</span><span class="hl-identifier">XML</span><span class="hl-brackets">(</span><span class="hl-identifier">self</span><span class="hl-code">.</span><span class="hl-identifier">gladefile</span><span class="hl-code">, </span><span class="hl-quotes">"</span><span class="hl-string">mainWindow</span><span class="hl-quotes">"</span><span class="hl-brackets">) 
+
+		</span><span class="hl-comment">#Create our dictionay and connect it
+		</span><span class="hl-identifier">dic</span><span class="hl-default"> = {</span><span class="hl-quotes">"</span><span class="hl-string">on_mainWindow_destroy</span><span class="hl-quotes">"</span><span class="hl-default"> : </span><span class="hl-identifier">gtk</span><span class="hl-default">.</span><span class="hl-identifier">main_quit</span><span class="hl-default">
+				, </span><span class="hl-quotes">"</span><span class="hl-string">on_AddWine</span><span class="hl-quotes">"</span><span class="hl-default"> : </span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">OnAddWine</span><span class="hl-default">}
+		</span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">wTree</span><span class="hl-default">.</span><span class="hl-identifier">signal_autoconnect</span><span class="hl-brackets">(</span><span class="hl-identifier">dic</span><span class="hl-brackets">)
+		
+	</span><span class="hl-reserved">def </span><span class="hl-identifier">OnAddWine</span><span class="hl-brackets">(</span><span class="hl-identifier">self</span><span class="hl-code">, </span><span class="hl-identifier">widget</span><span class="hl-brackets">)</span><span class="hl-default">:
+		</span><span class="hl-quotes">"""</span><span class="hl-string">Called when the use wants to add a wine</span><span class="hl-quotes">"""
+		
+		</span><span class="hl-reserved">print </span><span class="hl-quotes">"</span><span class="hl-string">OnAddWine</span><span class="hl-quotes">"
+
+</span><span class="hl-reserved">if </span><span class="hl-identifier">__name__</span><span class="hl-default"> == </span><span class="hl-quotes">"</span><span class="hl-string">__main__</span><span class="hl-quotes">"</span><span class="hl-default">:
+	</span><span class="hl-identifier">wine</span><span class="hl-default"> = </span><span class="hl-identifier">pyWine</span><span class="hl-brackets">()
+	</span><span class="hl-identifier">gtk</span><span class="hl-default">.</span><span class="hl-identifier">main</span><span class="hl-brackets">()</span></pre></div></div>
+	<p>There
+are a few new additions to this code, one is the handler for the
+on_AddWine signal, if you run this code you'll notice that "OnAddWine"
+will be printed out when you click the Add Wine button and when you
+select <code>Add | Wine</code> from the menu. The other new addition
+to the code is that we pass the name of the main window to
+gtk.glade.XML. This lets us load only that window and it's children.</p>
+	<p>The next thing that we are going to create is a Wine class that we will use to store the wines information:</p>
+	<div class="hl-surround"><div class="hl-main"><pre><span class="hl-reserved">class </span><span class="hl-identifier">Wine</span><span class="hl-default">:
+	</span><span class="hl-quotes">"""</span><span class="hl-string">This class represents all the wine information</span><span class="hl-quotes">"""
+	
+	</span><span class="hl-reserved">def </span><span class="hl-identifier">__init__</span><span class="hl-brackets">(</span><span class="hl-identifier">self</span><span class="hl-code">, </span><span class="hl-identifier">wine</span><span class="hl-code">=</span><span class="hl-quotes">""</span><span class="hl-code">, </span><span class="hl-identifier">winery</span><span class="hl-code">=</span><span class="hl-quotes">""</span><span class="hl-code">, </span><span class="hl-identifier">grape</span><span class="hl-code">=</span><span class="hl-quotes">""</span><span class="hl-code">, </span><span class="hl-identifier">year</span><span class="hl-code">=</span><span class="hl-quotes">""</span><span class="hl-brackets">)</span><span class="hl-default">:
+		
+		</span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">wine</span><span class="hl-default"> = </span><span class="hl-identifier">wine
+		self</span><span class="hl-default">.</span><span class="hl-identifier">winery</span><span class="hl-default"> = </span><span class="hl-identifier">winery
+		self</span><span class="hl-default">.</span><span class="hl-identifier">grape</span><span class="hl-default"> = </span><span class="hl-identifier">grape
+		self</span><span class="hl-default">.</span><span class="hl-identifier">year</span><span class="hl-default"> = </span><span class="hl-identifier">year</span></pre></div></div>
+	<p>Pretty
+simple, the next thing that we are going to create is a class that
+we'll use for our wineDlg dialog, we'll call it wineDialog:</p>
+	<div class="hl-surround"><div class="hl-main"><pre><span class="hl-reserved">class </span><span class="hl-identifier">wineDialog</span><span class="hl-default">:
+	</span><span class="hl-quotes">"""</span><span class="hl-string">This class is used to show wineDlg</span><span class="hl-quotes">"""
+	
+	</span><span class="hl-reserved">def </span><span class="hl-identifier">__init__</span><span class="hl-brackets">(</span><span class="hl-identifier">self</span><span class="hl-code">, </span><span class="hl-identifier">wine</span><span class="hl-code">=</span><span class="hl-quotes">""</span><span class="hl-code">, </span><span class="hl-identifier">winery</span><span class="hl-code">=</span><span class="hl-quotes">""</span><span class="hl-code">, </span><span class="hl-identifier">grape</span><span class="hl-code">=</span><span class="hl-quotes">""</span><span class="hl-code">, </span><span class="hl-identifier">year</span><span class="hl-code">=</span><span class="hl-quotes">""</span><span class="hl-brackets">)</span><span class="hl-default">:
+	
+		</span><span class="hl-comment">#setup the glade file
+		</span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">gladefile</span><span class="hl-default"> = </span><span class="hl-quotes">"</span><span class="hl-string">pywine.glade</span><span class="hl-quotes">"
+		</span><span class="hl-comment">#setup the wine that we will return
+		</span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">wine</span><span class="hl-default"> = </span><span class="hl-identifier">Wine</span><span class="hl-brackets">(</span><span class="hl-identifier">wine</span><span class="hl-code">,</span><span class="hl-identifier">winery</span><span class="hl-code">,</span><span class="hl-identifier">grape</span><span class="hl-code">,</span><span class="hl-identifier">year</span><span class="hl-brackets">)</span></pre></div></div>
+	<p>The
+next thing we need to do is add a function to our wineDialog class that
+will load the wineDialog widget from the glade file and show it. We
+will also want this function to return the result of the dialog, this
+will be a gtk.RESPONSE, you can read more about these at the <a href="http://www.pygtk.org/pygtk2reference/gtk-constants.html#gtk-response-type-constants">PyGTK website</a>.</p>
+	<p>Here is the run function:</p>
+	<div class="hl-surround" style="height: 280px;"><div class="hl-main"><pre><span class="hl-reserved">def </span><span class="hl-identifier">run</span><span class="hl-brackets">(</span><span class="hl-identifier">self</span><span class="hl-brackets">)</span><span class="hl-default">:
+	</span><span class="hl-quotes">"""</span><span class="hl-string">This function will show the wineDlg</span><span class="hl-quotes">"""	
+	
+	</span><span class="hl-comment">#load the dialog from the glade file	  
+	</span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">wTree</span><span class="hl-default"> = </span><span class="hl-identifier">gtk</span><span class="hl-default">.</span><span class="hl-identifier">glade</span><span class="hl-default">.</span><span class="hl-identifier">XML</span><span class="hl-brackets">(</span><span class="hl-identifier">self</span><span class="hl-code">.</span><span class="hl-identifier">gladefile</span><span class="hl-code">, </span><span class="hl-quotes">"</span><span class="hl-string">wineDlg</span><span class="hl-quotes">"</span><span class="hl-brackets">) 
+	</span><span class="hl-comment">#Get the actual dialog widget
+	</span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">dlg</span><span class="hl-default"> = </span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">wTree</span><span class="hl-default">.</span><span class="hl-identifier">get_widget</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">wineDlg</span><span class="hl-quotes">"</span><span class="hl-brackets">)
+	</span><span class="hl-comment">#Get all of the Entry Widgets and set their text
+	</span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">enWine</span><span class="hl-default"> = </span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">wTree</span><span class="hl-default">.</span><span class="hl-identifier">get_widget</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">enWine</span><span class="hl-quotes">"</span><span class="hl-brackets">)
+	</span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">enWine</span><span class="hl-default">.</span><span class="hl-identifier">set_text</span><span class="hl-brackets">(</span><span class="hl-identifier">self</span><span class="hl-code">.</span><span class="hl-identifier">wine</span><span class="hl-code">.</span><span class="hl-identifier">wine</span><span class="hl-brackets">)
+	</span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">enWinery</span><span class="hl-default"> = </span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">wTree</span><span class="hl-default">.</span><span class="hl-identifier">get_widget</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">enWinery</span><span class="hl-quotes">"</span><span class="hl-brackets">)
+	</span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">enWinery</span><span class="hl-default">.</span><span class="hl-identifier">set_text</span><span class="hl-brackets">(</span><span class="hl-identifier">self</span><span class="hl-code">.</span><span class="hl-identifier">wine</span><span class="hl-code">.</span><span class="hl-identifier">winery</span><span class="hl-brackets">)
+	</span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">enGrape</span><span class="hl-default"> = </span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">wTree</span><span class="hl-default">.</span><span class="hl-identifier">get_widget</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">enGrape</span><span class="hl-quotes">"</span><span class="hl-brackets">)
+	</span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">enGrape</span><span class="hl-default">.</span><span class="hl-identifier">set_text</span><span class="hl-brackets">(</span><span class="hl-identifier">self</span><span class="hl-code">.</span><span class="hl-identifier">wine</span><span class="hl-code">.</span><span class="hl-identifier">grape</span><span class="hl-brackets">)
+	</span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">enYear</span><span class="hl-default"> = </span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">wTree</span><span class="hl-default">.</span><span class="hl-identifier">get_widget</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">enYear</span><span class="hl-quotes">"</span><span class="hl-brackets">)
+	</span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">enYear</span><span class="hl-default">.</span><span class="hl-identifier">set_text</span><span class="hl-brackets">(</span><span class="hl-identifier">self</span><span class="hl-code">.</span><span class="hl-identifier">wine</span><span class="hl-code">.</span><span class="hl-identifier">year</span><span class="hl-brackets">)	
+
+	</span><span class="hl-comment">#run the dialog and store the response		
+	</span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">result</span><span class="hl-default"> = </span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">dlg</span><span class="hl-default">.</span><span class="hl-identifier">run</span><span class="hl-brackets">()
+	</span><span class="hl-comment">#get the value of the entry fields
+	</span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">wine</span><span class="hl-default">.</span><span class="hl-identifier">wine</span><span class="hl-default"> = </span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">enWine</span><span class="hl-default">.</span><span class="hl-identifier">get_text</span><span class="hl-brackets">()
+	</span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">wine</span><span class="hl-default">.</span><span class="hl-identifier">winery</span><span class="hl-default"> = </span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">enWinery</span><span class="hl-default">.</span><span class="hl-identifier">get_text</span><span class="hl-brackets">()
+	</span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">wine</span><span class="hl-default">.</span><span class="hl-identifier">grape</span><span class="hl-default"> = </span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">enGrape</span><span class="hl-default">.</span><span class="hl-identifier">get_text</span><span class="hl-brackets">()
+	</span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">wine</span><span class="hl-default">.</span><span class="hl-identifier">year</span><span class="hl-default"> = </span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">enYear</span><span class="hl-default">.</span><span class="hl-identifier">get_text</span><span class="hl-brackets">()
+	
+	</span><span class="hl-comment">#we are done with the dialog, destroy it
+	</span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">dlg</span><span class="hl-default">.</span><span class="hl-identifier">destroy</span><span class="hl-brackets">()
+	
+	</span><span class="hl-comment">#return the result and the wine
+	</span><span class="hl-reserved">return </span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">result</span><span class="hl-default">,</span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">wine</span></pre></div></div>
+	<p>You'll
+notice that we load the dialog form the glade file in the same way that
+we load the main window. We call gtk.glade.XML() and pass it the name
+of the widget that we want to load. This will automatically show the
+Dialog (in the same way that it does our main window) but that's not
+good enough for us, we want the run function to wait until the user has
+exited the dialog before we return to the caller. To do that we call
+get the dialog widget from the widget tree (<code>self.dlg = self.wTree.get_widget("wineDlg")</code>) and we call the <a href="http://www.pygtk.org/pygtk2reference/class-gtkdialog.html#method-gtkdialog--run">GTkDialogs run function</a>.  I'll let the PyGTk documentation describe what this function does:</p>
+	<blockquote><p>The
+run() method blocks in a recursive main loop until the dialog either
+emits the "response" signal, or is destroyed. If the dialog is
+destroyed, the run() method returns gtk.RESPONSE_NONE; otherwise, it
+returns the response ID from the "response" signal emission. Before
+entering the recursive main loop, the run() method calls the
+gtk.Widget.show() on the dialog for you. Note that you still need to
+show any children of the dialog yourself.</p>
+	<p>During the run()
+method, the default behavior of "delete_event" is disabled; if the
+dialog receives a "delete_event", it will not be destroyed as windows
+usually are, and the run() method will return
+gtk.RESPONSE_DELETE_EVENT. Also, during the run() method the dialog
+will be modal. You can force the run() method to return at any time by
+calling response() to emit the "response" signal. Destroying the dialog
+during the run() method is a very bad idea, because your post-run code
+won't know whether the dialog was destroyed or not.</p>
+	<p>After the run() method returns, you are responsible for hiding or destroying the dialog as needed.</p></blockquote>
+	<p>The
+Ok button will return gtk.RESPONSE_OK and the Cancel button will return
+gtk.RESPONSE_CANCEL, for the most part we only care about the wine that
+is returned by this dialog if the user clicks the Ok button.</p>
+	<p>You
+can also see that we get the GTKEntry widgets from the dialog in order
+to get and set their text. All-in-all this function is pretty simple.</p>
+	<h3>Tree Views and List Stores</h3>
+	<p>Now that we have the wine the the user wanted to add to the list we need actually add it to the <a href="http://www.pygtk.org/pygtk2reference/class-gtktreeview.html">gtk.TreeView</a>. </p>
+	<p>The main feature if CTKTreeViews is that they display their data in whatever way their model tells them to.  They can use a <a href="http://www.pygtk.org/pygtk2reference/class-gtkliststore.html">gkt.ListStore</a>, <a href="http://www.pygtk.org/pygtk2reference/class-gtktreestore.html">gtk.TreeStore</a>, <a href="http://www.pygtk.org/pygtk2reference/class-gtktreemodelsort.html">gtk.TreeModelSort</a>, or a <a href="http://www.pygtk.org/pygtk2reference/class-pygtkgenerictreemodel.html">gtk.GenericTreeModel</a>.  For this example we're going to be using a gtk.ListStore.</p>
+	<p>The
+relationships between Tree View's and Models is a bit complicated but
+once you start using it you'll begin to understand why they did it this
+way. In a very basic form the Model represents the Data, and the Tree
+View is simply a way to display the data. So you can have multiple
+views display the same data (model) in totally different ways. From the
+<a href="http://developer.gnome.org/doc/API/2.0/gtk/TreeWidget.html">GTk+ reference manual</a>:</p>
+	<blockquote><p>
+To create a tree or list in GTK+, use the GtkTreeModel interface in
+conjunction with the GtkTreeView widget. This widget is designed around
+a Model/View/Controller design and consists of four major parts:<br>
+The tree view widget (GtkTreeView)<br>
+The view column (GtkTreeViewColumn)<br>
+The cell renderers (GtkCellRenderer etc.)<br>
+The model interface (GtkTreeModel)</p>
+	<p>The
+View is composed of the first three objects, while the last is the
+Model. One of the prime benefits of the MVC design is that multiple
+views can be created of a single model. For example, a model mapping
+the file system could be created for a file manager. Many views could
+be created to display various parts of the file system, but only one
+copy need be kept in memory.</p></blockquote>
+	<p>The first thing we
+need to do is add some code to the __init__ function of the pyWine
+class right after we auto-connect the dictionary to the widget tree:</p>
+	<div class="hl-surround"><div class="hl-main"><pre><span class="hl-comment">#Here are some variables that can be reused later
+</span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">cWine</span><span class="hl-default"> = </span><span class="hl-number">0
+</span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">cWinery</span><span class="hl-default"> = </span><span class="hl-number">1
+</span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">cGrape</span><span class="hl-default"> = </span><span class="hl-number">2
+</span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">cYear</span><span class="hl-default"> = </span><span class="hl-number">3
+		
+</span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">sWine</span><span class="hl-default"> = </span><span class="hl-quotes">"</span><span class="hl-string">Wine</span><span class="hl-quotes">"
+</span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">sWinery</span><span class="hl-default"> = </span><span class="hl-quotes">"</span><span class="hl-string">Winery</span><span class="hl-quotes">"
+</span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">sGrape</span><span class="hl-default"> = </span><span class="hl-quotes">"</span><span class="hl-string">Grape</span><span class="hl-quotes">"
+</span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">sYear</span><span class="hl-default"> = </span><span class="hl-quotes">"</span><span class="hl-string">Year</span><span class="hl-quotes">"		
+				
+</span><span class="hl-comment">#Get the treeView from the widget Tree
+</span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">wineView</span><span class="hl-default"> = </span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">wTree</span><span class="hl-default">.</span><span class="hl-identifier">get_widget</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">wineView</span><span class="hl-quotes">"</span><span class="hl-brackets">)
+</span><span class="hl-comment">#Add all of the List Columns to the wineView
+</span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">AddWineListColumn</span><span class="hl-brackets">(</span><span class="hl-identifier">self</span><span class="hl-code">.</span><span class="hl-identifier">sWine</span><span class="hl-code">, </span><span class="hl-identifier">self</span><span class="hl-code">.</span><span class="hl-identifier">cWine</span><span class="hl-brackets">)
+</span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">AddWineListColumn</span><span class="hl-brackets">(</span><span class="hl-identifier">self</span><span class="hl-code">.</span><span class="hl-identifier">sWinery</span><span class="hl-code">, </span><span class="hl-identifier">self</span><span class="hl-code">.</span><span class="hl-identifier">cWinery</span><span class="hl-brackets">)
+</span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">AddWineListColumn</span><span class="hl-brackets">(</span><span class="hl-identifier">self</span><span class="hl-code">.</span><span class="hl-identifier">sGrape</span><span class="hl-code">, </span><span class="hl-identifier">self</span><span class="hl-code">.</span><span class="hl-identifier">cGrape</span><span class="hl-brackets">)
+</span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">AddWineListColumn</span><span class="hl-brackets">(</span><span class="hl-identifier">self</span><span class="hl-code">.</span><span class="hl-identifier">sYear</span><span class="hl-code">, </span><span class="hl-identifier">self</span><span class="hl-code">.</span><span class="hl-identifier">cYear</span><span class="hl-brackets">)</span></pre></div></div>
+	<p>This
+code is pretty straight forward, first we create a few variables that
+act as defines for us (so that we can easily change things around
+later) then we get our gtk.TreeView from the widget tree. After that we
+call a new function to add the columns that we need in the list.
+AddWineListColumn just a quick function that stops us from having to
+replicate the column create code each time:</p>
+	<p>[code language="python"]<br>
+def AddWineListColumn(self, title, columnId):<br>
+	"""This function adds a column to the list view.<br>
+	First it create the gtk.TreeViewColumn and then set<br>
+	some needed properties"""</p>
+	<p>	column = gtk.TreeViewColumn(title, gtk.CellRendererText()<br>
+		, text=columnId)<br>
+	column.set_resizable(True)<br>
+	column.set_sort_column_id(columnId)<br>
+	self.wineView.append_column(column)<br>
+[/code]</p>
+	<p>This code is a bit more complicated, first we create a new <a href="http://www.pygtk.org/pygtk2reference/class-gtktreeviewcolumn.html">gtk.TreeViewColumn</a> that uses a <a href="http://www.pygtk.org/pygtk2reference/class-gtkcellrenderertext.html">gtk.CellRendererText</a> as it's <a href="http://www.pygtk.org/pygtk2reference/class-gtkcellrenderer.html">gtk.CellRenderer</a>.  Here is a bit more general information from the <a href="http://developer.gnome.org/doc/API/2.0/gtk/TreeWidget.html">GTK+ reference manual</a>:</p>
+	<blockquote><p>
+Once the GtkTreeView widget has a model, it will need to know how to
+display the model. It does this with columns and cell renderers.</p>
+	<p>Cell
+renderers are used to draw the data in the tree model in a way. There
+are a number of cell renderers that come with GTK+ 2.x, including the
+GtkCellRendererText, GtkCellRendererPixbuf and the
+GtkCellRendererToggle. It is relatively easy to write a custom renderer.</p>
+	<p>A
+GtkTreeViewColumn is the object that GtkTreeView uses to organize the
+vertical columns in the tree view. It needs to know the name of the
+column to label for the user, what type of cell renderer to use, and
+which piece of data to retrieve from the model for a given row. </p></blockquote>
+	<p>So
+basically what we are doing is creating a column with a specific title,
+specifying that it will use the gtk.CellRendererText (to display simply
+text), and telling it which item in the model it is attached to. The we
+make it resizable and allow the user to sort the list by clicking on a
+columns header. After that all we do is add the column to the View.</p>
+	<p>Now that that's done we need to create our Model, we'll do this back in the __init__ function of the pyWine class:</p>
+	<div class="hl-surround"><div class="hl-main"><pre>#Create the listStore Model to use with the wineView
+self.wineList = gtk.ListStore(str, str, str, str)
+#Attatch the model to the treeView
+self.wineView.set_model(self.wineList)</pre></div></div>
+	<p>Basically
+we simply create a gtk.ListStore and tell it that it will have four
+items, all of which will be strings. Then we attach the model to the
+view and that's all the initialization that we need to do for out
+gtk.TreeView.</p>
+	<h3>Putting it all Together</h3>
+	<p>The last
+thing that we need to do is write the OnAddWine function (called from
+the menu or the toolbar button) in the pyWine class. It's a pretty
+simple function:</p>
+	<div class="hl-surround"><div class="hl-main"><pre><span class="hl-reserved">def </span><span class="hl-identifier">OnAddWine</span><span class="hl-brackets">(</span><span class="hl-identifier">self</span><span class="hl-code">, </span><span class="hl-identifier">widget</span><span class="hl-brackets">)</span><span class="hl-default">:
+	</span><span class="hl-quotes">"""</span><span class="hl-string">Called when the use wants to add a wine</span><span class="hl-quotes">"""
+	</span><span class="hl-comment">#Create the dialog, show it, and store the results
+	</span><span class="hl-identifier">wineDlg</span><span class="hl-default"> = </span><span class="hl-identifier">wineDialog</span><span class="hl-brackets">()</span><span class="hl-default">;		
+	</span><span class="hl-identifier">result</span><span class="hl-default">,</span><span class="hl-identifier">newWine</span><span class="hl-default"> = </span><span class="hl-identifier">wineDlg</span><span class="hl-default">.</span><span class="hl-identifier">run</span><span class="hl-brackets">()
+	
+	</span><span class="hl-identifier">if </span><span class="hl-brackets">(</span><span class="hl-identifier">result</span><span class="hl-code"> == </span><span class="hl-identifier">gtk</span><span class="hl-code">.</span><span class="hl-identifier">RESPONSE_OK</span><span class="hl-brackets">)</span><span class="hl-default">:
+		</span><span class="hl-quotes">"""</span><span class="hl-string">The user clicked Ok, so let's add this
+		wine to the wine list</span><span class="hl-quotes">"""
+		</span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">wineList</span><span class="hl-default">.</span><span class="hl-identifier">append</span><span class="hl-brackets">(</span><span class="hl-identifier">newWine</span><span class="hl-code">.</span><span class="hl-identifier">getList</span><span class="hl-brackets">())</span></pre></div></div>
+	<p>So
+we create an instance of our wineDialog and then we run it storing the
+result and the wine information that the user entered. Then we check to
+see if the result was gtk.RESPONSE_OK (the user clicked on the Ok
+button) and if it is we then add the wine information to our
+gtk.ListStore which will automatically be displayed in our gtk.TreeView
+since the two are connected.</p>
+	<p>We make use of the simple getList function in our wine class to make this slightly easier to read:</p>
+	<div class="hl-surround"><div class="hl-main"><pre><span class="hl-reserved">def </span><span class="hl-identifier">getList</span><span class="hl-brackets">(</span><span class="hl-identifier">self</span><span class="hl-brackets">)</span><span class="hl-default">:
+	</span><span class="hl-quotes">"""</span><span class="hl-string">This function returns a list made up of the 
+	wine information.  It is used to add a wine to the 
+	wineList easily</span><span class="hl-quotes">"""
+	</span><span class="hl-reserved">return </span><span class="hl-brackets">[</span><span class="hl-identifier">self</span><span class="hl-code">.</span><span class="hl-identifier">wine</span><span class="hl-code">, </span><span class="hl-identifier">self</span><span class="hl-code">.</span><span class="hl-identifier">winery</span><span class="hl-code">, </span><span class="hl-identifier">self</span><span class="hl-code">.</span><span class="hl-identifier">grape</span><span class="hl-code">, </span><span class="hl-identifier">self</span><span class="hl-code">.</span><span class="hl-identifier">year</span><span class="hl-brackets">]</span></pre></div></div>
+	<p><a href="http://www.learningpython.com/images/pywine_01/pywine_05.png"><img style="margin: 10px;" src="./resources/small_pywine_05.png" alt="Python PyGTK PyWine Glade" border="0"></a></p>
+	<p>That's
+about it for this sample application, granted it doesn't save any of
+the information or anything like that yet, but it does outline some of
+the initial steps to creating a full pyGTk application.</p>
+	<p>The full source and Glade file can be found <a href="./resources/PyWine.tar.gz">here</a> you can also browse the full source below:</p>
+	<div class="hl-surround" style="height: 280px;"><div class="hl-main"><pre><span class="hl-comment">#!/usr/bin/env python
+
+</span><span class="hl-reserved">import </span><span class="hl-identifier">sys
+</span><span class="hl-reserved">try</span><span class="hl-default">:
+ 	</span><span class="hl-reserved">import </span><span class="hl-identifier">pygtk
+  	pygtk</span><span class="hl-default">.</span><span class="hl-identifier">require</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">2.0</span><span class="hl-quotes">"</span><span class="hl-brackets">)
+</span><span class="hl-reserved">except</span><span class="hl-default">:
+  	</span><span class="hl-reserved">pass
+try</span><span class="hl-default">:
+	</span><span class="hl-reserved">import </span><span class="hl-identifier">gtk
+  	</span><span class="hl-reserved">import </span><span class="hl-identifier">gtk</span><span class="hl-default">.</span><span class="hl-identifier">glade
+</span><span class="hl-reserved">except</span><span class="hl-default">:
+	</span><span class="hl-identifier">sys</span><span class="hl-default">.</span><span class="hl-identifier">exit</span><span class="hl-brackets">(</span><span class="hl-number">1</span><span class="hl-brackets">)
+
+</span><span class="hl-reserved">class </span><span class="hl-identifier">pyWine</span><span class="hl-default">:
+	</span><span class="hl-quotes">"""</span><span class="hl-string">This is an Hello World GTK application</span><span class="hl-quotes">"""
+
+	</span><span class="hl-reserved">def </span><span class="hl-identifier">__init__</span><span class="hl-brackets">(</span><span class="hl-identifier">self</span><span class="hl-brackets">)</span><span class="hl-default">:
+			
+		</span><span class="hl-comment">#Set the Glade file
+		</span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">gladefile</span><span class="hl-default"> = </span><span class="hl-quotes">"</span><span class="hl-string">pywine.glade</span><span class="hl-quotes">"  
+		</span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">wTree</span><span class="hl-default"> = </span><span class="hl-identifier">gtk</span><span class="hl-default">.</span><span class="hl-identifier">glade</span><span class="hl-default">.</span><span class="hl-identifier">XML</span><span class="hl-brackets">(</span><span class="hl-identifier">self</span><span class="hl-code">.</span><span class="hl-identifier">gladefile</span><span class="hl-code">, </span><span class="hl-quotes">"</span><span class="hl-string">mainWindow</span><span class="hl-quotes">"</span><span class="hl-brackets">) 
+			
+		</span><span class="hl-comment">#Create our dictionay and connect it
+		</span><span class="hl-identifier">dic</span><span class="hl-default"> = {</span><span class="hl-quotes">"</span><span class="hl-string">on_mainWindow_destroy</span><span class="hl-quotes">"</span><span class="hl-default"> : </span><span class="hl-identifier">gtk</span><span class="hl-default">.</span><span class="hl-identifier">main_quit</span><span class="hl-default">
+				, </span><span class="hl-quotes">"</span><span class="hl-string">on_AddWine</span><span class="hl-quotes">"</span><span class="hl-default"> : </span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">OnAddWine</span><span class="hl-default">}
+		</span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">wTree</span><span class="hl-default">.</span><span class="hl-identifier">signal_autoconnect</span><span class="hl-brackets">(</span><span class="hl-identifier">dic</span><span class="hl-brackets">)
+		
+		</span><span class="hl-comment">#Here are some variables that can be reused later
+		</span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">cWine</span><span class="hl-default"> = </span><span class="hl-number">0
+		</span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">cWinery</span><span class="hl-default"> = </span><span class="hl-number">1
+		</span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">cGrape</span><span class="hl-default"> = </span><span class="hl-number">2
+		</span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">cYear</span><span class="hl-default"> = </span><span class="hl-number">3
+		
+		</span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">sWine</span><span class="hl-default"> = </span><span class="hl-quotes">"</span><span class="hl-string">Wine</span><span class="hl-quotes">"
+		</span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">sWinery</span><span class="hl-default"> = </span><span class="hl-quotes">"</span><span class="hl-string">Winery</span><span class="hl-quotes">"
+		</span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">sGrape</span><span class="hl-default"> = </span><span class="hl-quotes">"</span><span class="hl-string">Grape</span><span class="hl-quotes">"
+		</span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">sYear</span><span class="hl-default"> = </span><span class="hl-quotes">"</span><span class="hl-string">Year</span><span class="hl-quotes">"		
+				
+		</span><span class="hl-comment">#Get the treeView from the widget Tree
+		</span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">wineView</span><span class="hl-default"> = </span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">wTree</span><span class="hl-default">.</span><span class="hl-identifier">get_widget</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">wineView</span><span class="hl-quotes">"</span><span class="hl-brackets">)
+		</span><span class="hl-comment">#Add all of the List Columns to the wineView
+		</span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">AddWineListColumn</span><span class="hl-brackets">(</span><span class="hl-identifier">self</span><span class="hl-code">.</span><span class="hl-identifier">sWine</span><span class="hl-code">, </span><span class="hl-identifier">self</span><span class="hl-code">.</span><span class="hl-identifier">cWine</span><span class="hl-brackets">)
+		</span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">AddWineListColumn</span><span class="hl-brackets">(</span><span class="hl-identifier">self</span><span class="hl-code">.</span><span class="hl-identifier">sWinery</span><span class="hl-code">, </span><span class="hl-identifier">self</span><span class="hl-code">.</span><span class="hl-identifier">cWinery</span><span class="hl-brackets">)
+		</span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">AddWineListColumn</span><span class="hl-brackets">(</span><span class="hl-identifier">self</span><span class="hl-code">.</span><span class="hl-identifier">sGrape</span><span class="hl-code">, </span><span class="hl-identifier">self</span><span class="hl-code">.</span><span class="hl-identifier">cGrape</span><span class="hl-brackets">)
+		</span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">AddWineListColumn</span><span class="hl-brackets">(</span><span class="hl-identifier">self</span><span class="hl-code">.</span><span class="hl-identifier">sYear</span><span class="hl-code">, </span><span class="hl-identifier">self</span><span class="hl-code">.</span><span class="hl-identifier">cYear</span><span class="hl-brackets">)
+	
+		</span><span class="hl-comment">#Create the listStore Model to use with the wineView
+		</span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">wineList</span><span class="hl-default"> = </span><span class="hl-identifier">gtk</span><span class="hl-default">.</span><span class="hl-identifier">ListStore</span><span class="hl-brackets">(</span><span class="hl-identifier">str</span><span class="hl-code">, </span><span class="hl-identifier">str</span><span class="hl-code">, </span><span class="hl-identifier">str</span><span class="hl-code">, </span><span class="hl-identifier">str</span><span class="hl-brackets">)
+		</span><span class="hl-comment">#Attache the model to the treeView
+		</span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">wineView</span><span class="hl-default">.</span><span class="hl-identifier">set_model</span><span class="hl-brackets">(</span><span class="hl-identifier">self</span><span class="hl-code">.</span><span class="hl-identifier">wineList</span><span class="hl-brackets">)	
+		
+	</span><span class="hl-reserved">def </span><span class="hl-identifier">AddWineListColumn</span><span class="hl-brackets">(</span><span class="hl-identifier">self</span><span class="hl-code">, </span><span class="hl-identifier">title</span><span class="hl-code">, </span><span class="hl-identifier">columnId</span><span class="hl-brackets">)</span><span class="hl-default">:
+		</span><span class="hl-quotes">"""</span><span class="hl-string">This function adds a column to the list view.
+		First it create the gtk.TreeViewColumn and then set
+		some needed properties</span><span class="hl-quotes">"""
+						
+		</span><span class="hl-identifier">column</span><span class="hl-default"> = </span><span class="hl-identifier">gtk</span><span class="hl-default">.</span><span class="hl-identifier">TreeViewColumn</span><span class="hl-brackets">(</span><span class="hl-identifier">title</span><span class="hl-code">, </span><span class="hl-identifier">gtk</span><span class="hl-code">.</span><span class="hl-identifier">CellRendererText</span><span class="hl-brackets">()</span><span class="hl-code">
+			, </span><span class="hl-identifier">text</span><span class="hl-code">=</span><span class="hl-identifier">columnId</span><span class="hl-brackets">)
+		</span><span class="hl-identifier">column</span><span class="hl-default">.</span><span class="hl-identifier">set_resizable</span><span class="hl-brackets">(</span><span class="hl-reserved">True</span><span class="hl-brackets">)		
+		</span><span class="hl-identifier">column</span><span class="hl-default">.</span><span class="hl-identifier">set_sort_column_id</span><span class="hl-brackets">(</span><span class="hl-identifier">columnId</span><span class="hl-brackets">)
+		</span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">wineView</span><span class="hl-default">.</span><span class="hl-identifier">append_column</span><span class="hl-brackets">(</span><span class="hl-identifier">column</span><span class="hl-brackets">)
+		
+	</span><span class="hl-reserved">def </span><span class="hl-identifier">OnAddWine</span><span class="hl-brackets">(</span><span class="hl-identifier">self</span><span class="hl-code">, </span><span class="hl-identifier">widget</span><span class="hl-brackets">)</span><span class="hl-default">:
+		</span><span class="hl-quotes">"""</span><span class="hl-string">Called when the use wants to add a wine</span><span class="hl-quotes">"""
+		</span><span class="hl-comment">#Cteate the dialog, show it, and store the results
+		</span><span class="hl-identifier">wineDlg</span><span class="hl-default"> = </span><span class="hl-identifier">wineDialog</span><span class="hl-brackets">()</span><span class="hl-default">;		
+		</span><span class="hl-identifier">result</span><span class="hl-default">,</span><span class="hl-identifier">newWine</span><span class="hl-default"> = </span><span class="hl-identifier">wineDlg</span><span class="hl-default">.</span><span class="hl-identifier">run</span><span class="hl-brackets">()
+		
+		</span><span class="hl-identifier">if </span><span class="hl-brackets">(</span><span class="hl-identifier">result</span><span class="hl-code"> == </span><span class="hl-identifier">gtk</span><span class="hl-code">.</span><span class="hl-identifier">RESPONSE_OK</span><span class="hl-brackets">)</span><span class="hl-default">:
+			</span><span class="hl-quotes">"""</span><span class="hl-string">The user clicked Ok, so let's add this
+			wine to the wine list</span><span class="hl-quotes">"""
+			</span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">wineList</span><span class="hl-default">.</span><span class="hl-identifier">append</span><span class="hl-brackets">(</span><span class="hl-identifier">newWine</span><span class="hl-code">.</span><span class="hl-identifier">getList</span><span class="hl-brackets">())
+				
+</span><span class="hl-reserved">class </span><span class="hl-identifier">wineDialog</span><span class="hl-default">:
+	</span><span class="hl-quotes">"""</span><span class="hl-string">This class is used to show wineDlg</span><span class="hl-quotes">"""
+	
+	</span><span class="hl-reserved">def </span><span class="hl-identifier">__init__</span><span class="hl-brackets">(</span><span class="hl-identifier">self</span><span class="hl-code">, </span><span class="hl-identifier">wine</span><span class="hl-code">=</span><span class="hl-quotes">""</span><span class="hl-code">, </span><span class="hl-identifier">winery</span><span class="hl-code">=</span><span class="hl-quotes">""</span><span class="hl-code">, </span><span class="hl-identifier">grape</span><span class="hl-code">=</span><span class="hl-quotes">""</span><span class="hl-code">, </span><span class="hl-identifier">year</span><span class="hl-code">=</span><span class="hl-quotes">""</span><span class="hl-brackets">)</span><span class="hl-default">:
+	
+		</span><span class="hl-comment">#setup the glade file
+		</span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">gladefile</span><span class="hl-default"> = </span><span class="hl-quotes">"</span><span class="hl-string">pywine.glade</span><span class="hl-quotes">"
+		</span><span class="hl-comment">#setup the wine that we will return
+		</span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">wine</span><span class="hl-default"> = </span><span class="hl-identifier">Wine</span><span class="hl-brackets">(</span><span class="hl-identifier">wine</span><span class="hl-code">,</span><span class="hl-identifier">winery</span><span class="hl-code">,</span><span class="hl-identifier">grape</span><span class="hl-code">,</span><span class="hl-identifier">year</span><span class="hl-brackets">)
+		
+	</span><span class="hl-reserved">def </span><span class="hl-identifier">run</span><span class="hl-brackets">(</span><span class="hl-identifier">self</span><span class="hl-brackets">)</span><span class="hl-default">:
+		</span><span class="hl-quotes">"""</span><span class="hl-string">This function will show the wineDlg</span><span class="hl-quotes">"""	
+		
+		</span><span class="hl-comment">#load the dialog from the glade file	  
+		</span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">wTree</span><span class="hl-default"> = </span><span class="hl-identifier">gtk</span><span class="hl-default">.</span><span class="hl-identifier">glade</span><span class="hl-default">.</span><span class="hl-identifier">XML</span><span class="hl-brackets">(</span><span class="hl-identifier">self</span><span class="hl-code">.</span><span class="hl-identifier">gladefile</span><span class="hl-code">, </span><span class="hl-quotes">"</span><span class="hl-string">wineDlg</span><span class="hl-quotes">"</span><span class="hl-brackets">) 
+		</span><span class="hl-comment">#Get the actual dialog widget
+		</span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">dlg</span><span class="hl-default"> = </span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">wTree</span><span class="hl-default">.</span><span class="hl-identifier">get_widget</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">wineDlg</span><span class="hl-quotes">"</span><span class="hl-brackets">)
+		</span><span class="hl-comment">#Get all of the Entry Widgets and set their text
+		</span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">enWine</span><span class="hl-default"> = </span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">wTree</span><span class="hl-default">.</span><span class="hl-identifier">get_widget</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">enWine</span><span class="hl-quotes">"</span><span class="hl-brackets">)
+		</span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">enWine</span><span class="hl-default">.</span><span class="hl-identifier">set_text</span><span class="hl-brackets">(</span><span class="hl-identifier">self</span><span class="hl-code">.</span><span class="hl-identifier">wine</span><span class="hl-code">.</span><span class="hl-identifier">wine</span><span class="hl-brackets">)
+		</span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">enWinery</span><span class="hl-default"> = </span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">wTree</span><span class="hl-default">.</span><span class="hl-identifier">get_widget</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">enWinery</span><span class="hl-quotes">"</span><span class="hl-brackets">)
+		</span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">enWinery</span><span class="hl-default">.</span><span class="hl-identifier">set_text</span><span class="hl-brackets">(</span><span class="hl-identifier">self</span><span class="hl-code">.</span><span class="hl-identifier">wine</span><span class="hl-code">.</span><span class="hl-identifier">winery</span><span class="hl-brackets">)
+		</span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">enGrape</span><span class="hl-default"> = </span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">wTree</span><span class="hl-default">.</span><span class="hl-identifier">get_widget</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">enGrape</span><span class="hl-quotes">"</span><span class="hl-brackets">)
+		</span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">enGrape</span><span class="hl-default">.</span><span class="hl-identifier">set_text</span><span class="hl-brackets">(</span><span class="hl-identifier">self</span><span class="hl-code">.</span><span class="hl-identifier">wine</span><span class="hl-code">.</span><span class="hl-identifier">grape</span><span class="hl-brackets">)
+		</span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">enYear</span><span class="hl-default"> = </span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">wTree</span><span class="hl-default">.</span><span class="hl-identifier">get_widget</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">enYear</span><span class="hl-quotes">"</span><span class="hl-brackets">)
+		</span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">enYear</span><span class="hl-default">.</span><span class="hl-identifier">set_text</span><span class="hl-brackets">(</span><span class="hl-identifier">self</span><span class="hl-code">.</span><span class="hl-identifier">wine</span><span class="hl-code">.</span><span class="hl-identifier">year</span><span class="hl-brackets">)	
+	
+		</span><span class="hl-comment">#run the dialog and store the response		
+		</span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">result</span><span class="hl-default"> = </span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">dlg</span><span class="hl-default">.</span><span class="hl-identifier">run</span><span class="hl-brackets">()
+		</span><span class="hl-comment">#get the value of the entry fields
+		</span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">wine</span><span class="hl-default">.</span><span class="hl-identifier">wine</span><span class="hl-default"> = </span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">enWine</span><span class="hl-default">.</span><span class="hl-identifier">get_text</span><span class="hl-brackets">()
+		</span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">wine</span><span class="hl-default">.</span><span class="hl-identifier">winery</span><span class="hl-default"> = </span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">enWinery</span><span class="hl-default">.</span><span class="hl-identifier">get_text</span><span class="hl-brackets">()
+		</span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">wine</span><span class="hl-default">.</span><span class="hl-identifier">grape</span><span class="hl-default"> = </span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">enGrape</span><span class="hl-default">.</span><span class="hl-identifier">get_text</span><span class="hl-brackets">()
+		</span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">wine</span><span class="hl-default">.</span><span class="hl-identifier">year</span><span class="hl-default"> = </span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">enYear</span><span class="hl-default">.</span><span class="hl-identifier">get_text</span><span class="hl-brackets">()
+		
+		</span><span class="hl-comment">#we are done with the dialog, destory it
+		</span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">dlg</span><span class="hl-default">.</span><span class="hl-identifier">destroy</span><span class="hl-brackets">()
+		
+		</span><span class="hl-comment">#return the result and the wine
+		</span><span class="hl-reserved">return </span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">result</span><span class="hl-default">,</span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">wine
+		
+
+</span><span class="hl-reserved">class </span><span class="hl-identifier">Wine</span><span class="hl-default">:
+	</span><span class="hl-quotes">"""</span><span class="hl-string">This class represents all the wine information</span><span class="hl-quotes">"""
+	
+	</span><span class="hl-reserved">def </span><span class="hl-identifier">__init__</span><span class="hl-brackets">(</span><span class="hl-identifier">self</span><span class="hl-code">, </span><span class="hl-identifier">wine</span><span class="hl-code">=</span><span class="hl-quotes">""</span><span class="hl-code">, </span><span class="hl-identifier">winery</span><span class="hl-code">=</span><span class="hl-quotes">""</span><span class="hl-code">, </span><span class="hl-identifier">grape</span><span class="hl-code">=</span><span class="hl-quotes">""</span><span class="hl-code">, </span><span class="hl-identifier">year</span><span class="hl-code">=</span><span class="hl-quotes">""</span><span class="hl-brackets">)</span><span class="hl-default">:
+		
+		</span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">wine</span><span class="hl-default"> = </span><span class="hl-identifier">wine
+		self</span><span class="hl-default">.</span><span class="hl-identifier">winery</span><span class="hl-default"> = </span><span class="hl-identifier">winery
+		self</span><span class="hl-default">.</span><span class="hl-identifier">grape</span><span class="hl-default"> = </span><span class="hl-identifier">grape
+		self</span><span class="hl-default">.</span><span class="hl-identifier">year</span><span class="hl-default"> = </span><span class="hl-identifier">year
+		
+	</span><span class="hl-reserved">def </span><span class="hl-identifier">getList</span><span class="hl-brackets">(</span><span class="hl-identifier">self</span><span class="hl-brackets">)</span><span class="hl-default">:
+		</span><span class="hl-quotes">"""</span><span class="hl-string">This function returns a list made up of the 
+		wine information.  It is used to add a wine to the 
+		wineList easily</span><span class="hl-quotes">"""
+		</span><span class="hl-reserved">return </span><span class="hl-brackets">[</span><span class="hl-identifier">self</span><span class="hl-code">.</span><span class="hl-identifier">wine</span><span class="hl-code">, </span><span class="hl-identifier">self</span><span class="hl-code">.</span><span class="hl-identifier">winery</span><span class="hl-code">, </span><span class="hl-identifier">self</span><span class="hl-code">.</span><span class="hl-identifier">grape</span><span class="hl-code">, </span><span class="hl-identifier">self</span><span class="hl-code">.</span><span class="hl-identifier">year</span><span class="hl-brackets">]		
+		
+</span><span class="hl-reserved">if </span><span class="hl-identifier">__name__</span><span class="hl-default"> == </span><span class="hl-quotes">"</span><span class="hl-string">__main__</span><span class="hl-quotes">"</span><span class="hl-default">:
+	</span><span class="hl-identifier">wine</span><span class="hl-default"> = </span><span class="hl-identifier">pyWine</span><span class="hl-brackets">()
+	</span><span class="hl-identifier">gtk</span><span class="hl-default">.</span><span class="hl-identifier">main</span><span class="hl-brackets">()</span></pre></div></div>
+	
+				<br>
+		
+	</div>
+
+<div id="footer">
+	<p>
+<!--Creative Commons License--><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/2.5/"><img alt="Creative Commons License" src="./resources/somerights20.png" border="0"></a><br>This work is licensed under a <br><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/2.5/">Creative Commons Attribution-NonCommercial-ShareAlike 2.5 License</a>.<!--/Creative Commons License--><!-- <rdf:RDF xmlns="http://web.resource.org/cc/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+		<Work rdf:about="">
+			<license rdf:resource="http://creativecommons.org/licenses/by-nc-sa/2.5/" />
+	<dc:title>LearningPython</dc:title>
+	<dc:date>2006</dc:date>
+	<dc:description>one man's journey into python...a blog about learning pyhon</dc:description>
+	<dc:creator><Agent><dc:title>Mark Mruss</dc:title></Agent></dc:creator>
+	<dc:rights><Agent><dc:title>Mark Mruss</dc:title></Agent></dc:rights>
+	<dc:type rdf:resource="http://purl.org/dc/dcmitype/Text" />
+	<dc:source rdf:resource="http://www.learningpython.com" />
+		</Work>
+		<License rdf:about="http://creativecommons.org/licenses/by-nc-sa/2.5/"><permits rdf:resource="http://web.resource.org/cc/Reproduction"/><permits rdf:resource="http://web.resource.org/cc/Distribution"/><requires rdf:resource="http://web.resource.org/cc/Notice"/><requires rdf:resource="http://web.resource.org/cc/Attribution"/><prohibits rdf:resource="http://web.resource.org/cc/CommercialUse"/><permits rdf:resource="http://web.resource.org/cc/DerivativeWorks"/><requires rdf:resource="http://web.resource.org/cc/ShareAlike"/></License></rdf:RDF> -->
+	</p>
+</div>
+</div>
+</body></html>

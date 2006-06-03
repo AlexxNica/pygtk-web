@@ -1,5 +1,18 @@
 2006-06-03  Rafael Villar Burke  <pachi@mmn-arquitectos.com>
 
+	* articles/application-pygtk-glade/Building_an_Application_with_PyGTK_and_Glade.htm
+	* articles/application-pygtk-glade/resources/pywine_01.png
+	* articles/application-pygtk-glade/resources/pywine_02.png
+	* articles/application-pygtk-glade/resources/pywine_04.png
+	* articles/application-pygtk-glade/resources/PyWine.tar.gz
+	* articles/application-pygtk-glade/resources/small_pywine_03.png
+	* articles/application-pygtk-glade/resources/small_pywine_05.png
+	* articles/application-pygtk-glade/resources/somerights20.png
+	* articles/application-pygtk-glade/resources/style.css: new article by
+	Mark Mruss
+
+2006-06-03  Rafael Villar Burke  <pachi@mmn-arquitectos.com>
+
 	* applications.src: Add foff and gHDTV apps
 
 2006-05-29  Rafael Villar Burke  <pachi@mmn-arquitectos.com>
