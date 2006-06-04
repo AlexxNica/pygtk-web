@@ -14,9 +14,9 @@ item = lambda *x: items.append(x)
 #      "INSERT AUTHOR HERE")
 
 # http://news.gmane.org/gmane.comp.gnome.gtk%2B.python/
-item("New article - Creating a GUI using PyGTK and Glade",
+item("New article - Building an application with PyGTK and Glade",
      (2006, 6, 3), """<a
-     href="">
+     href="http://www.learningpython.com/2006/05/30/building-an-application-with-pygtk-and-glade/">
      This new article</a> by Mark Mruss explains how to build a simple application using glade
      and PyGTK, and expands on the basics explained in the previous <a
      href="http://www.learningpython.com/2006/05/07/creating-a-gui-using-pygtk-and-glade/">
