@@ -8,8 +8,9 @@ PyGTK provides <b>a convenient wrapper</b> for the <a
 href="http://gtk.org/">GTK+ library</a> for use in <a
 href="http://python.org/">Python</a> programs, taking care of many of
 the boring details such as managing memory and type casting.  When
-combined with PyORBit and gnome-python, it can be used to write full
-featured Gnome applications.
+combined with the PyORBit, gnome-python, gnome-python-desktop or
+gnome-python-extras modules, it can be used to write full featured Gnome
+applications.
 </p>
 <p>
 GTK+ is a GUI toolkit for <b>developing graphical applications</b> that
