@@ -1,3 +1,8 @@
+2006-06-12  Rafael Villar Burke  <pachi@mmn-arquitectos.com>
+
+	* downloads.src: Add gnome-python-desktop, gnome-python-extras
+	and change layout to keep old versions section at the end
+
 2006-06-04  Rafael Villar Burke  <pachi@mmn-arquitectos.com>
 
 	* newsitems.py: Write correct article entry

@@ -18,34 +18,19 @@ is available from the following website:</p>
   <li><a href="http://ftp.gnome.org/pub/GNOME/sources/pygtk/2.8/">http://ftp.gnome.org/pub/GNOME/sources/pygtk/2.8/</a></li>
 </ul>
 
-<h3>Older versions (GTK+ 2.0.x, 1.x)</h3>
-
-<p>The latest version of PyGTK for GTK+ 2.0.x can be found at the
-following site:</p>
-
-<ul>
-  <li><a href="http://ftp.gnome.org/pub/GNOME/sources/pygtk/2.0/">http://ftp.gnome.org/pub/GNOME/sources/pygtk/2.0/</a></li>
-</ul>
-
-<p>The latest version of PyGTK for GTK+ 1.2.x can be found at the
-following site:</p>
-
-<ul>
-  <li><a href="ftp://ftp.gtk.org/pub/gtk/python/v1.2/">ftp://ftp.gtk.org/pub/gtk/python/v1.2/</a></li>
-</ul>
-
-<p>If you are writing a new program, it is strongly recommended that
-you use the latest GTK+ 2.x version of PyGTK instead.</p>
-
-<h3>GNOME dependencies</h3>
+<h3>GNOME bindings (gnome-python, gnome-python-desktop
+    and gnome-python-extras)</h3>
 
 <p>If you want to make use of the Gnome libraries in your application,
-you will also need to install the PyORBit and gnome-python packages.
+you will also need to install some other packages, such as the PyORBit,
+gnome-python, gnome-python-desktop or gnome-python-extras packages.
 They are available from the Gnome FTP site and its mirrors:</p>
 
 <ul>
   <li><a href="http://ftp.gnome.org/pub/GNOME/sources/pyorbit/">http://ftp.gnome.org/pub/GNOME/sources/pyorbit/</a></li>
   <li><a href="http://ftp.gnome.org/pub/GNOME/sources/gnome-python/">http://ftp.gnome.org/pub/GNOME/sources/gnome-python/</a></li>
+  <li><a href="http://ftp.gnome.org/pub/GNOME/sources/gnome-python-desktop/">http://ftp.gnome.org/pub/GNOME/sources/gnome-python-desktop/</a></li>
+  <li><a href="http://ftp.gnome.org/pub/GNOME/sources/gnome-python-extras/">http://ftp.gnome.org/pub/GNOME/sources/gnome-python-extras/</a></li>
 </ul>
 
 <h3>Windows (Win32) Port</h3>
@@ -66,6 +51,26 @@ get the module <code>gnome-python</code>. More information on accessing
 and using GNOME's CVS server is <a
 href="http://developer.gnome.org/tools/cvs.html">available at the Gnome
 developer site</a>.</p>
+
+<h3>Older PyGTK versions (GTK+ 2.0.x, 1.x)</h3>
+
+<p>The latest version of PyGTK for GTK+ 2.0.x can be found at the
+following site:</p>
+
+<ul>
+  <li><a href="http://ftp.gnome.org/pub/GNOME/sources/pygtk/2.0/">http://ftp.gnome.org/pub/GNOME/sources/pygtk/2.0/</a></li>
+</ul>
+
+<p>The latest version of PyGTK for GTK+ 1.2.x can be found at the
+following site:</p>
+
+<ul>
+  <li><a href="ftp://ftp.gtk.org/pub/gtk/python/v1.2/">ftp://ftp.gtk.org/pub/gtk/python/v1.2/</a></li>
+</ul>
+
+<p>Anyhow, if you are writing a new program, it is strongly recommended that
+you use the latest GTK+ 2.x version of PyGTK instead.</p>
+
 
 </div>
 
