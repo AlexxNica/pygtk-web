@@ -1,5 +1,9 @@
 2006-06-12  Rafael Villar Burke  <pachi@mmn-arquitectos.com>
 
+	* applications.src: Add kefir (tepache fork)
+
+2006-06-12  Rafael Villar Burke  <pachi@mmn-arquitectos.com>
+
 	* downloads.src: Add gnome-python-desktop, gnome-python-extras
 	and change layout to keep old versions section at the end
 
