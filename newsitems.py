@@ -14,31 +14,33 @@ item = lambda *x: items.append(x)
 #      "INSERT AUTHOR HERE")
 
 # http://news.gmane.org/gmane.comp.gnome.gtk%2B.python/
-item("Version 2.9.0 of the PyGTK Reference released", (2006, 7, 6), """ A
+item("Version 2.9.0 of the PyGTK Reference released", (2006, 7, 6), """ <p>A
      new version (2.9.0) of the <a
      href="http://www.pygtk.org/pygtk2reference/index.html">PyGTK
      Reference</a> is available. This release adds documentation on: the high
      level printing classes and the gtk.unixprint and atk module classes.
-     Other class additions include:
-     * gtk.Assistant
-     * gtk.CellRendererAccel
-     * gtk.CellRendererSpin
-     * gtk.LinkButton
-     * gtk.PageSetup
-     * gtk.PaperSize
-     * gtk.PrintContext
-     * gtk.PrintOperation
-     * gtk.PrintOperationPreview
-     * gtk.PrintSettings
-     * gtk.RecentChooserDialog
-     * gtk.RecentChooserMenu
-     * gtk.RecentChooserWidget
-     * gtk.RecentChooser
-     * gtk.RecentFilter
-     * gtk.RecentInfo
-     * gtk.RecentManager
-     * gtk.StatusIcon
-     Finally links to ancestor properties and signal prototypes have been
+     Other class additions include:</p>
+<ul>
+     <li>gtk.Assistant</li>
+     <li>gtk.CellRendererAccel</li>
+     <li>gtk.CellRendererSpin</li>
+     <li>gtk.LinkButton</li>
+     <li>gtk.PageSetup</li>
+     <li>gtk.PaperSize</li>
+     <li>gtk.PrintContext</li>
+     <li>gtk.PrintOperation</li>
+     <li>gtk.PrintOperationPreview</li>
+     <li>gtk.PrintSettings</li>
+     <li>gtk.RecentChooserDialog</li>
+     <li>gtk.RecentChooserMenu</li>
+     <li>gtk.RecentChooserWidget</li>
+     <li>gtk.RecentChooser</li>
+     <li>gtk.RecentFilter</li>
+     <li>gtk.RecentInfo</li>
+     <li>gtk.RecentManager</li>
+     <li>gtk.StatusIcon</li>
+</ul>
+     <p>Finally links to ancestor properties and signal prototypes have been
      added to the class descriptions.""", 'John Finlay')
 
 item("New article - Building an application with PyGTK and Glade",
