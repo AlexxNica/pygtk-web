@@ -53,7 +53,7 @@ all: start_log pages tarballs finish_log
 
 pages: dirs news.rss ${HTML_PAGES} extras 
 
-dirs: ${WEBDIR} ${IMGDIR} ${DISTDIR} ${ARTICLEDIR}
+dirs: ${WEBDIR} ${IMGDIR} ${DISTDIR} ${ARTICLEDIR} ${REFDISTDIR}
 
 start_log:
 	echo 'Starting to build the PyGTK web'
