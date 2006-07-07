@@ -1,15 +1,21 @@
 WEBDIR ?= ${HOME}/www/pygtk-web
 IMGDIR = ${WEBDIR}/img
 DISTDIR = ${WEBDIR}/dist
+REFDISTDIR = ${DISTDIR}/reference-tarballs
 ARTICLEDIR = ${WEBDIR}/articles
 
 PYTHON = python2.2
 PROCESSOR = ${PYTHON} stp.py
 
 WGET = wget
+REFTARBALLS = \
+	http://www.moeraki.com/pygtkreference/tarballs/pygtk2reference-2.8.1.tgz \
+	http://www.moeraki.com/pygtkreference/tarballs/pygtk2reference-2.8.1.tbz2 \
+	http://www.moeraki.com/pygtkreference/tarballs/pygtk2reference-2.9.0.tgz \
+	http://www.moeraki.com/pygtkreference/tarballs/pygtk2reference-2.9.0.tbz2
+
 TARBALLS = 								\
 	http://www.moeraki.com/pygtkreference/pygtk2reference.tgz 	\
-	http://www.moeraki.com/pygtkreference/pygtk2reference.tbz2 	\
 	http://www.moeraki.com/pygtktutorial/pygtk2tutorial.tgz 	\
 	http://www.moeraki.com/pygtktutorial/pygtktutorial.tgz 		\
 	http://www.moeraki.com/pygtktutorial/pygtk2-tut.pdf 		\
@@ -64,6 +70,9 @@ ${IMGDIR}:
 ${DISTDIR}:
 	mkdir -p ${DISTDIR}
 
+${REFDISTDIR}:
+	mkdir -p ${REFDISTDIR}
+
 ${ARTICLEDIR}:
 	mkdir -p ${ARTICLEDIR}
 
@@ -86,11 +95,14 @@ remote-tarballs:
 	-(cd ${DISTDIR}; ${WGET} -KN ${TARBALLS})
 	(cd ${WEBDIR}; for f in ${DISTDIR}/*.tgz; do tar xzf $$f; done)
 
+reference-tarballs:
+	-(cd ${REFDISTDIR}; ${WGET} -KN ${REFTARBALLS})
+
 local-tarballs:
 	cp ${LOCAL_TARBALLS} ${DISTDIR}
 	(srcdir=`pwd`; cd ${WEBDIR}; for f in ${LOCAL_TARBALLS}; do bzip2 -dc $${srcdir}/$$f | tar x; done)
 
-tarballs: local-tarballs remote-tarballs
+tarballs: local-tarballs remote-tarballs reference-tarballs
 
 clean:
 	rm -f ${HTML_PAGES}

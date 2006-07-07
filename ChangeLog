@@ -1,3 +1,13 @@
+2006-07-06  John Finlay  <finlay@moeraki.com>
+
+	* newsitems.py: 2.9.0 reference released.
+
+	* Makefile (REFTARBALLS): Arrange for reference tarballs to be in
+	own directory since they are numbered.
+
+	* reference.src: Reference tarballs now in the dist/reference-tarballs
+	directory.
+
 2006-06-12  Rafael Villar Burke  <pachi@mmn-arquitectos.com>
 
 	* about.src: Add all gnome modules and clarify a bit
