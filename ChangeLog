@@ -1,3 +1,7 @@
+2006-07-28  Christian Reis  <kiko@async.com.br>
+
+	* applications.src: Add GFCE Ultra.
+
 2006-07-06  John Finlay  <finlay@moeraki.com>
 
 	* newsitems.py: 2.9.0 reference released.
