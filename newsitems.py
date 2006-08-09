@@ -14,6 +14,12 @@ item = lambda *x: items.append(x)
 #      "INSERT AUTHOR HERE")
 
 # http://news.gmane.org/gmane.comp.gnome.gtk%2B.python/
+item("New article - Writing a custom widget using PyGTK", (2006, 6, 3),
+     """Mark Mruss comes back again with an interesting <a
+     href="http://www.learningpython.com/2006/07/25/writing-a-custom-widget-using-pygtk/">
+     article</a> on how to easily write a star rating widget
+     using PyGTK.""", 'Rafael Villar Burke')
+
 item("Version 2.9.0 of the PyGTK Reference released", (2006, 7, 6), """ <p>A
      new version (2.9.0) of the <a
      href="http://www.pygtk.org/pygtk2reference/index.html">PyGTK

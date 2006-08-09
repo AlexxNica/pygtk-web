@@ -16,6 +16,13 @@
 
   <tbody>
     <tr>
+      <td>Jul 2006</td>
+      <td><a href="http://www.learningpython.com/2006/07/25/writing-a-custom-widget-using-pygtk/">Writing a custom widget using pygtk</a><br>
+          <a href="./articles/writing-a-custom-widget-using-pygtk/writing-a-custom-widget-using-pygtk.htm">Local copy</a>
+      <td>Mark Mruss</td>
+    </tr>
+
+    <tr>
       <td>Jun 2006</td>
       <td><a href="http://www.learningpython.com/2006/05/30/building-an-application-with-pygtk-and-glade/">Building an application with PyGTK and Glade</a><br>
           <a href="./articles/application-pygtk-glade/Building_an_Application_with_PyGTK_and_Glade.htm">Local copy</a>
