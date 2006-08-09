@@ -1,0 +1,1614 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head profile="http://gmpg.org/xfn/11">
+  <meta http-equiv="Content-Type" content=
+  "text/html; charset=iso-8859-15" />
+
+  <title>Writing a Custom Widget Using PyGTK</title>
+  <link rel="stylesheet" href="./resources/style.css" type=
+  "text/css" media="screen" />
+</head>
+
+<body>
+  <div id="content" class="widecolumn">
+    <div class="post" id="post-28">
+      <h2><a href=
+      "http://www.learningpython.com/2006/07/25/writing-a-custom-widget-using-pygtk/"
+      rel="bookmark" title=
+      "Permanent Link: Writing a Custom Widget Using PyGTK">Writing
+      a Custom Widget Using PyGTK</a></h2>
+
+      <p><small>Article by Mark Mruss, originally posted on
+      <a href="http://www.learningpython.com/2006/07/25/writing-a-custom-widget-using-pygtk/">
+      www.learningpython.com</a></small></p>
+
+      <div class="entrytext">
+        <p>One of the things that I wanted to add to my simple
+        PyWine application was an easy way for people to rate their
+        wine. There were lots of different ways to do it but since
+        I was looking for a tutorial to write I decided that I
+        wanted to do it the way that you rate songs in iTunes. If
+        you've never used iTunes before, you can rate songs on a
+        sliding scale from zero to five using stars. It basically
+        functions like a slider or a Horizontal Scale except that
+        when drawing it's not a line, it's a row of stars.</p>
+
+        <p><img style="margin: 0pt 10px 10px 0pt;" src="./resources/iTunesStars.png"
+        alt="Python PyGTK Windows" border="0" /></p>
+
+        <p>The full source for this tutorial can be downloaded
+        <a href="./resources/starhscale.tar.gz">here</a>.</p>
+
+        <p>The three the most useful links that I found on this
+        subject were: <a href=
+        "http://www.oluyede.org/blog/2005/04/25/pygtk-entrymulticompletion/">
+        A song for the lovers</a>, the <a href=
+        "http://www.pygtk.org/articles/cairo-pygtk-widgets/cairo-pygtk-widgets.htm">
+        writing a widget</a> turotial on the PyGTK website, and the
+        <a href=
+        "http://cvs.gnome.org/viewcvs/pygtk/examples/gtk/widget.py?rev=1.12&amp;view=markup">
+        widget.py</a> example in the PyGTK cvs.</p>
+
+        <p>The skeleton of the following code will be mostly based
+        off of the <a href=
+        "http://cvs.gnome.org/viewcvs/pygtk/examples/gtk/widget.py?rev=1.12&amp;view=markup">
+        widget.py</a> example, but since this example will try to
+        accomplish a bit more there will be some extra code. In
+        order to understand this tutorial better I suggest you give
+        <a href=
+        "http://cvs.gnome.org/viewcvs/pygtk/examples/gtk/widget.py?rev=1.12&amp;view=markup">
+        widget.py</a> a couple of reads.</p>
+
+        <p>The starting point is a file names starhscale.py which
+        starts off with some rather standard python stuff:</p>
+
+        <div class="hl-surround">
+          <div class="hl-main">
+            <pre>
+<span class="hl-comment">#!/usr/bin/env python
+
+</span><span class="hl-reserved">try</span><span class=
+"hl-default">:
+        </span><span class="hl-reserved">import </span><span class=
+"hl-identifier">gtk
+        </span><span class="hl-reserved">import </span><span class=
+"hl-identifier">gobject
+        </span><span class="hl-reserved">from </span><span class=
+"hl-identifier">gtk </span><span class=
+"hl-reserved">import </span><span class="hl-identifier">gdk
+</span><span class="hl-reserved">except</span><span class=
+"hl-default">:
+        </span><span class="hl-reserved">raise SystemExit
+
+import </span><span class="hl-identifier">pygtk
+</span><span class="hl-reserved">if </span><span class=
+"hl-identifier">gtk</span><span class=
+"hl-default">.</span><span class=
+"hl-identifier">pygtk_version</span><span class=
+"hl-default"> &lt; </span><span class=
+"hl-brackets">(</span><span class="hl-number">2</span><span class=
+"hl-code">, </span><span class="hl-number">0</span><span class=
+"hl-brackets">)</span><span class="hl-default">:
+        </span><span class="hl-reserved">print </span><span class=
+"hl-quotes">"</span><span class=
+"hl-string">PyGtk 2.0 or later required for this widget</span><span class="hl-quotes">"
+        </span><span class="hl-reserved">raise SystemExit</span>
+</pre>
+          </div>
+        </div><br />
+        <a id="more-28"></a><br />
+        Not too much surprising there, now it's time to create and
+        initialize our class, we'll call it StarHScale:
+
+        <div class="hl-surround">
+          <div class="hl-main">
+            <pre>
+<span class="hl-reserved">class </span><span class=
+"hl-identifier">StarHScale</span><span class=
+"hl-brackets">(</span><span class=
+"hl-identifier">gtk</span><span class=
+"hl-code">.</span><span class="hl-identifier">Widget</span><span class="hl-brackets">)</span><span class="hl-default">:
+        </span><span class="hl-quotes">"""</span><span class=
+"hl-string">A horizontal Scale Widget that attempts to mimic the star
+        rating scheme used in iTunes</span><span class=
+"hl-quotes">"""
+
+        </span><span class="hl-reserved">def </span><span class=
+"hl-identifier">__init__</span><span class=
+"hl-brackets">(</span><span class=
+"hl-identifier">self</span><span class=
+"hl-code">, </span><span class=
+"hl-identifier">max_stars</span><span class=
+"hl-code">=</span><span class="hl-number">5</span><span class=
+"hl-code">, </span><span class=
+"hl-identifier">stars</span><span class=
+"hl-code">=</span><span class="hl-number">0</span><span class=
+"hl-brackets">)</span><span class="hl-default">:
+                </span><span class=
+"hl-quotes">"""</span><span class=
+"hl-string">Initialization, numstars is the total number
+                of stars that may be visible, and stars is the current
+                number of stars to draw</span><span class=
+"hl-quotes">"""
+
+                </span><span class=
+"hl-comment">#Initialize the Widget
+                </span><span class=
+"hl-identifier">gtk</span><span class=
+"hl-default">.</span><span class=
+"hl-identifier">Widget</span><span class=
+"hl-default">.</span><span class=
+"hl-identifier">__init__</span><span class=
+"hl-brackets">(</span><span class=
+"hl-identifier">self</span><span class="hl-brackets">)
+
+                </span><span class=
+"hl-identifier">self</span><span class=
+"hl-default">.</span><span class=
+"hl-identifier">max_stars</span><span class=
+"hl-default"> = </span><span class="hl-identifier">max_stars
+                self</span><span class=
+"hl-default">.</span><span class=
+"hl-identifier">stars</span><span class=
+"hl-default"> = </span><span class="hl-identifier">stars
+
+                </span><span class=
+"hl-comment"># Init the list to blank
+                </span><span class=
+"hl-identifier">self</span><span class=
+"hl-default">.</span><span class=
+"hl-identifier">sizes</span><span class=
+"hl-default"> = </span><span class="hl-brackets">[]
+                </span><span class=
+"hl-reserved">for </span><span class=
+"hl-identifier">count </span><span class=
+"hl-reserved">in </span><span class=
+"hl-builtin">range</span><span class=
+"hl-brackets">(</span><span class="hl-number">0</span><span class=
+"hl-code">,</span><span class=
+"hl-identifier">self</span><span class=
+"hl-code">.</span><span class=
+"hl-identifier">max_stars</span><span class=
+"hl-brackets">)</span><span class="hl-default">:
+                        </span><span class=
+"hl-identifier">self</span><span class=
+"hl-default">.</span><span class=
+"hl-identifier">sizes</span><span class=
+"hl-default">.</span><span class=
+"hl-identifier">append</span><span class=
+"hl-brackets">((</span><span class=
+"hl-identifier">count</span><span class=
+"hl-code"> * </span><span class=
+"hl-identifier">PIXMAP_SIZE</span><span class=
+"hl-brackets">)</span><span class="hl-code"> + </span><span class=
+"hl-identifier">BORDER_WIDTH</span><span class=
+"hl-brackets">)</span>
+</pre>
+          </div>
+        </div>
+
+        <p>So what's happening here? Well the first thing you see
+        is the definition of our StarHScale widget that is a
+        subclass of <a href=
+        "http://www.pygtk.org/pygtk2reference/class-gtkwidget">gtk.Widget</a>,
+        which is the base class for all widgets in PyGTK. Then we
+        have a rather simple __init__ routine where we set some
+        parameters (the max number of stars to show and the current
+        number of stars to show) and initialize the parent
+        class.</p>
+
+        <p>You'll also notice that at the end of the function there
+        is a list created, this list maps the X (horizontal)
+        position of each star. It might not make much sense now,
+        but it will become clear when you see how it is used.
+        PIXMAP_SIZE and BORDER_WIDTH are "globals" that are defined
+        outside of the StarHScale class as follows:</p>
+
+        <div class="hl-surround">
+          <div class="hl-main">
+            <pre>
+<span class="hl-identifier">BORDER_WIDTH</span><span class=
+"hl-default"> = </span><span class="hl-number">5
+</span><span class="hl-identifier">PIXMAP_SIZE</span><span class=
+"hl-default"> = </span><span class="hl-number">22</span>
+</pre>
+          </div>
+        </div>
+
+        <p>The next function we will write is the do_realize()
+        function. The do_realize() function is related to the
+        <a href=
+        "http://www.pygtk.org/pygtk2reference/class-gtkwidget.html#method-gtkwidget--realize">
+        gtk.Widget.realize()</a> function and is called when a
+        widget is supposed to allocate its GDK windowing
+        resources.</p>
+
+        <p>It may seem a bit complicated, but the do_realize()
+        function is simply where widgets create their GDK windows
+        resources (most probably a <a href=
+        "http://www.pygtk.org/pygtk2reference/class-gdkwindow.html">
+        gtk.gdk.Window</a>) where the widget will eventually be
+        drawn to). In order to fully understand this it may be
+        helpful to understand what a gtk.gdk.Window is, here is an
+        explanation from the <a href=
+        "http://www.pygtk.org/pygtk2reference/class-gdkwindow.html">
+        PyGTK documentation</a>:</p>
+
+        <blockquote>
+          <p>gtk.gdk.Window is a rectangular region on the screen.
+          It's a low-level object, used to implement high-level
+          objects such as gtk.Widget and gtk.Window. A gtk.Window
+          is a toplevel window, the object a user might think of as
+          a "window" with a titlebar and so on. A gtk.Window may
+          contain several gtk.gdk.Window objects since most widgets
+          use a gtk.gdk.Window.</p>
+
+          <p>A gtk.gdk.Window object interacts with the native
+          window system for input and events. Some gtk.Widget
+          objects do not have an associated gtk.gdk.Window and
+          therefore cannot receive events. To receive events on
+          behalf of these "windowless" widgets a gtk.EventBox must
+          be used.</p>
+        </blockquote>
+
+        <p>So a gtk.gdk.Window is not a "window" as we normally
+        think of one, it's basically a rectangular region on the
+        screen that will be used for "drawing" of some sort. So for
+        our StarHScale widget, it's <a href=
+        "http://www.pygtk.org/pygtk2reference/class-gdkwindow.html">
+        gtk.gdk.Window</a> will be the area where the stars will be
+        drawn. If you have done programming with other toolkits or
+        other languages it may be helpful to think of this as the
+        "surface" that the widget draws on. Much of the
+        do_realize() code is taken from the <a href=
+        "http://cvs.gnome.org/viewcvs/pygtk/examples/gtk/widget.py?rev=1.12&amp;view=markup">
+        widget.py</a> example:</p>
+
+        <div class="hl-surround" style="height: 280px;">
+          <div class="hl-main">
+            <pre>
+<span class="hl-reserved">def </span><span class=
+"hl-identifier">do_realize</span><span class=
+"hl-brackets">(</span><span class=
+"hl-identifier">self</span><span class=
+"hl-brackets">)</span><span class="hl-default">:
+        </span><span class="hl-quotes">"""</span><span class=
+"hl-string">Called when the widget should create all of its
+        windowing resources.  We will create our gtk.gdk.Window
+        and load our star pixmap.</span><span class="hl-quotes">"""
+
+        </span><span class=
+"hl-comment"># First set an internal flag telling that we're realized
+        </span><span class="hl-identifier">self</span><span class=
+"hl-default">.</span><span class=
+"hl-identifier">set_flags</span><span class=
+"hl-brackets">(</span><span class=
+"hl-identifier">self</span><span class=
+"hl-code">.</span><span class=
+"hl-identifier">flags</span><span class=
+"hl-brackets">()</span><span class="hl-code"> | </span><span class=
+"hl-identifier">gtk</span><span class=
+"hl-code">.</span><span class="hl-identifier">REALIZED</span><span class="hl-brackets">)
+
+        </span><span class=
+"hl-comment"># Create a new gdk.Window which we can draw on.
+        # Also say that we want to receive exposure events
+        # and button click and button press events
+
+        </span><span class="hl-identifier">self</span><span class=
+"hl-default">.</span><span class=
+"hl-identifier">window</span><span class=
+"hl-default"> = </span><span class=
+"hl-identifier">gdk</span><span class=
+"hl-default">.</span><span class=
+"hl-identifier">Window</span><span class="hl-brackets">(
+                </span><span class=
+"hl-identifier">self</span><span class=
+"hl-code">.</span><span class=
+"hl-identifier">get_parent_window</span><span class=
+"hl-brackets">()</span><span class="hl-code">,
+                </span><span class=
+"hl-identifier">width</span><span class=
+"hl-code">=</span><span class=
+"hl-identifier">self</span><span class=
+"hl-code">.</span><span class=
+"hl-identifier">allocation</span><span class=
+"hl-code">.</span><span class=
+"hl-identifier">width</span><span class="hl-code">,
+                </span><span class=
+"hl-identifier">height</span><span class=
+"hl-code">=</span><span class=
+"hl-identifier">self</span><span class=
+"hl-code">.</span><span class=
+"hl-identifier">allocation</span><span class=
+"hl-code">.</span><span class=
+"hl-identifier">height</span><span class="hl-code">,
+                </span><span class=
+"hl-identifier">window_type</span><span class=
+"hl-code">=</span><span class=
+"hl-identifier">gdk</span><span class="hl-code">.</span><span class="hl-identifier">WINDOW_CHILD</span><span class="hl-code">,
+                </span><span class=
+"hl-identifier">wclass</span><span class=
+"hl-code">=</span><span class=
+"hl-identifier">gdk</span><span class="hl-code">.</span><span class="hl-identifier">INPUT_OUTPUT</span><span class="hl-code">,
+                </span><span class=
+"hl-identifier">event_mask</span><span class=
+"hl-code">=</span><span class=
+"hl-identifier">self</span><span class=
+"hl-code">.</span><span class=
+"hl-identifier">get_events</span><span class=
+"hl-brackets">()</span><span class="hl-code"> | </span><span class=
+"hl-identifier">gdk</span><span class=
+"hl-code">.</span><span class="hl-identifier">EXPOSURE_MASK</span><span class="hl-code">
+                        | </span><span class=
+"hl-identifier">gdk</span><span class=
+"hl-code">.</span><span class="hl-identifier">BUTTON1_MOTION_MASK</span><span class="hl-code"> | </span><span class="hl-identifier">gdk</span><span class="hl-code">.</span><span class="hl-identifier">BUTTON_PRESS_MASK</span><span class="hl-code">
+                        | </span><span class=
+"hl-identifier">gtk</span><span class=
+"hl-code">.</span><span class="hl-identifier">gdk</span><span class="hl-code">.</span><span class="hl-identifier">POINTER_MOTION_MASK</span><span class="hl-code">
+                        | </span><span class=
+"hl-identifier">gtk</span><span class=
+"hl-code">.</span><span class="hl-identifier">gdk</span><span class="hl-code">.</span><span class="hl-identifier">POINTER_MOTION_HINT_MASK</span><span class="hl-brackets">)
+
+        </span><span class=
+"hl-comment"># Associate the gdk.Window with ourselves, Gtk+ needs a reference
+        # between the widget and the gdk window
+        </span><span class="hl-identifier">self</span><span class=
+"hl-default">.</span><span class=
+"hl-identifier">window</span><span class=
+"hl-default">.</span><span class=
+"hl-identifier">set_user_data</span><span class=
+"hl-brackets">(</span><span class=
+"hl-identifier">self</span><span class="hl-brackets">)
+
+        </span><span class=
+"hl-comment"># Attach the style to the gdk.Window, a style contains colors and
+        # GC contextes used for drawing
+        </span><span class="hl-identifier">self</span><span class=
+"hl-default">.</span><span class=
+"hl-identifier">style</span><span class=
+"hl-default">.</span><span class=
+"hl-identifier">attach</span><span class=
+"hl-brackets">(</span><span class=
+"hl-identifier">self</span><span class=
+"hl-code">.</span><span class=
+"hl-identifier">window</span><span class="hl-brackets">)
+
+        </span><span class=
+"hl-comment"># The default color of the background should be what
+        # the style (theme engine) tells us.
+        </span><span class="hl-identifier">self</span><span class=
+"hl-default">.</span><span class=
+"hl-identifier">style</span><span class=
+"hl-default">.</span><span class=
+"hl-identifier">set_background</span><span class=
+"hl-brackets">(</span><span class=
+"hl-identifier">self</span><span class=
+"hl-code">.</span><span class=
+"hl-identifier">window</span><span class=
+"hl-code">, </span><span class=
+"hl-identifier">gtk</span><span class=
+"hl-code">.</span><span class="hl-identifier">STATE_NORMAL</span><span class="hl-brackets">)
+        </span><span class="hl-identifier">self</span><span class=
+"hl-default">.</span><span class=
+"hl-identifier">window</span><span class=
+"hl-default">.</span><span class=
+"hl-identifier">move_resize</span><span class=
+"hl-brackets">(</span><span class="hl-code">*</span><span class=
+"hl-identifier">self</span><span class=
+"hl-code">.</span><span class=
+"hl-identifier">allocation</span><span class="hl-brackets">)
+        </span><span class="hl-comment"># load the star xpm
+        </span><span class="hl-identifier">self</span><span class=
+"hl-default">.</span><span class=
+"hl-identifier">pixmap</span><span class=
+"hl-default">, </span><span class=
+"hl-identifier">mask</span><span class=
+"hl-default"> = </span><span class=
+"hl-identifier">gtk</span><span class=
+"hl-default">.</span><span class=
+"hl-identifier">gdk</span><span class=
+"hl-default">.</span><span class=
+"hl-identifier">pixmap_create_from_xpm_d</span><span class=
+"hl-brackets">(
+                </span><span class=
+"hl-identifier">self</span><span class=
+"hl-code">.</span><span class=
+"hl-identifier">window</span><span class=
+"hl-code">, </span><span class=
+"hl-identifier">self</span><span class=
+"hl-code">.</span><span class=
+"hl-identifier">style</span><span class=
+"hl-code">.</span><span class="hl-identifier">bg</span><span class=
+"hl-brackets">[</span><span class=
+"hl-identifier">gtk</span><span class=
+"hl-code">.</span><span class="hl-identifier">STATE_NORMAL</span><span class="hl-brackets">]</span><span class="hl-code">, </span><span class="hl-identifier">STAR_PIXMAP</span><span class="hl-brackets">)
+
+        </span><span class=
+"hl-comment"># self.style is a gtk.Style object, self.style.fg_gc is
+        # an array or graphic contexts used for drawing the forground
+        # colours
+        </span><span class="hl-identifier">self</span><span class=
+"hl-default">.</span><span class=
+"hl-identifier">gc</span><span class=
+"hl-default"> = </span><span class=
+"hl-identifier">self</span><span class=
+"hl-default">.</span><span class=
+"hl-identifier">style</span><span class=
+"hl-default">.</span><span class=
+"hl-identifier">fg_gc</span><span class=
+"hl-brackets">[</span><span class=
+"hl-identifier">gtk</span><span class=
+"hl-code">.</span><span class="hl-identifier">STATE_NORMAL</span><span class="hl-brackets">]
+
+        </span><span class="hl-identifier">self</span><span class=
+"hl-default">.</span><span class=
+"hl-identifier">connect</span><span class=
+"hl-brackets">(</span><span class="hl-quotes">"</span><span class=
+"hl-string">motion_notify_event</span><span class=
+"hl-quotes">"</span><span class="hl-code">, </span><span class=
+"hl-identifier">self</span><span class=
+"hl-code">.</span><span class=
+"hl-identifier">motion_notify_event</span><span class=
+"hl-brackets">)</span>
+</pre>
+          </div>
+        </div>
+
+        <p>There is quite a bit of code here so I'll take some time
+        to explain it. The first step is to set a flag so that lets
+        us, and anyone else that wants to know, that we have been
+        realized - that we have a <a href=
+        "http://www.pygtk.org/pygtk2reference/class-gdkwindow.html">
+        gtk.gdk.Window</a> associated with ourselves.</p>
+
+        <p>The next step is to actually create the gtk.gdk.Window
+        that will be associated with the StarHScale widget. When we
+        create it we also set many of it's attributes. You can read
+        more about all the available attributes in the <a href=
+        "http://www.pygtk.org/pygtk2reference/class-gdkwindow.html#constructor-gdkwindow">
+        PyGTK documentation</a> but here are the attributes that we
+        are setting:</p>
+
+        <blockquote>
+          <p>parent: a gtk.gdk.Window<br />
+          width: the width of the window in pixels<br />
+          height: the height of the window in pixels<br />
+          window_type: the window type<br />
+          event_mask: the bitmask of events received by the
+          window<br />
+          wclass: the class of window - either gtk.gdk.INPUT_OUTPUT
+          or gtk.gdk.INPUT_ONLY</p>
+        </blockquote>
+
+        <p>We add a few events to the event mask of the
+        gtk.gdk.Window because this widget will be interacting with
+        the mouse. Then we make some necessary connections between
+        the gtk.gdk.Window, the widget, and the widgets style.
+        Finally we set the background colour and move the window
+        into the position that has been allocated for us
+        (self.allocation).</p>
+
+        <p>The next step is where the do_realize() code begins to
+        diverge from the widget.py example. The next step is where
+        we create our star pixmap using the <a href=
+        "http://www.pygtk.org/pygtk2reference/class-gdkpixmap.html#function-gdk--pixmap-create-from-xpm-d">
+        pixmap_create_from_xmp_d</a> function:</p>
+
+        <div class="hl-surround">
+          <div class="hl-main">
+            <pre>
+<span class="hl-comment"># load the star xpm
+</span><span class="hl-identifier">self</span><span class=
+"hl-default">.</span><span class=
+"hl-identifier">pixmap</span><span class=
+"hl-default">, </span><span class=
+"hl-identifier">mask</span><span class=
+"hl-default"> = </span><span class=
+"hl-identifier">gtk</span><span class=
+"hl-default">.</span><span class=
+"hl-identifier">gdk</span><span class=
+"hl-default">.</span><span class=
+"hl-identifier">pixmap_create_from_xpm_d</span><span class=
+"hl-brackets">(
+        </span><span class="hl-identifier">self</span><span class=
+"hl-code">.</span><span class=
+"hl-identifier">window</span><span class="hl-code">
+        , </span><span class=
+"hl-identifier">self</span><span class="hl-code">.</span><span class="hl-identifier">style</span><span class="hl-code">.</span><span class="hl-identifier">bg</span><span class="hl-brackets">[</span><span class="hl-identifier">gtk</span><span class="hl-code">.</span><span class="hl-identifier">STATE_NORMAL</span><span class="hl-brackets">]</span><span class="hl-code">
+        , </span><span class=
+"hl-identifier">STAR_PIXMAP</span><span class=
+"hl-brackets">)</span>
+</pre>
+          </div>
+        </div>
+
+        <p>Here is a description of what a <a href=
+        "http://www.pygtk.org/pygtk2reference/class-gdkpixmap.html">
+        gtk.gdk.Pixmap</a> is:</p>
+
+        <blockquote>
+          <p>A gtk.gdk.Pixmap is an offscreen gtk.gdk.Drawable. It
+          can be drawn upon with the standard gtk.gdk.Drawable
+          drawing primitives, then copied to another
+          gtk.gdk.Drawable (such as a gtk.gdk.Window) with the
+          draw_drawable() method. The depth of a pixmap is the
+          number of bits per pixels. A bitmaps are simply a
+          gtk.gdk.Pixmap with a depth of 1. (That is, they are
+          monochrome pixmaps - each pixel can be either on or
+          off).</p>
+        </blockquote>
+
+        <p>What we will use the pixmap for is the drawing of each
+        of our stars. Since we want the widget to be portable
+        without having an xpm file around we simple load it's data.
+        To do so we have to define the STAR_PIXMAP "global" outside
+        of our StarHScale as follows:</p>
+
+        <div class="hl-surround" style="height: 280px;">
+          <div class="hl-main">
+            <pre>
+<span class="hl-identifier">STAR_PIXMAP</span><span class=
+"hl-default"> = </span><span class=
+"hl-brackets">[</span><span class="hl-quotes">"</span><span class=
+"hl-string">22 22 77 1</span><span class=
+"hl-quotes">"</span><span class="hl-code">,
+</span><span class="hl-quotes">"</span><span class=
+"hl-string">         c None</span><span class=
+"hl-quotes">"</span><span class="hl-code">,
+</span><span class="hl-quotes">"</span><span class=
+"hl-string">.        c #626260</span><span class=
+"hl-quotes">"</span><span class="hl-code">,
+</span><span class="hl-quotes">"</span><span class=
+"hl-string">+        c #5E5F5C</span><span class=
+"hl-quotes">"</span><span class="hl-code">,
+</span><span class="hl-quotes">"</span><span class=
+"hl-string">@        c #636461</span><span class=
+"hl-quotes">"</span><span class="hl-code">,
+</span><span class="hl-quotes">"</span><span class=
+"hl-string">#        c #949492</span><span class=
+"hl-quotes">"</span><span class="hl-code">,
+</span><span class="hl-quotes">"</span><span class=
+"hl-string">$        c #62625F</span><span class=
+"hl-quotes">"</span><span class="hl-code">,
+</span><span class="hl-quotes">"</span><span class=
+"hl-string">%        c #6E6E6B</span><span class=
+"hl-quotes">"</span><span class="hl-code">,
+</span><span class="hl-quotes">"</span><span class=
+"hl-string">&amp;        c #AEAEAC</span><span class=
+"hl-quotes">"</span><span class="hl-code">,
+</span><span class="hl-quotes">"</span><span class=
+"hl-string">*        c #757673</span><span class=
+"hl-quotes">"</span><span class="hl-code">,
+</span><span class="hl-quotes">"</span><span class=
+"hl-string">=        c #61625F</span><span class=
+"hl-quotes">"</span><span class="hl-code">,
+</span><span class="hl-quotes">"</span><span class=
+"hl-string">-        c #9C9C9B</span><span class=
+"hl-quotes">"</span><span class="hl-code">,
+</span><span class="hl-quotes">"</span><span class=
+"hl-string">;        c #ACACAB</span><span class=
+"hl-quotes">"</span><span class="hl-code">,
+</span><span class="hl-quotes">"</span><span class=
+"hl-string">&gt;        c #9F9F9E</span><span class=
+"hl-quotes">"</span><span class="hl-code">,
+</span><span class="hl-quotes">"</span><span class=
+"hl-string">,        c #61635F</span><span class=
+"hl-quotes">"</span><span class="hl-code">,
+</span><span class="hl-quotes">"</span><span class=
+"hl-string">'        c #656663</span><span class=
+"hl-quotes">"</span><span class="hl-code">,
+</span><span class="hl-quotes">"</span><span class=
+"hl-string">)        c #A5A5A4</span><span class=
+"hl-quotes">"</span><span class="hl-code">,
+</span><span class="hl-quotes">"</span><span class=
+"hl-string">!        c #ADADAB</span><span class=
+"hl-quotes">"</span><span class="hl-code">,
+</span><span class="hl-quotes">"</span><span class=
+"hl-string">~        c #646562</span><span class=
+"hl-quotes">"</span><span class="hl-code">,
+</span><span class="hl-quotes">"</span><span class=
+"hl-string">{        c #61615F</span><span class=
+"hl-quotes">"</span><span class="hl-code">,
+</span><span class="hl-quotes">"</span><span class=
+"hl-string">]        c #6C6D6A</span><span class=
+"hl-quotes">"</span><span class="hl-code">,
+</span><span class="hl-quotes">"</span><span class=
+"hl-string">^        c #797977</span><span class=
+"hl-quotes">"</span><span class="hl-code">,
+</span><span class="hl-quotes">"</span><span class=
+"hl-string">/        c #868684</span><span class=
+"hl-quotes">"</span><span class="hl-code">,
+</span><span class="hl-quotes">"</span><span class=
+"hl-string">(        c #A0A19E</span><span class=
+"hl-quotes">"</span><span class="hl-code">,
+</span><span class="hl-quotes">"</span><span class=
+"hl-string">_        c #AAAAA8</span><span class=
+"hl-quotes">"</span><span class="hl-code">,
+</span><span class="hl-quotes">"</span><span class=
+"hl-string">:        c #A3A3A2</span><span class=
+"hl-quotes">"</span><span class="hl-code">,
+</span><span class="hl-quotes">"</span><span class=
+"hl-string">&lt;        c #AAAAA7</span><span class=
+"hl-quotes">"</span><span class="hl-code">,
+</span><span class="hl-quotes">"</span><span class=
+"hl-string">[        c #9F9F9F</span><span class=
+"hl-quotes">"</span><span class="hl-code">,
+</span><span class="hl-quotes">"</span><span class=
+"hl-string">}        c #888887</span><span class=
+"hl-quotes">"</span><span class="hl-code">,
+</span><span class="hl-quotes">"</span><span class=
+"hl-string">|        c #7E7E7C</span><span class=
+"hl-quotes">"</span><span class="hl-code">,
+</span><span class="hl-quotes">"</span><span class=
+"hl-string">1        c #6C6C69</span><span class=
+"hl-quotes">"</span><span class="hl-code">,
+</span><span class="hl-quotes">"</span><span class=
+"hl-string">2        c #626360</span><span class=
+"hl-quotes">"</span><span class="hl-code">,
+</span><span class="hl-quotes">"</span><span class=
+"hl-string">3        c #A5A5A3</span><span class=
+"hl-quotes">"</span><span class="hl-code">,
+</span><span class="hl-quotes">"</span><span class=
+"hl-string">4        c #ABABAA</span><span class=
+"hl-quotes">"</span><span class="hl-code">,
+</span><span class="hl-quotes">"</span><span class=
+"hl-string">5        c #A9A9A7</span><span class=
+"hl-quotes">"</span><span class="hl-code">,
+</span><span class="hl-quotes">"</span><span class=
+"hl-string">6        c #A2A2A1</span><span class=
+"hl-quotes">"</span><span class="hl-code">,
+</span><span class="hl-quotes">"</span><span class=
+"hl-string">7        c #A3A3A1</span><span class=
+"hl-quotes">"</span><span class="hl-code">,
+</span><span class="hl-quotes">"</span><span class=
+"hl-string">8        c #A7A7A6</span><span class=
+"hl-quotes">"</span><span class="hl-code">,
+</span><span class="hl-quotes">"</span><span class=
+"hl-string">9        c #A8A8A6</span><span class=
+"hl-quotes">"</span><span class="hl-code">,
+</span><span class="hl-quotes">"</span><span class=
+"hl-string">0        c #686866</span><span class=
+"hl-quotes">"</span><span class="hl-code">,
+</span><span class="hl-quotes">"</span><span class=
+"hl-string">a        c #A4A4A2</span><span class=
+"hl-quotes">"</span><span class="hl-code">,
+</span><span class="hl-quotes">"</span><span class=
+"hl-string">b        c #A4A4A3</span><span class=
+"hl-quotes">"</span><span class="hl-code">,
+</span><span class="hl-quotes">"</span><span class=
+"hl-string">c        c #A1A19F</span><span class=
+"hl-quotes">"</span><span class="hl-code">,
+</span><span class="hl-quotes">"</span><span class=
+"hl-string">d        c #9D9D9C</span><span class=
+"hl-quotes">"</span><span class="hl-code">,
+</span><span class="hl-quotes">"</span><span class=
+"hl-string">e        c #9D9D9B</span><span class=
+"hl-quotes">"</span><span class="hl-code">,
+</span><span class="hl-quotes">"</span><span class=
+"hl-string">f        c #A7A7A5</span><span class=
+"hl-quotes">"</span><span class="hl-code">,
+</span><span class="hl-quotes">"</span><span class=
+"hl-string">g        c #666664</span><span class=
+"hl-quotes">"</span><span class="hl-code">,
+</span><span class="hl-quotes">"</span><span class=
+"hl-string">h        c #A1A1A0</span><span class=
+"hl-quotes">"</span><span class="hl-code">,
+</span><span class="hl-quotes">"</span><span class=
+"hl-string">i        c #9E9E9D</span><span class=
+"hl-quotes">"</span><span class="hl-code">,
+</span><span class="hl-quotes">"</span><span class=
+"hl-string">j        c #646461</span><span class=
+"hl-quotes">"</span><span class="hl-code">,
+</span><span class="hl-quotes">"</span><span class=
+"hl-string">k        c #A6A6A4</span><span class=
+"hl-quotes">"</span><span class="hl-code">,
+</span><span class="hl-quotes">"</span><span class=
+"hl-string">l        c #A0A09F</span><span class=
+"hl-quotes">"</span><span class="hl-code">,
+</span><span class="hl-quotes">"</span><span class=
+"hl-string">m        c #9F9F9D</span><span class=
+"hl-quotes">"</span><span class="hl-code">,
+</span><span class="hl-quotes">"</span><span class=
+"hl-string">n        c #A9A9A8</span><span class=
+"hl-quotes">"</span><span class="hl-code">,
+</span><span class="hl-quotes">"</span><span class=
+"hl-string">o        c #A0A09E</span><span class=
+"hl-quotes">"</span><span class="hl-code">,
+</span><span class="hl-quotes">"</span><span class=
+"hl-string">p        c #9B9B9A</span><span class=
+"hl-quotes">"</span><span class="hl-code">,
+</span><span class="hl-quotes">"</span><span class=
+"hl-string">q        c #ACACAA</span><span class=
+"hl-quotes">"</span><span class="hl-code">,
+</span><span class="hl-quotes">"</span><span class=
+"hl-string">r        c #60615E</span><span class=
+"hl-quotes">"</span><span class="hl-code">,
+</span><span class="hl-quotes">"</span><span class=
+"hl-string">s        c #ADADAC</span><span class=
+"hl-quotes">"</span><span class="hl-code">,
+</span><span class="hl-quotes">"</span><span class=
+"hl-string">t        c #A2A2A0</span><span class=
+"hl-quotes">"</span><span class="hl-code">,
+</span><span class="hl-quotes">"</span><span class=
+"hl-string">u        c #A8A8A7</span><span class=
+"hl-quotes">"</span><span class="hl-code">,
+</span><span class="hl-quotes">"</span><span class=
+"hl-string">v        c #6E6F6C</span><span class=
+"hl-quotes">"</span><span class="hl-code">,
+</span><span class="hl-quotes">"</span><span class=
+"hl-string">w        c #787976</span><span class=
+"hl-quotes">"</span><span class="hl-code">,
+</span><span class="hl-quotes">"</span><span class=
+"hl-string">x        c #969695</span><span class=
+"hl-quotes">"</span><span class="hl-code">,
+</span><span class="hl-quotes">"</span><span class=
+"hl-string">y        c #8B8B8A</span><span class=
+"hl-quotes">"</span><span class="hl-code">,
+</span><span class="hl-quotes">"</span><span class=
+"hl-string">z        c #91918F</span><span class=
+"hl-quotes">"</span><span class="hl-code">,
+</span><span class="hl-quotes">"</span><span class=
+"hl-string">A        c #71716E</span><span class=
+"hl-quotes">"</span><span class="hl-code">,
+</span><span class="hl-quotes">"</span><span class=
+"hl-string">B        c #636360</span><span class=
+"hl-quotes">"</span><span class="hl-code">,
+</span><span class="hl-quotes">"</span><span class=
+"hl-string">C        c #686966</span><span class=
+"hl-quotes">"</span><span class="hl-code">,
+</span><span class="hl-quotes">"</span><span class=
+"hl-string">D        c #999997</span><span class=
+"hl-quotes">"</span><span class="hl-code">,
+</span><span class="hl-quotes">"</span><span class=
+"hl-string">E        c #71716F</span><span class=
+"hl-quotes">"</span><span class="hl-code">,
+</span><span class="hl-quotes">"</span><span class=
+"hl-string">F        c #61615E</span><span class=
+"hl-quotes">"</span><span class="hl-code">,
+</span><span class="hl-quotes">"</span><span class=
+"hl-string">G        c #6C6C6A</span><span class=
+"hl-quotes">"</span><span class="hl-code">,
+</span><span class="hl-quotes">"</span><span class=
+"hl-string">H        c #616260</span><span class=
+"hl-quotes">"</span><span class="hl-code">,
+</span><span class="hl-quotes">"</span><span class=
+"hl-string">I        c #5F605E</span><span class=
+"hl-quotes">"</span><span class="hl-code">,
+</span><span class="hl-quotes">"</span><span class=
+"hl-string">J        c #5D5E5B</span><span class=
+"hl-quotes">"</span><span class="hl-code">,
+</span><span class="hl-quotes">"</span><span class=
+"hl-string">K        c #565654</span><span class=
+"hl-quotes">"</span><span class="hl-code">,
+</span><span class="hl-quotes">"</span><span class=
+"hl-string">L        c #5F5F5D</span><span class=
+"hl-quotes">"</span><span class="hl-code">,
+</span><span class=
+"hl-quotes">"                      "</span><span class="hl-code">,
+</span><span class=
+"hl-quotes">"                      "</span><span class="hl-code">,
+</span><span class="hl-quotes">"</span><span class=
+"hl-string">          .           </span><span class=
+"hl-quotes">"</span><span class="hl-code">,
+</span><span class="hl-quotes">"</span><span class=
+"hl-string">          +           </span><span class=
+"hl-quotes">"</span><span class="hl-code">,
+</span><span class="hl-quotes">"</span><span class=
+"hl-string">         @#$          </span><span class=
+"hl-quotes">"</span><span class="hl-code">,
+</span><span class="hl-quotes">"</span><span class=
+"hl-string">         %&amp;*          </span><span class=
+"hl-quotes">"</span><span class="hl-code">,
+</span><span class="hl-quotes">"</span><span class=
+"hl-string">        =-;&gt;,         </span><span class=
+"hl-quotes">"</span><span class="hl-code">,
+</span><span class="hl-quotes">"</span><span class=
+"hl-string">        ';)!'         </span><span class=
+"hl-quotes">"</span><span class="hl-code">,
+</span><span class="hl-quotes">"</span><span class=
+"hl-string">  ~{{]^/(_:&lt; [}|*1@,   </span><span class=
+"hl-quotes">"</span><span class="hl-code">,
+</span><span class="hl-quotes">"</span><span class=
+"hl-string">   23&amp;4_5367895&amp;80    </span><span class=
+"hl-quotes">"</span><span class="hl-code">,
+</span><span class="hl-quotes">"</span><span class=
+"hl-string">    2a4b:7c&gt;def)g     </span><span class=
+"hl-quotes">"</span><span class="hl-code">,
+</span><span class="hl-quotes">"</span><span class=
+"hl-string">     2c4:h&gt;id56j      </span><span class=
+"hl-quotes">"</span><span class="hl-code">,
+</span><span class="hl-quotes">"</span><span class=
+"hl-string">      {k8lmeln2       </span><span class=
+"hl-quotes">"</span><span class="hl-code">,
+</span><span class="hl-quotes">"</span><span class=
+"hl-string">      j8bmoppqr       </span><span class=
+"hl-quotes">"</span><span class="hl-code">,
+</span><span class="hl-quotes">"</span><span class=
+"hl-string">      {stusnd4v       </span><span class=
+"hl-quotes">"</span><span class="hl-code">,
+</span><span class="hl-quotes">"</span><span class=
+"hl-string">      ws;x@yq;/       </span><span class=
+"hl-quotes">"</span><span class="hl-code">,
+</span><span class="hl-quotes">"</span><span class=
+"hl-string">      zfAB {CmD{      </span><span class=
+"hl-quotes">"</span><span class="hl-code">,
+</span><span class="hl-quotes">"</span><span class=
+"hl-string">     rE{     FGH      </span><span class=
+"hl-quotes">"</span><span class="hl-code">,
+</span><span class="hl-quotes">"</span><span class=
+"hl-string">     IJ       KL      </span><span class=
+"hl-quotes">"</span><span class="hl-code">,
+</span><span class=
+"hl-quotes">"                      "</span><span class="hl-code">,
+</span><span class=
+"hl-quotes">"                      "</span><span class="hl-code">,
+</span><span class=
+"hl-quotes">"                      "</span><span class=
+"hl-brackets">]</span>
+</pre>
+          </div>
+        </div>
+
+        <p>The star is based off of star found in the <a href=
+        "http://tango.freedesktop.org/ArtLibreSet">Art Libre
+        Set</a> of the wonderful <a href=
+        "http://tango.freedesktop.org/Tango_Desktop_Project">Tango
+        Desktop Project</a>. I simply darkened it a bit.</p>
+
+        <p>Then we make a quick reference to the normal state
+        foreground <a href=
+        "http://www.pygtk.org/pygtk2reference/class-gdkgc.html">gtk.gdk.GC</a>
+        (graphic context) associated with our style. A <a href=
+        "http://www.pygtk.org/pygtk2reference/class-gdkgc.html">gtk.gdk.GC</a>
+        is simply an object that "encapsulates information about
+        the way things are drawn, such as the foreground color or
+        line width. By using graphics contexts, the number of
+        arguments to each drawing call is greatly reduced, and
+        communication overhead is minimized, since identical
+        arguments do not need to be passed repeatedly. (<a href=
+        "http://www.pygtk.org/pygtk2reference/class-gdkgc.html">From
+        the PYGTK Docs</a> )" So it's basically a bunch of drawing
+        settings encapsulated in one simple object.</p>
+
+        <p>Finally to finish off the do_realize() function we
+        connect ourselves with the "motion_notify_event" which we
+        will use to track when the user moves the mouse over our
+        widget.</p>
+
+        <p>The next step in our widget creation is the
+        do_unrealize() function, which is called when a widget
+        should free all of its resources. The <a href=
+        "http://cvs.gnome.org/viewcvs/pygtk/examples/gtk/widget.py?rev=1.12&amp;view=markup">
+        widget.py</a> example calls:</p>
+
+        <div class="hl-surround" style="height: 28px;">
+          <div class="hl-main">
+            <pre>
+<span class="hl-identifier">self</span><span class=
+"hl-default">.</span><span class=
+"hl-identifier">window</span><span class=
+"hl-default">.</span><span class=
+"hl-identifier">set_user_data</span><span class=
+"hl-brackets">(</span><span class=
+"hl-reserved">None</span><span class="hl-brackets">)</span>
+</pre>
+          </div>
+        </div>
+
+        <p>But I got a type error running that, so instead I simply
+        destroyed the window. I'm not entirely sure what the
+        correct approach is, or if one even has to worry about
+        clearing the resources, either way this is code that i
+        used:</p>
+
+        <div class="hl-surround">
+          <div class="hl-main">
+            <pre>
+<span class="hl-reserved">def </span><span class=
+"hl-identifier">do_unrealize</span><span class=
+"hl-brackets">(</span><span class=
+"hl-identifier">self</span><span class=
+"hl-brackets">)</span><span class="hl-default">:
+        </span><span class=
+"hl-comment"># The do_unrealized method is responsible for freeing the GDK resources
+        # De-associate the window we created in do_realize with ourselves
+        </span><span class="hl-identifier">self</span><span class=
+"hl-default">.</span><span class=
+"hl-identifier">window</span><span class=
+"hl-default">.</span><span class=
+"hl-identifier">destroy</span><span class="hl-brackets">()</span>
+</pre>
+          </div>
+        </div>
+
+        <p>The next two functions deal with the size of our widget.
+        The first function do_size_request() is called by PyGTK so
+        that PyGTK can figure out how large the widget wants to be.
+        The second function, do_size_allocate() is called by PyGTK
+        in order to tell the widget how large it should actually
+        be:</p>
+
+        <div class="hl-surround">
+          <div class="hl-main">
+            <pre>
+<span class="hl-reserved">def </span><span class=
+"hl-identifier">do_size_request</span><span class=
+"hl-brackets">(</span><span class=
+"hl-identifier">self</span><span class=
+"hl-code">, </span><span class=
+"hl-identifier">requisition</span><span class=
+"hl-brackets">)</span><span class="hl-default">:
+        </span><span class="hl-quotes">"""</span><span class=
+"hl-string">From Widget.py: The do_size_request method Gtk+ is calling
+         on a widget to ask it the widget how large it wishes to be.
+         It's not guaranteed that gtk+ will actually give this size
+         to the widget.  So we will send gtk+ the size needed for
+         the maximum amount of stars</span><span class=
+"hl-quotes">"""
+
+        </span><span class=
+"hl-identifier">requisition</span><span class=
+"hl-default">.</span><span class=
+"hl-identifier">height</span><span class=
+"hl-default"> = </span><span class="hl-identifier">PIXMAP_SIZE
+        requisition</span><span class=
+"hl-default">.</span><span class=
+"hl-identifier">width</span><span class=
+"hl-default"> = </span><span class=
+"hl-brackets">(</span><span class=
+"hl-identifier">PIXMAP_SIZE</span><span class=
+"hl-code"> * </span><span class=
+"hl-identifier">self</span><span class=
+"hl-code">.</span><span class=
+"hl-identifier">max_stars</span><span class=
+"hl-brackets">)</span><span class=
+"hl-default"> + </span><span class=
+"hl-brackets">(</span><span class=
+"hl-identifier">BORDER_WIDTH</span><span class=
+"hl-code"> * </span><span class="hl-number">2</span><span class=
+"hl-brackets">)
+
+
+</span><span class="hl-reserved">def </span><span class=
+"hl-identifier">do_size_allocate</span><span class=
+"hl-brackets">(</span><span class=
+"hl-identifier">self</span><span class=
+"hl-code">, </span><span class=
+"hl-identifier">allocation</span><span class=
+"hl-brackets">)</span><span class="hl-default">:
+        </span><span class="hl-quotes">"""</span><span class=
+"hl-string">The do_size_allocate is called by when the actual
+        size is known and the widget is told how much space
+        could actually be allocated Save the allocated space
+        self.allocation = allocation. The following code is
+        identical to the widget.py example</span><span class=
+"hl-quotes">"""
+
+        </span><span class="hl-reserved">if </span><span class=
+"hl-identifier">self</span><span class=
+"hl-default">.</span><span class=
+"hl-identifier">flags</span><span class=
+"hl-brackets">()</span><span class=
+"hl-default"> &amp; </span><span class=
+"hl-identifier">gtk</span><span class=
+"hl-default">.</span><span class=
+"hl-identifier">REALIZED</span><span class="hl-default">:
+                </span><span class=
+"hl-identifier">self</span><span class=
+"hl-default">.</span><span class=
+"hl-identifier">window</span><span class=
+"hl-default">.</span><span class=
+"hl-identifier">move_resize</span><span class=
+"hl-brackets">(</span><span class="hl-code">*</span><span class=
+"hl-identifier">allocation</span><span class="hl-brackets">)</span>
+</pre>
+          </div>
+        </div>
+
+        <p>The next function is the do_expose_event() function,
+        which is called when the widget should actually draw
+        itself. For the StarHScale this function is actually pretty
+        simple:</p>
+
+        <div class="hl-surround">
+          <div class="hl-main">
+            <pre>
+<span class="hl-reserved">def </span><span class=
+"hl-identifier">do_expose_event</span><span class=
+"hl-brackets">(</span><span class=
+"hl-identifier">self</span><span class=
+"hl-code">, </span><span class=
+"hl-identifier">event</span><span class=
+"hl-brackets">)</span><span class="hl-default">:
+        </span><span class="hl-quotes">"""</span><span class=
+"hl-string">This is where the widget must draw itself.</span><span class="hl-quotes">"""
+
+        </span><span class=
+"hl-comment">#Draw the correct number of stars.  Each time you draw another star
+        #move over by 22 pixels. which is the size of the star.
+        </span><span class="hl-reserved">for </span><span class=
+"hl-identifier">count </span><span class=
+"hl-reserved">in </span><span class=
+"hl-builtin">range</span><span class=
+"hl-brackets">(</span><span class="hl-number">0</span><span class=
+"hl-code">,</span><span class=
+"hl-identifier">self</span><span class=
+"hl-code">.</span><span class=
+"hl-identifier">stars</span><span class=
+"hl-brackets">)</span><span class="hl-default">:
+                </span><span class=
+"hl-identifier">self</span><span class=
+"hl-default">.</span><span class=
+"hl-identifier">window</span><span class=
+"hl-default">.</span><span class=
+"hl-identifier">draw_drawable</span><span class=
+"hl-brackets">(</span><span class=
+"hl-identifier">self</span><span class=
+"hl-code">.</span><span class="hl-identifier">gc</span><span class=
+"hl-code">, </span><span class=
+"hl-identifier">self</span><span class=
+"hl-code">.</span><span class=
+"hl-identifier">pixmap</span><span class=
+"hl-code">, </span><span class="hl-number">0</span><span class=
+"hl-code">, </span><span class="hl-number">0</span><span class=
+"hl-code">
+                                                                                        , </span><span class="hl-identifier">self</span><span class="hl-code">.</span><span class="hl-identifier">sizes</span><span class="hl-brackets">[</span><span class="hl-identifier">count</span><span class="hl-brackets">]</span><span class="hl-code">
+                                                                                        , </span><span class="hl-number">0</span><span class="hl-code">,-</span><span class="hl-number">1</span><span class="hl-code">, -</span><span class="hl-number">1</span><span class="hl-brackets">)</span>
+</pre>
+          </div>
+        </div>
+
+        <p>Basically we simply loop through the current number of
+        stars (self.stars) and draw our star pixmap to the window
+        using the <a href=
+        "http://pygtk.org/pygtk2reference/class-gdkdrawable.html#method-gdkdrawable--draw-drawable">
+        draw_drawable</a> function. We use the self.sizes list
+        (which we calculated in the __init__ function) to determine
+        the x position where we will draw the star.</p>
+
+        <p>Now comes the time where we actually need to let the
+        user interact with the widget and show and hide the stars.
+        To do so we need to pay attention to the
+        "motion_notify_event" and the "button_press_event". One
+        thing you may have noticed in the do_realize() function is
+        that we pay attention to the gtk.POINTER_MOTION_MASK and
+        the gtk.POINTER_MOTION_HINT_MASK, the reason for this is
+        explained in the <a href=
+        "http://www.pygtk.org/pygtk2tutorial/sec-EventHandling.html#id3096656">
+        PyGTK documentation</a>:</p>
+
+        <blockquote>
+          <p>It turns out, however, that there is a problem with
+          just specifying POINTER_MOTION_MASK. This will cause the
+          server to add a new motion event to the event queue every
+          time the user moves the mouse. Imagine that it takes us
+          0.1 seconds to handle a motion event, but the X server
+          queues a new motion event every 0.05 seconds. We will
+          soon get way behind the users drawing. If the user draws
+          for 5 seconds, it will take us another 5 seconds to catch
+          up after they release the mouse button! What we would
+          like is to only get one motion event for each event we
+          process. The way to do this is to specify
+          POINTER_MOTION_HINT_MASK.</p>
+
+          <p>When we specify POINTER_MOTION_HINT_MASK, the server
+          sends us a motion event the first time the pointer moves
+          after entering our window, or after a button press or
+          release event. Subsequent motion events will be
+          suppressed until we explicitly ask for the position of
+          the pointer using the gtk.gdk.Window method:</p>
+
+          <p>x, y, mask = window.get_pointer()</p>
+        </blockquote>
+
+        <p>Our motion_notify_event handler is as follows:</p>
+
+        <div class="hl-surround">
+          <div class="hl-main">
+            <pre>
+<span class="hl-reserved">def </span><span class=
+"hl-identifier">motion_notify_event</span><span class=
+"hl-brackets">(</span><span class=
+"hl-identifier">self</span><span class=
+"hl-code">, </span><span class=
+"hl-identifier">widget</span><span class=
+"hl-code">, </span><span class=
+"hl-identifier">event</span><span class=
+"hl-brackets">)</span><span class="hl-default">:
+        </span><span class=
+"hl-comment"># if this is a hint, then let's get all the necessary
+        # information, if not it's all we need.
+        </span><span class="hl-reserved">if </span><span class=
+"hl-identifier">event</span><span class=
+"hl-default">.</span><span class=
+"hl-identifier">is_hint</span><span class="hl-default">:
+                </span><span class=
+"hl-identifier">x</span><span class=
+"hl-default">, </span><span class=
+"hl-identifier">y</span><span class=
+"hl-default">, </span><span class=
+"hl-identifier">state</span><span class=
+"hl-default"> = </span><span class=
+"hl-identifier">event</span><span class=
+"hl-default">.</span><span class=
+"hl-identifier">window</span><span class=
+"hl-default">.</span><span class=
+"hl-identifier">get_pointer</span><span class="hl-brackets">()
+        </span><span class="hl-reserved">else</span><span class=
+"hl-default">:
+                </span><span class=
+"hl-identifier">x</span><span class=
+"hl-default"> = </span><span class=
+"hl-identifier">event</span><span class=
+"hl-default">.</span><span class="hl-identifier">x
+                y</span><span class=
+"hl-default"> = </span><span class=
+"hl-identifier">event</span><span class=
+"hl-default">.</span><span class="hl-identifier">y
+                state</span><span class=
+"hl-default"> = </span><span class=
+"hl-identifier">event</span><span class=
+"hl-default">.</span><span class="hl-identifier">state
+
+        new_stars</span><span class=
+"hl-default"> = </span><span class="hl-number">0
+        </span><span class="hl-identifier">if </span><span class=
+"hl-brackets">(</span><span class=
+"hl-identifier">state</span><span class=
+"hl-code"> &amp; </span><span class=
+"hl-identifier">gtk</span><span class=
+"hl-code">.</span><span class="hl-identifier">gdk</span><span class="hl-code">.</span><span class="hl-identifier">BUTTON1_MASK</span><span class="hl-brackets">)</span><span class="hl-default">:
+                </span><span class=
+"hl-comment"># loop through the sizes and see if the
+                # number of stars should change
+                </span><span class=
+"hl-identifier">self</span><span class=
+"hl-default">.</span><span class=
+"hl-identifier">check_for_new_stars</span><span class=
+"hl-brackets">(</span><span class=
+"hl-identifier">event</span><span class=
+"hl-code">.</span><span class="hl-identifier">x</span><span class=
+"hl-brackets">)</span>
+</pre>
+          </div>
+        </div>
+
+        <p>This function is pretty simple, first we check to see if
+        the event is a hint or not, if it is a hint we ask GTK+ to
+        get us the real pointer information. If it is not a hint
+        then we just collect the information from the passed
+        <a href=
+        "http://www.pygtk.org/pygtk2reference/class-gdkevent.html">gtk.gdk.Event</a>
+        object.</p>
+
+        <p>Then we check the events state to make sure that the
+        left mouse button is down, and if it is we pass the x
+        coordinate of the mouse pointer to the
+        self.check_for_new_stars() function which will determine
+        how many stars should be shown.</p>
+
+        <p>The other event that lets the user hide and show stars
+        is the button press event which we handle using the
+        do_button_press_event() gtk.Wdiget virtual method that gets
+        called when a button is pressed on the widget:</p>
+
+        <div class="hl-surround">
+          <div class="hl-main">
+            <pre>
+<span class="hl-reserved">def </span><span class=
+"hl-identifier">do_button_press_event</span><span class=
+"hl-brackets">(</span><span class=
+"hl-identifier">self</span><span class=
+"hl-code">, </span><span class=
+"hl-identifier">event</span><span class=
+"hl-brackets">)</span><span class="hl-default">:
+        </span><span class="hl-quotes">"""</span><span class=
+"hl-string">The button press event virtual method</span><span class="hl-quotes">"""
+
+        </span><span class=
+"hl-comment"># make sure it was the first button
+        </span><span class="hl-reserved">if </span><span class=
+"hl-identifier">event</span><span class=
+"hl-default">.</span><span class=
+"hl-identifier">button</span><span class=
+"hl-default"> == </span><span class=
+"hl-number">1</span><span class="hl-default">:
+                </span><span class=
+"hl-comment">#check for new stars
+                </span><span class=
+"hl-identifier">self</span><span class=
+"hl-default">.</span><span class=
+"hl-identifier">check_for_new_stars</span><span class=
+"hl-brackets">(</span><span class=
+"hl-identifier">event</span><span class=
+"hl-code">.</span><span class="hl-identifier">x</span><span class=
+"hl-brackets">)
+        </span><span class="hl-reserved">return True</span>
+</pre>
+          </div>
+        </div>
+
+        <p>This function is very simple, first we check to make
+        sure that it was the left button that fired the
+        gtk.gdk.BUTTON_PRESS_EVENT, and if it was we pass event.x
+        (the position the mouse was in at the time of the event) to
+        the check_for_new_stars() function.</p>
+
+        <div class="hl-surround">
+          <div class="hl-main">
+            <pre>
+<span class="hl-reserved">def </span><span class=
+"hl-identifier">check_for_new_stars</span><span class=
+"hl-brackets">(</span><span class=
+"hl-identifier">self</span><span class=
+"hl-code">, </span><span class=
+"hl-identifier">xPos</span><span class=
+"hl-brackets">)</span><span class="hl-default">:
+        </span><span class="hl-quotes">"""</span><span class=
+"hl-string">This function will determine how many stars
+        will be show based on an x coordinate. If the
+        number of stars changes the widget will be invalidated
+        and the new number drawn</span><span class="hl-quotes">"""
+
+        </span><span class=
+"hl-comment"># loop through the sizes and see if the
+        # number of stars should change
+        </span><span class=
+"hl-identifier">new_stars</span><span class=
+"hl-default"> = </span><span class="hl-number">0
+        </span><span class="hl-reserved">for </span><span class=
+"hl-identifier">size </span><span class=
+"hl-reserved">in </span><span class=
+"hl-identifier">self</span><span class=
+"hl-default">.</span><span class=
+"hl-identifier">sizes</span><span class="hl-default">:
+                </span><span class=
+"hl-identifier">if </span><span class=
+"hl-brackets">(</span><span class=
+"hl-identifier">xPos</span><span class=
+"hl-code"> &lt; </span><span class=
+"hl-identifier">size</span><span class=
+"hl-brackets">)</span><span class="hl-default">:
+                        </span><span class=
+"hl-comment"># we've reached the star number
+                        </span><span class="hl-reserved">break
+                </span><span class=
+"hl-identifier">new_stars</span><span class=
+"hl-default"> = </span><span class=
+"hl-identifier">new_stars</span><span class=
+"hl-default"> + </span><span class="hl-number">1
+
+        </span><span class="hl-comment">#set the new value
+        </span><span class="hl-identifier">self</span><span class=
+"hl-default">.</span><span class=
+"hl-identifier">set_value</span><span class=
+"hl-brackets">(</span><span class=
+"hl-identifier">new_stars</span><span class="hl-brackets">)</span>
+</pre>
+          </div>
+        </div>
+
+        <p>check_for_new_stars() is a relatively straight-forward
+        function. It takes an x coordinate as a parameter and then
+        determines how many stars should be visible based on that.
+        To see how many stars should be visible we loop through the
+        self.sizes list and compare the pre-calculated starting
+        point of each star with the passed in x coordinate. We keep
+        adding more stars until the x coordinate is no longer
+        larger then the starting position of the current star. Then
+        we make sure that a new star should be added and if it is
+        we call self.set_value() to set the number of stars.</p>
+
+        <div class="hl-surround">
+          <div class="hl-main">
+            <pre>
+<span class="hl-reserved">def </span><span class=
+"hl-identifier">set_value</span><span class=
+"hl-brackets">(</span><span class=
+"hl-identifier">self</span><span class=
+"hl-code">, </span><span class=
+"hl-identifier">value</span><span class=
+"hl-brackets">)</span><span class="hl-default">:
+        </span><span class="hl-quotes">"""</span><span class=
+"hl-string">Sets the current number of stars that will be
+        drawn.  If the number is different then the current
+        number the widget will be redrawn</span><span class=
+"hl-quotes">"""
+
+        </span><span class="hl-identifier">if </span><span class=
+"hl-brackets">(</span><span class=
+"hl-identifier">value</span><span class=
+"hl-code"> &gt;= </span><span class=
+"hl-number">0</span><span class="hl-brackets">)</span><span class=
+"hl-default">:
+                </span><span class=
+"hl-identifier">if </span><span class=
+"hl-brackets">(</span><span class=
+"hl-identifier">self</span><span class=
+"hl-code">.</span><span class=
+"hl-identifier">stars</span><span class=
+"hl-code"> != </span><span class=
+"hl-identifier">value</span><span class=
+"hl-brackets">)</span><span class="hl-default">:
+                        </span><span class=
+"hl-identifier">self</span><span class=
+"hl-default">.</span><span class=
+"hl-identifier">stars</span><span class=
+"hl-default"> = </span><span class="hl-identifier">value
+                        </span><span class=
+"hl-comment">#check for the maximum
+                        </span><span class=
+"hl-identifier">if </span><span class=
+"hl-brackets">(</span><span class=
+"hl-identifier">self</span><span class=
+"hl-code">.</span><span class=
+"hl-identifier">stars</span><span class=
+"hl-code"> &gt; </span><span class=
+"hl-identifier">self</span><span class=
+"hl-code">.</span><span class=
+"hl-identifier">max_stars</span><span class=
+"hl-brackets">)</span><span class="hl-default">:
+                                </span><span class=
+"hl-identifier">self</span><span class=
+"hl-default">.</span><span class=
+"hl-identifier">stars</span><span class=
+"hl-default"> = </span><span class=
+"hl-identifier">self</span><span class=
+"hl-default">.</span><span class="hl-identifier">max_stars
+                        </span><span class=
+"hl-comment">#redraw the widget
+                        </span><span class=
+"hl-identifier">self</span><span class=
+"hl-default">.</span><span class=
+"hl-identifier">window</span><span class=
+"hl-default">.</span><span class=
+"hl-identifier">invalidate_rect</span><span class=
+"hl-brackets">(</span><span class=
+"hl-identifier">self</span><span class=
+"hl-code">.</span><span class=
+"hl-identifier">allocation</span><span class=
+"hl-code">,</span><span class="hl-reserved">True</span><span class=
+"hl-brackets">)</span>
+</pre>
+          </div>
+        </div>
+
+        <p>set_value() is another simple function that performs a
+        few validation checks and then sets the current number of
+        stars. If the number of stars has changed, the widget will
+        be redrawn.</p>
+
+        <p>Now there are three functions remaining and these are
+        simply to make the widget more usable. They are pretty self
+        explanatory:</p>
+
+        <div class="hl-surround" style="height: 280px;">
+          <div class="hl-main">
+            <pre>
+<span class="hl-reserved">def </span><span class=
+"hl-identifier">get_value</span><span class=
+"hl-brackets">(</span><span class=
+"hl-identifier">self</span><span class=
+"hl-brackets">)</span><span class="hl-default">:
+        </span><span class="hl-quotes">"""</span><span class=
+"hl-string">Get the current number of stars displayed</span><span class="hl-quotes">"""
+
+        </span><span class="hl-reserved">return </span><span class=
+"hl-identifier">self</span><span class=
+"hl-default">.</span><span class="hl-identifier">stars
+
+</span><span class="hl-reserved">def </span><span class=
+"hl-identifier">set_max_value</span><span class=
+"hl-brackets">(</span><span class=
+"hl-identifier">self</span><span class=
+"hl-code">, </span><span class=
+"hl-identifier">max_value</span><span class=
+"hl-brackets">)</span><span class="hl-default">:
+        </span><span class="hl-quotes">"""</span><span class=
+"hl-string">set the maximum number of stars</span><span class=
+"hl-quotes">"""
+
+        </span><span class="hl-identifier">if </span><span class=
+"hl-brackets">(</span><span class=
+"hl-identifier">self</span><span class=
+"hl-code">.</span><span class=
+"hl-identifier">max_stars</span><span class=
+"hl-code"> != </span><span class=
+"hl-identifier">max_value</span><span class=
+"hl-brackets">)</span><span class="hl-default">:
+                </span><span class=
+"hl-quotes">"""</span><span class=
+"hl-string">Save the old max in case it is less then the
+                current number of stars, in which case we will
+                have to redraw</span><span class="hl-quotes">"""
+
+                </span><span class=
+"hl-identifier">if </span><span class=
+"hl-brackets">(</span><span class=
+"hl-identifier">max_value</span><span class=
+"hl-code"> &gt; </span><span class="hl-number">0</span><span class=
+"hl-brackets">)</span><span class="hl-default">:
+                        </span><span class=
+"hl-identifier">self</span><span class=
+"hl-default">.</span><span class=
+"hl-identifier">max_stars</span><span class=
+"hl-default"> = </span><span class="hl-identifier">max_value
+                        </span><span class=
+"hl-comment">#reinit the sizes list (should really be a separate function
+                        </span><span class=
+"hl-identifier">self</span><span class=
+"hl-default">.</span><span class=
+"hl-identifier">sizes</span><span class=
+"hl-default"> = </span><span class="hl-brackets">[]
+                        </span><span class=
+"hl-reserved">for </span><span class=
+"hl-identifier">count </span><span class=
+"hl-reserved">in </span><span class=
+"hl-builtin">range</span><span class=
+"hl-brackets">(</span><span class="hl-number">0</span><span class=
+"hl-code">,</span><span class=
+"hl-identifier">self</span><span class=
+"hl-code">.</span><span class=
+"hl-identifier">max_stars</span><span class=
+"hl-brackets">)</span><span class="hl-default">:
+                                </span><span class=
+"hl-identifier">self</span><span class=
+"hl-default">.</span><span class=
+"hl-identifier">sizes</span><span class=
+"hl-default">.</span><span class=
+"hl-identifier">append</span><span class=
+"hl-brackets">((</span><span class=
+"hl-identifier">count</span><span class=
+"hl-code"> * </span><span class=
+"hl-identifier">PIXMAP_SIZE</span><span class=
+"hl-brackets">)</span><span class="hl-code"> + </span><span class=
+"hl-identifier">BORDER_WIDTH</span><span class="hl-brackets">)
+                        </span><span class=
+"hl-quotes">"""</span><span class=
+"hl-string">do we have to change the current number of
+                        stars?</span><span class=
+"hl-quotes">"""
+                        </span><span class=
+"hl-identifier">if </span><span class=
+"hl-brackets">(</span><span class=
+"hl-identifier">self</span><span class=
+"hl-code">.</span><span class=
+"hl-identifier">stars</span><span class=
+"hl-code"> &gt; </span><span class=
+"hl-identifier">self</span><span class=
+"hl-code">.</span><span class=
+"hl-identifier">max_stars</span><span class=
+"hl-brackets">)</span><span class="hl-default">:
+                                </span><span class=
+"hl-identifier">self</span><span class=
+"hl-default">.</span><span class=
+"hl-identifier">set_value</span><span class=
+"hl-brackets">(</span><span class=
+"hl-identifier">self</span><span class=
+"hl-code">.</span><span class=
+"hl-identifier">max_stars</span><span class="hl-brackets">)
+
+</span><span class="hl-reserved">def </span><span class=
+"hl-identifier">get_max_value</span><span class=
+"hl-brackets">(</span><span class=
+"hl-identifier">self</span><span class=
+"hl-brackets">)</span><span class="hl-default">:
+        </span><span class="hl-quotes">"""</span><span class=
+"hl-string">Get the maximum number of stars that can be shown</span><span class="hl-quotes">"""
+
+        </span><span class="hl-reserved">return </span><span class=
+"hl-identifier">self</span><span class=
+"hl-default">.</span><span class="hl-identifier">max_stars</span>
+</pre>
+          </div>
+        </div>
+
+        <p>Now we finish of starhscale.py with a little bit of code
+        that will simply create a window and add the StarHScale
+        widget to that window if someone executes the starhscale.py
+        file directly:</p>
+
+        <div class="hl-surround">
+          <div class="hl-main">
+            <pre>
+<span class="hl-reserved">if </span><span class=
+"hl-identifier">__name__</span><span class=
+"hl-default"> == </span><span class=
+"hl-quotes">"</span><span class="hl-string">__main__</span><span class="hl-quotes">"</span><span class="hl-default">:
+        </span><span class=
+"hl-comment"># register the class as a Gtk widget
+        </span><span class=
+"hl-identifier">gobject</span><span class=
+"hl-default">.</span><span class=
+"hl-identifier">type_register</span><span class=
+"hl-brackets">(</span><span class=
+"hl-identifier">StarHScale</span><span class="hl-brackets">)
+
+        </span><span class="hl-identifier">win</span><span class=
+"hl-default"> = </span><span class=
+"hl-identifier">gtk</span><span class=
+"hl-default">.</span><span class=
+"hl-identifier">Window</span><span class="hl-brackets">()
+        </span><span class="hl-identifier">win</span><span class=
+"hl-default">.</span><span class=
+"hl-identifier">resize</span><span class=
+"hl-brackets">(</span><span class=
+"hl-number">200</span><span class="hl-code">,</span><span class=
+"hl-number">50</span><span class="hl-brackets">)
+        </span><span class="hl-identifier">win</span><span class=
+"hl-default">.</span><span class=
+"hl-identifier">connect</span><span class=
+"hl-brackets">(</span><span class="hl-quotes">'</span><span class=
+"hl-string">delete-event</span><span class=
+"hl-quotes">'</span><span class="hl-code">, </span><span class=
+"hl-identifier">gtk</span><span class=
+"hl-code">.</span><span class="hl-identifier">main_quit</span><span class="hl-brackets">)
+
+        </span><span class=
+"hl-identifier">starScale</span><span class=
+"hl-default"> = </span><span class=
+"hl-identifier">StarHScale</span><span class=
+"hl-brackets">(</span><span class="hl-number">10</span><span class=
+"hl-code">,</span><span class="hl-number">5</span><span class=
+"hl-brackets">)
+
+        </span><span class="hl-identifier">win</span><span class=
+"hl-default">.</span><span class=
+"hl-identifier">add</span><span class=
+"hl-brackets">(</span><span class=
+"hl-identifier">starScale</span><span class="hl-brackets">)
+        </span><span class="hl-identifier">win</span><span class=
+"hl-default">.</span><span class=
+"hl-identifier">show_all</span><span class="hl-brackets">()
+        </span><span class="hl-identifier">gtk</span><span class=
+"hl-default">.</span><span class=
+"hl-identifier">main</span><span class="hl-brackets">()</span>
+</pre>
+          </div>
+        </div>
+
+        <p>So if you run the file you should see the
+        following:</p><embed src=
+        "learning%20python%20%BB%20Blog%20Archive%20%BB%20Writing%20a%20Custom%20Widget%20Using%20PyGTK_files/starHScale.swf"
+        play="true" loop="True" quality="low" type=
+        "application/x-shockwave-flash" pluginspage=
+        "http://www.macromedia.com/go/getflashplayer" height="100"
+        width="300" /><br />
+
+        <p>Whew! So that's it, I hope that you found this tutorial
+        useful, now the next step (in the next tutorial) is to add
+        it to the gtk.TreeView.</p>
+
+        <p>The full source can be downloaded <a href=
+        "./resources/starhscale.tar.gz">here</a>.</p>
+      </div>
+    </div>
+  </div>
+  <hr />
+
+  <div id="footer">
+    <p><!--Creative Commons License--><a rel="license" href=
+    "http://creativecommons.org/licenses/by-nc-sa/2.5/"><img alt=
+    "Creative Commons License" src=
+    "./resources/somerights20.png"
+    border="0" /></a><br />
+    This work is licensed under a<br />
+    <a rel="license" href=
+    "http://creativecommons.org/licenses/by-nc-sa/2.5/">Creative
+    Commons Attribution-NonCommercial-ShareAlike 2.5 License</a>.
+    <!--/Creative Commons License-->
+    <!-- <rdf:RDF xmlns="http://web.resource.org/cc/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+                <Work rdf:about="">
+                        <license rdf:resource="http://creativecommons.org/licenses/by-nc-sa/2.5/" />
+        <dc:title>LearningPython</dc:title>
+        <dc:date>2006</dc:date>
+        <dc:description>one man's journey into python⬦a blog about learning pyhon</dc:description>
+        <dc:creator><Agent><dc:title>Mark Mruss</dc:title></Agent></dc:creator>
+        <dc:rights><Agent><dc:title>Mark Mruss</dc:title></Agent></dc:rights>
+        <dc:type rdf:resource="http://purl.org/dc/dcmitype/Text" />
+        <dc:source rdf:resource="http://www.learningpython.com" />
+                </Work>
+                <License rdf:about="http://creativecommons.org/licenses/by-nc-sa/2.5/"><permits rdf:resource="http://web.resource.org/cc/Reproduction"/><permits rdf:resource="http://web.resource.org/cc/Distribution"/><requires rdf:resource="http://web.resource.org/cc/Notice"/><requires rdf:resource="http://web.resource.org/cc/Attribution"/><prohibits rdf:resource="http://web.resource.org/cc/CommercialUse"/><permits rdf:resource="http://web.resource.org/cc/DerivativeWorks"/><requires rdf:resource="http://web.resource.org/cc/ShareAlike"/></License></rdf:RDF> --></p>
+  </div>
+</body>
+</html>
