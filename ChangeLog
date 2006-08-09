@@ -1,3 +1,12 @@
+2006-08-09  Rafael Villar Burke  <pachi@rvburke.com>
+
+	* articles/writing-a-custom-widget-using-pygtk.htm
+	* articles/writing-a-custom-widget-using-pygtk/resources/iTunesStars.png
+	* articles/writing-a-custom-widget-using-pygtk/resources/somerights20.png
+	* articles/writing-a-custom-widget-using-pygtk/resources/starhscale.tar.gz
+	* articles/writing-a-custom-widget-using-pygtk/resources/style.css: upload
+	new article by Mark Mruss
+
 2006-07-28  Christian Reis  <kiko@async.com.br>
 
 	* applications.src: Add GFCE Ultra.
