@@ -455,6 +455,9 @@
   such as smbclient, smbmount etc. Using it you can browse and use SMB
   network shares.</dd>
 
+  <dt><a href="http://sabernetdcs.sourceforge.net/">SaberNet DCS</a></dt>
+  <dd>SaberNet DCS is a labor data collection system, designed to allow organizations to rapidly capture their labor data in real-time. It builds reports and analyzes this data to evaluate the profitability of individual jobs, projects, employees and departments.</dd>
+
   <dt><a href="http://www.nongnu.org/straw/index.html">Straw</a></dt>
   <dd>Straw is a desktop news aggregation for GNOME</dd>
 
