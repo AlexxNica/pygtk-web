@@ -114,6 +114,11 @@
   <dd>OnTV is a GNOME Applet written in Python using PyGTK. It uses XMLTV files
   to monitor current and upcoming TV programs.</dd>
 
+  <dt><a href="https://wiki.ubuntu.com/PanelSwitcher">Panel Switcher</a></dt>
+  <dd>The Panel Switcher makes easy saving and restoring different panel
+  layout settings for Gnome. For each configuration it can store a screenshot
+  and it features by default some already-made layout configurations.</dd>
+
   <dt>Point2Play</dt>
   <dd>Point2Play is simply a graphical front end for TransGaming's core
   WineX technology which enables you to run Windows applications on
@@ -687,6 +692,12 @@
   back up any subset of files and directories using regular expressions and
   a maximum file size limit to define exclusions. Backups may be saved to
   any local and remote directories supported by gnome-vfs.</dd>
+
+  <dt><a href="https://wiki.ubuntu.com/SessionBackup">SessionBackup</a></dt>
+  <dd>SessionBackup is a small application to backup application settings
+  and be able to restore them in different workstations, new installations,
+  etc. It has both a graphical and command line mode and it can be used to
+  do scheduled backups.</dd>
 
   <dt><a href="http://www.smartpm.org/">
   Smart Package Manager</a></dt>
