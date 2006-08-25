@@ -1,3 +1,8 @@
+2006-08-25  Rafael Villar Burke  <pachi@rvburke.com>
+
+	* articles.src: Add link to japanese translation by Satoshi Tanabe
+	of the "Creating a GUI using PyGTK and Glade" article
+
 2006-08-21  Rafael Villar Burke  <pachi@rvburke.com>
 
 	* applications.src: Add PanelSwitcher and SessionBackup
