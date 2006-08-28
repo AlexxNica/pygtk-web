@@ -25,7 +25,6 @@
     <tr>
       <td>Jun 2006</td>
       <td><a href="http://www.learningpython.com/2006/05/30/building-an-application-with-pygtk-and-glade/">Building an application with PyGTK and Glade</a><br>
-          <a href="http://po3a.blogspot.com/2006/08/pygtk-glade-gui.html">Japanese translation</a><br>
           <a href="./articles/application-pygtk-glade/Building_an_Application_with_PyGTK_and_Glade.htm">Local copy</a>
       <td>Mark Mruss</td>
     </tr>
@@ -33,6 +32,7 @@
      <tr>
       <td>May 2006</td>
       <td><a href="http://www.learningpython.com/2006/05/07/creating-a-gui-using-pygtk-and-glade/">Creating a GUI using PyGTK and Glade</a><br>
+          <a href="http://po3a.blogspot.com/2006/08/pygtk-glade-gui.html">Japanese translation</a><br>
           <a href="./articles/pygtk-glade-gui/Creating_a_GUI_using_PyGTK_and_Glade.htm">Local copy</a>
       <td>Mark Mruss</td>
     </tr>
