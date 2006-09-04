@@ -14,6 +14,40 @@ item = lambda *x: items.append(x)
 #      "INSERT AUTHOR HERE")
 
 # http://news.gmane.org/gmane.comp.gnome.gtk%2B.python/
+
+item("PyGTK 2.10.0 released",
+     (2006, 9, 4),
+     """
+     <p>PyGTK 2.12.0 includes the following new features:</p>
+     <ul>
+     <li>Includes John Finlays reference manual</li>
+     <li>gobject bindings were removed, moved to a separate tarball</li>
+     <li>Added GTK+ 2.10 API:
+     Assistant, CellRendererSpin, LinkButton, Printing*,
+     RecentChooser, StatusIcon</li>
+     <li>Many code generator improvements</li>
+     <li>New module gtk.unixprint</li>
+     <li>Reduced memory usage</li>
+     <li>MacOS X support</li>
+     <li>Many bug fixes</li>
+     </ul>
+     <p>Read the complete announcement <a href="http://article.gmane.org/gmane.comp.gnome.gtk%2B.python/8712">here</a></p>
+     """, "Johan Dahlin")
+
+item("PyGObject 2.12.0 released",
+     (2006, 9, 4),
+     """
+     PyGObject 2.12.0 includes the following new features:
+     <ul>
+     <li>John Finlays reference manual is now included and prebuilt</li>
+     <li>GOption is now supported</li>
+     <li>Support for signal emission hooks</li>
+     <li>Various GInterface related improvements</li>
+     <li>Many bug fixes</li>
+     </ul>
+     <p>Read the complete announcement <a href="http://article.gmane.org/gmane.comp.gnome.gtk%2B.python/8711">here</a></p>
+     """, "Johan Dahlin")
+
 item("New article - Writing a custom widget using PyGTK", (2006, 6, 3),
      """Mark Mruss comes back again with an interesting <a
      href="http://www.learningpython.com/2006/07/25/writing-a-custom-widget-using-pygtk/">
