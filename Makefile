@@ -9,13 +9,12 @@ PROCESSOR = ${PYTHON} stp.py
 
 WGET = wget
 REFTARBALLS = \
-	http://www.moeraki.com/pygtkreference/tarballs/pygtk2reference-2.8.1.tgz \
-	http://www.moeraki.com/pygtkreference/tarballs/pygtk2reference-2.8.1.tbz2 \
-	http://www.moeraki.com/pygtkreference/tarballs/pygtk2reference-2.9.0.tgz \
-	http://www.moeraki.com/pygtkreference/tarballs/pygtk2reference-2.9.0.tbz2
+	http://www.gnome.org/~johan/pygobject-docs.tar.gz	\
+	http://www.gnome.org/~johan/pygtk-docs.tar.gz
+
+REFFILENAMES = pygobject-docs.tar.gz pygtk-docs.tar.gz
 
 TARBALLS = 								\
-	http://www.moeraki.com/pygtkreference/pygtk2reference.tgz 	\
 	http://www.moeraki.com/pygtktutorial/pygtk2tutorial.tgz 	\
 	http://www.moeraki.com/pygtktutorial/pygtktutorial.tgz 		\
 	http://www.moeraki.com/pygtktutorial/pygtk2-tut.pdf 		\
@@ -96,7 +95,13 @@ remote-tarballs:
 	(cd ${WEBDIR}; for f in ${DISTDIR}/*.tgz; do tar xzf $$f; done)
 
 reference-tarballs:
+	rm -fr ${WEBDIR}/pygtk2reference
+	ln -s ${WEBDIR}/docs/pygtk ${WEBDIR}/pygtk2reference 
+
+	mkdir -p ${WEBDIR}/docs
+
 	-(cd ${REFDISTDIR}; ${WGET} -KN ${REFTARBALLS})
+	(cd ${WEBDIR}/docs; for f in ${REFFILENAMES}; do tar xzf ${REFDISTDIR}/$$f; done)
 
 local-tarballs:
 	cp ${LOCAL_TARBALLS} ${DISTDIR}
