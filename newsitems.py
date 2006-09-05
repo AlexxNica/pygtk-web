@@ -18,7 +18,7 @@ item = lambda *x: items.append(x)
 item("PyGTK 2.10.0 released",
      (2006, 9, 4),
      """
-     <p>PyGTK 2.12.0 includes the following new features:</p>
+     <p>PyGTK 2.10.0 includes the following new features:</p>
      <ul>
      <li>Includes John Finlays reference manual</li>
      <li>gobject bindings were removed, moved to a separate tarball</li>
