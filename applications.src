@@ -223,6 +223,12 @@
   and other song information and statistics, manage your ipod and music
   library and much more...</dd>
 
+  <dt><a href="http://mesk.nicfit.net/">Mesk Audio Player</a></dt>
+  <dd>Mesk is an audio player. It features all gstreamer supported audio
+  formats, playlist support, remote audio and playlist support, album
+  covers retrieval and has a plugin extension mechanism that currently
+  features last.fm and gajim interaction.</dd>
+
   <dt><a href="http://www.nongnu.org/orange-slice/">The Orange Slice</a></dt>
   <dd>Orange Slice is a subtitle editor, writen in Python/GTK+. It aims at
   the manipulation of different file formats like SSA, ASS, SUB, SRT, etc.<br>
