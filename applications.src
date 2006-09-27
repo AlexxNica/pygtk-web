@@ -279,6 +279,11 @@
   environment. It reads anything the GStreamer library can read, and writes
   WAV, FLAC, MP3, and Ogg Vorbis files.</dd>
 
+  <dt><a href="http://sonata.berlios.de">Sonata</a></dt>
+  <dd>Sonata is a lightweight GTK+ music client for the Music Player Daemon
+  (MPD). It aims to be minimalist (no toolbar, main menu, or statusbar),
+  user-firendly, and clean.</dd>
+
   <dt><a href="http://timmir.com/wiki/index.php/TimPlayer">TimPlayer</a></dt>
   <dd>TimPlayer is a home inspired audio player with a simple
   User Interface and the power of GStreamer.</dd>
@@ -311,6 +316,12 @@
   <dd>Micropics is a Gnome 2.x applet that displays changing thumbnails
   of your favorite photos. When guiding your mouse pointer over the
   thumbnail, the image zooms out, and you get to see more details.</dd>
+
+  <dt><a href="http://mirageiv.berlios.de">Mirage</a></dt>
+  <dd>Mirage is a fast and simple image viewer that only depends on pygtk,
+  and thus perfect to keep computers lean. It features some basic editing
+  functionalities such as rotating, flipping, resizing or cropping, and
+  it can be driven using the command line.</dd>
 
   <dt><a href="http://nekton.mine.nu/archives/category/projects/mum/">Mum</a></dt>
   <dd>This Program allows simple creation and upload of images galleries on web
