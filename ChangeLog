@@ -1,3 +1,22 @@
+2006-10-02  Rafael Villar Burke  <pachi@rvburke.com>
+
+	* articles/wordpy-offline-blogging-tool/wordpy-offline-blogging-tool.htm
+	* articles/wordpy-offline-blogging-tool/resources/somerights20.png
+	* articles/wordpy-offline-blogging-tool/resources/style.css
+	* articles/wordpy-offline-blogging-tool/resources/wordpy_01.png
+	* articles/wordpy-offline-blogging-tool/resources/WordPy_0_1.tar.gz
+	* articles/wordpy-offline-blogging-tool/resources/wordpy_02.png
+	* articles/wordpy-offline-blogging-tool/resources/wordpy_03.png
+	* articles/wordpy-offline-blogging-tool/resources/wordpy_04.png
+	* articles/extending-our-pygtk-application/extending-our-pygtk-application.htm
+	* articles/extending-our-pygtk-application/resources/
+	* articles/extending-our-pygtk-application/resources/py_wine_02_01.png
+	* articles/extending-our-pygtk-application/resources/py_wine_02_02.png
+	* articles/extending-our-pygtk-application/resources/PyWine_02.tar.gz
+	* articles/extending-our-pygtk-application/resources/somerights20.png
+	* articles/extending-our-pygtk-application/resources/style.css
+	* articles.src: Add two new articles by Mark Mruss to the list
+
 2006-09-27  Rafael Villar Burke  <pachi@rvburke.com>
 
 	* applications.src: Add Mesk Audio Player

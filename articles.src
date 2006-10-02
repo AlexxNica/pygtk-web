@@ -16,6 +16,20 @@
 
   <tbody>
     <tr>
+      <td>Sep 2006</td>
+      <td><a href="http://www.learningpython.com/2006/09/02/extending-our-pygtk-application/">Extending our PyGTK Application</a><br>
+          <a href="./articles/extending-our-pygtk-application/extending-our-pygtk-application.htm">Local copy</a>
+      <td>Mark Mruss</td>
+    </tr>
+
+    <tr>
+      <td>Aug 2006</td>
+      <td><a href="http://www.learningpython.com/2006/08/19/wordpress-python-library/">WordPy offline blogging tool</a><br>
+          <a href="./articles/wordpy-offline-blogging-tool/wordpy-offline-blogging-tool.htm">Local copy</a>
+      <td>Mark Mruss</td>
+    </tr>
+
+    <tr>
       <td>Jul 2006</td>
       <td><a href="http://www.learningpython.com/2006/07/25/writing-a-custom-widget-using-pygtk/">Writing a custom widget using pygtk</a><br>
           <a href="./articles/writing-a-custom-widget-using-pygtk/writing-a-custom-widget-using-pygtk.htm">Local copy</a>

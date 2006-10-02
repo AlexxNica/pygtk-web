@@ -1,0 +1,820 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head profile="http://gmpg.org/xfn/11">
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>WordPy offline blogging tool</title>
+        <meta id="keywords" content="python, python programming, learning programming, program, how to program, howto program, learn python">
+        <link rel="stylesheet" href="resources/style.css" type="text/css" media="screen">
+    </head>
+    <body>
+
+	<div id="content" class="widecolumn">
+		<div class="post" id="post-30">
+			<h2><a href="http://www.python.org/articles/wordpy-offline-blogging-tool/wordpy-offline-blogging-tool.htm" rel="bookmark" title="WordPy offline blogging tool">WordPy offline blogging tool</a></h2>
+            <p><small>Article by Mark Mruss, originally posted on <a href="http://www.learningpython.com/2006/08/19/wordpress-python-library/">www.learningpython.com</a></small></p>
+
+			<div class="entrytext">
+					<p>Topics covered in this tutorial:</p>
+	<ul>
+	<li>Glade</li>
+	<li>PyGTK</li>
+	<li>gtk.FileChooserDialog</li>
+	<li>gtk.FileFilter</li>
+	<li>gtk.TextView</li>
+	<li>gtk.TextBuffer</li>
+	<li>gtk.TextMark</li>
+	<li>gtk.MessageDialog</li>
+	</ul>
+	<p>You can download the full source for this tutorial <a href="resources/WordPy_0_1.tar.gz">here</a>.</p>
+	<p>One of the things that I found the other day while I was surfing the web looking for information on Python was this <a href="http://www.blackbirdblog.it/programmazione/progetti/28#english">WordPress Python library</a>.
+Since I use Wordpress for this site I thought that I'd play with it a
+bit. The result is this tutorial about using the Wordpress library,
+PyGTK, and Glade.</p>
+	<p>The first think to do is download the <a href="http://www.blackbirdblog.it/programmazione/progetti/28">library</a>,
+extract it form the archive, and install it. Enter the following on the
+command line in the directory you downloaded the library to in order to
+install it:</p>
+	<p><code>python setup.py install</code></p>
+	<p>Now
+you have the library installed. The next step is to create the GUI that
+we will use to interact with the library. The GUI will be created using
+<a href="http://glade.gnome.org/">Glade</a>, if you are new to Glade or PyGTK you might want to read over my two turorials on the subject:  <a href="..//pygtk-glade-gui/Creating_a_GUI_using_PyGTK_and_Glade.htm">Creating a GUI using PyGTK and Glade</a> and <a href="../application-with-pygtk-glade/Building_an_Application_with_PyGTK_and_Glade.htm">Building an Application with PyGTK and Glade</a>.</p>
+	<p><a id="more-30"></a></p>
+	<h2>The GUI</h2>
+	<p>The first thing that we want to do is create the main GUI, here are the steps for that:</p>
+	<p><b>Note:</b>
+These steps are very general if you have trouble following them post a
+question or read the two initial PyGTK/Glade tutorials in order to
+become familiar with Glade.</p>
+	<ol>
+	<li>Add a window to the project.
+Set it's name to be: 'wndMain' and its title to be: 'WordPy'. Set it's
+default height to be 350 and it's default width to be 400.</li>
+	<li>Add a vertical box with five rows</li>
+	<li>In
+the first row add horizontal box with two columns, set it's 'Expand'
+option on the Packing tab to No. Then add a label that says 'Title:' in
+the first column set it's width to be 44, and in the second column add
+a Text Entry. Call the text entry: 'enTitle'. Set the Text Entries
+padding to be 3.</li>
+	<li>In the second rod add a horizontal box with
+13 items. make the first item A label, make it's 'Text:', make it's
+width 44, and make it's X Align 0.00. Then make the next twelve items
+Buttons. The buttons will be used to mimic the buttons available when
+writing a wordpress post:<br>
+	<blockquote><p>(b)(i)(link)(b-quote)(del)(ins)(img)(ul)(ol)(li)(code)(more)</p></blockquote>
+Name each button using the following pattern: btnBold, btnItalic, etc, and add a clicked handler to each button.</li>
+	<li>In
+the forth row add a Text View. On the Widget tab set the Text View's
+(not the Scrolled Window) name to be 'txtPost' and its wrapping option
+to be 'Word'.</li>
+	<li>Now add another Horizontal Button box to the
+final row. Set it's layout to be 'End' and its spacing to be 3. On the
+Packing tab set the padding to be 2 and Expand to No. Set the left-most
+buttons name to be btnSettings, its label to be 'Settings', and it???s
+icon to be the 'Properties' icon. Set the other buttons name to be
+btnPost, it's label to be 'Post' and it's icon to be the Up icon.</li>
+	<li>Add
+a handler for the 'clicked' signal for each button. We will use this
+signal to perform actions when the user clicks on the button.</li>
+	<li>Add a handler for the wndMain destroy signal (not the destroy_event signal, the destroy signal)</li>
+	</ol>
+	<p>That's it for the main window, once you have completed all of those steps you should be left with something like this:</p>
+	<p><img style="margin: 0pt 10px 10px 0pt;" src="resources/wordpy_01.png" alt="GLADE Window" border="0"></p>
+	<p>Note
+that I used icons for my buttons instead of using text. The icons are
+taken from the latest version of the gnome-icon-theme.</p>
+	<p>The next GUI element that we are going to create is the Settings dialog that will come up when you press the settings button:</p>
+	<ol>
+	<li>Create
+a new dialog by pressing the dialog button. Select the Standard Button
+Layout with Cancel and Ok as your buttons. Set the dialogs name to be
+'dlgSettings' and its title to be 'Settings'</li>
+	<li>Add a new table with three rows and two columns.</li>
+	<li>In
+the first row add a Label in the first column and set its label to be
+'URL:'. In the second column add a Text Entry and set it???s name to be
+'enURL'. On the packing tab set the Text Entries H Padding and V
+padding to both be 2</li>
+	<li>Replicate step three in row two, except
+set the Label's label to be 'Username' and the name of the Text Entry
+to be 'enUsername'.</li>
+	<li>Replicate step three in row three, except
+set the Label's label to be 'Password' and the name of the Text Entry
+to be 'enPassword'. Set the Text Visible option to No, this will
+display the invisible char instead of the actual text, making this
+function like a normal password entry.</li>
+	</ol>
+	<p>After following those steps you should be left with something that resembles the following:</p>
+	<p><img style="margin: 0pt 10px 10px 0pt;" src="resources/wordpy_02.png" alt="GLADE Window" border="0"></p>
+	<p>Finally we need to create the dialog that will be used when the user wants to insert a link into their post:</p>
+	<ol>
+	<li>Add another dialog with Ok and Cancel buttons.  Set the dialogs name to be dlgLink and it's title to be 'Insert Link???.</li>
+	<li>Add
+a vertical box with two rows, in the first row add a Label, set it's
+label to be: 'Enter the URL' and it???s X Allign to be 0.00. In the
+second row add an Text Entry and set it's name to be enURL.</li>
+	<li>On
+the Widget tab of dlgLink dialog's properties set the resizable
+property to No, and on the Common tab set the width to be 300.</li>
+	</ol>
+	<p>your dlgLink should look something like this:</p>
+	<p><img style="margin: 0pt 10px 10px 0pt;" src="resources/wordpy_04.png" alt="GLADE Window" border="0"></p>
+	<h2>The Code - Connecting Glade with PyGTK</h2>
+	<p>Here
+is the basic code that we use to start up our little WordPy Application
+and connect it with out glade file (it is the basic code that I used in
+my <a href="../pygtk-glade-gui/Creating_a_GUI_using_PyGTK_and_Glade.htm">two</a> <a href="../application-with-pygtk-glade/Building_an_Application_with_PyGTK_and_Glade.htm#more-25">other</a> tutorials):</p>
+	<div class="hl-surround" style="height: 280px;"><div class="hl-main"><pre><span class="hl-comment">#!/usr/bin/env python
+
+</span><span class="hl-reserved">import </span><span class="hl-identifier">sys
+</span><span class="hl-reserved">try</span><span class="hl-default">:
+ 	</span><span class="hl-reserved">import </span><span class="hl-identifier">pygtk
+  	pygtk</span><span class="hl-default">.</span><span class="hl-identifier">require</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">2.0</span><span class="hl-quotes">"</span><span class="hl-brackets">)
+</span><span class="hl-reserved">except</span><span class="hl-default">:
+  	</span><span class="hl-reserved">pass
+try</span><span class="hl-default">:
+	</span><span class="hl-reserved">import </span><span class="hl-identifier">gtk
+  	</span><span class="hl-reserved">import </span><span class="hl-identifier">gtk</span><span class="hl-default">.</span><span class="hl-identifier">glade
+</span><span class="hl-reserved">except</span><span class="hl-default">:
+	</span><span class="hl-identifier">sys</span><span class="hl-default">.</span><span class="hl-identifier">exit</span><span class="hl-brackets">(</span><span class="hl-number">1</span><span class="hl-brackets">)
+
+</span><span class="hl-reserved">class </span><span class="hl-identifier">WordPy</span><span class="hl-default">:
+	</span><span class="hl-quotes">"""</span><span class="hl-string">This is the Wordpy application.  It is a simple PyGTK
+	application that interacts with the WorPress Python library.</span><span class="hl-quotes">"""
+
+	</span><span class="hl-reserved">def </span><span class="hl-identifier">__init__</span><span class="hl-brackets">(</span><span class="hl-identifier">self</span><span class="hl-brackets">)</span><span class="hl-default">:
+
+		</span><span class="hl-comment">#Set the Glade file
+		</span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">gladefile</span><span class="hl-default"> = </span><span class="hl-quotes">"</span><span class="hl-string">wordpy.glade</span><span class="hl-quotes">"
+		</span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">wTree</span><span class="hl-default"> = </span><span class="hl-identifier">gtk</span><span class="hl-default">.</span><span class="hl-identifier">glade</span><span class="hl-default">.</span><span class="hl-identifier">XML</span><span class="hl-brackets">(</span><span class="hl-identifier">self</span><span class="hl-code">.</span><span class="hl-identifier">gladefile</span><span class="hl-code">, </span><span class="hl-quotes">"</span><span class="hl-string">wndMain</span><span class="hl-quotes">"</span><span class="hl-brackets">)
+
+		</span><span class="hl-quotes">"""</span><span class="hl-string">Create our dictionary and connect it, you may notice
+		that I have gone with the default function names this time</span><span class="hl-quotes">"""
+		</span><span class="hl-identifier">dic</span><span class="hl-default"> = {</span><span class="hl-quotes">"</span><span class="hl-string">on_wndMain_destroy</span><span class="hl-quotes">"</span><span class="hl-default"> : </span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">quit</span><span class="hl-default">
+				, </span><span class="hl-quotes">"</span><span class="hl-string">on_btnBold_clicked</span><span class="hl-quotes">"</span><span class="hl-default"> : </span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">on_btnBold_clicked</span><span class="hl-default">
+				, </span><span class="hl-quotes">"</span><span class="hl-string">on_btnItalic_clicked</span><span class="hl-quotes">"</span><span class="hl-default"> : </span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">on_btnItalic_clicked</span><span class="hl-default">
+				, </span><span class="hl-quotes">"</span><span class="hl-string">on_btnLink_clicked</span><span class="hl-quotes">"</span><span class="hl-default"> : </span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">on_btnLink_clicked</span><span class="hl-default">
+				, </span><span class="hl-quotes">"</span><span class="hl-string">on_btnBlockQuote_clicked</span><span class="hl-quotes">"</span><span class="hl-default"> : </span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">on_btnBlockQuote_clicked</span><span class="hl-default">
+				, </span><span class="hl-quotes">"</span><span class="hl-string">on_btnDel_clicked</span><span class="hl-quotes">"</span><span class="hl-default"> : </span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">on_btnDel_clicked</span><span class="hl-default">
+				, </span><span class="hl-quotes">"</span><span class="hl-string">on_btnIns_clicked</span><span class="hl-quotes">"</span><span class="hl-default"> : </span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">on_btnIns_clicked</span><span class="hl-default">
+				, </span><span class="hl-quotes">"</span><span class="hl-string">on_btnImage_clicked</span><span class="hl-quotes">"</span><span class="hl-default"> : </span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">on_btnImage_clicked</span><span class="hl-default">
+				, </span><span class="hl-quotes">"</span><span class="hl-string">on_btnUnorderedList_clicked</span><span class="hl-quotes">"</span><span class="hl-default"> : </span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">on_btnUnorderedList_clicked</span><span class="hl-default">
+				, </span><span class="hl-quotes">"</span><span class="hl-string">on_btnOrderedList_clicked</span><span class="hl-quotes">"</span><span class="hl-default"> : </span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">on_btnOrderedList_clicked</span><span class="hl-default">
+				, </span><span class="hl-quotes">"</span><span class="hl-string">on_btnListItem_clicked</span><span class="hl-quotes">"</span><span class="hl-default"> : </span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">on_btnListItem_clicked</span><span class="hl-default">
+				, </span><span class="hl-quotes">"</span><span class="hl-string">on_btnCode_clicked</span><span class="hl-quotes">"</span><span class="hl-default"> : </span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">on_btnCode_clicked</span><span class="hl-default">
+				, </span><span class="hl-quotes">"</span><span class="hl-string">on_btnMore_clicked</span><span class="hl-quotes">"</span><span class="hl-default"> : </span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">on_btnMore_clicked</span><span class="hl-default">
+				, </span><span class="hl-quotes">"</span><span class="hl-string">on_btnSettings_clicked</span><span class="hl-quotes">"</span><span class="hl-default"> : </span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">on_btnSettings_clicked</span><span class="hl-default">
+				, </span><span class="hl-quotes">"</span><span class="hl-string">on_btnpost_clicked</span><span class="hl-quotes">"</span><span class="hl-default"> : </span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">on_btnpost_clicked</span><span class="hl-default">}
+		</span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">wTree</span><span class="hl-default">.</span><span class="hl-identifier">signal_autoconnect</span><span class="hl-brackets">(</span><span class="hl-identifier">dic</span><span class="hl-brackets">)
+
+       </span><span class="hl-reserved">def </span><span class="hl-identifier">quit</span><span class="hl-brackets">(</span><span class="hl-identifier">self</span><span class="hl-code">, </span><span class="hl-identifier">widget</span><span class="hl-brackets">)</span><span class="hl-default">:
+		</span><span class="hl-quotes">"""</span><span class="hl-string">Quit yourself</span><span class="hl-quotes">"""
+		</span><span class="hl-identifier">gtk</span><span class="hl-default">.</span><span class="hl-identifier">main_quit</span><span class="hl-brackets">()
+
+		</span><span class="hl-reserved">def </span><span class="hl-identifier">on_btnBold_clicked</span><span class="hl-brackets">(</span><span class="hl-identifier">self</span><span class="hl-code">, </span><span class="hl-identifier">widget</span><span class="hl-brackets">)</span><span class="hl-default">:
+		</span><span class="hl-quotes">"""</span><span class="hl-string">Called when the bold button is clicked</span><span class="hl-quotes">"""
+
+	</span><span class="hl-reserved">def </span><span class="hl-identifier">on_btnItalic_clicked</span><span class="hl-brackets">(</span><span class="hl-identifier">self</span><span class="hl-code">, </span><span class="hl-identifier">widget</span><span class="hl-brackets">)</span><span class="hl-default">:
+		</span><span class="hl-quotes">"""</span><span class="hl-string">Called when the italic button is clicked</span><span class="hl-quotes">"""
+
+	</span><span class="hl-reserved">def </span><span class="hl-identifier">on_btnLink_clicked</span><span class="hl-brackets">(</span><span class="hl-identifier">self</span><span class="hl-code">, </span><span class="hl-identifier">widget</span><span class="hl-brackets">)</span><span class="hl-default">:
+		</span><span class="hl-quotes">"""</span><span class="hl-string">Called when the link button is clicked</span><span class="hl-quotes">"""
+
+	</span><span class="hl-reserved">def </span><span class="hl-identifier">on_btnBlockQuote_clicked</span><span class="hl-brackets">(</span><span class="hl-identifier">self</span><span class="hl-code">, </span><span class="hl-identifier">widget</span><span class="hl-brackets">)</span><span class="hl-default">:
+		</span><span class="hl-quotes">"""</span><span class="hl-string">Called when the Block Quote button is clicked</span><span class="hl-quotes">"""
+
+	</span><span class="hl-reserved">def </span><span class="hl-identifier">on_btnDel_clicked</span><span class="hl-brackets">(</span><span class="hl-identifier">self</span><span class="hl-code">, </span><span class="hl-identifier">widget</span><span class="hl-brackets">)</span><span class="hl-default">:
+		</span><span class="hl-quotes">"""</span><span class="hl-string">Called when the Del button is clicked</span><span class="hl-quotes">"""
+
+	</span><span class="hl-reserved">def </span><span class="hl-identifier">on_btnIns_clicked</span><span class="hl-brackets">(</span><span class="hl-identifier">self</span><span class="hl-code">, </span><span class="hl-identifier">widget</span><span class="hl-brackets">)</span><span class="hl-default">:
+		</span><span class="hl-quotes">"""</span><span class="hl-string">Called when the Ins button is clicked</span><span class="hl-quotes">"""
+
+	</span><span class="hl-reserved">def </span><span class="hl-identifier">on_btnImage_clicked</span><span class="hl-brackets">(</span><span class="hl-identifier">self</span><span class="hl-code">, </span><span class="hl-identifier">widget</span><span class="hl-brackets">)</span><span class="hl-default">:
+		</span><span class="hl-quotes">"""</span><span class="hl-string">Called when the Image button is clicked</span><span class="hl-quotes">"""
+
+	</span><span class="hl-reserved">def </span><span class="hl-identifier">on_btnUnorderedList_clicked</span><span class="hl-brackets">(</span><span class="hl-identifier">self</span><span class="hl-code">, </span><span class="hl-identifier">widget</span><span class="hl-brackets">)</span><span class="hl-default">:
+		</span><span class="hl-quotes">"""</span><span class="hl-string">Called when the Unordered List button is clicked</span><span class="hl-quotes">"""
+
+	</span><span class="hl-reserved">def </span><span class="hl-identifier">on_btnOrderedList_clicked</span><span class="hl-brackets">(</span><span class="hl-identifier">self</span><span class="hl-code">, </span><span class="hl-identifier">widget</span><span class="hl-brackets">)</span><span class="hl-default">:
+		</span><span class="hl-quotes">"""</span><span class="hl-string">Called when the Ordered List button is clicked</span><span class="hl-quotes">"""
+
+	</span><span class="hl-reserved">def </span><span class="hl-identifier">on_btnListItem_clicked</span><span class="hl-brackets">(</span><span class="hl-identifier">self</span><span class="hl-code">, </span><span class="hl-identifier">widget</span><span class="hl-brackets">)</span><span class="hl-default">:
+		</span><span class="hl-quotes">"""</span><span class="hl-string">Called when the List Item button is clicked</span><span class="hl-quotes">"""
+
+	</span><span class="hl-reserved">def </span><span class="hl-identifier">on_btnMore_clicked</span><span class="hl-brackets">(</span><span class="hl-identifier">self</span><span class="hl-code">, </span><span class="hl-identifier">widget</span><span class="hl-brackets">)</span><span class="hl-default">:
+		</span><span class="hl-quotes">"""</span><span class="hl-string">Called when the bold button is clicked</span><span class="hl-quotes">"""
+
+	</span><span class="hl-reserved">def </span><span class="hl-identifier">on_btnCode_clicked</span><span class="hl-brackets">(</span><span class="hl-identifier">self</span><span class="hl-code">, </span><span class="hl-identifier">widget</span><span class="hl-brackets">)</span><span class="hl-default">:
+		</span><span class="hl-quotes">"""</span><span class="hl-string">Called when the Code button is clicked</span><span class="hl-quotes">"""
+
+	</span><span class="hl-reserved">def </span><span class="hl-identifier">on_btnSettings_clicked</span><span class="hl-brackets">(</span><span class="hl-identifier">self</span><span class="hl-code">, </span><span class="hl-identifier">widget</span><span class="hl-brackets">)</span><span class="hl-default">:
+		</span><span class="hl-quotes">"""</span><span class="hl-string">Called when the settings button is clicked.  It will
+		show the dlgSettings dialog and let the user set the WordPress
+		blog settings.</span><span class="hl-quotes">"""
+
+	</span><span class="hl-reserved">def </span><span class="hl-identifier">on_btnpost_clicked</span><span class="hl-brackets">(</span><span class="hl-identifier">self</span><span class="hl-code">, </span><span class="hl-identifier">widget</span><span class="hl-brackets">)</span><span class="hl-default">:
+		</span><span class="hl-quotes">"""</span><span class="hl-string">Called when the post button is clicked, this will
+		post the post to the blog.</span><span class="hl-quotes">"""
+
+</span><span class="hl-reserved">if </span><span class="hl-identifier">__name__</span><span class="hl-default"> == </span><span class="hl-quotes">"</span><span class="hl-string">__main__</span><span class="hl-quotes">"</span><span class="hl-default">:
+	</span><span class="hl-identifier">word</span><span class="hl-default"> = </span><span class="hl-identifier">WordPy</span><span class="hl-brackets">()
+	</span><span class="hl-identifier">gtk</span><span class="hl-default">.</span><span class="hl-identifier">main</span><span class="hl-brackets">()</span></pre></div></div>
+	<p>This
+code simply shows our wndMain and connects all of our signals with
+internal functions. The next bit of code that I'm going to show is a
+simple holder class to hold our WordPressBlogSettings, the settings
+will be pickled into and from a file just to make using this easier. <b>However</b> the file is text readable so if you are concerned about your wordpress password you might not want to use this:</p>
+	<div class="hl-surround" style="height: 280px;"><div class="hl-main"><pre><span class="hl-reserved">class </span><span class="hl-identifier">WordPressBlogSettings</span><span class="hl-default">:
+	</span><span class="hl-quotes">"""</span><span class="hl-string">This class holds the necessary wordpress blog settings
+	URL - The URL of the blog
+	Username - The username posting
+	Password - The password for the username
+	</span><span class="hl-quotes">"""
+
+	</span><span class="hl-reserved">def </span><span class="hl-identifier">__init__</span><span class="hl-brackets">(</span><span class="hl-identifier">self</span><span class="hl-code">, </span><span class="hl-identifier">File</span><span class="hl-code">=</span><span class="hl-quotes">""</span><span class="hl-code">, </span><span class="hl-identifier">URL</span><span class="hl-code">=</span><span class="hl-quotes">""</span><span class="hl-code">, </span><span class="hl-identifier">Username</span><span class="hl-code">=</span><span class="hl-quotes">""</span><span class="hl-code">, </span><span class="hl-identifier">Password</span><span class="hl-code">=</span><span class="hl-quotes">""</span><span class="hl-brackets">)</span><span class="hl-default">:
+
+		</span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">URL</span><span class="hl-default"> = </span><span class="hl-identifier">URL
+		self</span><span class="hl-default">.</span><span class="hl-identifier">Username</span><span class="hl-default"> = </span><span class="hl-identifier">Username
+		self</span><span class="hl-default">.</span><span class="hl-identifier">Password</span><span class="hl-default"> = </span><span class="hl-identifier">Password
+		if </span><span class="hl-brackets">(</span><span class="hl-identifier">File</span><span class="hl-code"> != </span><span class="hl-quotes">""</span><span class="hl-brackets">)</span><span class="hl-default">:
+			</span><span class="hl-comment"># Load from file
+			</span><span class="hl-reserved">try</span><span class="hl-default">:
+				</span><span class="hl-identifier">file</span><span class="hl-default"> = </span><span class="hl-builtin">open</span><span class="hl-brackets">(</span><span class="hl-identifier">File</span><span class="hl-code">, </span><span class="hl-quotes">'</span><span class="hl-string">rb</span><span class="hl-quotes">'</span><span class="hl-brackets">)
+				</span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">URL</span><span class="hl-default"> = </span><span class="hl-identifier">cPickle</span><span class="hl-default">.</span><span class="hl-identifier">load</span><span class="hl-brackets">(</span><span class="hl-identifier">file</span><span class="hl-brackets">)
+				</span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">Username</span><span class="hl-default"> = </span><span class="hl-identifier">cPickle</span><span class="hl-default">.</span><span class="hl-identifier">load</span><span class="hl-brackets">(</span><span class="hl-identifier">file</span><span class="hl-brackets">)
+				</span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">Password</span><span class="hl-default"> = </span><span class="hl-identifier">cPickle</span><span class="hl-default">.</span><span class="hl-identifier">load</span><span class="hl-brackets">(</span><span class="hl-identifier">file</span><span class="hl-brackets">)
+				</span><span class="hl-identifier">file</span><span class="hl-default">.</span><span class="hl-identifier">close</span><span class="hl-brackets">()
+			</span><span class="hl-reserved">except</span><span class="hl-default">:
+				</span><span class="hl-reserved">return
+
+	def </span><span class="hl-identifier">save</span><span class="hl-brackets">(</span><span class="hl-identifier">self</span><span class="hl-code">, </span><span class="hl-identifier">File</span><span class="hl-brackets">)</span><span class="hl-default">:
+		</span><span class="hl-quotes">"""</span><span class="hl-string">cPickle the information into the file</span><span class="hl-quotes">"""
+
+		</span><span class="hl-reserved">try</span><span class="hl-default">:
+			</span><span class="hl-identifier">save_file</span><span class="hl-default"> = </span><span class="hl-builtin">open</span><span class="hl-brackets">(</span><span class="hl-identifier">File</span><span class="hl-code">, </span><span class="hl-quotes">'</span><span class="hl-string">wb</span><span class="hl-quotes">'</span><span class="hl-brackets">)
+			</span><span class="hl-identifier">cPickle</span><span class="hl-default">.</span><span class="hl-identifier">dump</span><span class="hl-brackets">(</span><span class="hl-identifier">self</span><span class="hl-code">.</span><span class="hl-identifier">URL</span><span class="hl-code">, </span><span class="hl-identifier">save_file</span><span class="hl-brackets">)
+			</span><span class="hl-identifier">cPickle</span><span class="hl-default">.</span><span class="hl-identifier">dump</span><span class="hl-brackets">(</span><span class="hl-identifier">self</span><span class="hl-code">.</span><span class="hl-identifier">Username</span><span class="hl-code">, </span><span class="hl-identifier">save_file</span><span class="hl-brackets">)
+			</span><span class="hl-identifier">cPickle</span><span class="hl-default">.</span><span class="hl-identifier">dump</span><span class="hl-brackets">(</span><span class="hl-identifier">self</span><span class="hl-code">.</span><span class="hl-identifier">Password</span><span class="hl-code">, </span><span class="hl-identifier">save_file</span><span class="hl-brackets">)
+			</span><span class="hl-identifier">save_file</span><span class="hl-default">.</span><span class="hl-identifier">close</span><span class="hl-brackets">()
+		</span><span class="hl-reserved">except</span><span class="hl-default">:
+			</span><span class="hl-reserved">print </span><span class="hl-quotes">"</span><span class="hl-string">Error saving blog settings.</span><span class="hl-quotes">"</span></pre></div></div>
+	<p>Now
+that we have that class done, we'll add a WordPressBlogSettings member
+variable to our WordPy class in the __init__ function:</p>
+	<div class="hl-surround"><div class="hl-main"><pre><span class="hl-quotes">"""</span><span class="hl-string">Get the name of the blog data file, sys.path[0] is the
+path where the script is located</span><span class="hl-quotes">"""
+</span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">dat_file</span><span class="hl-default"> = </span><span class="hl-identifier">os</span><span class="hl-default">.</span><span class="hl-identifier">path</span><span class="hl-default">.</span><span class="hl-identifier">join</span><span class="hl-brackets">(</span><span class="hl-identifier">sys</span><span class="hl-code">.</span><span class="hl-identifier">path</span><span class="hl-brackets">[</span><span class="hl-number">0</span><span class="hl-brackets">]</span><span class="hl-code">, </span><span class="hl-quotes">"</span><span class="hl-string">Blog.dat</span><span class="hl-quotes">"</span><span class="hl-brackets">)
+</span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">BlogSettings</span><span class="hl-default"> = </span><span class="hl-identifier">WordPressBlogSettings</span><span class="hl-brackets">(</span><span class="hl-identifier">self</span><span class="hl-code">.</span><span class="hl-identifier">dat_file</span><span class="hl-brackets">)</span></pre></div></div>
+	<p>Then change the quit function to look like the following:</p>
+	<div class="hl-surround"><div class="hl-main"><pre><span class="hl-reserved">def </span><span class="hl-identifier">quit</span><span class="hl-brackets">(</span><span class="hl-identifier">self</span><span class="hl-code">, </span><span class="hl-identifier">widget</span><span class="hl-brackets">)</span><span class="hl-default">:
+	</span><span class="hl-quotes">"""</span><span class="hl-string">Quit yourself</span><span class="hl-quotes">"""
+	</span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">BlogSettings</span><span class="hl-default">.</span><span class="hl-identifier">save</span><span class="hl-brackets">(</span><span class="hl-identifier">self</span><span class="hl-code">.</span><span class="hl-identifier">dat_file</span><span class="hl-brackets">)
+	</span><span class="hl-identifier">gtk</span><span class="hl-default">.</span><span class="hl-identifier">main_quit</span><span class="hl-brackets">()</span></pre></div></div>
+	<h2>The Code - Settings Dialog</h2>
+	<p>In my <a href="../application-with-pygtk-glade/Building_an_Application_with_PyGTK_and_Glade.htm">Building an Application with PyGTK and Glade</a>
+example I created a separate class to handle the properties dialog. In
+this example I'm just going to use a member function of the WordPy
+class:</p>
+	<div class="hl-surround" style="height: 280px;"><div class="hl-main"><pre><span class="hl-reserved">def </span><span class="hl-identifier">show_dlgSettings</span><span class="hl-brackets">(</span><span class="hl-identifier">self</span><span class="hl-code">, </span><span class="hl-identifier">BlogSettings</span><span class="hl-brackets">)</span><span class="hl-default">:
+	</span><span class="hl-quotes">"""</span><span class="hl-string">This function will show the BlogSettings dialog
+	It will return the result code from running the dlg.
+	BlogSettings - An instance of WordPressBlogSettings.  Its
+	values will only be updated if the user presses the OK button
+	returns - The result from running the dlg</span><span class="hl-quotes">"""
+
+	</span><span class="hl-comment">#init to cancel
+	</span><span class="hl-identifier">result</span><span class="hl-default"> = </span><span class="hl-identifier">gtk</span><span class="hl-default">.</span><span class="hl-identifier">RESPONSE_CANCEL
+
+	</span><span class="hl-comment">#load the dialog from the glade file
+	</span><span class="hl-identifier">wTree</span><span class="hl-default"> = </span><span class="hl-identifier">gtk</span><span class="hl-default">.</span><span class="hl-identifier">glade</span><span class="hl-default">.</span><span class="hl-identifier">XML</span><span class="hl-brackets">(</span><span class="hl-identifier">self</span><span class="hl-code">.</span><span class="hl-identifier">gladefile</span><span class="hl-code">, </span><span class="hl-quotes">"</span><span class="hl-string">dlgSettings</span><span class="hl-quotes">"</span><span class="hl-brackets">)
+	</span><span class="hl-comment">#Get the actual dialog widget
+	</span><span class="hl-identifier">dlg</span><span class="hl-default"> = </span><span class="hl-identifier">wTree</span><span class="hl-default">.</span><span class="hl-identifier">get_widget</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">dlgSettings</span><span class="hl-quotes">"</span><span class="hl-brackets">)
+	</span><span class="hl-comment">#Get all of the Entry Widgets and set their text
+	</span><span class="hl-identifier">enURL</span><span class="hl-default"> = </span><span class="hl-identifier">wTree</span><span class="hl-default">.</span><span class="hl-identifier">get_widget</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">enURL</span><span class="hl-quotes">"</span><span class="hl-brackets">)
+	</span><span class="hl-identifier">enURL</span><span class="hl-default">.</span><span class="hl-identifier">set_text</span><span class="hl-brackets">(</span><span class="hl-identifier">BlogSettings</span><span class="hl-code">.</span><span class="hl-identifier">URL</span><span class="hl-brackets">)
+	</span><span class="hl-identifier">enUsername</span><span class="hl-default"> = </span><span class="hl-identifier">wTree</span><span class="hl-default">.</span><span class="hl-identifier">get_widget</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">enUsername</span><span class="hl-quotes">"</span><span class="hl-brackets">)
+	</span><span class="hl-identifier">enUsername</span><span class="hl-default">.</span><span class="hl-identifier">set_text</span><span class="hl-brackets">(</span><span class="hl-identifier">BlogSettings</span><span class="hl-code">.</span><span class="hl-identifier">Username</span><span class="hl-brackets">)
+	</span><span class="hl-identifier">enPassword</span><span class="hl-default"> = </span><span class="hl-identifier">wTree</span><span class="hl-default">.</span><span class="hl-identifier">get_widget</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">enPassword</span><span class="hl-quotes">"</span><span class="hl-brackets">)
+	</span><span class="hl-identifier">enPassword</span><span class="hl-default">.</span><span class="hl-identifier">set_text</span><span class="hl-brackets">(</span><span class="hl-identifier">BlogSettings</span><span class="hl-code">.</span><span class="hl-identifier">Password</span><span class="hl-brackets">)
+
+	</span><span class="hl-comment">#run the dialog and store the response
+	</span><span class="hl-identifier">result</span><span class="hl-default"> = </span><span class="hl-identifier">dlg</span><span class="hl-default">.</span><span class="hl-identifier">run</span><span class="hl-brackets">()
+	</span><span class="hl-identifier">if </span><span class="hl-brackets">(</span><span class="hl-identifier">result</span><span class="hl-code">==</span><span class="hl-identifier">gtk</span><span class="hl-code">.</span><span class="hl-identifier">RESPONSE_OK</span><span class="hl-brackets">)</span><span class="hl-default">:
+		</span><span class="hl-comment">#get the value of the entry fields
+		</span><span class="hl-identifier">BlogSettings</span><span class="hl-default">.</span><span class="hl-identifier">URL</span><span class="hl-default"> = </span><span class="hl-identifier">enURL</span><span class="hl-default">.</span><span class="hl-identifier">get_text</span><span class="hl-brackets">()
+		</span><span class="hl-identifier">BlogSettings</span><span class="hl-default">.</span><span class="hl-identifier">Username</span><span class="hl-default"> = </span><span class="hl-identifier">enUsername</span><span class="hl-default">.</span><span class="hl-identifier">get_text</span><span class="hl-brackets">()
+		</span><span class="hl-identifier">BlogSettings</span><span class="hl-default">.</span><span class="hl-identifier">Password</span><span class="hl-default"> = </span><span class="hl-identifier">enPassword</span><span class="hl-default">.</span><span class="hl-identifier">get_text</span><span class="hl-brackets">()
+
+	</span><span class="hl-comment">#we are done with the dialog, destroy it
+	</span><span class="hl-identifier">dlg</span><span class="hl-default">.</span><span class="hl-identifier">destroy</span><span class="hl-brackets">()
+
+	</span><span class="hl-comment">#return the result
+	</span><span class="hl-reserved">return </span><span class="hl-identifier">result</span></pre></div></div>
+	<p>Basically
+this function takes a WordPressBlogSettings object as a parameter and
+uses those settings to set the default text on the dialog. The
+dlgSettings is shown, and if the user clicks the Ok button then the
+WordPressSettings are updated. </p>
+	<p>To show the dialog and update the BlogSettings the following code is used:</p>
+	<div class="hl-surround"><div class="hl-main"><pre><span class="hl-reserved">def </span><span class="hl-identifier">on_btnSettings_clicked</span><span class="hl-brackets">(</span><span class="hl-identifier">self</span><span class="hl-code">, </span><span class="hl-identifier">widget</span><span class="hl-brackets">)</span><span class="hl-default">:
+	</span><span class="hl-quotes">"""</span><span class="hl-string">Called when the settings button is clicked.  It will
+	show the dlgSettings dialog and let the user set the WordPress
+	blog settings.</span><span class="hl-quotes">"""
+
+	</span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">show_dlgSettings</span><span class="hl-brackets">(</span><span class="hl-identifier">self</span><span class="hl-code">.</span><span class="hl-identifier">BlogSettings</span><span class="hl-brackets">)</span></pre></div></div>
+	<h2>Error Dialog</h2>
+	<p>A quick helper function that I wrote for this project was a quick and easy way to show an error dialog:</p>
+	<div class="hl-surround"><div class="hl-main"><pre><span class="hl-reserved">def </span><span class="hl-identifier">show_error_dlg</span><span class="hl-brackets">(</span><span class="hl-identifier">self</span><span class="hl-code">, </span><span class="hl-identifier">error_string</span><span class="hl-brackets">)</span><span class="hl-default">:
+	</span><span class="hl-quotes">"""</span><span class="hl-string">This Function is used to show an error dialog when
+	an error occurs.
+	error_string - The error string that will be displayed
+	on the dialog.
+	</span><span class="hl-quotes">"""
+	</span><span class="hl-identifier">error_dlg</span><span class="hl-default"> = </span><span class="hl-identifier">gtk</span><span class="hl-default">.</span><span class="hl-identifier">MessageDialog</span><span class="hl-brackets">(</span><span class="hl-identifier">type</span><span class="hl-code">=</span><span class="hl-identifier">gtk</span><span class="hl-code">.</span><span class="hl-identifier">MESSAGE_ERROR</span><span class="hl-code">
+				, </span><span class="hl-identifier">message_format</span><span class="hl-code">=</span><span class="hl-identifier">error_string</span><span class="hl-code">
+				, </span><span class="hl-identifier">buttons</span><span class="hl-code">=</span><span class="hl-identifier">gtk</span><span class="hl-code">.</span><span class="hl-identifier">BUTTONS_OK</span><span class="hl-brackets">)
+	</span><span class="hl-identifier">error_dlg</span><span class="hl-default">.</span><span class="hl-identifier">run</span><span class="hl-brackets">()
+	</span><span class="hl-identifier">error_dlg</span><span class="hl-default">.</span><span class="hl-identifier">destroy</span><span class="hl-brackets">()</span></pre></div></div>
+	<p>It's a simple function that accepts and error string as a parameter and then uses a gtk.MessageDialog to show the error.</p>
+	<h2>Working with the gtk.TextView</h2>
+	<p>I
+found working with the gtk.TextView object to be quite difficult, it
+uses an approach to Text controls that I really had not encountered
+before. Mainly the <a href="http://www.pygtk.org/pygtk2reference/class-gtktextview.html">gtk.TextView</a> <a href="http://www.pygtk.org/pygtk2reference/class-gtktextbuffer.html">gtk.TextBuffer</a> relationship.  For a full understanding of the gtk.TextView/gtk.TextBuffer relationship you might want to read the <a href="http://developer.gnome.org/doc/API/2.0/gtk/TextWidget.html">GTK+ reference guide</a>.  Here is a brief excerpt that may explain how they two are related:</p>
+	<blockquote><p>
+GTK+ has an extremely powerful framework for multiline text editing.
+The primary objects involved in the process are GtkTextBuffer, which
+represents the text being edited, and GtkTextView, a widget which can
+display a GtkTextBuffer. Each buffer can be displayed by any number of
+views'</p>
+	<p>Most
+text manipulation is accomplished with iterators, represented by a
+GtkTextIter. An iterator represents a position between two characters
+in the text buffer. GtkTextIter is a struct designed to be allocated on
+the stack; it's guaranteed to be copiable by value and never contain
+any heap-allocated data. Iterators are not valid indefinitely; whenever
+the buffer is modified in a way that affects the number of characters
+in the buffer, all outstanding iterators become invalid. (Note that
+deleting 5 characters and then reinserting 5 still invalidates
+iterators, though you end up with the same number of characters you
+pass through a state with a different number).</p>
+	<p>Because of this,
+iterators can't be used to preserve positions across buffer
+modifications. To preserve a position, the GtkTextMark object is ideal.
+You can think of a mark as an invisible cursor or insertion point; it
+floats in the buffer, saving a position. If the text surrounding the
+mark is deleted, the mark remains in the position the text once
+occupied; if text is inserted at the mark, the mark ends up either to
+the left or to the right of the new text, depending on its gravity. The
+standard text cursor in left-to-right languages is a mark with right
+gravity, because it stays to the right of inserted text.
+</p></blockquote>
+	<p>So, a gtk.TextBuffer is the actual text, and it
+can be displayed in more then one gtkTextView objects which decide how
+the text will look. <a href="http://www.pygtk.org/pygtk2reference/class-gtktextiter.html">gtk.TextIter</a>
+objects are used to iterate through the text, but they will not be
+valid forever since the text might change. To keep track of a position
+in the text 'forever' <a href="http://www.pygtk.org/pygtk2reference/class-gtktextmark.html">gtk.TextMarks</a>
+must be used. You can also use tags and things to format text in a
+gtk.TextView but we won't be using them at all in this tutorial.</p>
+	<p>Because
+of the complicated relationship between all of these pyGTK objects I
+decided to write some helper functions to make working with the text
+easier.</p>
+	<p>The first thing we needed to do was get the <a href="http://www.pygtk.org/pygtk2reference/class-gtktextview.html">gtk.TextView</a> and <a href="http://www.pygtk.org/pygtk2reference/class-gtktextbuffer.html">gtk.TextBuffers</a> that we will be working with.  In order to do this we add the following code to the __init__ function:</p>
+	<div class="hl-surround"><div class="hl-main"><pre><span class="hl-comment">#Get the text view
+</span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">txtPost</span><span class="hl-default"> = </span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">wTree</span><span class="hl-default">.</span><span class="hl-identifier">get_widget</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">txtPost</span><span class="hl-quotes">"</span><span class="hl-brackets">)
+</span><span class="hl-comment">#Get the buffer associated with the text view
+</span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">txtBuffer</span><span class="hl-default"> = </span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">txtPost</span><span class="hl-default">.</span><span class="hl-identifier">get_buffer</span><span class="hl-brackets">()</span></pre></div></div>
+	<p>Now
+that we have the gtk.TextView and the gtk.TextBuffer we can start
+creating the helper functions. The first function will get the start
+and end gtk.TextIter objects that represent the selection:</p>
+	<div class="hl-surround" style="height: 280px;"><div class="hl-main"><pre><span class="hl-reserved">def </span><span class="hl-identifier">get_selection_iters</span><span class="hl-brackets">(</span><span class="hl-identifier">self</span><span class="hl-brackets">)</span><span class="hl-default">:
+	</span><span class="hl-quotes">"""</span><span class="hl-string">This function gets the start and end selection
+	iters from the text view.  If there is no selection
+	the current position of the cursor will be returned.
+	Returns - start,end - gtk.TextIter objects</span><span class="hl-quotes">"""
+
+	</span><span class="hl-comment">#init
+	</span><span class="hl-identifier">start</span><span class="hl-default"> = </span><span class="hl-reserved">None
+	</span><span class="hl-identifier">end</span><span class="hl-default"> = </span><span class="hl-reserved">None
+
+	</span><span class="hl-comment">#First check to see that the text buffer is valid
+	</span><span class="hl-identifier">if </span><span class="hl-brackets">(</span><span class="hl-reserved">not </span><span class="hl-identifier">self</span><span class="hl-code">.</span><span class="hl-identifier">txtBuffer</span><span class="hl-brackets">)</span><span class="hl-default">:
+		</span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">show_error_dlg</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">Text buffer not available</span><span class="hl-quotes">"</span><span class="hl-brackets">)
+		</span><span class="hl-reserved">return </span><span class="hl-identifier">start</span><span class="hl-default">,</span><span class="hl-identifier">end
+
+	</span><span class="hl-comment">#Get the selection bounds
+	</span><span class="hl-identifier">bounds</span><span class="hl-default"> = </span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">txtBuffer</span><span class="hl-default">.</span><span class="hl-identifier">get_selection_bounds</span><span class="hl-brackets">()</span><span class="hl-default">;
+	</span><span class="hl-identifier">if </span><span class="hl-brackets">(</span><span class="hl-identifier">bounds</span><span class="hl-brackets">)</span><span class="hl-default">:
+		</span><span class="hl-comment">#If there is a selection we are done
+		</span><span class="hl-identifier">start</span><span class="hl-default">,</span><span class="hl-identifier">end</span><span class="hl-default"> = </span><span class="hl-identifier">bounds
+	</span><span class="hl-reserved">else</span><span class="hl-default">:
+		</span><span class="hl-comment">#There is no selection so just get the cursor mark
+		</span><span class="hl-identifier">cursor_mark</span><span class="hl-default"> = </span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">txtBuffer</span><span class="hl-default">.</span><span class="hl-identifier">get_insert</span><span class="hl-brackets">()
+		</span><span class="hl-quotes">"""</span><span class="hl-string">Set start and end to be gtk.TextIter objects at the
+		position of the cursor mark</span><span class="hl-quotes">"""
+		</span><span class="hl-identifier">start</span><span class="hl-default"> = </span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">txtBuffer</span><span class="hl-default">.</span><span class="hl-identifier">get_iter_at_mark</span><span class="hl-brackets">(</span><span class="hl-identifier">cursor_mark</span><span class="hl-brackets">)
+		</span><span class="hl-identifier">end</span><span class="hl-default"> = </span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">txtBuffer</span><span class="hl-default">.</span><span class="hl-identifier">get_iter_at_mark</span><span class="hl-brackets">(</span><span class="hl-identifier">cursor_mark</span><span class="hl-brackets">)
+
+	</span><span class="hl-reserved">return </span><span class="hl-identifier">start</span><span class="hl-default">, </span><span class="hl-identifier">end</span></pre></div></div>
+	<p>The
+first thing this function does is initialize our returns values (start
+and end) to None, just so that the caller function can tell whether the
+function succeeded or not. The next thing we do is attempt to get the
+current selection using <a href="http://www.pygtk.org/pygtk2reference/class-gtktextbuffer.html#method-gtktextbuffer--get-selection-bounds">gtk.TextBuffer.get_selection_bounds()</a> function.  If there is no selection then we use the <a href="http://www.pygtk.org/pygtk2reference/class-gtktextbuffer.html#method-gtktextbuffer--get-insert">gtk.TextBuffer.get_insert()</a> function to get the <a href="http://www.pygtk.org/pygtk2reference/class-gtktextmark.html">gtk.TextMark</a>
+that is at the current position of the cursor. Then we use that
+gtk.TextMark to set the start and end gtk.TextIter object and we're
+done.</p>
+	<p>The next two helper functions make use of the
+get_selection_iters() function. The first is used to insert text into
+the gtk.TextView, and the second is used to wrap the currently selected
+text in the gtk.TextView with a start tag and an end tag. First the
+insert_text() function:</p>
+	<div class="hl-surround" style="height: 280px;"><div class="hl-main"><pre><span class="hl-reserved">def </span><span class="hl-identifier">insert_text</span><span class="hl-brackets">(</span><span class="hl-identifier">self</span><span class="hl-code">, </span><span class="hl-identifier">text</span><span class="hl-brackets">)</span><span class="hl-default">:
+	</span><span class="hl-quotes">"""</span><span class="hl-string">This function inserts text into the text buffer
+	self.txtBuffer at the current selection.  If text is
+	selected it will be overwritten, otherwise it will simply be
+	inserted at the cursor position
+	text - The text to be inserted in the buffer
+	</span><span class="hl-quotes">"""
+
+	</span><span class="hl-identifier">start</span><span class="hl-default">, </span><span class="hl-identifier">end</span><span class="hl-default"> = </span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">get_selection_iters</span><span class="hl-brackets">()</span><span class="hl-default">;
+
+	</span><span class="hl-identifier">if </span><span class="hl-brackets">((</span><span class="hl-reserved">not </span><span class="hl-identifier">start</span><span class="hl-brackets">)</span><span class="hl-identifier">or</span><span class="hl-brackets">(</span><span class="hl-reserved">not </span><span class="hl-identifier">end</span><span class="hl-brackets">))</span><span class="hl-default">:
+		</span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">show_error_dlg</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">Error inserting text</span><span class="hl-quotes">"</span><span class="hl-brackets">)
+		</span><span class="hl-reserved">return</span><span class="hl-default">;
+
+	</span><span class="hl-comment">#Delete the selected text (start and end will be equal after)
+	</span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">txtBuffer</span><span class="hl-default">.</span><span class="hl-identifier">delete</span><span class="hl-brackets">(</span><span class="hl-identifier">start</span><span class="hl-code">,</span><span class="hl-identifier">end</span><span class="hl-brackets">)
+	</span><span class="hl-comment">#Save a mark at the start position since after we insert
+	#the text start will be invalid
+	</span><span class="hl-identifier">start_mark</span><span class="hl-default"> = </span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">txtBuffer</span><span class="hl-default">.</span><span class="hl-identifier">create_mark</span><span class="hl-brackets">(</span><span class="hl-reserved">None</span><span class="hl-code">, </span><span class="hl-identifier">start</span><span class="hl-code">, </span><span class="hl-reserved">True</span><span class="hl-brackets">)
+	</span><span class="hl-comment">#Insert, end will be set to the end insert position
+	</span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">txtBuffer</span><span class="hl-default">.</span><span class="hl-identifier">insert</span><span class="hl-brackets">(</span><span class="hl-identifier">end</span><span class="hl-code">,</span><span class="hl-identifier">text</span><span class="hl-brackets">)
+	</span><span class="hl-identifier">start</span><span class="hl-default"> = </span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">txtBuffer</span><span class="hl-default">.</span><span class="hl-identifier">get_iter_at_mark</span><span class="hl-brackets">(</span><span class="hl-identifier">start_mark</span><span class="hl-brackets">)
+	</span><span class="hl-comment">#select the text, use end as the first param so that
+	#it will be the cursor position
+	</span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">txtBuffer</span><span class="hl-default">.</span><span class="hl-identifier">select_range</span><span class="hl-brackets">(</span><span class="hl-identifier">end</span><span class="hl-code">,</span><span class="hl-identifier">start</span><span class="hl-brackets">)
+	</span><span class="hl-comment">#delete the start mark
+	</span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">txtBuffer</span><span class="hl-default">.</span><span class="hl-identifier">delete_mark</span><span class="hl-brackets">(</span><span class="hl-identifier">start_mark</span><span class="hl-brackets">)</span></pre></div></div>
+	<p>The
+comments in the code should help explain what is happening in this
+function, but I will explain it briefly. First we get the start and end
+<a href="http://www.pygtk.org/pygtk2reference/class-gtktextiter.html">gtk.TextIter</a> objects representing the current selection.  Then we delete that selection and create a <a href="http://www.pygtk.org/pygtk2reference/class-gtktextmark.html">gtk.TextMark</a>
+at the start location. The gtk.TextMark is created with left gravity,
+which means that when text is inserted at it's position it will stay to
+the left of the text rather then being pushed to the right.</p>
+	<p>Then we insert the text at the end position, which will insert the text and update the position of the end <a href="http://www.pygtk.org/pygtk2reference/class-gtktextiter.html">gtk.TextIter</a> to point at the end of the inserted text.  Next we get the start <a href="http://www.pygtk.org/pygtk2reference/class-gtktextiter.html">gtk.TextIter</a>
+based off of our start_mark and select all of the text that we just
+inserted. Finally we delete the gtk.TextMark that we created and the
+function is done.</p>
+	<p>The next text helper function that we will
+need is a function to wrap text, it's similar to the insert_text()
+function except this function will wrap any selected text with two
+tags. If no text is selected then the two tags will be inserted at the
+cursors position.</p>
+	<div class="hl-surround" style="height: 280px;"><div class="hl-main"><pre><span class="hl-reserved">def </span><span class="hl-identifier">wrap_selection</span><span class="hl-brackets">(</span><span class="hl-identifier">self</span><span class="hl-code">, </span><span class="hl-identifier">start_tag</span><span class="hl-code">, </span><span class="hl-identifier">end_tag</span><span class="hl-brackets">)</span><span class="hl-default">:
+	</span><span class="hl-quotes">"""</span><span class="hl-string">This fucntion is used to wrap the currently selected
+	text in the gtk.TextView with start_tag and end_tag. If
+	there is no selection start_tag and end_tag will be
+	inserted at the cursor position
+	start_tag - The text that will go at the start of the
+	selection.
+	end_tag - The text that will go at the end of the
+	selection.</span><span class="hl-quotes">"""
+
+	</span><span class="hl-identifier">start</span><span class="hl-default">, </span><span class="hl-identifier">end</span><span class="hl-default"> = </span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">get_selection_iters</span><span class="hl-brackets">()</span><span class="hl-default">;
+	</span><span class="hl-identifier">if </span><span class="hl-brackets">((</span><span class="hl-reserved">not </span><span class="hl-identifier">start</span><span class="hl-brackets">)</span><span class="hl-identifier">or</span><span class="hl-brackets">(</span><span class="hl-reserved">not </span><span class="hl-identifier">end</span><span class="hl-brackets">))</span><span class="hl-default">:
+		</span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">show_error_dlg</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">Error inserting text</span><span class="hl-quotes">"</span><span class="hl-brackets">)
+		</span><span class="hl-reserved">return</span><span class="hl-default">;
+	</span><span class="hl-comment">#Create a mark at the start and end
+	</span><span class="hl-identifier">start_mark</span><span class="hl-default"> = </span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">txtBuffer</span><span class="hl-default">.</span><span class="hl-identifier">create_mark</span><span class="hl-brackets">(</span><span class="hl-reserved">None</span><span class="hl-code">,</span><span class="hl-identifier">start</span><span class="hl-code">, </span><span class="hl-reserved">True</span><span class="hl-brackets">)
+	</span><span class="hl-identifier">end_mark</span><span class="hl-default"> = </span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">txtBuffer</span><span class="hl-default">.</span><span class="hl-identifier">create_mark</span><span class="hl-brackets">(</span><span class="hl-reserved">None</span><span class="hl-code">, </span><span class="hl-identifier">end</span><span class="hl-code">, </span><span class="hl-reserved">False</span><span class="hl-brackets">)
+	</span><span class="hl-comment">#Insert the start_tag
+	</span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">txtBuffer</span><span class="hl-default">.</span><span class="hl-identifier">insert</span><span class="hl-brackets">(</span><span class="hl-identifier">start</span><span class="hl-code">, </span><span class="hl-identifier">start_tag</span><span class="hl-brackets">)
+	</span><span class="hl-comment">#Get the end iter again
+	</span><span class="hl-identifier">end</span><span class="hl-default"> = </span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">txtBuffer</span><span class="hl-default">.</span><span class="hl-identifier">get_iter_at_mark</span><span class="hl-brackets">(</span><span class="hl-identifier">end_mark</span><span class="hl-brackets">)
+	</span><span class="hl-comment">#Insert the end tag
+	</span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">txtBuffer</span><span class="hl-default">.</span><span class="hl-identifier">insert</span><span class="hl-brackets">(</span><span class="hl-identifier">end</span><span class="hl-code">, </span><span class="hl-identifier">end_tag</span><span class="hl-brackets">)
+	</span><span class="hl-comment">#Get the start and end iters
+	</span><span class="hl-identifier">start</span><span class="hl-default"> = </span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">txtBuffer</span><span class="hl-default">.</span><span class="hl-identifier">get_iter_at_mark</span><span class="hl-brackets">(</span><span class="hl-identifier">start_mark</span><span class="hl-brackets">)
+	</span><span class="hl-identifier">end</span><span class="hl-default"> = </span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">txtBuffer</span><span class="hl-default">.</span><span class="hl-identifier">get_iter_at_mark</span><span class="hl-brackets">(</span><span class="hl-identifier">end_mark</span><span class="hl-brackets">)
+	</span><span class="hl-comment">#Select the text
+	</span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">txtBuffer</span><span class="hl-default">.</span><span class="hl-identifier">select_range</span><span class="hl-brackets">(</span><span class="hl-identifier">end</span><span class="hl-code">,</span><span class="hl-identifier">start</span><span class="hl-brackets">)
+	</span><span class="hl-comment">#Delete the gtk.TextMark objects
+	</span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">txtBuffer</span><span class="hl-default">.</span><span class="hl-identifier">delete_mark</span><span class="hl-brackets">(</span><span class="hl-identifier">start_mark</span><span class="hl-brackets">)
+	</span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">txtBuffer</span><span class="hl-default">.</span><span class="hl-identifier">delete_mark</span><span class="hl-brackets">(</span><span class="hl-identifier">end_mark</span><span class="hl-brackets">)</span></pre></div></div>
+	<p>If
+you understood the insert_text() function then you will probably
+understand the wrap_selection() function as they use very similar
+techniques. The first thing is to get the start and end selection
+gtk.TextIters, then create gtk.TextMark objects at both locations. We
+create the gtk.TextMark objects at both locations and with different
+orientations so that when we insert the text we will still know where
+the original positions were (relative to the text we inserted) are so
+that we can select everything once we are done.</p>
+	<p>Then we insert
+the start_tag, re-get the end gtk.TextIter (since our original is no
+longer valid after we inserted the text) and insert the end_tag. After
+that we simply re-get both the start and end gtk.TextIter objects and
+then select all the text in between the start_tag and end_tag
+inclusively.</p>
+	<h2>The Code ' The easy buttons</h2>
+	<p>After we
+have the two text helper functions you can see how easy it is to
+populate most of the on_clicked() handlers for our buttons. Except for
+on_btnImage_clicked() and on_btnLink_clicked() here are all of the
+button clicked handlers.</p>
+	<div class="hl-surround" style="height: 280px;"><div class="hl-main"><pre><span class="hl-reserved">def </span><span class="hl-identifier">on_btnBold_clicked</span><span class="hl-brackets">(</span><span class="hl-identifier">self</span><span class="hl-code">, </span><span class="hl-identifier">widget</span><span class="hl-brackets">)</span><span class="hl-default">:
+	</span><span class="hl-quotes">"""</span><span class="hl-string">Called when the bold button is clicked</span><span class="hl-quotes">"""
+
+	</span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">wrap_selection</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">&lt;b&gt;</span><span class="hl-quotes">"</span><span class="hl-code">,</span><span class="hl-quotes">"</span><span class="hl-string">&lt;/b&gt;</span><span class="hl-quotes">"</span><span class="hl-brackets">)
+
+</span><span class="hl-reserved">def </span><span class="hl-identifier">on_btnItalic_clicked</span><span class="hl-brackets">(</span><span class="hl-identifier">self</span><span class="hl-code">, </span><span class="hl-identifier">widget</span><span class="hl-brackets">)</span><span class="hl-default">:
+	</span><span class="hl-quotes">"""</span><span class="hl-string">Called when the italic button is clicked</span><span class="hl-quotes">"""
+
+	</span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">wrap_selection</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">&lt;i&gt;</span><span class="hl-quotes">"</span><span class="hl-code">,</span><span class="hl-quotes">"</span><span class="hl-string">&lt;/i&gt;</span><span class="hl-quotes">"</span><span class="hl-brackets">)
+
+</span><span class="hl-reserved">def </span><span class="hl-identifier">on_btnBlockQuote_clicked</span><span class="hl-brackets">(</span><span class="hl-identifier">self</span><span class="hl-code">, </span><span class="hl-identifier">widget</span><span class="hl-brackets">)</span><span class="hl-default">:
+	</span><span class="hl-quotes">"""</span><span class="hl-string">Called when the Block Quote button is clicked</span><span class="hl-quotes">"""
+
+	</span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">wrap_selection</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">&lt;blockquote&gt;</span><span class="hl-quotes">"</span><span class="hl-code">,</span><span class="hl-quotes">"</span><span class="hl-string">&lt;/blockquote&gt;</span><span class="hl-quotes">"</span><span class="hl-brackets">)
+
+</span><span class="hl-reserved">def </span><span class="hl-identifier">on_btnDel_clicked</span><span class="hl-brackets">(</span><span class="hl-identifier">self</span><span class="hl-code">, </span><span class="hl-identifier">widget</span><span class="hl-brackets">)</span><span class="hl-default">:
+	</span><span class="hl-quotes">"""</span><span class="hl-string">Called when the Del button is clicked</span><span class="hl-quotes">"""
+
+	</span><span class="hl-identifier">today</span><span class="hl-default"> = </span><span class="hl-identifier">datetime</span><span class="hl-default">.</span><span class="hl-identifier">date</span><span class="hl-default">.</span><span class="hl-identifier">today</span><span class="hl-brackets">()
+	</span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">wrap_selection</span><span class="hl-brackets">(</span><span class="hl-identifier">today</span><span class="hl-code">.</span><span class="hl-identifier">strftime</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">&lt;del datetime=</span><span class="hl-special">\"</span><span class="hl-string">%Y%m%d</span><span class="hl-special">\"</span><span class="hl-string">&gt;</span><span class="hl-quotes">"</span><span class="hl-brackets">)</span><span class="hl-code">,</span><span class="hl-quotes">"</span><span class="hl-string">&lt;/del&gt;</span><span class="hl-quotes">"</span><span class="hl-brackets">)
+
+</span><span class="hl-reserved">def </span><span class="hl-identifier">on_btnIns_clicked</span><span class="hl-brackets">(</span><span class="hl-identifier">self</span><span class="hl-code">, </span><span class="hl-identifier">widget</span><span class="hl-brackets">)</span><span class="hl-default">:
+	</span><span class="hl-quotes">"""</span><span class="hl-string">Called when the Ins button is clicked</span><span class="hl-quotes">"""
+
+	</span><span class="hl-identifier">today</span><span class="hl-default"> = </span><span class="hl-identifier">datetime</span><span class="hl-default">.</span><span class="hl-identifier">date</span><span class="hl-default">.</span><span class="hl-identifier">today</span><span class="hl-brackets">()
+	</span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">wrap_selection</span><span class="hl-brackets">(</span><span class="hl-identifier">today</span><span class="hl-code">.</span><span class="hl-identifier">strftime</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">&lt;ins datetime=</span><span class="hl-special">\"</span><span class="hl-string">%Y%m%d</span><span class="hl-special">\"</span><span class="hl-string">&gt;</span><span class="hl-quotes">"</span><span class="hl-brackets">)</span><span class="hl-code">,</span><span class="hl-quotes">"</span><span class="hl-string">&lt;/ins&gt;</span><span class="hl-quotes">"</span><span class="hl-brackets">)
+
+</span><span class="hl-reserved">def </span><span class="hl-identifier">on_btnUnorderedList_clicked</span><span class="hl-brackets">(</span><span class="hl-identifier">self</span><span class="hl-code">, </span><span class="hl-identifier">widget</span><span class="hl-brackets">)</span><span class="hl-default">:
+	</span><span class="hl-quotes">"""</span><span class="hl-string">Called when the Unordered List button is clicked</span><span class="hl-quotes">"""
+
+	</span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">wrap_selection</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">&lt;ul&gt;</span><span class="hl-quotes">"</span><span class="hl-code">,</span><span class="hl-quotes">"</span><span class="hl-string">&lt;/ul&gt;</span><span class="hl-quotes">"</span><span class="hl-brackets">)
+
+</span><span class="hl-reserved">def </span><span class="hl-identifier">on_btnOrderedList_clicked</span><span class="hl-brackets">(</span><span class="hl-identifier">self</span><span class="hl-code">, </span><span class="hl-identifier">widget</span><span class="hl-brackets">)</span><span class="hl-default">:
+	</span><span class="hl-quotes">"""</span><span class="hl-string">Called when the Ordered List button is clicked</span><span class="hl-quotes">"""
+
+	</span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">wrap_selection</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">&lt;ol&gt;</span><span class="hl-quotes">"</span><span class="hl-code">,</span><span class="hl-quotes">"</span><span class="hl-string">&lt;/ol&gt;</span><span class="hl-quotes">"</span><span class="hl-brackets">)
+
+</span><span class="hl-reserved">def </span><span class="hl-identifier">on_btnListItem_clicked</span><span class="hl-brackets">(</span><span class="hl-identifier">self</span><span class="hl-code">, </span><span class="hl-identifier">widget</span><span class="hl-brackets">)</span><span class="hl-default">:
+	</span><span class="hl-quotes">"""</span><span class="hl-string">Called when the List Item button is clicked</span><span class="hl-quotes">"""
+
+	</span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">wrap_selection</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">&lt;li&gt;</span><span class="hl-quotes">"</span><span class="hl-code">,</span><span class="hl-quotes">"</span><span class="hl-string">&lt;/li&gt;</span><span class="hl-quotes">"</span><span class="hl-brackets">)
+
+</span><span class="hl-reserved">def </span><span class="hl-identifier">on_btnMore_clicked</span><span class="hl-brackets">(</span><span class="hl-identifier">self</span><span class="hl-code">, </span><span class="hl-identifier">widget</span><span class="hl-brackets">)</span><span class="hl-default">:
+	</span><span class="hl-quotes">"""</span><span class="hl-string">Called when the bold button is clicked</span><span class="hl-quotes">"""
+
+	</span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">insert_text</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">&lt;!--more--&gt;</span><span class="hl-quotes">"</span><span class="hl-brackets">)
+
+</span><span class="hl-reserved">def </span><span class="hl-identifier">on_btnCode_clicked</span><span class="hl-brackets">(</span><span class="hl-identifier">self</span><span class="hl-code">, </span><span class="hl-identifier">widget</span><span class="hl-brackets">)</span><span class="hl-default">:
+	</span><span class="hl-quotes">"""</span><span class="hl-string">Called when the Code button is clicked</span><span class="hl-quotes">"""
+
+	</span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">wrap_selection</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">&lt;code&gt;</span><span class="hl-quotes">"</span><span class="hl-code">,</span><span class="hl-quotes">"</span><span class="hl-string">&lt;/code&gt;</span><span class="hl-quotes">"</span><span class="hl-brackets">)</span></pre></div></div>
+	<p>Pretty
+straight forward except for maybe the on_btnIns_clicked() and
+on_btnDel_clicked() functions which make use of the built-in <a href="http://www.python.org/doc/2.3.5/lib/module-datetime.html">datetime</a> module and the <a href="http://www.python.org/doc/2.3.5/lib/node211.html">strftime</a>
+function to format the current date in the correct manner (YYYYMMDD).
+The following line needs to be added to the start of the code:</p>
+	<div class="hl-surround" style="height: 28px;"><div class="hl-main"><pre><span class="hl-reserved">import </span><span class="hl-identifier">datetime</span></pre></div></div>
+	<h2> The Code ' Link Button, Image button, and gtk.FileChooserDialog</h2>
+	<p>Now
+we need to get the on_btnLink_clicked() and the on_btnImage_clicked()
+functions working. First off I'll show you the on_btnLink_clicked()
+since it's the simplest of the two:</p>
+	<div class="hl-surround" style="height: 280px;"><div class="hl-main"><pre><span class="hl-reserved">def </span><span class="hl-identifier">on_btnLink_clicked</span><span class="hl-brackets">(</span><span class="hl-identifier">self</span><span class="hl-code">, </span><span class="hl-identifier">widget</span><span class="hl-brackets">)</span><span class="hl-default">:
+	</span><span class="hl-quotes">"""</span><span class="hl-string">Called when the link button is clicked</span><span class="hl-quotes">"""
+
+	</span><span class="hl-comment">#load the dialog from the glade file
+	</span><span class="hl-identifier">wTree</span><span class="hl-default"> = </span><span class="hl-identifier">gtk</span><span class="hl-default">.</span><span class="hl-identifier">glade</span><span class="hl-default">.</span><span class="hl-identifier">XML</span><span class="hl-brackets">(</span><span class="hl-identifier">self</span><span class="hl-code">.</span><span class="hl-identifier">gladefile</span><span class="hl-code">, </span><span class="hl-quotes">"</span><span class="hl-string">dlgLink</span><span class="hl-quotes">"</span><span class="hl-brackets">)
+	</span><span class="hl-comment">#Get the actual dialog widget
+	</span><span class="hl-identifier">dlg</span><span class="hl-default"> = </span><span class="hl-identifier">wTree</span><span class="hl-default">.</span><span class="hl-identifier">get_widget</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">dlgLink</span><span class="hl-quotes">"</span><span class="hl-brackets">)
+	</span><span class="hl-identifier">enURL</span><span class="hl-default"> = </span><span class="hl-identifier">wTree</span><span class="hl-default">.</span><span class="hl-identifier">get_widget</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">enURL</span><span class="hl-quotes">"</span><span class="hl-brackets">)
+	</span><span class="hl-identifier">enURL</span><span class="hl-default">.</span><span class="hl-identifier">set_text</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">HTTP://</span><span class="hl-quotes">"</span><span class="hl-brackets">)
+
+	</span><span class="hl-quotes">"""</span><span class="hl-string">Get the selection not and reselect becuase somethimes
+	the dialog will remove the selection</span><span class="hl-quotes">"""
+	</span><span class="hl-identifier">start</span><span class="hl-default">, </span><span class="hl-identifier">end</span><span class="hl-default"> = </span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">get_selection_iters</span><span class="hl-brackets">()
+
+	</span><span class="hl-comment">#run the dialog
+	</span><span class="hl-identifier">if </span><span class="hl-brackets">(</span><span class="hl-identifier">dlg</span><span class="hl-code">.</span><span class="hl-identifier">run</span><span class="hl-brackets">()</span><span class="hl-code">==</span><span class="hl-identifier">gtk</span><span class="hl-code">.</span><span class="hl-identifier">RESPONSE_OK</span><span class="hl-brackets">)</span><span class="hl-default">:
+		</span><span class="hl-comment">#Reset the selection
+		</span><span class="hl-identifier">if </span><span class="hl-brackets">((</span><span class="hl-identifier">start</span><span class="hl-brackets">)</span><span class="hl-identifier">and</span><span class="hl-brackets">(</span><span class="hl-identifier">end</span><span class="hl-brackets">))</span><span class="hl-default">:
+			</span><span class="hl-comment">#Select the text
+			</span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">txtBuffer</span><span class="hl-default">.</span><span class="hl-identifier">select_range</span><span class="hl-brackets">(</span><span class="hl-identifier">end</span><span class="hl-code">,</span><span class="hl-identifier">start</span><span class="hl-brackets">)
+
+		</span><span class="hl-comment">#Wrap the selection with the value of the entry fields
+		</span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">wrap_selection</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">&lt;a href=</span><span class="hl-special">\"</span><span class="hl-string">%s</span><span class="hl-special">\"</span><span class="hl-string">&gt;</span><span class="hl-quotes">"</span><span class="hl-code"> % </span><span class="hl-identifier">enURL</span><span class="hl-code">.</span><span class="hl-identifier">get_text</span><span class="hl-brackets">()</span><span class="hl-code">,</span><span class="hl-quotes">"</span><span class="hl-string">&lt;/a&gt;</span><span class="hl-quotes">"</span><span class="hl-brackets">)
+
+	</span><span class="hl-identifier">dlg</span><span class="hl-default">.</span><span class="hl-identifier">destroy</span><span class="hl-brackets">()</span></pre></div></div>
+	<p>If you've read my <a href="../application-with-pygtk-glade/Building_an_Application_with_PyGTK_and_Glade.htm">Building an Application with python and PyGTK tutorial</a>
+and made it this far in this tutorial then nothing in this code should
+be that surprising. First we get the dlgLink's widget tree from the
+glade file, and then we get the actual dialog widget.</p>
+	<p>Next we
+get the URL text entry widget and set it's default text to be
+'HTTP:\\'. After that we get the current selection, the reason that we
+do this is because sometimes I noticed that showing the dialog caused
+the selection to be removed from the gtk.TextView. So the quick and
+easy way to get around this (since the helper function was already
+written) was to simply get the selection before the dialog is visible
+for any length of time, and then reset the selection once the used has
+exited the dialog.</p>
+	<p>Then we have to run the dialog and wait to
+see if the used clicks the Ok or Cancel button. If they click Cancel
+nothing happens, we destroy the dialog and the function is over. If,
+however, they click Ok we will then reset the selection, and wrap it
+with the link tags.</p>
+	<p>The next thing we are going to do is work
+on letting the user add an image to their blog post. To do this we will
+respond to the on_btnImage_clicked function. The first thing we need to
+do is let the user browse for an image. We will use a <a href="http://www.pygtk.org/pygtk2reference/class-gtkfilechooserdialog.html">gtk.FileChooserDialog</a>, for more information on using a gtk.FileChooserDialog see section <a href="http://www.pygtk.org/pygtk2tutorial/sec-FileChoosers.html">16.6 in the PyGTK Tutorial</a>, where much of the following code is taken:</p>
+	<div class="hl-surround" style="height: 280px;"><div class="hl-main"><pre><span class="hl-reserved">def </span><span class="hl-identifier">browse_for_image</span><span class="hl-brackets">(</span><span class="hl-identifier">self</span><span class="hl-brackets">)</span><span class="hl-default">:
+	</span><span class="hl-quotes">"""</span><span class="hl-string">This function is used to browse for an image.
+	The path to the image will be returned if the user
+	selects one, however a blank string will be returned
+	if they cancel or do not select one.</span><span class="hl-quotes">"""
+
+	</span><span class="hl-identifier">file_open</span><span class="hl-default"> = </span><span class="hl-identifier">gtk</span><span class="hl-default">.</span><span class="hl-identifier">FileChooserDialog</span><span class="hl-brackets">(</span><span class="hl-identifier">title</span><span class="hl-code">=</span><span class="hl-quotes">"</span><span class="hl-string">Select Image</span><span class="hl-quotes">"</span><span class="hl-code">
+				, </span><span class="hl-identifier">action</span><span class="hl-code">=</span><span class="hl-identifier">gtk</span><span class="hl-code">.</span><span class="hl-identifier">FILE_CHOOSER_ACTION_OPEN</span><span class="hl-code">
+				, </span><span class="hl-identifier">buttons</span><span class="hl-code">=</span><span class="hl-brackets">(</span><span class="hl-identifier">gtk</span><span class="hl-code">.</span><span class="hl-identifier">STOCK_CANCEL</span><span class="hl-code">
+							, </span><span class="hl-identifier">gtk</span><span class="hl-code">.</span><span class="hl-identifier">RESPONSE_CANCEL</span><span class="hl-code">
+							, </span><span class="hl-identifier">gtk</span><span class="hl-code">.</span><span class="hl-identifier">STOCK_OPEN</span><span class="hl-code">
+							, </span><span class="hl-identifier">gtk</span><span class="hl-code">.</span><span class="hl-identifier">RESPONSE_OK</span><span class="hl-brackets">))
+	</span><span class="hl-quotes">"""</span><span class="hl-string">Create and add the Images filter</span><span class="hl-quotes">"""
+	</span><span class="hl-identifier">filter</span><span class="hl-default"> = </span><span class="hl-identifier">gtk</span><span class="hl-default">.</span><span class="hl-identifier">FileFilter</span><span class="hl-brackets">()
+	</span><span class="hl-identifier">filter</span><span class="hl-default">.</span><span class="hl-identifier">set_name</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">Images</span><span class="hl-quotes">"</span><span class="hl-brackets">)
+	</span><span class="hl-identifier">filter</span><span class="hl-default">.</span><span class="hl-identifier">add_mime_type</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">image/png</span><span class="hl-quotes">"</span><span class="hl-brackets">)
+	</span><span class="hl-identifier">filter</span><span class="hl-default">.</span><span class="hl-identifier">add_mime_type</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">image/jpeg</span><span class="hl-quotes">"</span><span class="hl-brackets">)
+	</span><span class="hl-identifier">filter</span><span class="hl-default">.</span><span class="hl-identifier">add_mime_type</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">image/gif</span><span class="hl-quotes">"</span><span class="hl-brackets">)
+	</span><span class="hl-identifier">filter</span><span class="hl-default">.</span><span class="hl-identifier">add_pattern</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">*.png</span><span class="hl-quotes">"</span><span class="hl-brackets">)
+	</span><span class="hl-identifier">filter</span><span class="hl-default">.</span><span class="hl-identifier">add_pattern</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">*.jpg</span><span class="hl-quotes">"</span><span class="hl-brackets">)
+	</span><span class="hl-identifier">filter</span><span class="hl-default">.</span><span class="hl-identifier">add_pattern</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">*.gif</span><span class="hl-quotes">"</span><span class="hl-brackets">)
+	</span><span class="hl-identifier">file_open</span><span class="hl-default">.</span><span class="hl-identifier">add_filter</span><span class="hl-brackets">(</span><span class="hl-identifier">filter</span><span class="hl-brackets">)
+	</span><span class="hl-quotes">"""</span><span class="hl-string">Create and add the 'all files' filter</span><span class="hl-quotes">"""
+	</span><span class="hl-identifier">filter</span><span class="hl-default"> = </span><span class="hl-identifier">gtk</span><span class="hl-default">.</span><span class="hl-identifier">FileFilter</span><span class="hl-brackets">()
+	</span><span class="hl-identifier">filter</span><span class="hl-default">.</span><span class="hl-identifier">set_name</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">All files</span><span class="hl-quotes">"</span><span class="hl-brackets">)
+	</span><span class="hl-identifier">filter</span><span class="hl-default">.</span><span class="hl-identifier">add_pattern</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">*</span><span class="hl-quotes">"</span><span class="hl-brackets">)
+	</span><span class="hl-identifier">file_open</span><span class="hl-default">.</span><span class="hl-identifier">add_filter</span><span class="hl-brackets">(</span><span class="hl-identifier">filter</span><span class="hl-brackets">)
+
+	</span><span class="hl-quotes">"""</span><span class="hl-string">Init the return value</span><span class="hl-quotes">"""
+	</span><span class="hl-identifier">result</span><span class="hl-default"> = </span><span class="hl-quotes">""
+	</span><span class="hl-reserved">if </span><span class="hl-identifier">file_open</span><span class="hl-default">.</span><span class="hl-identifier">run</span><span class="hl-brackets">()</span><span class="hl-default"> == </span><span class="hl-identifier">gtk</span><span class="hl-default">.</span><span class="hl-identifier">RESPONSE_OK</span><span class="hl-default">:
+		</span><span class="hl-identifier">result</span><span class="hl-default"> = </span><span class="hl-identifier">file_open</span><span class="hl-default">.</span><span class="hl-identifier">get_filename</span><span class="hl-brackets">()
+	</span><span class="hl-identifier">file_open</span><span class="hl-default">.</span><span class="hl-identifier">destroy</span><span class="hl-brackets">()
+
+	</span><span class="hl-reserved">return </span><span class="hl-identifier">result</span></pre></div></div>
+	<p>The browse_for_image() function will show the following dialog:</p>
+	<p><img style="margin: 0pt 10px 10px 0pt;" src="resources/wordpy_03.png" alt="Python PyGTK gtk.FileChooserDialog" border="0"></p>
+	<p>The first thing we do in the function is create our <a href="http://www.pygtk.org/pygtk2reference/class-gtkfilechooserdialog.html#constructor-gtkfilechooserdialog">gtk.FileChooserDialog</a>.
+When constructing the gtk.FileChooseDialog we set it's title, the fact
+that it is a File Open dialog, and what buttons it will have (Ok and
+Cancel). Then we use two <a href="http://www.pygtk.org/pygtk2reference/class-gtkfilefilter.html">gtk.FileFilter</a>'s
+to control what sort of files the user will be allowed to browse for.
+The first file filter sets up the common image types that they will be
+allowed to browse for and the second filter lets them browse for any
+file type.</p>
+	<p>Then the gtk.FileChooserDialog is shown and if the
+user presses the Ok button the full path to the file that they selected
+is returned, otherwise an empty string ("") is returned. </p>
+	<p>We will also add another function to our WordPressBlogSettings class:</p>
+	<div class="hl-surround"><div class="hl-main"><pre><span class="hl-reserved">def </span><span class="hl-identifier">create_wordpress_client</span><span class="hl-brackets">(</span><span class="hl-identifier">self</span><span class="hl-brackets">)</span><span class="hl-default">:
+	</span><span class="hl-quotes">"""</span><span class="hl-string">Quick helper routine used to create the wordpress
+	client</span><span class="hl-quotes">"""
+
+	</span><span class="hl-comment"># prepare client object
+	</span><span class="hl-reserved">try</span><span class="hl-default">:
+		</span><span class="hl-identifier">wp</span><span class="hl-default"> = </span><span class="hl-identifier">wordpresslib</span><span class="hl-default">.</span><span class="hl-identifier">WordPressClient</span><span class="hl-brackets">(</span><span class="hl-identifier">self</span><span class="hl-code">.</span><span class="hl-identifier">URL</span><span class="hl-code">
+							, </span><span class="hl-identifier">self</span><span class="hl-code">.</span><span class="hl-identifier">Username</span><span class="hl-code">
+							, </span><span class="hl-identifier">self</span><span class="hl-code">.</span><span class="hl-identifier">Password</span><span class="hl-brackets">)
+	</span><span class="hl-reserved">except</span><span class="hl-default">:
+		</span><span class="hl-comment">#Error creating Client, setting maybe wrong
+		</span><span class="hl-reserved">return None
+
+	</span><span class="hl-comment"># select blog id
+	</span><span class="hl-identifier">wp</span><span class="hl-default">.</span><span class="hl-identifier">selectBlog</span><span class="hl-brackets">(</span><span class="hl-number">0</span><span class="hl-brackets">)
+
+	</span><span class="hl-reserved">return </span><span class="hl-identifier">wp</span></pre></div></div>
+	<p>This
+function simply creates the wordpress client that we need when working
+with the wordpress library. It's important to note that the blog
+settings must be correct for the client to be created properly.</p>
+	<p>To include the wordpress library the follow code is added to the top of the program:</p>
+	<div class="hl-surround"><div class="hl-main"><pre><span class="hl-reserved">try</span><span class="hl-default">:
+	</span><span class="hl-reserved">import </span><span class="hl-identifier">wordpresslib
+</span><span class="hl-reserved">except</span><span class="hl-default">:
+	</span><span class="hl-reserved">print </span><span class="hl-quotes">"</span><span class="hl-string">wordpresslib required</span><span class="hl-quotes">"
+	</span><span class="hl-identifier">sys</span><span class="hl-default">.</span><span class="hl-identifier">exit</span><span class="hl-brackets">(</span><span class="hl-number">1</span><span class="hl-brackets">)</span></pre></div></div>
+	<p>This will try to import the wordpress library and then exit if the library cannot be found.</p>
+	<p>Now we have all the pieces we need to create our on_btnImage_clicked() function:</p>
+	<div class="hl-surround" style="height: 280px;"><div class="hl-main"><pre><span class="hl-reserved">def </span><span class="hl-identifier">on_btnImage_clicked</span><span class="hl-brackets">(</span><span class="hl-identifier">self</span><span class="hl-code">, </span><span class="hl-identifier">widget</span><span class="hl-brackets">)</span><span class="hl-default">:
+	</span><span class="hl-quotes">"""</span><span class="hl-string">Called when the Image button is clicked</span><span class="hl-quotes">"""
+
+	</span><span class="hl-comment">#Try to get the wordpress client
+	</span><span class="hl-identifier">wp</span><span class="hl-default"> = </span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">BlogSettings</span><span class="hl-default">.</span><span class="hl-identifier">create_wordpress_client</span><span class="hl-brackets">()
+	</span><span class="hl-identifier">if </span><span class="hl-brackets">(</span><span class="hl-identifier">wp</span><span class="hl-code"> == </span><span class="hl-reserved">None</span><span class="hl-brackets">)</span><span class="hl-default">:
+		</span><span class="hl-comment">#Error creating Client, setting maybe wrong
+		</span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">show_error_dlg</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">Error creating Worpress client, please check settings.</span><span class="hl-quotes">"</span><span class="hl-brackets">)
+		</span><span class="hl-comment">#Now get out of here
+		</span><span class="hl-reserved">return
+
+	</span><span class="hl-comment"># browse for the image
+	</span><span class="hl-identifier">image_file</span><span class="hl-default"> = </span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">browse_for_image</span><span class="hl-brackets">()
+
+	</span><span class="hl-identifier">if </span><span class="hl-brackets">(</span><span class="hl-identifier">image_file</span><span class="hl-code">!=</span><span class="hl-quotes">""</span><span class="hl-brackets">)</span><span class="hl-default">:
+		</span><span class="hl-comment">#We have an image file
+		</span><span class="hl-reserved">try</span><span class="hl-default">:
+			</span><span class="hl-identifier">imageSrc</span><span class="hl-default"> = </span><span class="hl-identifier">wp</span><span class="hl-default">.</span><span class="hl-identifier">newMediaObject</span><span class="hl-brackets">(</span><span class="hl-identifier">image_file</span><span class="hl-brackets">)
+			</span><span class="hl-identifier">if </span><span class="hl-brackets">(</span><span class="hl-identifier">imageSrc</span><span class="hl-brackets">)</span><span class="hl-default">:
+				</span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">insert_text</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">&lt;img src=</span><span class="hl-special">\"</span><span class="hl-string">%s</span><span class="hl-special">\"</span><span class="hl-string"> /&gt;</span><span class="hl-quotes">"</span><span class="hl-code"> % </span><span class="hl-identifier">imageSrc</span><span class="hl-brackets">)
+			</span><span class="hl-reserved">else</span><span class="hl-default">:
+				</span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">show_error_dlg</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">Error uploading image</span><span class="hl-quotes">"</span><span class="hl-brackets">)
+		</span><span class="hl-reserved">except </span><span class="hl-identifier">wordpresslib</span><span class="hl-default">.</span><span class="hl-identifier">WordPressException</span><span class="hl-default">, </span><span class="hl-identifier">wpe</span><span class="hl-default">:
+			</span><span class="hl-comment">#wordpress lib error
+			</span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">show_error_dlg</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">Error uploading image %s</span><span class="hl-quotes">"</span><span class="hl-code"> % </span><span class="hl-identifier">wpe </span><span class="hl-brackets">)</span></pre></div></div>
+	<p>With
+all the helpers created this function really isn't that difficult.
+First we try to get the wordpress client, if we cannot we let the user
+know that their settings are probably incorrect. If we get the client
+correctly we then browse for an image file.</p>
+	<p>If we get an image
+file returned we attempt to upload it to our blog, if that succeeds we
+insert image HTML code, if it fails in any way we inform the user.</p>
+	<h2>Posting!</h2>
+	<p>Well we're almost done now, all we need to do is upload the post to the blog.  We do this in the on_btnPost_clicked() function:</p>
+	<div class="hl-surround" style="height: 280px;"><div class="hl-main"><pre><span class="hl-reserved">def </span><span class="hl-identifier">on_btnpost_clicked</span><span class="hl-brackets">(</span><span class="hl-identifier">self</span><span class="hl-code">, </span><span class="hl-identifier">widget</span><span class="hl-brackets">)</span><span class="hl-default">:
+	</span><span class="hl-quotes">"""</span><span class="hl-string">Called when the post button is clicked, this will
+	post the post to the blog.</span><span class="hl-quotes">"""
+
+	</span><span class="hl-comment">#Try to get the wordpress client
+	</span><span class="hl-identifier">wp</span><span class="hl-default"> = </span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">BlogSettings</span><span class="hl-default">.</span><span class="hl-identifier">create_wordpress_client</span><span class="hl-brackets">()
+	</span><span class="hl-identifier">if </span><span class="hl-brackets">(</span><span class="hl-identifier">wp</span><span class="hl-code"> == </span><span class="hl-reserved">None</span><span class="hl-brackets">)</span><span class="hl-default">:
+		</span><span class="hl-comment">#Error creating Client, setting maybe wrong
+		</span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">show_error_dlg</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">Error creating Worpress client, please check settings.</span><span class="hl-quotes">"</span><span class="hl-brackets">)
+		</span><span class="hl-comment">#Now get out of here
+		</span><span class="hl-reserved">return
+
+	</span><span class="hl-identifier">post</span><span class="hl-default"> = </span><span class="hl-identifier">wordpresslib</span><span class="hl-default">.</span><span class="hl-identifier">WordPressPost</span><span class="hl-brackets">()
+	</span><span class="hl-identifier">post</span><span class="hl-default">.</span><span class="hl-identifier">allowPings</span><span class="hl-default"> = </span><span class="hl-reserved">True
+	</span><span class="hl-identifier">post</span><span class="hl-default">.</span><span class="hl-identifier">allowComments</span><span class="hl-default"> = </span><span class="hl-reserved">True
+	</span><span class="hl-comment">#Title
+	</span><span class="hl-identifier">post</span><span class="hl-default">.</span><span class="hl-identifier">title</span><span class="hl-default"> = </span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">enTitle</span><span class="hl-default">.</span><span class="hl-identifier">get_text</span><span class="hl-brackets">()
+	</span><span class="hl-comment">#Text
+	</span><span class="hl-identifier">start</span><span class="hl-default">, </span><span class="hl-identifier">end</span><span class="hl-default"> = </span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">txtBuffer</span><span class="hl-default">.</span><span class="hl-identifier">get_bounds</span><span class="hl-brackets">()
+	</span><span class="hl-identifier">post</span><span class="hl-default">.</span><span class="hl-identifier">description</span><span class="hl-default"> = </span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">txtBuffer</span><span class="hl-default">.</span><span class="hl-identifier">get_text</span><span class="hl-brackets">(</span><span class="hl-identifier">start</span><span class="hl-code">, </span><span class="hl-identifier">end</span><span class="hl-brackets">)
+	</span><span class="hl-comment">#Now post the post!
+	</span><span class="hl-reserved">try</span><span class="hl-default">:
+			</span><span class="hl-identifier">new_post_id</span><span class="hl-default"> = </span><span class="hl-identifier">wp</span><span class="hl-default">.</span><span class="hl-identifier">newPost</span><span class="hl-brackets">(</span><span class="hl-identifier">post</span><span class="hl-code">, </span><span class="hl-reserved">True</span><span class="hl-brackets">)
+			</span><span class="hl-identifier">success_dlg</span><span class="hl-default"> = </span><span class="hl-identifier">gtk</span><span class="hl-default">.</span><span class="hl-identifier">MessageDialog</span><span class="hl-brackets">(</span><span class="hl-identifier">type</span><span class="hl-code">=</span><span class="hl-identifier">gtk</span><span class="hl-code">.</span><span class="hl-identifier">MESSAGE_INFO</span><span class="hl-code">
+				, </span><span class="hl-identifier">message_format</span><span class="hl-code">=</span><span class="hl-quotes">"</span><span class="hl-string">Success! Post has been published!</span><span class="hl-quotes">"</span><span class="hl-code">
+				, </span><span class="hl-identifier">buttons</span><span class="hl-code">=</span><span class="hl-identifier">gtk</span><span class="hl-code">.</span><span class="hl-identifier">BUTTONS_OK</span><span class="hl-brackets">)
+			</span><span class="hl-identifier">success_dlg</span><span class="hl-default">.</span><span class="hl-identifier">run</span><span class="hl-brackets">()
+			</span><span class="hl-identifier">success_dlg</span><span class="hl-default">.</span><span class="hl-identifier">destroy</span><span class="hl-brackets">()
+	</span><span class="hl-reserved">except</span><span class="hl-default">:
+		</span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">show_error_dlg</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">Error publishing post.</span><span class="hl-quotes">"</span><span class="hl-brackets">)</span><span class="hl-default">;</span></pre></div></div>
+	<p>So
+we start off by getting the wordpress cleint, and if that works we get
+the post's title and the post's text. Then we attempt to upload the
+post, if we get an exception then the post has failed and we let the
+user know using our show_error_dlg() function. If we do not get an
+exception then we show the user a success dialog.</p>
+	<h2>The End</h2>
+	<p>Well
+that's it for the WordPy tutorial, I hope to improve on WordPy and get
+it working as an actual application that can be installed and used by
+users. If anyone is interested in this please let me know.</p>
+	<p>You can download the full source for this tutorial <a href="resources/WordPy_0_1.tar.gz">here</a>.</p>
+	<p>Let me know if you find any bugs, this is a longer tutorial so some might have slipped in.
+</p>
+
+			</div>
+		</div>
+
+	</div>
+
+<hr>
+<div id="footer">
+	<p>
+<!--Creative Commons License--><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/2.5/"><img alt="Creative Commons License" src="resources/somerights20.png" border="0"></a><br>This work is licensed under a <br><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/2.5/">Creative Commons Attribution-NonCommercial-ShareAlike 2.5 License</a>.<!--/Creative Commons License--><!-- <rdf:RDF xmlns="http://web.resource.org/cc/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+		<Work rdf:about="">
+			<license rdf:resource="http://creativecommons.org/licenses/by-nc-sa/2.5/" />
+	<dc:title>LearningPython</dc:title>
+	<dc:date>2006</dc:date>
+	<dc:description>one man's journey into python'a blog about learning pyhon</dc:description>
+	<dc:creator><Agent><dc:title>Mark Mruss</dc:title></Agent></dc:creator>
+	<dc:rights><Agent><dc:title>Mark Mruss</dc:title></Agent></dc:rights>
+	<dc:type rdf:resource="http://purl.org/dc/dcmitype/Text" />
+	<dc:source rdf:resource="http://www.learningpython.com" />
+		</Work>
+		<License rdf:about="http://creativecommons.org/licenses/by-nc-sa/2.5/"><permits rdf:resource="http://web.resource.org/cc/Reproduction"/><permits rdf:resource="http://web.resource.org/cc/Distribution"/><requires rdf:resource="http://web.resource.org/cc/Notice"/><requires rdf:resource="http://web.resource.org/cc/Attribution"/><prohibits rdf:resource="http://web.resource.org/cc/CommercialUse"/><permits rdf:resource="http://web.resource.org/cc/DerivativeWorks"/><requires rdf:resource="http://web.resource.org/cc/ShareAlike"/></License></rdf:RDF> -->
+	</p>
+</div>
+</body></html>

@@ -1,0 +1,448 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head profile="http://gmpg.org/xfn/11">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>Extending our PyGTK Application</title>
+<meta id="keywords" content="python, python programming, learning programming, program, how to program, howto program, learn python">
+<link rel="stylesheet" href="resources/style.css" type="text/css" media="screen">
+</head><body>
+
+	<div id="content" class="widecolumn">
+		<div class="post" id="post-39">
+			<h2><a href="http://www.pygtk.org/articles/extending-our-pygtk-application/extending-our-pygtk-application.htm" rel="bookmark" title="Extending our PyGTK Application">Extending our PyGTK Application</a></h2>
+            <p><small>Article by Mark Mruss, originally posted on <a href="http://www.learningpython.com/2006/09/02/extending-our-pygtk-application/">www.learningpython.com</a></small></p>
+
+			<div class="entrytext">
+					<p>In this tutorial we are going to extend our <a href="../application-with-pygtk-glade/Building_an_Application_with_PyGTK_and_Glade.htm">PyWine</a>
+application to allowing you to edit the items that you have added to
+the list and save an load the wine lists you create so that you don't
+have to keep entering them in all the time.</p>
+	<p>You can download the complete code for this tutorial <a href="resources/PyWine_02.tar.gz">here</a>.</p>
+	<p>If
+you are not familiar with the PyWine application or with working with
+Glade and PyGTK I suggest you read my first two tutorial on the subject:</p>
+	<ul>
+	<li><a href="../application-with-pygtk-glade/Building_an_Application_with_PyGTK_and_Glade.htm">Building an Application with PyGTK and Glade</a></li>
+	<li><a href="../pygtk-glade-gui/Creating_a_GUI_using_PyGTK_and_Glade.htm">Creating a GUI using PyGTK and Glade</a></li>
+	</ul>
+	<h2>The GUI - Glade</h2>
+	<p>The first thing that we are going to do is open up out PyWine glad project and add an edit button to our toolbar:</p>
+	<ol>
+	<li>Make space for the Edit button by selecting the toolbar and settings its size property to 2.</li>
+	<li>Add a Toolbar Button in the newly created empty space.</li>
+	<li>Call
+the button btnEditWine, set its label to be "Edit Wine", and its icon
+to be the stock Edit icon. Next add a handler for the clicked event.</li>
+	<li>We're
+going to change the menu up a little bit, instead of a menu that says
+Add | Wine, we are going to set the menu up to read Wine | Add and Wine
+| Edit. Do this just like we did in the previous PyWine tutorial and
+make the Wine | Edit clicked handler the same function as your
+btnEditWine button's clicked event handler.</li>
+	</ol>
+	<p><img style="margin: 0pt 10px 10px 0pt;" src="resources/py_wine_02_01.png" alt="GLADE Window PyWine" border="0"></p>
+	<p><a id="more-39"></a></p>
+	<h2>The Code</h2>
+	<p>Now
+lets get the Edit button working in the code, the first thing that we
+are going to have to do is get the information from whatever line in
+the <a href="http://www.pygtk.org/pygtk2reference/class-gtktreeview.html">gtk.TreeView</a>
+is currently selected. There are two ways to go about his, the first
+way is to read all the of data from the four columns that we have
+visible and the second would be to actually add our Wine object to the <a href="http://www.pygtk.org/pygtk2reference/class-gtkliststore.html">gtk.ListStore</a> (our model) but not display it in the gtk.TreeView.</p>
+	<p>Since
+it is simpler and may be more useful in the future if our wine class
+contains extra information or if we choose to let people add or remove
+columns from the gtk.TreeView I choose to use the later approach. This
+means that we need to change some of our code a little but.</p>
+	<p>First we have to add an additional column to our column definition variables in the pyWine __init__ function:</p>
+	<div class="hl-surround"><div class="hl-main"><pre><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">cWineObject</span><span class="hl-default"> = </span><span class="hl-number">0
+</span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">cWine</span><span class="hl-default"> = </span><span class="hl-number">1
+</span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">cWinery</span><span class="hl-default"> = </span><span class="hl-number">2
+</span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">cGrape</span><span class="hl-default"> = </span><span class="hl-number">3
+</span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">cYear</span><span class="hl-default"> = </span><span class="hl-number">4</span></pre></div></div>
+	<p>You
+see that we put the actual wine object as position 0 in the list, so we
+have to adjust our gtk.ListStore creation code in the same function as
+follows:</p>
+	<div class="hl-surround"><div class="hl-main"><pre><span class="hl-comment">#Create the listStore Model to use with the wineView
+</span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">wineList</span><span class="hl-default"> = </span><span class="hl-identifier">gtk</span><span class="hl-default">.</span><span class="hl-identifier">ListStore</span><span class="hl-brackets">(</span><span class="hl-identifier">gobject</span><span class="hl-code">.</span><span class="hl-identifier">TYPE_PYOBJECT</span><span class="hl-code">
+							, </span><span class="hl-identifier">gobject</span><span class="hl-code">.</span><span class="hl-identifier">TYPE_STRING</span><span class="hl-code">
+							, </span><span class="hl-identifier">gobject</span><span class="hl-code">.</span><span class="hl-identifier">TYPE_STRING</span><span class="hl-code">
+							, </span><span class="hl-identifier">gobject</span><span class="hl-code">.</span><span class="hl-identifier">TYPE_STRING</span><span class="hl-code">
+							, </span><span class="hl-identifier">gobject</span><span class="hl-code">.</span><span class="hl-identifier">TYPE_STRING</span><span class="hl-brackets">)</span></pre></div></div>
+	<p>Everything
+is the same as it was before except that the first item in our
+gtk.ListStore will now be a python object. In order to get the above
+code to compile we must add the following code to the top of our file: </p>
+	<div class="hl-surround" style="height: 28px;"><div class="hl-main"><pre><span class="hl-reserved">import </span><span class="hl-identifier">gobject</span></pre></div></div>
+	<p>Now
+the next thing that we need to change the way that we add our wine to
+the gtk.ListStore so that we actually include the Wine object. Luckily
+in our previous tutorial we added a getList() function to our Wine
+class that returns the list to add to the gtk.ListStore(), so all we
+have to do is edit that:</p>
+	<div class="hl-surround"><div class="hl-main"><pre><span class="hl-reserved">def </span><span class="hl-identifier">getList</span><span class="hl-brackets">(</span><span class="hl-identifier">self</span><span class="hl-brackets">)</span><span class="hl-default">:
+	</span><span class="hl-quotes">"""</span><span class="hl-string">This function returns a list made up of the
+	wine information.  It is used to add a wine to the
+	wineList easily</span><span class="hl-quotes">"""
+	</span><span class="hl-reserved">return </span><span class="hl-brackets">[</span><span class="hl-identifier">self</span><span class="hl-code">, </span><span class="hl-identifier">self</span><span class="hl-code">.</span><span class="hl-identifier">wine</span><span class="hl-code">, </span><span class="hl-identifier">self</span><span class="hl-code">.</span><span class="hl-identifier">winery</span><span class="hl-code">, </span><span class="hl-identifier">self</span><span class="hl-code">.</span><span class="hl-identifier">grape</span><span class="hl-code">, </span><span class="hl-identifier">self</span><span class="hl-code">.</span><span class="hl-identifier">year</span><span class="hl-brackets">]</span></pre></div></div>
+	<p>It's not much of a change, we simple have to make it so that getList() puts the Wine class at the start of the list.</p>
+	<p>The
+next step is to actually allow the user to edit a wine entry but before
+we do that there is one more change that we need to make. In tutorial
+one the __init__ function of the wine dialog accepted all of the items
+that made up our wine class as initialization parameters.</p>
+	<div class="hl-surround" style="height: 28px;"><div class="hl-main"><pre><span class="hl-reserved">def </span><span class="hl-identifier">__init__</span><span class="hl-brackets">(</span><span class="hl-identifier">self</span><span class="hl-code">, </span><span class="hl-identifier">wine</span><span class="hl-code">=</span><span class="hl-quotes">""</span><span class="hl-code">, </span><span class="hl-identifier">winery</span><span class="hl-code">=</span><span class="hl-quotes">""</span><span class="hl-code">, </span><span class="hl-identifier">grape</span><span class="hl-code">=</span><span class="hl-quotes">""</span><span class="hl-code">, </span><span class="hl-identifier">year</span><span class="hl-code">=</span><span class="hl-quotes">""</span><span class="hl-brackets">)</span><span class="hl-default">:</span></pre></div></div>
+	<p>This
+works alright if you have a small number or parameters, but if our Wine
+class was going to grow initializing the wineDialog class would become
+a pain. So all we are going to do is change the __init__ function to
+accept a Wine class object, rather then all of its parts:</p>
+	<div class="hl-surround"><div class="hl-main"><pre><span class="hl-reserved">def </span><span class="hl-identifier">__init__</span><span class="hl-brackets">(</span><span class="hl-identifier">self</span><span class="hl-code">, </span><span class="hl-identifier">wine</span><span class="hl-code">=</span><span class="hl-reserved">None</span><span class="hl-brackets">)</span><span class="hl-default">:
+	</span><span class="hl-quotes">"""</span><span class="hl-string">Initialize the class.
+	wine - a Wine object</span><span class="hl-quotes">"""
+
+	</span><span class="hl-comment">#setup the glade file
+	</span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">gladefile</span><span class="hl-default"> = </span><span class="hl-quotes">"</span><span class="hl-string">pywine.glade</span><span class="hl-quotes">"
+	</span><span class="hl-comment">#setup the wine that we will return
+	</span><span class="hl-identifier">if </span><span class="hl-brackets">(</span><span class="hl-identifier">wine</span><span class="hl-brackets">)</span><span class="hl-default">:
+		</span><span class="hl-comment">#They have passed a wine object
+		</span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">wine</span><span class="hl-default"> = </span><span class="hl-identifier">wine
+	</span><span class="hl-reserved">else</span><span class="hl-default">:
+		</span><span class="hl-comment">#Just use a blank wine
+		</span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">wine</span><span class="hl-default"> = </span><span class="hl-identifier">Wine</span><span class="hl-brackets">()</span></pre></div></div>
+	<p>The
+next step is to finally edit a wine entry, we will do this in function
+called on_EditWine(), it is hooked up to the Edit Wine button clicked
+event and the Wine | Edit menu item:</p>
+	<div class="hl-surround" style="height: 280px;"><div class="hl-main"><pre><span class="hl-reserved">def </span><span class="hl-identifier">on_EditWine</span><span class="hl-brackets">(</span><span class="hl-identifier">self</span><span class="hl-code">, </span><span class="hl-identifier">widget</span><span class="hl-brackets">)</span><span class="hl-default">:
+	</span><span class="hl-quotes">"""</span><span class="hl-string">Called when the user wants to edit a wine entry</span><span class="hl-quotes">"""
+
+	</span><span class="hl-comment"># Get the selection in the gtk.TreeView
+	</span><span class="hl-identifier">selection</span><span class="hl-default"> = </span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">wineView</span><span class="hl-default">.</span><span class="hl-identifier">get_selection</span><span class="hl-brackets">()
+	</span><span class="hl-comment"># Get the selection iter
+	</span><span class="hl-identifier">model</span><span class="hl-default">, </span><span class="hl-identifier">selection_iter</span><span class="hl-default"> = </span><span class="hl-identifier">selection</span><span class="hl-default">.</span><span class="hl-identifier">get_selected</span><span class="hl-brackets">()
+
+	</span><span class="hl-identifier">if </span><span class="hl-brackets">(</span><span class="hl-identifier">selection_iter</span><span class="hl-brackets">)</span><span class="hl-default">:
+		</span><span class="hl-quotes">"""</span><span class="hl-string">There is a selection, so now get the the value at column
+		self.cWineObject, the Wine Object</span><span class="hl-quotes">"""
+		</span><span class="hl-identifier">wine</span><span class="hl-default"> = </span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">wineList</span><span class="hl-default">.</span><span class="hl-identifier">get_value</span><span class="hl-brackets">(</span><span class="hl-identifier">selection_iter</span><span class="hl-code">, </span><span class="hl-identifier">self</span><span class="hl-code">.</span><span class="hl-identifier">cWineObject</span><span class="hl-brackets">)
+		</span><span class="hl-comment"># Create the wine dialog, based off of the current selection
+		</span><span class="hl-identifier">wineDlg</span><span class="hl-default"> = </span><span class="hl-identifier">wineDialog</span><span class="hl-brackets">(</span><span class="hl-identifier">wine</span><span class="hl-brackets">)</span><span class="hl-default">;
+		</span><span class="hl-identifier">result</span><span class="hl-default">,</span><span class="hl-identifier">newWine</span><span class="hl-default"> = </span><span class="hl-identifier">wineDlg</span><span class="hl-default">.</span><span class="hl-identifier">run</span><span class="hl-brackets">()
+
+		</span><span class="hl-identifier">if </span><span class="hl-brackets">(</span><span class="hl-identifier">result</span><span class="hl-code"> == </span><span class="hl-identifier">gtk</span><span class="hl-code">.</span><span class="hl-identifier">RESPONSE_OK</span><span class="hl-brackets">)</span><span class="hl-default">:
+			</span><span class="hl-quotes">"""</span><span class="hl-string">The user clicked Ok, so let's save the changes back
+			into the gtk.ListStore</span><span class="hl-quotes">"""
+			</span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">wineList</span><span class="hl-default">.</span><span class="hl-identifier">set</span><span class="hl-brackets">(</span><span class="hl-identifier">selection_iter</span><span class="hl-code">
+					, </span><span class="hl-identifier">self</span><span class="hl-code">.</span><span class="hl-identifier">cWineObject</span><span class="hl-code">, </span><span class="hl-identifier">newWine</span><span class="hl-code">
+					, </span><span class="hl-identifier">self</span><span class="hl-code">.</span><span class="hl-identifier">cWine</span><span class="hl-code">, </span><span class="hl-identifier">newWine</span><span class="hl-code">.</span><span class="hl-identifier">wine</span><span class="hl-code">
+					, </span><span class="hl-identifier">self</span><span class="hl-code">.</span><span class="hl-identifier">cWinery</span><span class="hl-code">, </span><span class="hl-identifier">newWine</span><span class="hl-code">.</span><span class="hl-identifier">winery</span><span class="hl-code">
+					, </span><span class="hl-identifier">self</span><span class="hl-code">.</span><span class="hl-identifier">cGrape</span><span class="hl-code">, </span><span class="hl-identifier">newWine</span><span class="hl-code">.</span><span class="hl-identifier">grape</span><span class="hl-code">
+					, </span><span class="hl-identifier">self</span><span class="hl-code">.</span><span class="hl-identifier">cYear</span><span class="hl-code">, </span><span class="hl-identifier">newWine</span><span class="hl-code">.</span><span class="hl-identifier">year</span><span class="hl-brackets">)</span></pre></div></div>
+	<p>The first thing we do is call <a href="http://www.pygtk.org/pygtk2reference/class-gtktreeview.html#method-gtktreeview--get-selection">gtk.TreeView.get_selection()</a> to get the <a href="http://www.pygtk.org/pygtk2reference/class-gtktreeselection.html">gtk.TreeSelection</a> object that is associated with the gtk.TreeView.  Then we call <a href="http://www.pygtk.org/pygtk2reference/class-gtktreeselection.html#method-gtktreeselection--get-selected">gtk.TreeSelection.get_selected()</a> which returns our <a href="http://www.pygtk.org/pygtk2reference/class-gtktreemodel.html">gtk.TreeModel</a> (which we don't care about) and a <a href="http://www.pygtk.org/pygtk2reference/class-gtktreeiter.html">gtk.TreeIter</a> that points to the currently selected node in out gtk.TreeView (which we do care about).</p>
+	<p>The
+gtk.TreeIter returned by the get_selected() function will be None if
+there is no selection, otherwise we use that gtk.TreeIter to get the
+Wine object at the currently selected position in our gtk.TreeView by
+calling the <a href="http://www.pygtk.org/pygtk2reference/class-gtktreemodel.html#method-gtktreemodel--get-value">gtk.TreeModel.get_value()</a>
+action. Once we have the Wine object the rest is pretty straight
+forward, we create our wineDialog object, show it, and if the used
+clicks the Ok button we update the selected item in the gtk.TreeView
+using the <a href="http://www.pygtk.org/pygtk2reference/class-gtkliststore.html#method-gtkliststore--set">gtk.ListStore.set()</a> function.</p>
+	<p>The <a href="http://www.pygtk.org/pygtk2reference/class-gtkliststore.html#method-gtkliststore--set">gtk.ListStore.set()</a>
+function is actually quite interesting since it takes a gtk.TreeIter as
+its first parameter (the position to set the values) and the rest of
+its parameters can be one or more column_number, new_value pairs! My
+only disappointment was not finding a function that used a list in the
+same way that the <a href="http://www.pygtk.org/pygtk2reference/class-gtkliststore.html#method-gtkliststore--append">gtk.ListStore.append()</a> function does.</p>
+	<p>So
+that's it for editing a wine entry! Since we don't want to always
+re-enter the wines that we like each time we start the application it's
+high time that we start saving and loading our wine list.</p>
+	<h2>Saving and Loading the Wine Lists</h2>
+	<p>The first thing that we are going to do is borrow two helper functions from the <a href="../wordpy-offline-blogging-tool/wordpy-offline-blogging-tool.htm">WordPy offline blogging tool </a>tutorial:</p>
+	<div class="hl-surround"><div class="hl-main"><pre><span class="hl-reserved">def </span><span class="hl-identifier">show_error_dlg</span><span class="hl-brackets">(</span><span class="hl-identifier">self</span><span class="hl-code">, </span><span class="hl-identifier">error_string</span><span class="hl-brackets">)</span><span class="hl-default">:
+	</span><span class="hl-quotes">"""</span><span class="hl-string">This Function is used to show an error dialog when
+	an error occurs.
+	error_string - The error string that will be displayed
+	on the dialog.
+	</span><span class="hl-quotes">"""
+	</span><span class="hl-identifier">error_dlg</span><span class="hl-default"> = </span><span class="hl-identifier">gtk</span><span class="hl-default">.</span><span class="hl-identifier">MessageDialog</span><span class="hl-brackets">(</span><span class="hl-identifier">type</span><span class="hl-code">=</span><span class="hl-identifier">gtk</span><span class="hl-code">.</span><span class="hl-identifier">MESSAGE_ERROR</span><span class="hl-code">
+				, </span><span class="hl-identifier">message_format</span><span class="hl-code">=</span><span class="hl-identifier">error_string</span><span class="hl-code">
+				, </span><span class="hl-identifier">buttons</span><span class="hl-code">=</span><span class="hl-identifier">gtk</span><span class="hl-code">.</span><span class="hl-identifier">BUTTONS_OK</span><span class="hl-brackets">)
+	</span><span class="hl-identifier">error_dlg</span><span class="hl-default">.</span><span class="hl-identifier">run</span><span class="hl-brackets">()
+	</span><span class="hl-identifier">error_dlg</span><span class="hl-default">.</span><span class="hl-identifier">destroy</span><span class="hl-brackets">()</span></pre></div></div>
+	<p>This
+function just provides us with an easy way to let the user know that an
+error has occurred by showing them an error dialog. We will add this to
+the pyWine class. For more information on how the function works please
+see the <a href="../wordpy-offline-blogging-tool/wordpy-offline-blogging-tool.htm">WordPy offline blogging tool</a> tutorial.</p>
+	<p>We are also going to bring over the browse_for_image() function:</p>
+	<div class="hl-surround" style="height: 280px;"><div class="hl-main"><pre><span class="hl-reserved">def </span><span class="hl-identifier">browse_for_image</span><span class="hl-brackets">(</span><span class="hl-identifier">self</span><span class="hl-brackets">)</span><span class="hl-default">:
+	</span><span class="hl-quotes">"""</span><span class="hl-string">This function is used to browse for an image.
+	The path to the image will be returned if the user
+	selects one, however a blank string will be returned
+	if they cancel or do not select one.</span><span class="hl-quotes">"""
+
+	</span><span class="hl-identifier">file_open</span><span class="hl-default"> = </span><span class="hl-identifier">gtk</span><span class="hl-default">.</span><span class="hl-identifier">FileChooserDialog</span><span class="hl-brackets">(</span><span class="hl-identifier">title</span><span class="hl-code">=</span><span class="hl-quotes">"</span><span class="hl-string">Select Image</span><span class="hl-quotes">"</span><span class="hl-code">
+				, </span><span class="hl-identifier">action</span><span class="hl-code">=</span><span class="hl-identifier">gtk</span><span class="hl-code">.</span><span class="hl-identifier">FILE_CHOOSER_ACTION_OPEN</span><span class="hl-code">
+				, </span><span class="hl-identifier">buttons</span><span class="hl-code">=</span><span class="hl-brackets">(</span><span class="hl-identifier">gtk</span><span class="hl-code">.</span><span class="hl-identifier">STOCK_CANCEL</span><span class="hl-code">
+							, </span><span class="hl-identifier">gtk</span><span class="hl-code">.</span><span class="hl-identifier">RESPONSE_CANCEL</span><span class="hl-code">
+							, </span><span class="hl-identifier">gtk</span><span class="hl-code">.</span><span class="hl-identifier">STOCK_OPEN</span><span class="hl-code">
+							, </span><span class="hl-identifier">gtk</span><span class="hl-code">.</span><span class="hl-identifier">RESPONSE_OK</span><span class="hl-brackets">))
+	</span><span class="hl-quotes">"""</span><span class="hl-string">Create and add the Images filter</span><span class="hl-quotes">"""
+	</span><span class="hl-identifier">filter</span><span class="hl-default"> = </span><span class="hl-identifier">gtk</span><span class="hl-default">.</span><span class="hl-identifier">FileFilter</span><span class="hl-brackets">()
+	</span><span class="hl-identifier">filter</span><span class="hl-default">.</span><span class="hl-identifier">set_name</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">Images</span><span class="hl-quotes">"</span><span class="hl-brackets">)
+	</span><span class="hl-identifier">filter</span><span class="hl-default">.</span><span class="hl-identifier">add_mime_type</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">image/png</span><span class="hl-quotes">"</span><span class="hl-brackets">)
+	</span><span class="hl-identifier">filter</span><span class="hl-default">.</span><span class="hl-identifier">add_mime_type</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">image/jpeg</span><span class="hl-quotes">"</span><span class="hl-brackets">)
+	</span><span class="hl-identifier">filter</span><span class="hl-default">.</span><span class="hl-identifier">add_mime_type</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">image/gif</span><span class="hl-quotes">"</span><span class="hl-brackets">)
+	</span><span class="hl-identifier">filter</span><span class="hl-default">.</span><span class="hl-identifier">add_pattern</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">*.png</span><span class="hl-quotes">"</span><span class="hl-brackets">)
+	</span><span class="hl-identifier">filter</span><span class="hl-default">.</span><span class="hl-identifier">add_pattern</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">*.jpg</span><span class="hl-quotes">"</span><span class="hl-brackets">)
+	</span><span class="hl-identifier">filter</span><span class="hl-default">.</span><span class="hl-identifier">add_pattern</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">*.gif</span><span class="hl-quotes">"</span><span class="hl-brackets">)
+	</span><span class="hl-identifier">file_open</span><span class="hl-default">.</span><span class="hl-identifier">add_filter</span><span class="hl-brackets">(</span><span class="hl-identifier">filter</span><span class="hl-brackets">)
+	</span><span class="hl-quotes">"""</span><span class="hl-string">Create and add the 'all files' filter</span><span class="hl-quotes">"""
+	</span><span class="hl-identifier">filter</span><span class="hl-default"> = </span><span class="hl-identifier">gtk</span><span class="hl-default">.</span><span class="hl-identifier">FileFilter</span><span class="hl-brackets">()
+	</span><span class="hl-identifier">filter</span><span class="hl-default">.</span><span class="hl-identifier">set_name</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">All files</span><span class="hl-quotes">"</span><span class="hl-brackets">)
+	</span><span class="hl-identifier">filter</span><span class="hl-default">.</span><span class="hl-identifier">add_pattern</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">*</span><span class="hl-quotes">"</span><span class="hl-brackets">)
+	</span><span class="hl-identifier">file_open</span><span class="hl-default">.</span><span class="hl-identifier">add_filter</span><span class="hl-brackets">(</span><span class="hl-identifier">filter</span><span class="hl-brackets">)
+
+	</span><span class="hl-quotes">"""</span><span class="hl-string">Init the return value</span><span class="hl-quotes">"""
+	</span><span class="hl-identifier">result</span><span class="hl-default"> = </span><span class="hl-quotes">""
+	</span><span class="hl-reserved">if </span><span class="hl-identifier">file_open</span><span class="hl-default">.</span><span class="hl-identifier">run</span><span class="hl-brackets">()</span><span class="hl-default"> == </span><span class="hl-identifier">gtk</span><span class="hl-default">.</span><span class="hl-identifier">RESPONSE_OK</span><span class="hl-default">:
+		</span><span class="hl-identifier">result</span><span class="hl-default"> = </span><span class="hl-identifier">file_open</span><span class="hl-default">.</span><span class="hl-identifier">get_filename</span><span class="hl-brackets">()
+	</span><span class="hl-identifier">file_open</span><span class="hl-default">.</span><span class="hl-identifier">destroy</span><span class="hl-brackets">()
+
+	</span><span class="hl-reserved">return </span><span class="hl-identifier">result</span></pre></div></div>
+	<p>Except
+we are going to modify it so that it operates as a File Open and File
+Save dialog, and so that it browses for pyWine files (*.pwi) instead of
+images. We will control whether it is a File Open or File Save dialog
+by passing in an additional parameter called dialog_action, which will
+be the action that we use to set the action property of the <a href="http://www.pygtk.org/pygtk2reference/class-gtkfilechooserdialog.html">gtk.FileChooserDialog</a>:</p>
+	<div class="hl-surround" style="height: 280px;"><div class="hl-main"><pre><span class="hl-reserved">def </span><span class="hl-identifier">file_browse</span><span class="hl-brackets">(</span><span class="hl-identifier">self</span><span class="hl-code">, </span><span class="hl-identifier">dialog_action</span><span class="hl-code">, </span><span class="hl-identifier">file_name</span><span class="hl-code">=</span><span class="hl-quotes">""</span><span class="hl-brackets">)</span><span class="hl-default">:
+	</span><span class="hl-quotes">"""</span><span class="hl-string">This function is used to browse for a pyWine file.
+	It can be either a save or open dialog depending on
+	what dialog_action is.
+	The path to the file will be returned if the user
+	selects one, however a blank string will be returned
+	if they cancel or do not select one.
+	dialog_action - The open or save mode for the dialog either
+	gtk.FILE_CHOOSER_ACTION_OPEN, gtk.FILE_CHOOSER_ACTION_SAVE
+        file_name - Default name when doing a save</span><span class="hl-quotes">"""
+
+	</span><span class="hl-identifier">if </span><span class="hl-brackets">(</span><span class="hl-identifier">dialog_action</span><span class="hl-code">==</span><span class="hl-identifier">gtk</span><span class="hl-code">.</span><span class="hl-identifier">FILE_CHOOSER_ACTION_OPEN</span><span class="hl-brackets">)</span><span class="hl-default">:
+		</span><span class="hl-identifier">dialog_buttons</span><span class="hl-default"> = </span><span class="hl-brackets">(</span><span class="hl-identifier">gtk</span><span class="hl-code">.</span><span class="hl-identifier">STOCK_CANCEL</span><span class="hl-code">
+							, </span><span class="hl-identifier">gtk</span><span class="hl-code">.</span><span class="hl-identifier">RESPONSE_CANCEL</span><span class="hl-code">
+							, </span><span class="hl-identifier">gtk</span><span class="hl-code">.</span><span class="hl-identifier">STOCK_OPEN</span><span class="hl-code">
+							, </span><span class="hl-identifier">gtk</span><span class="hl-code">.</span><span class="hl-identifier">RESPONSE_OK</span><span class="hl-brackets">)
+	</span><span class="hl-reserved">else</span><span class="hl-default">:
+		</span><span class="hl-identifier">dialog_buttons</span><span class="hl-default"> = </span><span class="hl-brackets">(</span><span class="hl-identifier">gtk</span><span class="hl-code">.</span><span class="hl-identifier">STOCK_CANCEL</span><span class="hl-code">
+							, </span><span class="hl-identifier">gtk</span><span class="hl-code">.</span><span class="hl-identifier">RESPONSE_CANCEL</span><span class="hl-code">
+							, </span><span class="hl-identifier">gtk</span><span class="hl-code">.</span><span class="hl-identifier">STOCK_SAVE</span><span class="hl-code">
+							, </span><span class="hl-identifier">gtk</span><span class="hl-code">.</span><span class="hl-identifier">RESPONSE_OK</span><span class="hl-brackets">)
+
+	</span><span class="hl-identifier">file_dialog</span><span class="hl-default"> = </span><span class="hl-identifier">gtk</span><span class="hl-default">.</span><span class="hl-identifier">FileChooserDialog</span><span class="hl-brackets">(</span><span class="hl-identifier">title</span><span class="hl-code">=</span><span class="hl-quotes">"</span><span class="hl-string">Select Project</span><span class="hl-quotes">"</span><span class="hl-code">
+				, </span><span class="hl-identifier">action</span><span class="hl-code">=</span><span class="hl-identifier">dialog_action</span><span class="hl-code">
+				, </span><span class="hl-identifier">buttons</span><span class="hl-code">=</span><span class="hl-identifier">dialog_buttons</span><span class="hl-brackets">)
+	</span><span class="hl-quotes">"""</span><span class="hl-string">set the filename if we are saving</span><span class="hl-quotes">"""
+	</span><span class="hl-identifier">if </span><span class="hl-brackets">(</span><span class="hl-identifier">dialog_action</span><span class="hl-code">==</span><span class="hl-identifier">gtk</span><span class="hl-code">.</span><span class="hl-identifier">FILE_CHOOSER_ACTION_SAVE</span><span class="hl-brackets">)</span><span class="hl-default">:
+		</span><span class="hl-identifier">file_dialog</span><span class="hl-default">.</span><span class="hl-identifier">set_current_name</span><span class="hl-brackets">(</span><span class="hl-identifier">file_name</span><span class="hl-brackets">)
+	</span><span class="hl-quotes">"""</span><span class="hl-string">Create and add the pywine filter</span><span class="hl-quotes">"""
+	</span><span class="hl-identifier">filter</span><span class="hl-default"> = </span><span class="hl-identifier">gtk</span><span class="hl-default">.</span><span class="hl-identifier">FileFilter</span><span class="hl-brackets">()
+	</span><span class="hl-identifier">filter</span><span class="hl-default">.</span><span class="hl-identifier">set_name</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">pyWine database</span><span class="hl-quotes">"</span><span class="hl-brackets">)
+	</span><span class="hl-identifier">filter</span><span class="hl-default">.</span><span class="hl-identifier">add_pattern</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">*.</span><span class="hl-quotes">"</span><span class="hl-code"> + </span><span class="hl-identifier">FILE_EXT</span><span class="hl-brackets">)
+	</span><span class="hl-identifier">file_dialog</span><span class="hl-default">.</span><span class="hl-identifier">add_filter</span><span class="hl-brackets">(</span><span class="hl-identifier">filter</span><span class="hl-brackets">)
+	</span><span class="hl-quotes">"""</span><span class="hl-string">Create and add the 'all files' filter</span><span class="hl-quotes">"""
+	</span><span class="hl-identifier">filter</span><span class="hl-default"> = </span><span class="hl-identifier">gtk</span><span class="hl-default">.</span><span class="hl-identifier">FileFilter</span><span class="hl-brackets">()
+	</span><span class="hl-identifier">filter</span><span class="hl-default">.</span><span class="hl-identifier">set_name</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">All files</span><span class="hl-quotes">"</span><span class="hl-brackets">)
+	</span><span class="hl-identifier">filter</span><span class="hl-default">.</span><span class="hl-identifier">add_pattern</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">*</span><span class="hl-quotes">"</span><span class="hl-brackets">)
+	</span><span class="hl-identifier">file_dialog</span><span class="hl-default">.</span><span class="hl-identifier">add_filter</span><span class="hl-brackets">(</span><span class="hl-identifier">filter</span><span class="hl-brackets">)
+
+	</span><span class="hl-quotes">"""</span><span class="hl-string">Init the return value</span><span class="hl-quotes">"""
+	</span><span class="hl-identifier">result</span><span class="hl-default"> = </span><span class="hl-quotes">""
+	</span><span class="hl-reserved">if </span><span class="hl-identifier">file_dialog</span><span class="hl-default">.</span><span class="hl-identifier">run</span><span class="hl-brackets">()</span><span class="hl-default"> == </span><span class="hl-identifier">gtk</span><span class="hl-default">.</span><span class="hl-identifier">RESPONSE_OK</span><span class="hl-default">:
+		</span><span class="hl-identifier">result</span><span class="hl-default"> = </span><span class="hl-identifier">file_dialog</span><span class="hl-default">.</span><span class="hl-identifier">get_filename</span><span class="hl-brackets">()
+	</span><span class="hl-identifier">file_dialog</span><span class="hl-default">.</span><span class="hl-identifier">destroy</span><span class="hl-brackets">()
+
+	</span><span class="hl-reserved">return </span><span class="hl-identifier">result</span></pre></div></div>
+	<p>FILE_EXT is simply defined as follows:</p>
+	<div class="hl-surround" style="height: 28px;"><div class="hl-main"><pre><span class="hl-identifier">FILE_EXT</span><span class="hl-default"> = </span><span class="hl-quotes">"</span><span class="hl-string">pwi</span><span class="hl-quotes">"</span></pre></div></div>
+	<p>We
+are also going to want to add handlers for the File | Open and File |
+Save menu commands in our glad project using the same method that we
+did for the Wine | Add and Wine | Edit menu items. I called mine
+on_file_open and on_file_save:</p>
+	<div class="hl-surround"><div class="hl-main"><pre>#Create our dictionay and connect it
+dic = {"on_mainWindow_destroy" : self.on_Quit
+		, "on_AddWine" : self.OnAddWine
+		, "on_EditWine" : self.on_EditWine
+		, "on_file_open" : self.on_file_open
+		, "on_file_save" : self.on_file_save}
+self.wTree.signal_autoconnect(dic)</pre></div></div>
+	<p>To do the saving and loading of our Wine objects we are going to use the <a href="http://docs.python.org/lib/module-shelve.html">python shelve</a>
+module. Which is a standard python module that can most (if not all)
+python object. There are of course other ways that we could have done
+this, we could have used xml files, or a straight pickle of all of our
+objects, but I thought that shelve made sense in this situation and it
+is easier to introduce them xml saving and loading.</p>
+	<p>From the documentation:</p>
+	<blockquote><p>A
+"shelf'' is a persistent, dictionary-like object. The difference with
+"dbm'' databases is that the values (not the keys!) in a shelf can be
+essentially arbitrary Python objects - anything that the pickle module
+can handle. This includes most class instances, recursive data types,
+and objects containing lots of shared sub-objects. The keys are
+ordinary strings.</p></blockquote>
+	<h3>Saving</h3>
+	<p>So to start
+lets setup the on_file_save() function. To start we will let the user
+browse for a location where they want to save their file, and let them
+specify the file's name. Next we will ensure that that the file has our
+file extension on it and then we will loop through all the items in the
+gtk.TreeView and save each Wine object using the shelve module:</p>
+	<div class="hl-surround" style="height: 280px;"><div class="hl-main"><pre><span class="hl-reserved">def </span><span class="hl-identifier">on_file_save</span><span class="hl-brackets">(</span><span class="hl-identifier">self</span><span class="hl-code">, </span><span class="hl-identifier">widget</span><span class="hl-brackets">)</span><span class="hl-default">:
+	</span><span class="hl-quotes">"""</span><span class="hl-string">Called when the user wants to save a wine list</span><span class="hl-quotes">"""
+
+	</span><span class="hl-comment"># Get the File Save path
+	</span><span class="hl-identifier">save_file</span><span class="hl-default"> = </span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">file_browse</span><span class="hl-brackets">(</span><span class="hl-identifier">gtk</span><span class="hl-code">.</span><span class="hl-identifier">FILE_CHOOSER_ACTION_SAVE</span><span class="hl-code">, </span><span class="hl-identifier">self</span><span class="hl-code">.</span><span class="hl-identifier">project_file</span><span class="hl-brackets">)
+	</span><span class="hl-identifier">if </span><span class="hl-brackets">(</span><span class="hl-identifier">save_file</span><span class="hl-code"> != </span><span class="hl-quotes">""</span><span class="hl-brackets">)</span><span class="hl-default">:
+		</span><span class="hl-comment"># We have a path, ensure the proper extension
+		</span><span class="hl-identifier">save_file</span><span class="hl-default">, </span><span class="hl-identifier">extension</span><span class="hl-default"> = </span><span class="hl-identifier">os</span><span class="hl-default">.</span><span class="hl-identifier">path</span><span class="hl-default">.</span><span class="hl-identifier">splitext</span><span class="hl-brackets">(</span><span class="hl-identifier">save_file</span><span class="hl-brackets">)
+		</span><span class="hl-identifier">save_file</span><span class="hl-default"> = </span><span class="hl-identifier">save_file</span><span class="hl-default"> + </span><span class="hl-quotes">"</span><span class="hl-string">.</span><span class="hl-quotes">"</span><span class="hl-default"> + </span><span class="hl-identifier">FILE_EXT
+		</span><span class="hl-quotes">"""</span><span class="hl-string"> Now we have the "real" file save loction create
+		the shelve file, use "n" to create a new file</span><span class="hl-quotes">"""
+		</span><span class="hl-identifier">db</span><span class="hl-default"> = </span><span class="hl-identifier">shelve</span><span class="hl-default">.</span><span class="hl-builtin">open</span><span class="hl-brackets">(</span><span class="hl-identifier">save_file</span><span class="hl-code">,</span><span class="hl-quotes">"</span><span class="hl-string">n</span><span class="hl-quotes">"</span><span class="hl-brackets">)
+		</span><span class="hl-quotes">"""</span><span class="hl-string">Get the first item in the gtk.ListStore, and while it is not
+		None, move forward through the list saving each item</span><span class="hl-quotes">"""
+		</span><span class="hl-comment"># Get the first item in the list
+		</span><span class="hl-identifier">iter</span><span class="hl-default"> = </span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">wineList</span><span class="hl-default">.</span><span class="hl-identifier">get_iter_root</span><span class="hl-brackets">()
+		</span><span class="hl-identifier">while </span><span class="hl-brackets">(</span><span class="hl-identifier">iter</span><span class="hl-brackets">)</span><span class="hl-default">:
+			</span><span class="hl-comment"># Get the wine at the current gtk.TreeIter
+			</span><span class="hl-identifier">wine</span><span class="hl-default"> = </span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">wineList</span><span class="hl-default">.</span><span class="hl-identifier">get_value</span><span class="hl-brackets">(</span><span class="hl-identifier">iter</span><span class="hl-code">, </span><span class="hl-identifier">self</span><span class="hl-code">.</span><span class="hl-identifier">cWineObject</span><span class="hl-brackets">)
+			</span><span class="hl-comment"># Use the iters position in the list as the key name
+			</span><span class="hl-identifier">db</span><span class="hl-brackets">[</span><span class="hl-identifier">self</span><span class="hl-code">.</span><span class="hl-identifier">wineList</span><span class="hl-code">.</span><span class="hl-identifier">get_string_from_iter</span><span class="hl-brackets">(</span><span class="hl-identifier">iter</span><span class="hl-brackets">)]</span><span class="hl-default"> = </span><span class="hl-identifier">wine
+			</span><span class="hl-comment"># Get the next iter
+			</span><span class="hl-identifier">iter</span><span class="hl-default"> = </span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">wineList</span><span class="hl-default">.</span><span class="hl-identifier">iter_next</span><span class="hl-brackets">(</span><span class="hl-identifier">iter</span><span class="hl-brackets">)
+		</span><span class="hl-comment">#close the database and write changes to disk, we are done
+		</span><span class="hl-identifier">db</span><span class="hl-default">.</span><span class="hl-identifier">close</span><span class="hl-brackets">()</span><span class="hl-default">;
+		</span><span class="hl-comment">#set the project file
+		</span><span class="hl-identifier">root</span><span class="hl-default">, </span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">project_file</span><span class="hl-default"> = </span><span class="hl-identifier">os</span><span class="hl-default">.</span><span class="hl-identifier">path</span><span class="hl-default">.</span><span class="hl-identifier">split</span><span class="hl-brackets">(</span><span class="hl-identifier">save_file</span><span class="hl-brackets">)</span></pre></div></div>
+	<p>After working with the <a href="http://www.pygtk.org/pygtk2reference/class-gtktreeiter.html">gtk.TreeIter</a>
+objects earlier this code should not be that difficult to understand.
+In fact the only real difficult part of the code is the following, the
+rest should be explained by the in-line comments:</p>
+	<div class="hl-surround"><div class="hl-main"><pre><span class="hl-identifier">while </span><span class="hl-brackets">(</span><span class="hl-identifier">iter</span><span class="hl-brackets">)</span><span class="hl-default">:
+	</span><span class="hl-comment"># Get the wine at the current gtk.TreeIter
+	</span><span class="hl-identifier">wine</span><span class="hl-default"> = </span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">wineList</span><span class="hl-default">.</span><span class="hl-identifier">get_value</span><span class="hl-brackets">(</span><span class="hl-identifier">iter</span><span class="hl-code">, </span><span class="hl-identifier">self</span><span class="hl-code">.</span><span class="hl-identifier">cWineObject</span><span class="hl-brackets">)
+	</span><span class="hl-comment"># Use the iters position in the list as the key name
+	</span><span class="hl-identifier">db</span><span class="hl-brackets">[</span><span class="hl-identifier">self</span><span class="hl-code">.</span><span class="hl-identifier">wineList</span><span class="hl-code">.</span><span class="hl-identifier">get_string_from_iter</span><span class="hl-brackets">(</span><span class="hl-identifier">iter</span><span class="hl-brackets">)]</span><span class="hl-default"> = </span><span class="hl-identifier">wine
+	</span><span class="hl-comment"># Get the next iter
+	</span><span class="hl-identifier">iter</span><span class="hl-default"> = </span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">wineList</span><span class="hl-default">.</span><span class="hl-identifier">iter_next</span><span class="hl-brackets">(</span><span class="hl-identifier">iter</span><span class="hl-brackets">)</span></pre></div></div>
+	<p>Basically
+what we are doing is looping through each item in the gtk.ListStore and
+then setting the data at the current gtk.TreeIter position in the
+shelve file to be our wine object.</p>
+	<div class="hl-surround" style="height: 28px;"><div class="hl-main"><pre><span class="hl-identifier">db</span><span class="hl-brackets">[</span><span class="hl-identifier">self</span><span class="hl-code">.</span><span class="hl-identifier">wineList</span><span class="hl-code">.</span><span class="hl-identifier">get_string_from_iter</span><span class="hl-brackets">(</span><span class="hl-identifier">iter</span><span class="hl-brackets">)]</span><span class="hl-default"> = </span><span class="hl-identifier">wine</span></pre></div></div>
+	<p>The <a href="http://www.pygtk.org/pygtk2reference/class-gtktreemodel.html#method-gtktreemodel--get-string-from-iter">gtk.TreeModel.get_string_from_iter()</a>
+function "returns a string representation of the path pointed to by
+iter. This string is a ‘:' separated list of numbers. For example,
+"4:10:0:3″ would be an acceptable return value for this string." (pyGTK
+Docs). Since we are using a <a href="http://www.pygtk.org/pygtk2reference/class-gtkliststore.html#method-gtkliststore--clear">gtk.ListStore</a> the values returned will always be single values that increase as we move down the list from top to bottom.  </p>
+	<p>So
+the first item will be "0″, the second "1″, the third "2″, and so on.
+This will be helpful for us when we open files, since keys in shelve
+files are not guaranteed to be in any particular order (as far as I
+could tell.)</p>
+	<p>When you close the shelve file, the data will be written to the disk.</p>
+	<p>You'll
+also notice the inclusion of the self.project_file item as the default
+file name, this is a new addition to the class. It is the file name of
+the current project, it just lets us set the default name in the
+gtk.FileChooserDialog when we are doing a save. It's defined in the
+__init__ function as follows:</p>
+	<p><code><br>
+self.project_file = ""<br>
+</code></p>
+	<p>This just lets us have a dialog that pops up like so: </p>
+	<p><img style="margin: 0pt 10px 10px 0pt;" src="resources/py_wine_02_02.png" alt="GLADE Window PyWine" border="0"></p>
+	<h2>Loading</h2>
+	<p>Now
+lets setup the on_file_open() function which, if you've understood the
+on_file_save function, should not be that difficult to understand:</p>
+	<div class="hl-surround" style="height: 280px;"><div class="hl-main"><pre><span class="hl-reserved">def </span><span class="hl-identifier">on_file_open</span><span class="hl-brackets">(</span><span class="hl-identifier">self</span><span class="hl-code">, </span><span class="hl-identifier">widget</span><span class="hl-brackets">)</span><span class="hl-default">:
+	</span><span class="hl-quotes">"""</span><span class="hl-string">Called when the user wants to open a wine</span><span class="hl-quotes">"""
+
+	</span><span class="hl-comment"># Get the file to open
+	</span><span class="hl-identifier">open_file</span><span class="hl-default"> = </span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">file_browse</span><span class="hl-brackets">(</span><span class="hl-identifier">gtk</span><span class="hl-code">.</span><span class="hl-identifier">FILE_CHOOSER_ACTION_OPEN</span><span class="hl-brackets">)
+	</span><span class="hl-identifier">if </span><span class="hl-brackets">(</span><span class="hl-identifier">open_file</span><span class="hl-code"> != </span><span class="hl-quotes">""</span><span class="hl-brackets">)</span><span class="hl-default">:
+		</span><span class="hl-comment"># We have a path, open it for reading
+		</span><span class="hl-reserved">try</span><span class="hl-default">:
+			</span><span class="hl-identifier">db</span><span class="hl-default"> = </span><span class="hl-identifier">shelve</span><span class="hl-default">.</span><span class="hl-builtin">open</span><span class="hl-brackets">(</span><span class="hl-identifier">open_file</span><span class="hl-code">,</span><span class="hl-quotes">"</span><span class="hl-string">r</span><span class="hl-quotes">"</span><span class="hl-brackets">)
+			</span><span class="hl-identifier">if </span><span class="hl-brackets">(</span><span class="hl-identifier">db</span><span class="hl-brackets">)</span><span class="hl-default">:
+				</span><span class="hl-comment"># We have opened the file, so empty out our gtk.TreeView
+				</span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">wineList</span><span class="hl-default">.</span><span class="hl-identifier">clear</span><span class="hl-brackets">()
+				</span><span class="hl-quotes">"""</span><span class="hl-string"> Since the shelve file is not gaurenteed to be in order we
+				move through the file starting at iter 0 and moving our
+				way up</span><span class="hl-quotes">"""
+				</span><span class="hl-identifier">count</span><span class="hl-default"> = </span><span class="hl-number">0</span><span class="hl-default">;
+				</span><span class="hl-reserved">while </span><span class="hl-identifier">db</span><span class="hl-default">.</span><span class="hl-identifier">has_key</span><span class="hl-brackets">(</span><span class="hl-builtin">str</span><span class="hl-brackets">(</span><span class="hl-identifier">count</span><span class="hl-brackets">))</span><span class="hl-default">:
+					</span><span class="hl-identifier">newwine</span><span class="hl-default"> = </span><span class="hl-identifier">db</span><span class="hl-brackets">[</span><span class="hl-builtin">str</span><span class="hl-brackets">(</span><span class="hl-identifier">count</span><span class="hl-brackets">)]
+					</span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">wineList</span><span class="hl-default">.</span><span class="hl-identifier">append</span><span class="hl-brackets">(</span><span class="hl-identifier">newwine</span><span class="hl-code">.</span><span class="hl-identifier">getList</span><span class="hl-brackets">())
+					</span><span class="hl-identifier">count</span><span class="hl-default"> = </span><span class="hl-identifier">count</span><span class="hl-default"> +</span><span class="hl-number">1
+				</span><span class="hl-identifier">db</span><span class="hl-default">.</span><span class="hl-identifier">close</span><span class="hl-brackets">()</span><span class="hl-default">;
+				</span><span class="hl-comment">#set the project file
+				</span><span class="hl-identifier">root</span><span class="hl-default">, </span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">project_file</span><span class="hl-default"> = </span><span class="hl-identifier">os</span><span class="hl-default">.</span><span class="hl-identifier">path</span><span class="hl-default">.</span><span class="hl-identifier">split</span><span class="hl-brackets">(</span><span class="hl-identifier">open_file</span><span class="hl-brackets">)
+			</span><span class="hl-reserved">else</span><span class="hl-default">:
+				</span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">show_error_dlg</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">Error opening file</span><span class="hl-quotes">"</span><span class="hl-brackets">)
+		</span><span class="hl-reserved">except</span><span class="hl-default">:
+			</span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">show_error_dlg</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">Error opening file</span><span class="hl-quotes">"</span><span class="hl-brackets">)</span></pre></div></div>
+	<p>You'll
+notice that when loading items from the list we use a counter (count)
+and the has_key() function. As explained above we save each Wine object
+using the gtk.TreeIter path, which is a single number since we are
+using a gtk.ListStore. But since the order in the file cannot be
+guaranteed we use our own counter to get each item from the file in
+order starting at zero and working our way up until the key represented
+by our number is no longer in the file. (<strong>Note:</strong> we convert out integer to a string since the keys in the shelve files must be strings.)</p>
+	<p>To load a Wine object from the file we simply ask the shelve file for the item at the current count key:</p>
+	<div class="hl-surround" style="height: 28px;"><div class="hl-main"><pre><span class="hl-identifier">newwine</span><span class="hl-default"> = </span><span class="hl-identifier">db</span><span class="hl-brackets">[</span><span class="hl-builtin">str</span><span class="hl-brackets">(</span><span class="hl-identifier">count</span><span class="hl-brackets">)]</span></pre></div></div>
+	<p>Then
+we just append that wine to the list, and we have loaded a .pwi file.
+The Try except code, basically just catches any error that might occur
+if the user tries to open a file that is not a true pyWine project file.</p>
+	<h2>Conclusion</h2>
+	<p>That's
+basically it for this tutorial, but if you've understood it you can see
+how easy to would be to hook in the File | New menu handler or add a
+Delete button to the toolbar, or even set the title of the Window to be
+the current project file.</p>
+	<p>You might even want to try playing
+around with different project file types and try implementing an XML
+file type. In the future I think it would be a neat option to allow the
+user to decide which type of file they want to use for their project
+files.</p>
+	<p>You can download the complete code for this tutorial <a href="resources/PyWine_02.tar.gz">here</a>.</p>
+	<p>If you have any questions, or notice any problems with this tutorial please post a comment and let me know!
+</p>
+			</div>
+		</div>
+	</div>
+
+<hr>
+<div id="footer">
+	<p>
+<!--Creative Commons License--><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/2.5/"><img alt="Creative Commons License" src="resources/somerights20.png" border="0"></a><br>This work is licensed under a <br><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/2.5/">Creative Commons Attribution-NonCommercial-ShareAlike 2.5 License</a>.<!--/Creative Commons License--><!-- <rdf:RDF xmlns="http://web.resource.org/cc/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+		<Work rdf:about="">
+			<license rdf:resource="http://creativecommons.org/licenses/by-nc-sa/2.5/" />
+	<dc:title>LearningPython</dc:title>
+	<dc:date>2006</dc:date>
+	<dc:description>one man's journey into python…a blog about learning pyhon</dc:description>
+	<dc:creator><Agent><dc:title>Mark Mruss</dc:title></Agent></dc:creator>
+	<dc:rights><Agent><dc:title>Mark Mruss</dc:title></Agent></dc:rights>
+	<dc:type rdf:resource="http://purl.org/dc/dcmitype/Text" />
+	<dc:source rdf:resource="http://www.learningpython.com" />
+		</Work>
+		<License rdf:about="http://creativecommons.org/licenses/by-nc-sa/2.5/"><permits rdf:resource="http://web.resource.org/cc/Reproduction"/><permits rdf:resource="http://web.resource.org/cc/Distribution"/><requires rdf:resource="http://web.resource.org/cc/Notice"/><requires rdf:resource="http://web.resource.org/cc/Attribution"/><prohibits rdf:resource="http://web.resource.org/cc/CommercialUse"/><permits rdf:resource="http://web.resource.org/cc/DerivativeWorks"/><requires rdf:resource="http://web.resource.org/cc/ShareAlike"/></License></rdf:RDF> -->
+	</p>
+</div>
+</body></html>
