@@ -15,6 +15,15 @@ item = lambda *x: items.append(x)
 
 # http://news.gmane.org/gmane.comp.gnome.gtk%2B.python/
 
+item("Updated Win32 binaries",
+     (2006, 10, 20),
+     """
+     The PyGTK 2.10 installer for Win32 is now available thanks to the hard work of Cedric.
+     The installers for PyGObjet,PyGTK and PyCairo are now mirrored on ftp.gnome.org.
+     <p>
+     Go and grab them from the <a href="downloads.html">download page</a>.
+     """, "Johan Dahlin")
+
 item("PyGTK 2.10.0 released",
      (2006, 9, 4),
      """

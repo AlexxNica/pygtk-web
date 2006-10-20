@@ -1,3 +1,9 @@
+2006-10-20  Johan Dahlin  <jdahlin@async.com.br>
+
+	* newsitems.py: Add a news item
+
+	* downloads.src: Add 2.10 and add links to win32 installer
+
 2006-10-10  Christian Reis  <kiko@async.com.br>
 
 	* Makefile: attempt to make our latin-1 pages render correctly.
