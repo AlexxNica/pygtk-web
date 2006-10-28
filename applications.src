@@ -492,6 +492,14 @@
   <dt><a href="http://www.nongnu.org/straw/index.html">Straw</a></dt>
   <dd>Straw is a desktop news aggregation for GNOME</dd>
 
+  <dt><a href="http://sourceforge.net/projects/taof">Taof</a></dt>
+  <dd>Taof (The art of fuzzing) is a GUI cross-platform Python generic
+  network protocol fuzzer. Taof aids the researcher during the data
+  retrieval process by providing a transparent proxy functionality that
+  forwards and logs requests from a client to a server. After the data
+  retrieval phase, Taof presents the logged requests and allows the user
+  to specify the fuzzing points within the requests.</dd>
+
   <dt><a href="http://xpn.altervista.org/index-en.html">XPN</a></dt>
   <dd>XPN is a multiplatform newsreader written in Python+GTK2. It is unicode
   compliant and has features like scoring/action rules, configurable
