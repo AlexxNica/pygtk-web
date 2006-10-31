@@ -1,3 +1,11 @@
+2006-10-31  Christian Reis  <kiko@async.com.br>
+
+	* articles.src: add japanese translation of Writing a Custom
+	Widget Using PyGTK, by Satoshi Tanabe. Some reformatting.
+
+	* default.css: tweak rules to make lists inside the articles
+	table look good.
+
 2006-10-20  Christian Reis  <kiko@async.com.br>
 
 	* applications.src: add Taof networking tool.

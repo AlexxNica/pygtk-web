@@ -136,6 +136,18 @@ a:link:active {
   border: 1px solid black;
 }
 
+#articles ul {
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-left: 0;
+    padding-left: 2em;
+    font-size: smaller
+}
+
+#articles ul li {
+    list-style: circle;
+}
+
 #articles th {
   background-color: #999999;
   color: #000000;
