@@ -8,7 +8,7 @@ The following people are involved in maintaining the PyGTK project,
 including code, documentation and user support (listed alphabetically):
 
 <dl>
- 
+
   <dt><a href="http://www.async.com.br/~kiko/">Christian Reis</a> a.k.a. kiko</dt>
   <dd><a href="http://www.async.com.br/faq/pygtk/">FAQ</a> maintainer,
   general IRC and email support, and purportedly co-maintainer of the
@@ -45,8 +45,8 @@ including code, documentation and user support (listed alphabetically):
   <dd>Works on misc parts of the project to help when needed (code,
   articles, support on IRC). Also working on
   <a href="http://gael.sf.net/">Gael</a></dd>
-  
-  <dt>Rafael Villar Burke</dt>
+
+  <dt><a href="http://www.rvburke.com/">Rafael Villar Burke</a></dt>
   <dd>Works on documentation (translating the PyGTK Tutorial to Spanish)
   and maintains the website.</dd>
 
