@@ -830,6 +830,11 @@ anonymous Internet communication system: <a href="http://tor.eff.org">http://tor
   completion and history. Its expected use case is to be embedded and used
   to inspect other applications internals.</dd>
 
+  <dt><a href="http://www.loria.fr/~rougier/index.php?n=Software.Software#pycons">Python GTK Console</a></dt>
+  <dd>This widget implements an interactive python session in a GTK window
+  and it accepts input directly within the console. It's heavily based on
+  the GTK Interactive Console bundled with The Gimp.</dd>
+
   <dt><a href="http://www.defuze.org/oss/pyirc/index.htm">PyIRC</a></dt>
   <dd>PyIrc is a Python module which tends to implement RFC 1459 and
   part of RFC 2812. One of the main goal of the project was to provide a
