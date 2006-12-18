@@ -430,6 +430,10 @@
   Circle peer running, anywhere in the world, there's still a
   network.</dd>
 
+  <dt><a href="http://deluge-torrent.org">Deluge</a></dt>
+  <dd>Deluge is a Bittorent client aimed to bring a native, full-featured
+  client to desktop environments such as Gnome and XFCE.</dd>
+
   <dt><a href="http://foff.sourceforge.net/">Free Open FTP Face</a></dt>
   <dd>Free Open FTP Face is a lightweight graphical (GTK+) FTP client. It is
   multiplatform, easy to use, has a built in text viewer, image viewer, and
