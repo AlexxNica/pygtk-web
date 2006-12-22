@@ -191,6 +191,12 @@
   Furthermore, it is licensed under GNU's GPL.
   </dd>
 
+  <dt><a href="http://www.exaile.org/">Exaile!</a></dt>
+  <dd>Exaile is a media player for GTK+.
+  Besides standard features, it can automatically fetch album art, lyrics,
+  guitar tablatures or artist/album information in the wikipedia; manage
+  large libraries, last.fm support and iPod support.</dd>
+
   <dt><a href="http://www.flumotion.net/">Flumotion</a></dt>
   <dd>Flumotion is a streaming media server.
   It features intuitive graphical administration tools to easily set up
