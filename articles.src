@@ -48,6 +48,7 @@
       <td><a href="http://www.learningpython.com/2006/05/30/building-an-application-with-pygtk-and-glade/">Building an application with PyGTK and Glade</a><br>
         <ul>
           <li><a href="http://blog.chinaunix.net/u/5462/showart.php?id=157696">Chinese translation</a><br>
+          <li><a href="http://daniel.coquette.free.fr/dotclear/index.php/post/2006/12/18/Construire-une-application-avec-PyGTK-et-Glade">French translation</a><br>
           <li><a href="http://po3a.blogspot.com/2006/08/pygtk-glade.html">Japanese translation</a><br>
           <li><a href="./articles/application-pygtk-glade/Building_an_Application_with_PyGTK_and_Glade.htm">Local copy</a>
         </ul>
@@ -59,6 +60,7 @@
       <td><a href="http://www.learningpython.com/2006/05/07/creating-a-gui-using-pygtk-and-glade/">Creating a GUI using PyGTK and Glade</a><br>
         <ul>
           <li>Chinese translation <a href="http://blog.chinaunix.net/u/5462/showart.php?id=150996">Part I</a> and <a href="http://blog.chinaunix.net/u/5462/showart.php?id=151571">Part II</a><br>
+          <li><a href="http://daniel.coquette.free.fr/dotclear/index.php/post/2006/12/11/Creer-des-interfaces-graphique-avec-PyGTK-et-Glade">French translation</a><br>
           <li><a href="http://po3a.blogspot.com/2006/08/pygtk-glade-gui.html">Japanese translation</a><br>
           <li><a href="./articles/pygtk-glade-gui/Creating_a_GUI_using_PyGTK_and_Glade.htm">Local copy</a>
         </ul>
