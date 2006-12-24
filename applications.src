@@ -474,6 +474,9 @@
   <dd>Nixory is an Anti Spyware program for Mozilla Firefox planned to
   remove malicious data mining.</dd>
 
+  <dt><a href="http://planimo.sourceforge.net/">Planimo</a></dt>
+  <dd>Planimo is an instant messenger for private LAN chats. It features tabbed chatting (one tab per private chat), file transfers between users, and is very portable (it runs anywhere pygtk can run).</dd>
+
   <dt><a href="http://pybber.sourceforge.net/">Pybber</a></dt>
   <dd>Pybber is a single window Jabber client that is being written in Python.
   <br>The main features of this project are a single window interface, with
