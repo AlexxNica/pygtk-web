@@ -807,6 +807,12 @@ anonymous Internet communication system: <a href="http://tor.eff.org">http://tor
 <h3><a name="libraries">Libraries, Widgets and Modules</a></h3>
 
 <dl>
+  <dt><a href="http://avc.iriti.cnr.it/">AVC</a></dt>
+  <dd>AVC is a module designed to speed up the development of PYGTK
+  applications. AVC, the Application View Controller, transparently
+  connects between the values displayed and entered in GUI widgets and
+  variables in your application.</dd>
+
   <dt><a href="http://gdesklets.gnomedesktop.org/">gDesklets</a></dt>
   <dd>gDesklets provides an advanced architecture for desktop applets --
   tiny displays sitting on your desktop in a symbiotic relationship of
