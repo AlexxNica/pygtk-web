@@ -64,7 +64,7 @@ reports.
    properties as descriptors</li>
 </ul>
 
-<h3>CVS Activity</h3>
+<h3>Subversion Activity</h3>
 
 <p>The source code for PyGTK is located in the <a
 href="http://developer.gnome.org/tools/svn.html">Gnome Subversion repository</a>
