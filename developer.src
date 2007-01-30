@@ -67,7 +67,7 @@ reports.
 <h3>CVS Activity</h3>
 
 <p>The source code for PyGTK is located in the <a
-href="http://developer.gnome.org/tools/cvs.html">Gnome CVS repository</a>
+href="http://developer.gnome.org/tools/svn.html">Gnome Subversion repository</a>
 in the gnome-python/pygtk directory. You can view the contents using <a
 href="http://svn.gnome.org/viewcvs/pygtk/trunk">ViewCVS</a>.</p>
 
