@@ -240,7 +240,7 @@
   covers retrieval and has a plugin extension mechanism that currently
   features last.fm and gajim interaction.</dd>
 
-  <dt><a href="http://blog.drinsama.de/erich/en/2007020401-mp3val-gui.html">
+  <dt><a href="http://mp3val.sourceforge.net/">
   MP3Val GUI</a></dt>
   <dd>This application adds a GTK+ interface to the mp3val command line
   utility. It can be used to detect and repair common MP3 problems (as
