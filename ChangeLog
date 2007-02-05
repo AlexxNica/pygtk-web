@@ -1,6 +1,7 @@
 2007-02-05  Rafael Villar Burke  <pachi@rvburke.com>
 
 	* articles/Creating...: Close anchor tag.
+	* applications.src: Add mp3val-gui and dbus-inspector
 
 2007-01-30  Olav Vitters  <olav@bkor.dhs.org>
 

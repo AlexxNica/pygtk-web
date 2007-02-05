@@ -240,6 +240,13 @@
   covers retrieval and has a plugin extension mechanism that currently
   features last.fm and gajim interaction.</dd>
 
+  <dt><a href="http://blog.drinsama.de/erich/en/2007020401-mp3val-gui.html">
+  MP3Val GUI</a></dt>
+  <dd>This application adds a GTK+ interface to the mp3val command line
+  utility. It can be used to detect and repair common MP3 problems (as
+  incorrect length information and others) and works both on Windows and
+  Unix.</dd>
+
   <dt><a href="http://www.nongnu.org/orange-slice/">The Orange Slice</a></dt>
   <dd>Orange Slice is a subtitle editor, writen in Python/GTK+. It aims at
   the manipulation of different file formats like SSA, ASS, SUB, SRT, etc.<br>
@@ -578,6 +585,14 @@
 
   <dt><a href="http://clay.ll.pl/clarence.html">Clarence</a></dt>
   <dd>Clarence is a small GTK+-based programmer's calculator.</dd>
+
+  <dt><a href="http://www.vitavonni.de/projekte/dbus-inspector">
+  DBus-inspector</a></dt>
+  <dd>DBus-Inspector is a development tool to show the contents of the
+  DBus message bus. It uses the .Introspection. data provided by most
+  applications to show methods and signals with their signature. Later
+  versions will also allow you to trigger methods directly for testing
+  purposes.</dd>
 
   <dt><a href="http://gaphor.sourceforge.net">Gaphor</a></dt>
   <dd>Gaphor is the UML modeling tool for GTK/GNOME. It is written in Python
