@@ -15,6 +15,14 @@ item = lambda *x: items.append(x)
 
 # http://news.gmane.org/gmane.comp.gnome.gtk%2B.python/
 
+item("PyGTK 2.10.4 released",
+     (2007, 2, 5),
+     """
+     PyGTK 2.10.4 is a bug fix only release. As usual, it's sources can be fetched
+     <a href="http://ftp.gnome.org/pub/GNOME/sources/pygtk/2.10/pygtk-2.10.4.tar.bz2">here</a>.
+     Check out <a href="http://www.daa.com.au/pipermail/pygtk/2007-February/013461.html">the release announcement and full list of changes</a>.""",
+     "Rafael Villar Burke")
+
 item("Updated Win32 binaries",
      (2006, 10, 20),
      """

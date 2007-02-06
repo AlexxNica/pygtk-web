@@ -607,9 +607,9 @@
   Project views...</dd>
 
   <dt><a href="http://users.bigpond.net.au/Peter-Williams/">gquilt</a></dt>
-  <dd>gquilt is GUI wrapper for quilt, a tool for managing a series of
-  patches by keeping track of the changes each patch makes. Patches can
-  be applied, un-applied, refreshed, etc.</dd>
+  <dd>gquilt is GUI wrapper for quilt and Mercurial patch queues, a tool
+  for managing a series of patches by keeping track of the changes each
+  patch makes. Patches can be applied, un-applied, refreshed, etc.</dd>
 
   <dt><a href="http://kefir.sf.net/">Kefir</a></dt>
   <dd>kefir is a code sketcher, a script that takes in a Glade file, and

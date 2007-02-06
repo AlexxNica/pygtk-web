@@ -1,3 +1,8 @@
+2007-02-06  Rafael Villar Burke  <pachi@rvburke.com>
+
+	* newsitems.py: Advertise 2.10.4 release
+	* applications.src: Update gquilt description
+
 2007-02-05  Rafael Villar Burke  <pachi@rvburke.com>
 
 	* articles/Creating...: Close anchor tag.
