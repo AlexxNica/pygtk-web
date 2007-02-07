@@ -63,6 +63,11 @@
   generate multiple output formats, including HTML, XML, postscript, pdf
   and man.</dd>
 
+  <dt><a href="http://gnapsack.textmethod.com/">Gnapsack</a></dt>
+  <dd>Gnapsack is a PyGTK-based Linux desktop client for the Backpack
+  Web Services API, to manage online to-do lists, notes, files, and
+  images.</dd>
+
   <dt><a href="http://gnochm.sourceforge.net/">GnoCHM</a></dt>
   <dd>GnoCHM is a CHM file viewer for Gnome.</dd>
 

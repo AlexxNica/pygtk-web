@@ -1,3 +1,7 @@
+2007-02-07  Rafael Villar Burke  <pachi@rvburke.com>
+
+	* applications.src: Add Gnapsack
+
 2007-02-06  Rafael Villar Burke  <pachi@rvburke.com>
 
 	* newsitems.py: Advertise 2.10.4 release
