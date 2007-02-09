@@ -161,6 +161,12 @@
   writing in hiragana, katakana and kanji. You can select words composed
   only by characters you already known.</dd>
 
+  <dt><a href="http://pytrainer.e-oss.net/">PyTrainer</a></dt>
+  <dd>This applications is a sport activity logger. With it you can
+  create graphs, store circuits using google maps, and display statistics.
+  It was originally developer for cyclist geeks but can be used to track
+  other sports.</dd>
+
   <dt><a href="http://www.lordsutch.com/chris/routeplanner.html">RoutePlanner
   </a></dt>
   <dd>RoutePlanner is a highway trip planner written in Python that will run
