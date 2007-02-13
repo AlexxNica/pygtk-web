@@ -15,6 +15,13 @@ item = lambda *x: items.append(x)
 
 # http://news.gmane.org/gmane.comp.gnome.gtk%2B.python/
 
+item("PyGTK all-in-one installer for win32",
+     (2007, 2, 13),
+     """
+     For the joy of the masses Alberto Ruiz has prepared an <a href="http://osl.ulpgc.es/~arc/gnome/pygtk-setup.exe">all-in-one installer</a> to make the lifes of those wanting to install a PyGTK environment on windows much more pleasant.
+     Check out <a href="http://aruiz.typepad.com/siliconisland/2006/12/allinone_win32_.html">the release announcement</a>.""",
+     "Rafael Villar Burke")
+
 item("PyGTK 2.10.4 released",
      (2007, 2, 5),
      """
