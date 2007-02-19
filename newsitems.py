@@ -692,7 +692,7 @@ item("PyGTK 2.4.0 rc1 (aka PyGTK 2.3.97)",
 item("We got RSS!",
      (2004, 9, 8),
      """
-     <a href="http://cs.annauniv.edu/~rsridhar">Sridhar R.</a>
+     <a href="http://www.nearfar.org">Sridhar R.</a>
      contributed code to the PyGTK.org website that generates an <a
      href="news.rss">RSS feed</a> of the latest news items posted. This
      code has been integrated over the weekend and is currently live.
