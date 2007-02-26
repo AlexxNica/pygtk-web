@@ -617,7 +617,7 @@
   Editor, well supported Copy&Paste and Undo/Redo capabilities, Templates,
   Project views...</dd>
 
-  <dt><a href="http://users.bigpond.net.au/Peter-Williams/">gquilt</a></dt>
+  <dt><a href="http://gquilt.sourceforge.net/">gquilt</a></dt>
   <dd>gquilt is GUI wrapper for quilt and Mercurial patch queues, a tool
   for managing a series of patches by keeping track of the changes each
   patch makes. Patches can be applied, un-applied, refreshed, etc.</dd>
