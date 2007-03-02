@@ -565,6 +565,10 @@
   length, mass, numbers, etc. All units converted values shown at once
   as you type. Easy to add/change your own units.</dd>
 
+  <dt><a href="http://vle.univ-littoral.fr/goo/">Goo - Go'Osmose</a></dt>
+  <dd>Go-Osmose, is a graphical frontend to manage Osmose, an Individual
+  Based Model of the dynamic of fish populations.</dd>
+
   <dt><a href="http://www.stambouliote.de/mezogis">mezoGIS</a></dt>
   <dd>mezoGIS is a GIS application, a graphical interface to query
   and analyse spatial data stored in a PostGIS database.</dd>
