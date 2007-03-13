@@ -189,6 +189,8 @@
   uninstalling and fixing the various caveats of installing Windows
   applications on their free systems using Wine.</dd>
 
+  <dt><a href="http://code.google.com/p/weedbox/">Weedbox</a></dt>
+  <dd>Weedbox is a GUI frontend to ease the use of kqemu.</dd>
 </dl>
 
 <h3><a name="multimedia">Multimedia Applications</a></h3>
