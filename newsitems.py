@@ -14,6 +14,14 @@ item = lambda *x: items.append(x)
 #      "INSERT AUTHOR HERE")
 
 # http://news.gmane.org/gmane.comp.gnome.gtk%2B.python/
+item("New article - Custom PyGTK widgets in Glade 3", (2007, 3, 25),
+     """Ali Afshar explains how to use your custom PyGTK widgets from within
+     the Glade 3 User Interface designer.  The topic is covered in two
+     articles. <a
+     href="http://unpythonic.blogspot.com/2007/03/custom-pygtk-widgets-in-glade3.html">
+     First part</a>, <a
+     href="http://unpythonic.blogspot.com/2007/03/custom-pygtk-widgets-in-glade3-part-2.html">
+     second part</a>.""", 'Rafael Villar Burke')
 
 item("PyGTK all-in-one installer for win32",
      (2007, 2, 13),

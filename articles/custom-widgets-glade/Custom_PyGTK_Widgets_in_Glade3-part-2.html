@@ -1,0 +1,400 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!--vim:expandtab:ts=2:sw=2:textwidth=78:filetype=xhtml:fileencoding=iso-8859-15-->
+<html>
+  <head>
+    <title>Custom PyGTK Widgets in Glade3</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-15" />
+    <meta name="description" content="Custom PyGTK Widgets in Glade3" />
+    <link rel="stylesheet" href="main.css" type="text/css" media="screen" />
+    <style id='page-skin-1' type='text/css'>
+      pre {background-color: #eeeeff;border: 1px solid #a0a0a0;padding 5px;margin 5px;}
+      body {margin:0px 40px;font:normal normal 100% Georgia,Serif;background:#ffffff;color:#000000;}
+      .date {padding-top:15px;color:#555555;padding-bottom:15px;margin-bottom:0px;font-size: 90%;}
+      a:link {color:#5588aa;text-decoration:none;}
+      a:visited {color:#999999;text-decoration:none;}
+      a:hover {color:#000000;text-decoration:underline;}
+      a img {border-width:0;}
+      h1 {border-bottom:dotted 1px #999999;margin-bottom:0px;color: #000000;font: normal bold 200% Georgia,Serif;}
+      h1 a, h1 a:link, h1 a:visited {color: #000000;}
+      h2 {margin:0px;padding: 0px;}
+      h3.post-title {font-size: 140%;color: #000000;}
+    </style>
+  </head>
+
+  <body>
+
+<h3 class="post-title">
+  <a
+    href="http://unpythonic.blogspot.com/2007/03/custom-pygtk-widgets-in-glade3-part-2.html">Custom
+    PyGTK Widgets in Glade3: Part 2: Custom widget adaptors</a> </h3>
+    <p class="date">21-3-2007, by <a href="http://unpythonic.blogspot.com">Ali Afshar</a></p>
+
+<div class="post-body">
+
+  <p>In the last post about custom glade widgets, we briefly discussed how to
+  add your PyGTK custom widgets to glade-3 so that they can be used in a user
+  interface designer. In this post, this shall be extended to include how you
+  can create a custom adaptor for a PyGTK widget to define additional
+  behaviour.</p>
+
+  <p>We shall be using a custom widget as an example, which I have called a
+  "Service View". We plan that this widget has a content section, which is the
+  main part, and also contains a close button at the bottom. We will use this
+  widget as a general dockable view, kind of like a dialog which is a widget
+  rather than a top-level window. This may seem utterly pointless, but it
+  should be a useful component in an application that generates many different
+  views in notebooks, like an IDE: Debugger, Terminal, Documentation Browser
+  (etc). These can all share the same basic layout, but just replace the single
+  main part of the widget.</p>
+
+  <p>First let's write a widget:</p>
+
+
+<pre>
+import gtk
+
+class ServiceView(gtk.VBox):
+    __gtype_name__ = 'ServiceView'
+
+    def __init__(self):
+        self.frame = gtk.Frame()
+        self.pack_start(self.frame)
+        self._bb = gtk.HButtonBox()
+        self._bb.set_layout(gtk.BUTTONBOX_END)
+        self._bb.pack_start(gtk.Button(stock=gtk.STOCK_CLOSE))
+        self.pack_start(self._bb, expand=False)
+</pre>
+
+  <p>So, in this widget, we want to be able to add a single child component
+  inside the frame, self.frame, and also to be able to set the label of
+  self.frame.</p>
+
+  <p>If we add this widget to Glade3 using a catalog (in pywidgets.xml) such
+  as:</p>
+
+
+<pre>
+&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;glade-catalog name="pywidgets" library="pywidgets" domain="glade-3" depends="gtk+"  language="python"&gt;
+    &lt;glade-widget-classes&gt;
+        &lt;glade-widget-class
+            title="Service View"
+            name="ServiceView"
+            generic-name="serviceview"&gt;
+        &lt;/glade-widget-class&gt;
+    &lt;/glade-widget-classes&gt;
+    &lt;glade-widget-group name="PythonWidgets"
+        title="Python Widgets"&gt;
+        &lt;glade-widget-class-ref name="ServiceView"/&gt;
+    &lt;/glade-widget-group&gt;
+&lt;/glade-catalog&gt;
+</pre>
+
+  <p>and support code (in pywidgets.py) which simply imports the widget like
+  so:</p>
+
+<pre>
+from serviceview import ServiceView
+</pre>
+
+  <p>(where the module serviceview.py is in the python path, and contains the
+  widget above)</p>
+
+  <p>Install the catalog and module file in the right places, and fire up
+  glade-3. Create a window, and add our custom widget to it. Immediately you
+  will be queried with an input dialog as to the required size of the widget.
+  Once you have answered this, the widget will be created.</p>
+
+  <p>Problems? Yes, it doesn't work as we would like in the following ways:</p>
+
+  <ul>
+    <li>The query asking us the size of the widget</li>
+    <li>The grey extra sections which you can add widgets to outside our
+    frame</li>
+    <li>The inability to change the contents of the frame, and its label</li>
+  </ul>
+
+  <p>All these problems stem from the same issue, that our widget is a subclass
+  of gtk.VBox, and so will be treated as a VBox for the extent of its
+  lifetime.</p>
+
+  <p>So how can we fix these things? We need to do two things. Firstly override
+  some properties in the catalog file, and secondly create a custom adaptor.
+  (We might one day be able to do all these things from the adaptor, but this
+  is not possible at the moment, and it is one problem highlighted by the
+  glade-3 developers, that they have a "hybrid API".)</p>
+
+  <h3>Fixing the catalog</h3>
+
+  <p>Don't forget to <a href="http://glade.gnome.org/docs/properties.html">read
+    the excellent documentation</a> at this point. Widgets in glade, and in the
+  default catalog offer the ability to launch input windows for queries. This
+  is not entirely necessary, as a sane default could be chosen, and then
+  changed as required in the normal way, but it could be useful in some
+  circumstances I guess. In this case, because we are using a subclass of the
+  Box widget, it will ask us what size we would like it to be. Size is not a
+  real property of the Box, it is a virtual property, and helps Glade know how
+  to display it. If we look at this part of the default catalog, we can see
+  this happening:</p>
+
+
+<pre>
+&lt;glade-widget-class name="GtkBox" fixed="True"
+    title="Box"&gt;
+    ...
+    &lt;properties&gt;
+        &lt;property save="False" query="True" id="size" default="3"
+            name="Number of items"&gt;
+            &lt;spec&gt;glade_standard_int_spec&lt;/spec&gt;
+            &lt;tooltip&gt;The number of items in the box&lt;/tooltip&gt;
+            &lt;verify-function&gt;glade_gtk_box_verify_size&lt;/verify-function&gt;
+        &lt;/property&gt;
+    &lt;/properties&gt;
+    ...
+&lt;/glade-widget-class&gt;
+</pre>
+
+  <p>Each property tag inside a properties tag inside glade-widget-class tag
+  must have the <span style="font-style: italic;">id</span> attribute, but the
+  rest shown here are optional. The important one for us here is
+  <tt>query="True"</tt> which causes the query box to be shown, and so we can
+  replace that in our own catalog in a sort of a property "override". Note that
+  save="False" is set on the property, because it is not a real property, only
+  a virtual property, and so it will not be written to the glade XML file.</p>
+
+  <p>Not only do we want to disable the query box, but we want to:</p>
+
+  <ol>
+    <li>Set the default value of this to zero, so none of the grey areas are
+    shown and no extra widgets can be added to the Box</li>
+    <li>Hide or disable the size widget</li>
+  </ol>
+
+  <p>Again looking at the documentation, we discover that the default value can
+  be set with <tt>default="0"</tt> and the property can eithe be disabled with
+  <tt>disabled="True"</tt> or hidden with <tt>visible="False"</tt>.</p>
+
+  <p>So the class definition of our catalog becomes:</p>
+
+<pre>
+&lt;glade-widget-class
+    title="Service View"
+    name="ServiceView"
+    generic-name="serviceview"&gt;
+    &lt;properties&gt;
+        &lt;property id="size" query="False" default="0" visible="False" /&gt;
+    &lt;/properties&gt;
+&lt;/glade-widget-class&gt;
+</pre>
+
+  <p>Reinstall the catalog, create a window, and add our widget. We see that we
+  are no longer asked for the starting size, and the size value does not appear
+  in our property list. There are a few properties of the Box left that we
+  don't really want here, and removing them is left as an exercise for the
+  reader, and we shall move on.</p>
+
+  <h3>Using a Custom Adaptor</h3>
+
+  <p>The adaptor class should appear in your support code module, and should be
+  referenced in your catalog, for example:</p>
+
+<pre>
+&lt;glade-widget-class title="Service View" name="ServiceView" adaptor="ServiceViewAdaptor"&gt;
+&lt;/glade-widget-class&gt;
+</pre>
+
+  <p>Which references a Class that registers the __gtype_name__ of ServiceView
+  Adaptor.  The class should inherit from
+  glade.get_adaptor_for_type('SomeGTKType'), and for our case of a VBox
+  subclass, we could use glade.get_adaptor_for_type('GtkVBox') as our adaptor
+  superclass (which it was automatically using itself), like so:</p>
+
+<pre>
+<br>import glade
+
+  class ServiceViewAdaptor(glade.get_adaptor_for_type('GtkVBox')):
+      __gtype_name__ = 'ServiceViewAdaptor'
+</pre>
+
+  <p>In the adaptor code, glade is a special Python module only available
+  within runtime glade, and it contains the glade user interface bindings. You
+  can get it's documentation at runtime if you want to have a look, but we will
+  be playing with this stuff in subsequent posts.</p>
+
+  <p>So far we have not overridden anything, and our running code should behave
+  exactly the same as it was previously, but with our named custom adaptor
+  (which doesn't do anything).</p>
+
+  <p>Now we can start adding methods to our custom adaptor. In general, the
+  available methods that will be called are of the form:</p>
+
+<pre>
+do_<span style="font-style: italic;">something</span>(self, to_object, *args)
+</pre>
+
+  <p>Where something is the action, and to_object is the created object in the
+  user interface. An example of this will be our first method:</p>
+
+<pre>
+def do_post_create(self, obj, reason):
+  # Create one of those nice-looking grey areas from Glade that mean that you can add
+  # something to this widget
+
+  obj.frame.add(gobject.new('GladePlaceholder'))
+</pre>
+
+  <p>At this stage, if you like, you can install your catalog and support code,
+  and test this widget out. You will see that the grey area appears correctly
+  inside our frame. Now try to add something to it, like a label. You will
+  notice that the label is just added to the end of the VBox, where we really
+  don't want it.  For this to be fixed we need to override our next few
+  methods, the child methods:</p>
+
+<pre>
+def do_get_children(self, obj):
+    """Called when glade wants the children of a widget"""
+    return obj.frame.get_children()
+
+def do_add(self, obj, child):
+    """Called to add a child to the widget"""
+    obj.frame.add(child)
+
+def do_remove(self, sv, child):
+    """Called to remove a child from our widget"""
+    obj.frame.remove(child)
+
+def do_replace_child(self, obj, old, new):
+    """Called to replace the child of our widget.
+
+    Note that this is what is called by glade when you delete,
+    or cut a widget since it actually replaces the widget with a
+    GladePlaceholder
+    """
+    obj.frame.remove(old)
+    obj.frame.add(new)
+</pre>
+
+  <p>The implementation of these methods is particularly straight-forward, and
+  they achieve our goals. The trick is knowing what does what. The get_children
+  method needs to be in place so that the Glade widget hierarchy appears
+  correctly with the child widget. The do_add, do_remove, and do_replace
+  methods are for exactly those things, adding, removing and replacing
+  widgets.</p>
+
+  <p>If you install your catalog and support module once more, you will notice
+  that now it actually works. The widget is added in the correct place, and the
+  hierarchy appears correctly with a single child on your widget. You will have
+  a few warnings from GTK about child properties, and these are silenced by
+  writing child_property methods:</p>
+
+<pre>
+def do_child_get_property(self, obj, child, prop):
+    """Called to retrieve a property value"""
+    if prop in ['expand', 'fill']:
+        return True
+    elif prop == 'padding':
+        return 0
+    elif prop == 'position':
+        return 0
+    elif prop == 'pack-type':
+        return gtk.PACK_START
+    return True
+
+def do_child_set_property(self, obj, child, prop, val):
+    """Called to set a property value"""
+    if prop in ['expand', 'fill', 'padding', 'pack-type']:
+        pass
+</pre>
+
+  <p>Because our widget is behaving like a real container (although just via
+  the adaptor), it will get queried as to how to set child properties. Most of
+  these are not important for us, because a Frame has very little in the way of
+  packing and expanding, and since it is a Bin, it has no spacing. So we can
+  just return simple values. Likewise we don't need to set anything there.</p>
+
+  <h3>Trying It Out</h3>
+
+  <p>So now we have our fully functional widget in Glade. Try it out. Make a
+  new project, add our widget to a window, add an example widget to the
+  container and then load it up with some code such as (for a file called
+  'test.glade'):</p>
+
+<pre>
+import gtk
+import gtk.glade
+
+# Make sure this type is registered with gobject so glade can load it
+from serviceview import ServiceView
+
+gtk.glade.XML('test.glade').get_widget('window1').show_all()
+gtk.main()
+</pre>
+
+  <p>How did it look? Terrible! Yes, the glade loader has put our child widget
+  inside the VBox, rather than inside the Frame! Disaster! Except when you
+  realise what the glade loader is doing. It is calling a method on the
+  ServiceView object to add children.</p>
+
+  <p>Because it is a VBox subclass, this method behaves as it would for VBoxes
+  (to add an object to the end). There is a slight complication.  The add
+  method that we have available in a gtk.VBox in Python is not what Glade is
+  using. It actually uses the method that Glade uses too. To override the
+  method that Glade uses, we need to implement the method <span
+    style="font-style: italic;">do_add</span> which is kind of like a way of
+  saying "override the C add".</p>
+
+  <p>Once we have implemented this like so:</p>
+
+<pre>
+def do_add(self, child):
+    self.frame.add(child)
+</pre>
+
+  <p>The widget loads with the child in the correct place.</p>
+
+  <h3>Discussion</h3>
+
+  <p>For those who wish to play around with this system, you might try (now
+  that you have implemented do_add in the widget itself, to remove the do_add
+  method of the custom adaptor. And you will see that this does in fact work as
+  we would want. You could furthermore use the GtkFrame adaptor as the
+  superclass for our adaptor, and see that that has the correct effect.</p>
+
+  <p>This leads to a general question as to where you should implement your
+  widget functionality, in your Widget, or in your Adaptor.  We could override
+  the entire Container Interface in our widget, and it would behave correctly
+  without an adaptor, but that has the disadvantage of not being able to behave
+  like a VBox any more.</p>
+
+  <p>In general the course you decide should be based on your own requirements,
+  but it seems that at them moment, with Glade3 you will need a blend of:</p>
+
+  <ol>
+    <li>Catalog for Glade3</li>
+    <li>Custom Adaptor for Glade3</li>
+    <li>Widget Methods for the Glade Loader</li>
+  </ol>
+
+  <p>Still to come in this series of posts:</p>
+
+  <ul>
+    <li>Custom widget editors</li>
+    <li>Controlling the Glade3 UI from Python</li>
+  </ul>
+
+  <p style="font-weight:bold">NB: The API is early and changing at this stage,
+  and there is no emphasis on backward-compatibility, so be prepared to throw
+  any code away!</span></p>
+
+  <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/"> <img
+    alt="Creative Commons License" style="border-width:0"
+    src="http://i.creativecommons.org/l/by-sa/3.0/88x31.png" /> </a>
+  <br />This <span xmlns:dc="http://purl.org/dc/elements/1.1/"
+    href="http://purl.org/dc/dcmitype/Text" rel="dc:type">work</span> is
+  licensed under a <a rel="license"
+    href="http://creativecommons.org/licenses/by-sa/3.0/">Creative Commons
+    Attribution-Share Alike 3.0 License</a>.
+
+</div>
+</html>

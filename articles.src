@@ -16,6 +16,24 @@
 
   <tbody>
     <tr>
+      <td>Mar 2007</td>
+      <td><a href="http://unpythonic.blogspot.com/2007/03/custom-pygtk-widgets-in-glade3-part-2.html">Custom PyGTK Widgets in Glade3: part 2</a><br>
+        <ul>
+          <li><a href="./articles/custom-widgets-glade/Custom_PyGTK_Widgets_in_Glade3-part-2.html">Local copy</a>
+        </ul>
+      <td>Ali Afshar</td>
+    </tr>
+
+    <tr>
+      <td>Mar 2007</td>
+      <td><a href="http://unpythonic.blogspot.com/2007/03/custom-pygtk-widgets-in-glade3.html">Custom PyGTK Widgets in Glade3</a><br>
+        <ul>
+          <li><a href="./articles/custom-widgets-glade/Custom_PyGTK_Widgets_in_Glade3.html">Local copy</a>
+        </ul>
+      <td>Ali Afshar</td>
+    </tr>
+
+    <tr>
       <td>Sep 2006</td>
       <td><a href="http://www.learningpython.com/2006/09/02/extending-our-pygtk-application/">Extending our PyGTK Application</a><br>
         <ul>

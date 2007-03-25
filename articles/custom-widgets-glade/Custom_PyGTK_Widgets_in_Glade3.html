@@ -1,0 +1,174 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!--vim:expandtab:ts=2:sw=2:textwidth=78:filetype=xhtml:fileencoding=iso-8859-15-->
+<html>
+  <head>
+    <title>Custom PyGTK Widgets in Glade3</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-15" />
+    <meta name="description" content="Custom PyGTK Widgets in Glade3" />
+    <link rel="stylesheet" href="main.css" type="text/css" media="screen" />
+    <style id='page-skin-1' type='text/css'>
+      pre {background-color: #eeeeff;border: 1px solid #a0a0a0;padding 5px;margin 5px;}
+      body {margin:0px 40px;font:normal normal 100% Georgia,Serif;background:#ffffff;color:#000000;}
+      .date {padding-top:15px;color:#555555;padding-bottom:15px;margin-bottom:0px;font-size: 90%;}
+      a:link {color:#5588aa;text-decoration:none;}
+      a:visited {color:#999999;text-decoration:none;}
+      a:hover {color:#000000;text-decoration:underline;}
+      a img {border-width:0;}
+      h1 {border-bottom:dotted 1px #999999;margin-bottom:0px;color: #000000;font: normal bold 200% Georgia,Serif;}
+      h1 a, h1 a:link, h1 a:visited {color: #000000;}
+      h2 {margin:0px;padding: 0px;}
+      h3.post-title {font-size: 140%;color: #000000;}
+    </style>
+  </head>
+
+  <body>
+    <h3 class="post-title"> <a
+        href="http://unpythonic.blogspot.com/2007/03/custom-pygtk-widgets-in-glade3.html">Custom
+        PyGTK Widgets in Glade3</a>
+    </h3>
+    <p class="date">21-3-2007, by <a href="http://unpythonic.blogspot.com">Ali Afshar</a></p>
+
+    <div class="post-body">
+
+      <p>Glade 3, GTK User Interface Designer is really quite nice since release
+      3.1, since it does away with the gimp-like multi-window view and looks like a
+      normal application. Another nice feature it has is being able to support
+      widgets created in non-C (in our case PyGTK).</p>
+
+      <p>Components of a plugin:</p>
+
+      <ol>
+        <li>A catalog file</li>
+        <li>A support module</li>
+        <li>Some icon pixmaps (optional)</li>
+      </ol>
+
+      <p>We shall use, for our example, the Kiwi Hyperlink widget, (which I wrote).
+      This widget is an EventBox subclass, so we shall illustrate turning off some
+      of the additional properties that are not required in the user interface
+      designer.</p>
+
+      <h3>The catalog file</h3>
+
+      <p>This is described in <a
+        href="http://glade.gnome.org/docs/catalogintro.html">http://glade.gnome.org/docs/catalogintro.html</a>
+      and the subsequent pages of the documentation. Essentially there are two
+      sections of the catalog:</p>
+
+      <ol>
+        <li>The Widget definitions</li>
+        <li>The Catalog list</li>
+      </ol>
+
+      <p>The Widget Definitions are like so:</p>
+
+    <pre>
+    &lt;glade-widget-classes&gt;
+        &lt;glade-widget-class title="Hyper Link" name="HyperLink"/&gt;
+    &lt;/glade-widget-classes&gt;
+    </pre>
+
+      <p>These are the most-often used attributes for the widget class, but there
+      are a few others too that are outlined on the documentation page.</p>
+
+      <p>The catalog listing is much more basic, and less variable, and takes the
+      following form:</p>
+
+    <pre>
+    &lt;glade-widget-group name="KiwiWidgets" title="Kiwi Widgets"&gt;
+        &lt;glade-widget-class-ref
+            name="HyperLink"/&gt;
+    </pre>
+
+      <p>This lists all the widgets that are currently available. So far we have
+      not strayed from the documentation, and this is exactly how you would add
+      widgets that are non-PyGTK.</p>
+
+      <p>What you have to do to make glade realise that you are using PyGTK widgets
+      is use this in your main document element for the catalog:</p>
+
+    <pre>
+    &lt;glade-catalog name="kiwiwidgets" library="kiwiwidgets" domain="glade-3" depends="gtk+" language="python"&gt;
+    </pre>
+
+      <p>The <tt>language="python"</tt> does that for you, and in addition the
+      library attribute "kiwiwidgets" defines the location of our support library,
+      which will be called kiwiwidgets.py.</p>
+
+      <p>The catalog file should live with the other catalogs in the glade3 catalog
+      directory, which is, on my system, at:</p>
+
+    <pre>
+    /usr/local/share/glade3/catalogs/kiwiwidgets.xml
+    </pre>
+
+      <p>You can turn various properties off from being displayed in the user
+      interface designer using the &lt;properties&gt; tag in your widget-class tag.
+      An example of this would be:</p>
+
+    <pre>
+    &lt;property id="visible-window"
+        visible="False" /&gt;
+
+    &lt;property id="text"
+        name="Text"
+        translatable="True" /&gt;
+    </pre>
+
+      <p>Ok, so we showed you two properties here. The first is a property of Event
+      Box which we don't want shown inside the UI Designer (users don't care), and
+      that is achieved with a simple <tt>visible="False"</tt>. The second shows how
+      to modify a property. We want the text of this hyperlink widget to be
+      translatable, and access all the translation hooks in Glade with it.</p>
+
+      <h3>The support module</h3>
+
+      <p>The support module is python code that goes with our widgets. In our basic
+      example, we have not defined anything fancy like a custom adaptor, or even a
+      custom editor which we could if we were feeling brave, but will probably
+      leave that for another blog posting.</p>
+
+      <p>The support module should live in the glade module directory, and be named
+      as defined in the catalog file. On my system this belongs here:</p>
+
+
+      <pre>
+      /usr/local/lib/glade3/modules/kiwiwidgets.py
+      </pre>
+
+      <p>the code of the module in this simple case contains only one thing, an
+      import statement on the HyperLink class (since that is all that is needed to
+      register it as a GObject Type.</p>
+
+    <pre>
+    from kiwi.ui.hyperlink import HyperLink
+    </pre>
+
+      <p>Glade3 takes care of the rest for us.</p>
+
+      <p>That is all for now. Other items that should come up later include:</p>
+
+      <ul>
+        <li>Defining custom adaptors</li>
+        <li>Defining custom widget editors</li>
+        <li>Silencing glade queries for box subclasses</li>
+        <li>Controlling the glade UI from Python</li>
+      </ul>
+
+      <p>And I shall address these if there is any interest.</p>
+
+      <p style="font-weight:bold">NB: The API is early and changing at this stage, and there is no
+      emphasis on backward-compatibility, so be prepared to throw any code away!</p>
+
+      <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/"> <img
+        alt="Creative Commons License" style="border-width:0"
+        src="http://i.creativecommons.org/l/by-sa/3.0/88x31.png" /> </a>
+      <br />This <span xmlns:dc="http://purl.org/dc/elements/1.1/"
+        href="http://purl.org/dc/dcmitype/Text" rel="dc:type">work</span> is
+      licensed under a <a rel="license"
+        href="http://creativecommons.org/licenses/by-sa/3.0/">Creative Commons
+        Attribution-Share Alike 3.0 License</a>.
+    </div>
+  </body>
+</html>
