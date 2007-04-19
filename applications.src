@@ -687,10 +687,10 @@
 
 <dl>
   <dt><a href="http://forja.guadalinex.org/webs/amigu/">Amigu</a></dt>
-  <dd>Amigu is a migration tool to easy the transition of user data and
+  <dd>Amigu is a migration tool to ease the transition of user data and
   configuration from the Windows 2000 and Windows XP operating systems to
-  the Guadalinex GNU/Linux distro, but can be used in any Debian based
-  distro. It can migrate Desktop and MyDocuments contents, bookmarks,
+  the a Debian based GNU/Linux distro.
+  It can migrate Desktop and MyDocuments contents, bookmarks,
   email and IM account setting, eMule configuration, desktop background
   images, fonts...</dd>
 
