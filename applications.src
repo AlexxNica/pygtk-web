@@ -686,6 +686,14 @@
 <h3><a name="system">System Utilities</a></h3>
 
 <dl>
+  <dt><a href="http://forja.guadalinex.org/webs/amigu/">Amigu</a></dt>
+  <dd>Amigu is a migration tool to easy the transition of user data and
+  configuration from the Windows 2000 and Windows XP operating systems to
+  the Guadalinex GNU/Linux distro, but can be used in any Debian based
+  distro. It can migrate Desktop and MyDocuments contents, bookmarks,
+  email and IM account setting, eMule configuration, desktop background
+  images, fonts...</dd>
+
   <dt><a href="http://www.realistanew.com/projects/alacarte/">Alacarte</a></dt>
   <dd>Alacarte is a simple menu editor for GNOME. With a click you can type
   type to edit, add, or delete menu entries. It is freedesktop.org compliant</dd>
