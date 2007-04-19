@@ -1,6 +1,7 @@
 2007-04-19  Rafael Villar Burke  <pachi@rvburke.com>
 
 	* applications.src: add Amigu
+	* Makefile: remove version from python executable name
 
 2007-03-25  Rafael Villar Burke  <pachi@rvburke.com>
 

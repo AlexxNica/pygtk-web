@@ -4,7 +4,8 @@ DISTDIR = ${WEBDIR}/dist
 REFDISTDIR = ${DISTDIR}/reference-tarballs
 ARTICLEDIR = ${WEBDIR}/articles
 
-PYTHON = python2.2
+#using python2.4 now (2007/04/19)
+PYTHON = python
 PROCESSOR = ${PYTHON} stp.py
 
 WGET = wget
