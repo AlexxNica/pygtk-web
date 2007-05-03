@@ -1,5 +1,6 @@
 2007-05-03  Rafael Villar Burke  <pachi@rvburke.com>
 
+	* about.src: Change wording to make it less technical.
 	* people.src: Move Cedric Gustin information here and
 	fix ordering.
 
