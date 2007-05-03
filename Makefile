@@ -87,6 +87,8 @@ news.rss: newsitems.py feed.py
 extras: ${CSS_FILES} img/*.png
 	cp -fa articles/* ${ARTICLEDIR}
 	cp ${CSS_FILES} ${WEBDIR}
+	cp img/*.gif ${IMGDIR}
+	cp img/*.jpg ${IMGDIR}
 	cp img/*.png ${IMGDIR}
 	cp news.rss ${WEBDIR}
 	cp .htaccess ${WEBDIR}/.htaccess

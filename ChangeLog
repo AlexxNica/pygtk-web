@@ -1,5 +1,8 @@
 2007-05-03  Rafael Villar Burke  <pachi@rvburke.com>
 
+	* *.py, *.src, *.css: change svn mime-type to plain/text
+	* Makefile: Add copying jpg and gif files from img
+	* downloads.src: Reorder and change contents
 	* index.src: Add new what is PyGTK section
 	* head.src: Remove About menu section, as that information
 	in now in the frontpage.
