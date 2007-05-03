@@ -51,7 +51,7 @@ CSS_FILES = default.css
 
 all: start_log pages tarballs finish_log
 
-pages: dirs news.rss ${HTML_PAGES} extras 
+pages: dirs news.rss ${HTML_PAGES} extras
 
 dirs: ${WEBDIR} ${IMGDIR} ${DISTDIR} ${ARTICLEDIR} ${REFDISTDIR}
 
@@ -87,7 +87,6 @@ news.rss: newsitems.py feed.py
 extras: ${CSS_FILES} img/*.png
 	cp -fa articles/* ${ARTICLEDIR}
 	cp ${CSS_FILES} ${WEBDIR}
-	cp img/*.gif ${IMGDIR}
 	cp img/*.jpg ${IMGDIR}
 	cp img/*.png ${IMGDIR}
 	cp news.rss ${WEBDIR}
