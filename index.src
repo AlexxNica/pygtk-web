@@ -4,6 +4,22 @@
 
 <h1>PyGTK: GTK+ for Python</h1>
 
+<h3>What is PyGTK?</h3>
+
+<div style="width: 100%;">
+<img style="float: left; margin-right: 20px;" src="img/pygtk-splash.jpg"/>
+<p> PyGTK lets you conveniently create graphical user interface programs using
+the Python programming language. The underlaying GTK+ library provides all kind
+of visual elements and convenience utilities and, if needed, you can develop
+full featured applications for the GNOME Desktop.</p>
+<p> With PyGTK you can write truly multiplatform applications that are able to
+run on Linux, Windows, MacOS X and other POSIX systems.</p>
+<p> Among the most distinctive features of PyGTK are, besides its ease of use
+and rapid prototyping, the comprehensive accesibility support and the
+capabilities to deal withmultilingual or bidirectional text.</p>
+<div style="clear: left;"/>
+</div>
+
 <h3>Latest news</h3>
 
 <!--stp:include('newsitems-index.src') -->

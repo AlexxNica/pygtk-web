@@ -1,7 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US"
-xml:lang="en-US">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
 <head>
 <title>PyGTK</title>
 <link rel="icon" type="image/png" href="http://developer.gnome.org/images/gnome-16.png">
@@ -14,7 +13,6 @@ _uacct = "UA-159256-1";
 urchinTracker();
 </script>
 </head>
-
 
   <body>
 
@@ -31,18 +29,8 @@ urchinTracker();
     </div>
 
     <div id="sidebar">
-
-        <p class="section">About PyGTK</p> 
-
-        <p style="font-size: x-small; text-align: justify">PyGTK
-        provides a convenient wrapper for the GTK library for use in
-        Python programs, and takes care of many of the boring details
-        such as managing memory and type casting. When combined with
-        PyORBit and gnome-python, it can be used to write full featured
-        Gnome applications. <a href="./about.html">Read more</a></p>
-
       <p class="section">Main Menu</p>
-      
+
       <ul>
         <li><a href="index.html">Home</a></li>
         <li><a href="about.html">About</a></li>
@@ -57,7 +45,7 @@ urchinTracker();
       </ul>
 
       <p class="section">Documentation</p>
-      
+
       <ul>
         <li><a href="http://www.async.com.br/faq/pygtk/index.py?req=index"><acronym title="Frequently Asked Questions" xml:lang="en">FAQ</acronym></a></li>
         <li><a href="http://live.gnome.org/PyGTK">Wiki</a></li>
@@ -67,7 +55,7 @@ urchinTracker();
       </ul>
 
       <p class="section">Links</p>
-      
+
       <ul>
         <li><a href="http://www.gtk.org"><acronym title="GIMP ToolKit" xml:lang="en">GTK+</acronym></a></li>
         <li><a href="http://www.gnome.org"><acronym title="GNU Network Object Model Environment" xml:lang="en">GNOME</acronym></a></li>
@@ -75,4 +63,3 @@ urchinTracker();
       </ul>
 
     </div>
-    

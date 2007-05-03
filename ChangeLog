@@ -1,5 +1,9 @@
 2007-05-03  Rafael Villar Burke  <pachi@rvburke.com>
 
+	* index.src: Add new what is PyGTK section
+	* head.src: Remove About menu section, as that information
+	in now in the frontpage.
+	* img/pygtk-splash.jpg: New image
 	* about.src: Change wording to make it less technical.
 	* people.src: Move Cedric Gustin information here and
 	fix ordering.
