@@ -8,6 +8,9 @@ The following people are involved in maintaining the PyGTK project,
 including code, documentation and user support (listed alphabetically):
 
 <dl>
+  <dt><a href="http://www.pcpm.ucl.ac.be/~gustin/win32_ports/">Cedric Gustin
+  </dt>
+  <dd>Maintains the win32 port of PyGTK</dd>
 
   <dt><a href="http://www.async.com.br/~kiko/">Christian Reis</a> a.k.a. kiko</dt>
   <dd><a href="http://www.async.com.br/faq/pygtk/">FAQ</a> maintainer,
@@ -41,16 +44,14 @@ including code, documentation and user support (listed alphabetically):
   and the GObject - Python tutorial). Also part of the team involved in
   maintaining the website and the super template processor it uses.</dd>
 
-  <dt>Xavier Ordoquy</dt>
-  <dd>Works on misc parts of the project to help when needed (code,
-  articles, support on IRC). Also working on
-  <a href="http://gael.sf.net/">Gael</a></dd>
-
   <dt><a href="http://www.rvburke.com/">Rafael Villar Burke</a></dt>
   <dd>Works on documentation (translating the PyGTK Tutorial to Spanish)
   and maintains the website.</dd>
 
-
+  <dt>Xavier Ordoquy</dt>
+  <dd>Works on misc parts of the project to help when needed (code,
+  articles, support on IRC). Also working on
+  <a href="http://gael.sf.net/">Gael</a></dd>
 </dl>
 
 </div>
