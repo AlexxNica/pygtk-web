@@ -24,7 +24,7 @@ FAQ.</a> </p>
 <h4>PyGTK for Linux</h4>
 
 <p>PyGTK is included in <strong>most Linux distributions</strong> (including
-Conectiva, Debian, Fedora, Mandrake, Redhat and SUSE); the <strong>source
+Debian, Fedora, Ubuntu, Opensuse, Gentoo, Mandrake, Redhat, SUSE...); the <strong>source
 code</strong> can also be downloaded and compiled from the links below.</p>
 
 <!-- TODO: Add per distro instruccions -->
