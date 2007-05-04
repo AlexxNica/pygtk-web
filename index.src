@@ -13,7 +13,7 @@ using the Python programming language. The underlaying GTK+ library provides
 all kind of visual elements and utilities for it and, if needed, you can
 develop full featured applications for the GNOME Desktop.</p>
 <p>PyGTK applications are truly multiplatform and they're able to
-run, unchanged, on Linux, Windows, MacOS X and other platforms.</p>
+run, unmodified, on Linux, Windows, MacOS X and other platforms.</p>
 <p>Other distinctive features of PyGTK are, besides its ease of use
 and rapid prototyping, its first class accesibility support or the
 capability to deal with complex multilingual or bidirectional text for
