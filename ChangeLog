@@ -1,5 +1,6 @@
 2007-05-04  Rafael Villar Burke  <pachi@rvburke.com>
 
+	* default.css: fix typo that breaks background color selection
 	* index.src: Rewrite foreword section
 
 2007-05-03  Rafael Villar Burke  <pachi@rvburke.com>
