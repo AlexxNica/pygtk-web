@@ -1,3 +1,7 @@
+2007-05-04  Rafael Villar Burke  <pachi@rvburke.com>
+
+	* index.src: Rewrite foreword section
+
 2007-05-03  Rafael Villar Burke  <pachi@rvburke.com>
 
 	* *.py, *.src, *.css: change svn mime-type to plain/text
