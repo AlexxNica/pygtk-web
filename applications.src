@@ -641,6 +641,11 @@
   well with CVS.The diff viewer lets you edit files in place and allows
   easy merges.</dd>
 
+  <dt><a href="http://selenic.com/repo/pagemap">Pagemap</a></dt>
+  <dd>Pagemap is a tool to graphically represent the memory usage of
+  applications by using the data provided by the new /proc/pid/pagemap
+  and /proc/kpagemap interfaces present in recent Linux kernels.</dd>
+
   <dt><a href="http://pida.berlios.de/">Pida</a></dt>
   <dd>Pida is an IDE which embeds other editors and tools to create a powerful
   IDE. It currently features: full code editing (syntax highlighting, code

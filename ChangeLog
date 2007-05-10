@@ -1,3 +1,7 @@
+2007-05-10  Rafael Villar Burke  <pachi@rvburke.com>
+
+	* applications.src: New Pagemap application
+
 2007-05-04  Rafael Villar Burke  <pachi@rvburke.com>
 
 	* dowloads.src: rewrite list of distros
