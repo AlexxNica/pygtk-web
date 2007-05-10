@@ -642,7 +642,7 @@
   easy merges.</dd>
 
   <dt><a href="http://selenic.com/repo/pagemap">Pagemap</a></dt>
-  <dd>Pagemap is a tool to graphically represent the memory usage of
+  <dd>Pagemap is a demo tool to graphically represent the memory usage of
   applications by using the data provided by the new /proc/pid/pagemap
   and /proc/kpagemap interfaces present in recent Linux kernels.</dd>
 
