@@ -1,6 +1,8 @@
 2007-05-10  Rafael Villar Burke  <pachi@rvburke.com>
 
 	* applications.src: New Pagemap application
+	* index.src: Put news icon and link next to the news header
+	* head.src: Remove news link and move it next to the news section
 
 2007-05-04  Rafael Villar Burke  <pachi@rvburke.com>
 

@@ -35,7 +35,6 @@ urchinTracker();
         <li><a href="index.html">Home</a></li>
         <li><a href="about.html">About</a></li>
         <li><a href="screenshots.html">Screenshots</a></li>
-        <li><a href="news.html">News</a> (<a href="news.rss">RSS</a>)</li>
         <li><a href="downloads.html">Downloads</a></li>
         <li><a href="feedback.html">Support</a></li>
         <li><a href="consulting.html">Consulting</a></li>

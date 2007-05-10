@@ -22,6 +22,10 @@ fully localized applications.</p>
 </div>
 
 <h3>Latest news</h3>
+<div style="text-align: right;">
+<a href="http://www.pygtk.org/news.rss"><img src="img/feed-icon-14x14.png" alt="RSS" title="RSS feed" /></a>
+<a href="http://www.pygtk.org/news.html">Old stories</a>
+</div>
 
 <!--stp:include('newsitems-index.src') -->
 
