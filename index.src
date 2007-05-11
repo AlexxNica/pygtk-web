@@ -30,9 +30,9 @@ fully localized applications.</p>
 <!--stp:include('newsitems-index.src') -->
 
 <center>
-<p><small>You can read <a href="news.html">old stories</a> and subscribe to a news
-feed <a href="http://www.pygtk.org/news.rss"><img src="img/feed-icon-14x14.png"
-alt="RSS" title="RSS feed" /></a></small></p>
+<p><small>You can read <a href="news.html">old stories</a> and subscribe to
+our <a href="http://www.pygtk.org/news.rss">news feed
+<img src="img/feed-icon-14x14.png"alt="RSS" title="RSS feed" /></a></small></p>
 </center>
 
 </div>
