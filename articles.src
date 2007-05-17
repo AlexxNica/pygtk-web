@@ -137,6 +137,12 @@
     </tr>
 
     <tr>
+      <td>2004</td>
+      <td><a href="http://www.travishartwell.net/blog/static/pycondc2004">PyCon2004 Talk: PyGtke and PyGnome Programming slides</a></td>
+      <td>Patrick Wagstrom</td>
+    </tr>
+
+    <tr>
       <td>Aug 2004</td>
       <td><a href="http://patrick.wagstrom.net/tutorials/pygtkmozembed/pygtkmozembed.html">Creating a GNOME Web Browser with Python</a></td>
       <td>Patrick Wagstrom</td>
