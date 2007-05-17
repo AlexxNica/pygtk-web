@@ -723,6 +723,12 @@
   Linux and Windows and allows a system administrator or penetration tester to
   break into machines on their network. It uses pyGTK 2.0 for the GUI.</dd>
 
+  <dt><a href="http://albertomilone.com/nvidia_scripts1.html">Envy</a></dt>
+  <dd>This application helps with the installation and management of the
+  ATI and NVidia proprietary drivers for their graphics card. It detects,
+  downloads, configures and even uninstalls the driver and its dependencies
+  in Debian systems (Ubuntu Linux included).</dd>
+
   <dt><a href="http://everygui.sourceforge.net/">EveryGUI</a></dt>
   <dd>EveryGUI is an attempt to provide a Graphical User Interfaces
   for "Everything" (involving command line programs) on UNIX systems.
