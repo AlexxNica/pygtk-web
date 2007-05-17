@@ -28,7 +28,7 @@ power with very clear syntax.
 </p>
 
 <p>
-The current version of PyGTK requires GTK+ >= 2.0 and Python >= 2.2 to
+The current version of PyGTK requires GTK+ >= 2.8 and Python >= 2.3.5 to
 build.
 </p>
 
