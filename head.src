@@ -33,14 +33,12 @@ urchinTracker();
 
       <ul>
         <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="screenshots.html">Screenshots</a></li>
+        <li><a href="about.html">About PyGTK</a></li>
         <li><a href="downloads.html">Downloads</a></li>
         <li><a href="feedback.html">Support</a></li>
         <li><a href="consulting.html">Consulting</a></li>
         <li><a href="applications.html">Applications</a></li>
         <li><a href="developer.html">Developers</a></li>
-        <li><a href="people.html">People</a></li>
       </ul>
 
       <p class="section">Documentation</p>

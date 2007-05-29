@@ -1,3 +1,20 @@
+2007-05-29  Rafael Villar Burke  <pachi@rvburke.com>
+
+	* Makefile: Add new pages target to just test static content
+	* .htaccess: Add permanent redirects for screenshots.html and
+	people.html to about.html
+	* screenshots.src, people.src, img/liststore.png,
+	img/colorselector.png, img/treemodel.png, img/messagedialog.png,
+	img/toolbar.png, img/editablecells.png: remove old files
+	* img/gimp-screenshot.png, img/gimp-screenshot-thumb.png,
+	img/quodlibet-gajim.png, img/quodlibet-gajim-thumb.png,
+	img/platforms-screenshot.png, img/platforms-screenshot-thumb.png: add
+	new files
+	* default.css: add screenshot styles
+	* head.src: remove old categories now integrated in 'about'
+	* about.src: integrate content from people.src and screenshots.src
+	here. Also, refactor content.
+
 2007-05-17  Rafael Villar Burke  <pachi@rvburke.com>
 
 	* applications.src: New Envy application

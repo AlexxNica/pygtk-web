@@ -4,43 +4,134 @@
 
 <h2>About PyGTK</h2>
 <p>
-PyGTK lets you <b>conveniently create graphical user interface programs</b>
+PyGTK lets you <b>easily create applications with a graphical user interface</b>
 using the <a href="http://python.org/">Python</a> programming language.
-PyGTK uses the <a
-href="http://gtk.org/">GTK+ library</a> to render all the graphical
-elements and helper facilities. Also, it allows to write full featured
-application for the <a href="http://www.gnome.org/">GNOME Desktop</a>
-when combined with the PyORBit,
-gnome-python, gnome-python-desktop or gnome-python-extras modules.
-</p>
-<p>
-PyGTK is truly multiplatform and is able to run
-on Linux, Windows, MacOS X and other POSIX systems. It provides a
-comprehensive set of <b>graphical elements (widgets)</b>, supports
-international text through Unicode (bidirectional text, too) and
-features a comprehensive accesibility solution through the <b>Gnome
-Accessibility Framework</b> (ATK library).
-</p>
-<p>
-Python is an interpreted, interactive, <b>object-oriented programming
-language</b> which is also very easy to learn and combines remarkable
-power with very clear syntax.
 </p>
 
+<h3>A powerful toolkit at your hands</h3>
+<div class="screenshot">
+<a href="img/gimp-screenshot.png"><img src="img/gimp-screenshot-thumb.png" /></a>
 <p>
-The current version of PyGTK requires GTK+ >= 2.8 and Python >= 2.3.5 to
-build.
+GTK+ is a powerful toolkit suited<br />
+for the most complex interfaces</p>
+</div>
+<p>
+PyGTK uses the <a href="http://gtk.org/">GTK+ toolkit</a> to offer a
+<b>comprehensive set of graphical elements</b> and other useful programming
+facilities, like the handling of <b>internationalized text</b> (bidirectional
+text or non-latin gliph sets), first class accesibility support through
+the <b>Gnome Accessibility Framework</b> (ATK library)...
+</p>
+<p>
+The current version of PyGTK requires at least GTK+ version 2.8.0.
+</p>
+<div class="clear"/>
+
+<h3>You can use it anywhere</h3>
+<div class="screenshot">
+<a href="img/platforms-screenshot.png"><img src="img/platforms-screenshot-thumb.png" /></a>
+<p>PyGTK apps running on Windows,<br \>GNOME on GNU/Linux and OSX</p>
+</div>
+<p>
+PyGTK applications are truly <b>multiplatform</b> and they're able to run,
+unmodified, on Linux, Windows, MacOS X and other platforms.
+</p>
+<p>
+You can see some of the <a href="applications.html">applications</a> where
+PyGTK is being used, which range from small single purpose scripts up to large
+full featured applications.
+</p>
+<div class="clear"/>
+
+<h3>Get a perfect GNOME desktop integration</h3>
+<div class="screenshot">
+<a href="img/quodlibet-gajim.png"><img src="img/quodlibet-gajim-thumb.png" /></a>
+<p>
+PyGTK apps running on GNOME</p>
+</div>
+<p>
+PyGTK is part of the GNOME project, and, even if you can build applications
+that don't depend on the whole GNOME stack, but just on GTK+, if you
+combine it with the optional PyORBit, gnome-python, gnome-python-desktop or
+gnome-python-extras modules you'll be able to write full featured
+applications that integrate perfectly and can benefit from all GNOME features.
+</p>
+<p>
+You can learn more about the <a href="http://www.gnome.org/">GNOME Desktop</a>
+on the project's website.
+</p>
+<div class="clear"/>
+
+<h3>Using an easy and expressive language</h3>
+<p>
+<a href="http://python.org/">Python</a> is an interpreted, interactive,
+<b>object-oriented programming language</b> which is also very easy to learn
+and combines remarkable power with a very clear syntax.
+</p>
+<p>
+The current version of PyGTK requires at least Python version 2.3.5.
 </p>
 
-<h3>License</h3>
+<h3>Under a Free license</h3>
 
 <p>
-Like the GTK+ library itself PyGTK is licensed under the <b>GNU
-LGPL</b>, so is suitable for use in both free software and proprietary
-applications. It is already in use in <a href="applications.html">many
-applications</a> ranging from small single purpose scripts up to large
-full features applications.
+Like the GTK+ library itself, PyGTK is licensed under a very liberal free
+software license, the <b><a href="http://www.gnu.org/licenses/lgpl.html">GNU
+LGPL</a></b>, which allows its use to develop both free software and
+proprietary applications.
 </p>
+
+<h2>The people behind PyGTK</h2>
+
+<p>The following people are involved in maintaining the PyGTK project,
+including code, documentation and user support (listed alphabetically):</p>
+
+<dl>
+  <dt><a href="http://www.pcpm.ucl.ac.be/~gustin/win32_ports/">Cedric Gustin
+  </dt>
+  <dd>Maintains the win32 port of PyGTK</dd>
+
+  <dt><a href="http://www.async.com.br/~kiko/">Christian Reis</a> a.k.a. kiko</dt>
+  <dd><a href="http://www.async.com.br/faq/pygtk/">FAQ</a> maintainer,
+  general IRC and email support, and purportedly co-maintainer of the
+  1.2 branch (though he never manages to do much work on it). Also the
+  author of <a href="http://www.async.com.br/projects/kiwi/">Kiwi</a>, a
+  high-level framework for developing applications using PyGTK.</dd>
+
+  <dt>Gustavo J. Carneiro</dt>
+  <dd>Gustavo is the gnomeprint hacker of the team. But he also has
+  helped in a lot of different things of PyGTK like bug hunting and
+  fixing.</dd>
+
+  <dt><a href="http://www.daa.com.au/~james/">James Henstridge</a></dt>
+  <dd>James is the main author of the PyGTK bindings. He is a well known
+  GNOME hacker; among other things, creator of libglade, jhbuild,
+  Fontilus and the Nautilus RPM.</dd>
+
+  <dt><a href="http://www.async.com.br/~jdahlin/">Johan Dahlin</a></dt>
+  <dd>This swede has helped James a lot with PyGTK, specially with the
+  GTK+ 2.x port. Currently the maintainer of PyGTK. Wrote a big part of
+  the gnome-python bindings. Also maintains the nautilus-python package.
+  </dd>
+
+  <dt>John Finlay</dt>
+  <dd>Did practically all the work on the great tutorial and reference
+  documentation of PyGTK. What would it be without John? </dd>
+
+  <dt>Lorenzo G. Sanchez</dt>
+  <dd>Works on documentation (translating the PyGTK Tutorial to Spanish,
+  and the GObject - Python tutorial). Also part of the team involved in
+  maintaining the website and the super template processor it uses.</dd>
+
+  <dt><a href="http://www.rvburke.com/">Rafael Villar Burke</a> a.k.a. pachi</dt>
+  <dd>Works on documentation (translating the PyGTK Tutorial to Spanish)
+  and maintains the website.</dd>
+
+  <dt>Xavier Ordoquy</dt>
+  <dd>Works on misc parts of the project to help when needed (code,
+  articles, support on IRC). Also working on
+  <a href="http://gael.sf.net/">Gael</a></dd>
+</dl>
 
 </div>
 

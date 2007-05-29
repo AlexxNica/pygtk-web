@@ -1,3 +1,4 @@
 AddType application/xml;charset=utf-8 .rss
 AddDefaultCharset utf-8
-
+RedirectPermanent /people.html http://pygtk.org/about.html
+RedirectPermanent /screenshots.html http://pygtk.org/about.html

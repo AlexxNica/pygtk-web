@@ -40,9 +40,7 @@ SRC_PAGES = 			\
 	feedback.src 		\
 	index.src 		\
 	news.src 		\
-	people.src 		\
 	reference.src 		\
-	screenshots.src 	\
 	tutorial.src
 
 HTML_PAGES = $(patsubst %.src, ${WEBDIR}/%.html, ${SRC_PAGES})
@@ -50,6 +48,8 @@ COMMON_PAGES = head.src foot.src newsitems.py feed.py
 CSS_FILES = default.css
 
 all: start_log pages tarballs finish_log
+
+html: ${HTML_PAGES}
 
 pages: dirs news.rss ${HTML_PAGES} extras
 
