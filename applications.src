@@ -900,6 +900,14 @@ anonymous Internet communication system: <a href="http://tor.eff.org">http://tor
   completion and history. Its expected use case is to be embedded and used
   to inspect other applications internals.</dd>
 
+  <dt><a href="http://pygtkmvc.sourceforge.net/">Pygtk MVC</a></dt>
+  <dd>Pygtk MVC is a multiplatform implementation of a dialect of the
+  Model-View-Controller and Observer patterns for the PyGTK2 toolkit.<br />
+  Pygtk MVC is a framework designed with the goal of being minimal, and thought
+  to have the lowest impact on the design of the application. This puts the
+  attention mostly on the application that must be developed, instead of on the
+  framework that stays behind the scene.</dd>
+
   <dt><a href="http://www.loria.fr/~rougier/index.php?n=Software.Software#pycons">Python GTK Console</a></dt>
   <dd>This widget implements an interactive python session in a GTK window
   and it accepts input directly within the console. It's heavily based on
