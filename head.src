@@ -44,7 +44,7 @@ urchinTracker();
       <p class="section">Documentation</p>
 
       <ul>
-        <li><a href="http://www.async.com.br/faq/pygtk/index.py?req=index"><acronym title="Frequently Asked Questions" xml:lang="en">FAQ</acronym></a></li>
+        <li><a href="http://faq.pygtk.org/index.py?req=index"><acronym title="Frequently Asked Questions" xml:lang="en">FAQ</acronym></a></li>
         <li><a href="http://live.gnome.org/PyGTK">Wiki</a></li>
         <li><a href="tutorial.html">PyGTK&nbsp;Tutorials</a></li>
         <li><a href="reference.html">PyGTK&nbsp;Reference</a></li>

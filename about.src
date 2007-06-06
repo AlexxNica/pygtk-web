@@ -92,7 +92,7 @@ including code, documentation and user support (listed alphabetically):</p>
   <dd>Maintains the win32 port of PyGTK</dd>
 
   <dt><a href="http://www.async.com.br/~kiko/">Christian Reis</a> a.k.a. kiko</dt>
-  <dd><a href="http://www.async.com.br/faq/pygtk/">FAQ</a> maintainer,
+  <dd><a href="http://faq.pygtk.org/">FAQ</a> maintainer,
   general IRC and email support, and purportedly co-maintainer of the
   1.2 branch (though he never manages to do much work on it). Also the
   author of <a href="http://www.async.com.br/projects/kiwi/">Kiwi</a>, a
