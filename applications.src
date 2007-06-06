@@ -349,6 +349,12 @@
   It records your session into an Ogg Theora video file. It works on
   Gnome, KDE, XFCE and others.</dd>
 
+  <dt><a href="http://itaka.jardinpresente.com.ar">Itaka</a></dt>
+  <dd>An on-demand screen capture server for Windows, Mac Os X and Linux.
+  It is developed in Python, PyGTK and the Twisted Framework. It prominently
+  features a polished easy to use interface, with a robust backend server.
+  </dd>
+
   <dt><a href="http://upics.sf.net/">Micropics</a></dt>
   <dd>Micropics is a Gnome 2.x applet that displays changing thumbnails
   of your favorite photos. When guiding your mouse pointer over the
