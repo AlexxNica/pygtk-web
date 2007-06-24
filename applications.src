@@ -204,6 +204,11 @@
   Furthermore, it is licensed under GNU's GPL.
   </dd>
 
+  <dt><a href="http://www.cosperu.com/EduKT/">EduKT</a></dt>
+  <dd>EduKT is a multimedia content builder which allows to easily create
+  interactive books with graphics, music, text and button events. It can
+  run on many platforms.</dd>
+
   <dt><a href="http://www.exaile.org/">Exaile!</a></dt>
   <dd>Exaile is a media player for GTK+.
   Besides standard features, it can automatically fetch album art, lyrics,
