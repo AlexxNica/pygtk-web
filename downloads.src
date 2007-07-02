@@ -15,7 +15,7 @@
 </ul>
 
 <p> In order to install PyGtk in windows, you need to install the <a
-href="http://www.pyhton.org/download/">Python</a> and the <a
+href="http://www.python.org/download/">Python</a> and the <a
 href="http://gladewin32.sourceforge.net/modules/wfdownloads/viewcat.php?cid=14">GTK+
 runtime</a>, you can find more detailed instructions on the <a
 href="http://faq.pygtk.org/index.py?req=show&file=faq21.001.htp">PyGTK
