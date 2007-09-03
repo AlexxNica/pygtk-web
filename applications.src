@@ -649,6 +649,11 @@
   for managing a series of patches by keeping track of the changes each
   patch makes. Patches can be applied, un-applied, refreshed, etc.</dd>
 
+  <dt><a href="http://www.ctcms.nist.gov/oof/gtklogger/">gtklogger</a></dt>
+  <dd>gtklogger is a python module for recording and replaying user actions
+  in a pygtk program, with the goal of allowing gui testing in a regression
+  test suite.</dd>
+
   <dt><a href="http://kefir.sf.net/">Kefir</a></dt>
   <dd>kefir is a code sketcher, a script that takes in a Glade file, and
   spits out a set of wrapper classes around the windows in the glade file.
