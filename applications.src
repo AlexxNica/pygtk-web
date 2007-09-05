@@ -375,6 +375,11 @@
   <dd>This Program allows simple creation and upload of images galleries on web
   site. Mum is Free Software, released under the GNU GPL.</dd>
 
+  <dt><a href="http://www.sk1project.org/modules.php?name=Products&product=pymfvu">
+  Pymfvu</a></dt>
+  <dd>The pymfvu program can open and render both Windows Metafile (WMF) and
+  Enchanced Metafile (EMF) files.</dd>
+
   <dt><a href="http://pyradar.sourceforge.net/">PyRadar</a></dt>
   <dd>This application retrieves and displays radar images from NOAA's
   NEXRAD radar stations, located around the United States and its
