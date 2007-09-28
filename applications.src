@@ -695,6 +695,9 @@
   an user defined folder hierarchy, syntax highlighting and XML based
   data file.</dd>
 
+  <dt><a href="http://pysqlitegui.osp.ir/">pySQLiteGUI</a></dt>
+  <dd>PySQLiteGUI is a tool for creating and managing SQLite databases.</dd>
+
   <dt><a href="http://qa-assistant.berlios.de">QA Assistant</a></dt>
   <dd>QA Assistant helps with running Quality Assurance on any project.
   It allows to point and click through a list of potential problem areas,
@@ -908,6 +911,12 @@ anonymous Internet communication system: <a href="http://tor.eff.org">http://tor
   that transparently access and display your object data. Kiwi was
   primarily designed to make implementing the UI for Stoq easier, and it
   is released under the LGPL.</dd>
+
+  <dt><a href="http://fingelrest.silent-blade.org/index.php?n=Hobbies.ExtListView">
+  ListView</a></dt>
+  <dd>ListView provides an easier to use List Widget. It inherits from a
+  TreeView and has some convenient features such as: no need for a separate
+  store or selection and sorting helpers.</dd>
 
   <dt><a href="http://matplotlib.sourceforge.net">matplotlib</a></dt>
   <dd>matplotlib is a pure python 2D plotting library with a matlab
