@@ -388,6 +388,9 @@
   <dt><a href="http://www.skencil.org/">Skencil</a></dt>
   <dd>Skencil, a vector drawing program for Unix formerly known as Sketch</dd>
 
+  <dt><a href="http://www.sk1project.org/modules.php?name=Products&product=vsdviewer">VSDViewer</a></dt>
+  <dd>VSDViewer is a viewer for diagrams stored in the MS Visio binary file
+  format (VSD and VSS). It can also convert them to SVG.</dd>
 </dl>
 
 <h3><a name="games">Games and Gaming Tools</a></h3>
