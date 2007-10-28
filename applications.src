@@ -388,6 +388,10 @@
   <dt><a href="http://www.skencil.org/">Skencil</a></dt>
   <dd>Skencil, a vector drawing program for Unix formerly known as Sketch</dd>
 
+  <dt><a href="http://ribkit.sourceforge.net/sler/">Sler</a></dt>
+  <dd>Sler is a RenderMan (pixar's render engine) shader generator and shader
+  testing suite.</dd>
+
   <dt><a href="http://www.sk1project.org/modules.php?name=Products&product=vsdviewer">VSDViewer</a></dt>
   <dd>VSDViewer is a viewer for diagrams stored in the MS Visio binary file
   format (VSD and VSS). It can also convert them to SVG.</dd>
