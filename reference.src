@@ -14,8 +14,8 @@
 
 The PyGObject and PyGTK reference manual is now included in the source tarballs, which
 you can find here: 
-<a href="http://ftp.gnome.org/pub/GNOME/sources/pygobject/2.10/">PyGObject</a> and 
-<a href="http://ftp.gnome.org/pub/GNOME/sources/pygtk/2.10/">PyGTK</a>.
+<a href="http://ftp.gnome.org/pub/GNOME/sources/pygobject/">PyGObject</a> and 
+<a href="http://ftp.gnome.org/pub/GNOME/sources/pygtk/">PyGTK</a>.
 
 <h2>GnomePythonExtras Reference Manual</h2>
         

@@ -1,3 +1,8 @@
+2007-11-18  Rafael Villar Burke  <pachi@rvburke.com>
+
+	* reference.src: Link to parent dir for pygobject and pygtk ftp
+	versions instead of 2.10
+
 2007-11-12  Rafael Villar Burke  <pachi@rvburke.com>
 
 	* applications.src: Update AVC link
