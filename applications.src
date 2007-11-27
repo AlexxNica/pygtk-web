@@ -892,6 +892,11 @@ anonymous Internet communication system: <a href="http://tor.eff.org">http://tor
   monitor</a></dt> <dd>UPS monitor is a graphical monitoring application
   that lets you watch your UPS status in real time.</dd>
 
+  <dt><a href="http://albertomilone.com/urandr.html"/>URandR
+  </a></dt>
+  <dd>GUI to RandR 1.2 exposing basic functionalities and aimed to let
+  unexperienced users make multihead configuration as easy as possible.</dd>
+
   <dt><a href="http://zero-install.sourceforge.net/">Zero Install</a></dt>
   <dd>The Zero Install system makes software installation not merely
   easy, but unnecessary. Users run their applications directly from the

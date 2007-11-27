@@ -1,3 +1,7 @@
+2007-11-27  Rafael Villar Burke  <pachi@rvburke.com>
+
+	* applications.src: Add Alberto Milone's URandR
+
 2007-11-18  Rafael Villar Burke  <pachi@rvburke.com>
 
 	* reference.src: Link to parent dir for pygobject and pygtk ftp
