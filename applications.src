@@ -649,6 +649,13 @@
   versions will also allow you to trigger methods directly for testing
   purposes.</dd>
 
+  <dt><a href="https://hosted.fedoraproject.org/projects/d-feet/">
+  D-Feet</a></dt>
+  <dd>D-Feet is a DBus debugger. Using it you can: view names on the session and
+  system bus; view exported objects, interfaces, methods and signals; view the
+  full command line of services on the bus; and execute methods with parameters
+  on the bus and see their return values.</dd>
+
   <dt><a href="http://gaphor.sourceforge.net">Gaphor</a></dt>
   <dd>Gaphor is the UML modeling tool for GTK/GNOME. It is written in Python
   using the PyGTK bindings. Some of its features are Class diagrams,
