@@ -276,6 +276,11 @@
   incorrect length information and others) and works both on Windows and
   Unix.</dd>
 
+  <dt><a href="http://oggconvert.tristanb.net/">OggConvert</a></dt>
+  <dd>This Gnome utility can convert almost any media file to the patent-free
+  Ogg Vorbis, Theora and Dirac formats. It is very easy to use, preserves
+  metadata information and can handle almost any file Totem can play.</dd>
+
   <dt><a href="http://www.nongnu.org/orange-slice/">The Orange Slice</a></dt>
   <dd>Orange Slice is a subtitle editor, writen in Python/GTK+. It aims at
   the manipulation of different file formats like SSA, ASS, SUB, SRT, etc.<br>
