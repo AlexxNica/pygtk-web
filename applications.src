@@ -643,6 +643,11 @@
   Check out its <a href="http://www.pythoncad.org">website</a> for some
   cool screenshots.</dd>
 
+  <dt><a href="http://symbide.googlecode.com/svn/trunk/website/html/home.html">
+  Symbide</a></dt>
+  <dd>Symbide is a Python IDE focused on physical and mathematical
+  calculations. It acts as a frontend for the SymPy Computer Algebra
+  System.</dd>
 </dl>
 
 <h3><a name="devel">Development Tools</a></h3>
