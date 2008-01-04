@@ -725,6 +725,11 @@
   of Glade with PyGTK. It transparently handles the loading of Glade files
   and the connection of callbacks.</dd>
 
+  <dt><a href="http://code.google.com/p/pypreview/">PyPreview</a></dt>
+  <dd>PyPreview is a simple python graphics development environment. It
+  lets you concentrate on your Cairo or OpenGL drawing code, providing
+  the boilerplate code needed to display it.</dd>
+
   <dt><a href="http://sourceforge.net/projects/pysnippet">PySnippet</a></dt>
   <dd>PySnippet is a code snippet manager for any language. It features
   an user defined folder hierarchy, syntax highlighting and XML based
