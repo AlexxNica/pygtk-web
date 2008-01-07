@@ -208,6 +208,10 @@
 
 <dl>
 
+  <dt><a href="http://backupod.sourceforge.net/">BackuPod</a></dt>
+  <dd>BackuPod is a program to backup and restore your iPod Music
+  library (including iTunes preferences) in one single file.</dd>
+
   <dt><a href="http://www.delcorp.org/delvj/">DelVJ</a></dt>
   <dd>DelVJ is a software for realtime video 3d composition and
   algorithmic remixing that uses gtk, python, glade and puredata.
