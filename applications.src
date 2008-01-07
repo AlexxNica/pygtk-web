@@ -28,6 +28,13 @@
   status information about lending, etc; internet searches; comments;
   drag'n drop of movie covers...</dd>
 
+  <dt><a href="http://codic.sourceforge.net/">COD -
+  Cross-platform offline dictionary</a></dt>
+  <dd>COD is a simple, sleek, lightweight but powerful dictionary. It
+  uses offline databases, which can be downloaded from the project's page
+  to do the translations, which makes it convenient for users without
+  a permanent internet connection available.</dd>
+
   <dt><a href="http://comix.sourceforge.net/">Comix</a></dt>
   <dd>Comix is a comic book viewer. It reads zip, rar, tar, tar.gz
   and tar.bz2 archives (often called .cbz, .cbr and .cbt) as well as
