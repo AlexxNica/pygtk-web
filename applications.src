@@ -369,6 +369,11 @@
 
 <dl>
 
+  <dt><a href="http://www.logarithmic.net/pfh/ghost-diagrams">
+  Ghost Diagrams</a></dt>
+  <dd>Ghost Diagrams is a program that takes sets of tiles and tries to
+  find patterns into which they may be formed.</dd>
+
   <dt><a href="http://globs.sourceforge.net/">GL O.B.S.</a></dt>
   <dd>GLOBS is an Open Benchmark Suite for the GL language.It is based
   around a PyGTK interface that launches OpenGL programs feeding them
@@ -630,6 +635,13 @@
   <dt><a href="http://vle.univ-littoral.fr/goo/">Goo - Go'Osmose</a></dt>
   <dd>Go-Osmose, is a graphical frontend to manage Osmose, an Individual
   Based Model of the dynamic of fish populations.</dd>
+
+  <dt><a href="http://www.minipop.org/index.php?file=gresistor">GResistor</a></dt>
+  <dd>gResistror is a helper program to translate resistor color codes
+  into readable values.</dd>
+
+  <dt><a href="http://lybniz2.sourceforge.net/">Lybniz</a></dt>
+  <dd>Lybniz is an easy to use mathematical function graph plotter.</dd>
 
   <dt><a href="http://www.stambouliote.de/mezogis">mezoGIS</a></dt>
   <dd>mezoGIS is a GIS application, a graphical interface to query
