@@ -1,6 +1,7 @@
 2008-01-15  Rafael Villar Burke  <pachi@rvburke.com>
 
-	* applications.src: Add Conduit, by John Stowers
+	* applications.src: Add Conduit, by John Stowers, and GFreqlet,
+	by Jeffrey Bakker
 
 2008-01-09  Rafael Villar Burke  <pachi@rvburke.com>
 
