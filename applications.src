@@ -820,6 +820,12 @@
   Linux and Windows and allows a system administrator or penetration tester to
   break into machines on their network. It uses pyGTK 2.0 for the GUI.</dd>
 
+  <dt><a href="http://www.conduit-project.org/">Conduit</a></dt>
+  <dd>Conduit is a synchronization solution for GNOME which allows the
+  user to take their emails, files, bookmarks, and any other type of personal
+  information, synchronize and convert that data, if needed, with another
+  computer, an online service, or even another electronic device.</dd>
+
   <dt><a href="http://albertomilone.com/nvidia_scripts1.html">Envy</a></dt>
   <dd>This application helps with the installation and management of the
   ATI and NVidia proprietary drivers for their graphics card. It detects,
