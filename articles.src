@@ -16,6 +16,12 @@
 
   <tbody>
     <tr>
+      <td>Jan 2008</td>
+      <td><a href="http://www.tortall.net/mu/wiki/PyGTKCairoTutorial">Cairo Tutorial for PyGTK Programmers</a><br>
+      <td>Michael Urman</td>
+    </tr>
+
+    <tr>
       <td>Mar 2007</td>
       <td><a href="http://unpythonic.blogspot.com/2007/03/custom-pygtk-widgets-in-glade3-part-2.html">Custom PyGTK Widgets in Glade3: part 2</a><br>
         <ul>
