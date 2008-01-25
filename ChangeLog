@@ -1,3 +1,7 @@
+2008-01-25  Rafael Villar Burke  <pachi@rvburke.com>
+
+	* applications.src: Add Hotwire shell by Colin Walters
+
 2008-01-17  Rafael Villar Burke  <pachi@rvburke.com>
 
 	* articles.src: Add 'Cairo Tutorial for PyGTK Programmers' by
