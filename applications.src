@@ -20,6 +20,11 @@
 <h3><a name="user">User Applications</a></h3>
 
 <dl>
+  <dt><a href="http://bauble.belizebotanic.org/">Bauble - Biodiversity
+  Collection Manager</a></dt>
+  <dd>Bauble is an application to manage a collection of botanical specimens
+  and information about them. It is intended to be used by botanic gardens,
+  herbaria, arboreta...</dd>
 
   <dt><a href="http://ceemedia.sourceforge.net/">CeeMedia</a></dt>
   <dd>CeeMedia is a Movie Catalog application which tries to be
