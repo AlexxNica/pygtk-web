@@ -133,6 +133,10 @@
   <dd>Mapview is a python map browser for Terraserver-usa map tiles. It
   allows for edition of track files.</dd>
 
+  <dt><a href="http://newton.sourceforge.net/">Newton</a></dt>
+  <dd>Newton is a simple wiki-like note taking application for the GNOME Desktop.
+  It can highlight source code and export to HTML its contents.</dd>
+
   <dt><a href="http://johan.svedberg.com/projects/coding/ontv/">OnTV</a></dt>
   <dd>OnTV is a GNOME Applet written in Python using PyGTK. It uses XMLTV files
   to monitor current and upcoming TV programs.</dd>
