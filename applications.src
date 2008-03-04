@@ -683,6 +683,10 @@
   <dd>Symbide is a Python IDE focused on physical and mathematical
   calculations. It acts as a frontend for the SymPy Computer Algebra
   System.</dd>
+
+  <dt><a href="http://molmod.ugent.be/code/wiki/Zeobuilder">Zeobuilder</a></dt>
+  <dd>Zeobuilder is a user-friendly GUI toolkit for the construction of advanced
+  molecular models.</dd>
 </dl>
 
 <h3><a name="devel">Development Tools</a></h3>
