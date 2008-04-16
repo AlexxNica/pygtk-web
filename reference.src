@@ -3,59 +3,59 @@
 <div id="mainText">
 
 <h2>PyGTK Reference Manual</h2>
-        
+
 <h3>PyGTK 2.x (GTK+ 2.x) Reference Manual </h3>
-    Version 2.9.0 Last updated 2006-07-06<br>
- 
+    Last updated 2008-04-15<br>
+
 <ul>
    <li><a href="docs/pygobject/index.html">PyGObject Reference Manual</a></li>
    <li><a href="docs/pygtk/index.html">PyGTK Reference Manual</a></li>
 </ul>
 
 The PyGObject and PyGTK reference manual is now included in the source tarballs, which
-you can find here: 
-<a href="http://ftp.gnome.org/pub/GNOME/sources/pygobject/">PyGObject</a> and 
+you can find here:
+<a href="http://ftp.gnome.org/pub/GNOME/sources/pygobject/">PyGObject</a> and
 <a href="http://ftp.gnome.org/pub/GNOME/sources/pygtk/">PyGTK</a>.
 
 <h2>GnomePythonExtras Reference Manual</h2>
-        
+
 <h3>Python GtkMozembed Reference Manual</h3>
- 
+
 <ul>
    <li><a href="pygtkmozembed/index.html">Reference Manual</a></li>
    <li><a href="dist/pygtkmozembed.tar.bz2">Bzip2'd Tarball of Reference Manual</a>
 </ul>
 
 <h3>Python GtkSourceView Reference Manual</h3>
- 
+
 <ul>
    <li><a href="pygtksourceview/index.html">Reference Manual</a></li>
    <li><a href="dist/pygtksourceview.tar.bz2">Bzip2'd Tarball of Reference Manual</a>
 </ul>
 
 <h3>Python GtkSpell Reference Manual</h3>
- 
+
 <ul>
    <li><a href="pygtkspell/index.html">Reference Manual</a></li>
    <li><a href="dist/pygtkspell.tar.bz2">Bzip2'd Tarball of Reference Manual</a>
 </ul>
 
 <h3>Python GnomePrint Reference Manual</h3>
- 
+
 <ul>
    <li><a href="pygnomeprint/index.html">Reference Manual</a></li>
    <li><a href="dist/pygnomeprint.tar.bz2">Bzip2'd Tarball of Reference Manual</a>
 </ul>
 
 <h3>Python GnomePrintUI Reference Manual</h3>
- 
+
 <ul>
    <li><a href="pygnomeprintui/index.html">Reference Manual</a></li>
    <li><a href="dist/pygnomeprintui.tar.bz2">Bzip2'd Tarball of Reference Manual</a>
 </ul>
 
 <h3>Python GnomeVFS Reference Manual</h3>
- 
+
 <ul>
    <li><a href="pygnomevfs/index.html">Reference Manual</a></li>
    <li><a href="dist/pygnomevfs.tar.bz2">Bzip2'd Tarball of Reference Manual</a>
