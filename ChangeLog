@@ -1,7 +1,7 @@
 2008-04-23  Rafael Villar Burke  <pachi@rvburke.com>
 
-	* downloads.src: update to pygobject 2.14, pygtk 2.12 and pycairo 1.4
-	and update series number.
+	* downloads.src: update to pygobject 2.14, pygtk 2.12 and pycairo 1.4,
+	update series number and unify link target for older versions.
 
 2008-04-20  Rafael Villar Burke  <pachi@rvburke.com>
 
