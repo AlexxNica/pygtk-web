@@ -235,6 +235,11 @@
   <dd>BackuPod is a program to backup and restore your iPod Music
   library (including iTunes preferences) in one single file.</dd>
 
+  <dt><a href="http://pypi.python.org/pypi/Bluemindo">Bluemindo</a></dt>
+  <dd>Bluemindo is a really simple but powerful audio player in Python/PyGTK,
+  using Gstreamer. Bluemindo is a free (as in freedom) software, released
+  under GPLv3.</dd>
+
   <dt><a href="http://www.delcorp.org/delvj/">DelVJ</a></dt>
   <dd>DelVJ is a software for realtime video 3d composition and
   algorithmic remixing that uses gtk, python, glade and puredata.
@@ -613,6 +618,10 @@
   forwards and logs requests from a client to a server. After the data
   retrieval phase, Taof presents the logged requests and allows the user
   to specify the fuzzing points within the requests.</dd>
+
+  <dt><a href="http://umitproject.org/">Umit</a></dt>
+  <dd>Umit is a graphical frontend for Nmap, a tool for network monitoring
+  and security auditing.</dd>
 
   <dt><a href="http://xpn.altervista.org/index-en.html">XPN</a></dt>
   <dd>XPN is a multiplatform newsreader written in Python+GTK2. It is unicode
