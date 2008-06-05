@@ -45,6 +45,11 @@
   and tar.bz2 archives (often called .cbz, .cbr and .cbt) as well as
   normal image files.</dd>
 
+  <dt><a href="http://forja.guadalinex.org/webs/compi/">COMPI</a></dt>
+  <dd>A tool designed for people with oral and/or written comunication
+  difficulties. The application synthetises as speech messages which are
+  composed as series of pictograms.</dd>
+
   <dt><a href="http://raphael.slinckx.net/deskbar/">Deskbar Applet</a></dt>
   <dd>DeskbarApplet provides an omnipresent versatile search interface.
   By typing search terms into an entry in your panel you are presented with
