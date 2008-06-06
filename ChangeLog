@@ -1,3 +1,8 @@
+2008-06-06  Gian Mario Tagliaretti  <gianmt@gnome.org>
+
+	* articles.src: Add Japanese translation of Mark Mruss's extending
+	our PyGTK Application, translation by Tetsuya Morimoto.
+
 2008-06-05  Rafael Villar Burke  <pachi@rvburke.com>
 
 	* applications.src: Add COMPI by Fernando Ruiz Humanes

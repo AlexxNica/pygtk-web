@@ -16,6 +16,12 @@
 
   <tbody>
     <tr>
+      <td>Jun 2008</td>
+      <td><a href="http://d.hatena.ne.jp/t2y-1979/20080606/1212711378">Extending our PyGTK Application Japanese Translation</a><br>
+      <td>Tetsuya Morimoto</td>
+    </tr>
+
+    <tr>
       <td>Jan 2008</td>
       <td><a href="http://www.tortall.net/mu/wiki/PyGTKCairoTutorial">Cairo Tutorial for PyGTK Programmers</a><br>
       <td>Michael Urman</td>
