@@ -182,6 +182,10 @@
   medium sized enterprises, The goal of the project is to provide an
   enterprise resource management system for the GNOME Desktop.</dd>
 
+  <dt><a href="http://www.kbrandt.com/2008/06/pygnomefind-gui-frontend-to-gnu-find.html">
+  pyGnomeFind</a></dt>
+  <dd>This application provides a graphical frontend for the GNU find tool.</dd>
+
   <dt><a href="http://pygps.org/">pyGPS</a></dt>
   <dd>This program shows your position on a map using a GPS system. It can
   record tracks and notes, display the satellites used to determine your

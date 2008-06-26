@@ -1,6 +1,10 @@
+2008-06-26  Rafael Villar Burke  <pachi@rvburke.com>
+
+	* applications.src: Add pyGnomeFind by Kyle Brandt
+
 2008-06-17  Rafael Villar Burke  <pachi@rvburke.com>
 
-	* Application.src: Add gslimp3
+	* application.src: Add gslimp3
 
 2008-06-07  Rafael Villar Burke  <pachi@rvburke.com>
 
