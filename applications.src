@@ -499,6 +499,9 @@
   <dd>PyChess is a chess applications featuring network playing capabilities
   and advanced chess analysis.</dd>
 
+  <dt><a href="http://games.moria.org.uk/kye/pygtk">Python Kye</a></dt>
+  <dd>A clone of the classic puzzle game Kye.</dd>
+
   <dt><a href="http://pythonsudoku.sourceforge.net/">Python Sudoku</a></dt>
   <dd>PySudoku is a text and graphical program to create or resolve sudokus.
   It can also print and write sudoku images.</dd>
