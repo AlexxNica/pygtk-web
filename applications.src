@@ -414,6 +414,10 @@
   then receives back their statistical output. Benchmarks are easy to
   create and add.</dd>
 
+  <dt><a href="http://polariscorp.free.fr/screenapplet.php">
+  GNOME Screenshot Applet</a></dt>
+  <dd>A Gnome desktop applet to take fullscreen or cropped screenshots.</dd>
+
   <dt><a href="http://live.gnome.org/Istanbul">Istanbul</a></dt>
   <dd>Istanbul is a desktop session recorder for the Free Desktop.
   It records your session into an Ogg Theora video file. It works on
