@@ -66,6 +66,16 @@ consulting services.</li>
   <li><strong>Comment</strong>: Over 8 years of experience working in ERP systems, great knowledge of IT concepts and a wide range of technologies. Cross platform solutions and important focus in the support, not the product. </li>
 </ul>
 
+<ul class="consulting">
+  <li class="first"><strong>Name</strong>: Thomas Perl</li>
+  <li><strong>Website</strong>: <a href="http://thpinfo.com/">http://thpinfo.com/</a> </li>
+  <li><strong>Services</strong>: Python and PyGTK consulting, support, customization, usability engineering, training, project management, cross-platform development</li>
+  <li><strong>Location</strong>: Austria</li>
+  <li><strong>Will work</strong>: can work remotely</li>
+  <li><strong>Contact</strong>:Thomas Perl <a href="http://thpinfo.com/about">http://thpinfo.com/about</a></li>
+  <li><strong>References</strong>: <a href="http://gpodder.org">gPodder</a> (Lead developer)</li>
+</ul>
+
 <!-- TEMPLATE 
 <ul class="consulting">
   <li class="first"><strong>Name</strong>: </li>
