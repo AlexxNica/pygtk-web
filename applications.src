@@ -1109,6 +1109,10 @@ anonymous Internet communication system: <a href="http://tor.eff.org">http://tor
   data in real-time, using PyGTK, and UI components for controlling the
   graphs.</dd>
 
+  <dt><a href="http://sqlkit.argolinux.org/">Sqlkit</a></dt>
+  <dd>Sqlkit is a library which provides very powerful classes to add
+  database edition capabilities to applications. It features table and
+  mask mode, with highly customizable layouts.</dd>
 </dl>
 
 <p>If your application is not listed here and it uses PyGTK please <a href="mailto:pygtk-web_AT_pygtk.org">tell us</a> about it.</p>
