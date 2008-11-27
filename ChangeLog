@@ -1,3 +1,7 @@
+2008-11-27  Rafael Villar Burke  <pachi@rvburke.com>
+
+	* application.src: Add TortoiseHG
+
 2008-11-11  Rafael Villar Burke  <pachi@rvburke.com>
 
 	* application.src: Add Sqlkit by Alessandro Dentella

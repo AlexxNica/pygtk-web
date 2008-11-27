@@ -822,6 +822,10 @@
   properly. With Scribes, your workflow is never interrupted, and your
   files are always safe.</dd>
 
+  <dt><a href="http://tortoisehg.sourceforge.net/">TortoiseHG</a></dt>
+  <dd>TortoiseHg is a shell extension that let users of Mercurial SCM (Hg)
+  work directly from MS-Windows Explorer or Gnome/Nautilus.</dd>
+
   <dt><a href="http://wingide.com/wingide">Wing IDE</a></dt>
   <dd>Wing IDE is a powerful development environment for the Python
   programming language. Wing IDE and Python are well suited for rapid
