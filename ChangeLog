@@ -1,3 +1,7 @@
+2008-12-13  Rafael Villar Burke  <pachi@rvburke.com>
+
+	* application.src: Remove Infogreater as it's no longer avaliable
+
 2008-11-27  Rafael Villar Burke  <pachi@rvburke.com>
 
 	* application.src: Add TortoiseHG
