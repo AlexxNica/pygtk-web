@@ -10,7 +10,7 @@
 <img style="float: left; margin-right: 20px;" src="img/pygtk-splash.jpg" />
 <p>PyGTK lets you to <strong>easily create programs with a graphical user
 interface</strong> using the Python programming language.
-The underlaying GTK+ library provides
+The underlying GTK+ library provides
 all kind of visual elements and utilities for it and, if needed, you can
 develop full featured applications for the GNOME Desktop.</p>
 <p>PyGTK applications are truly <strong>multiplatform</strong>

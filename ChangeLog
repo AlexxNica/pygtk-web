@@ -1,3 +1,7 @@
+2008-12-24  Rafael Villar Burke  <pachi@rvburke.com>
+
+	* index.src: Fix typo
+
 2008-12-13  Rafael Villar Burke  <pachi@rvburke.com>
 
 	* application.src: Remove Infogreater as it's no longer avaliable
@@ -86,6 +90,7 @@
 
 	* consulting.src: Add core solutions.
 
+>>>>>>> .r464
 2008-03-04  Rafael Villar Burke  <pachi@rvburke.com>
 
 	* applications.src: Add Zeobuilder, by Toon Verstraelen
