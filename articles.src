@@ -16,9 +16,28 @@
 
   <tbody>
     <tr>
+      <td>May 2008</td>
+      <td><a href="http://www.micahcarrick.com/05-30-2008/gtk-builder-libglade-faq.html">
+        Libglade to GtkBuilder F.A.Q.</a><br></td>
+      <td>Micah Carrick</td>
+    </tr>
+
+    <tr>
       <td>Jan 2008</td>
       <td><a href="http://www.tortall.net/mu/wiki/PyGTKCairoTutorial">Cairo Tutorial for PyGTK Programmers</a><br>
       <td>Michael Urman</td>
+    </tr>
+
+    <tr>
+      <td>Dec 2007</td>
+      <td><a href="http://www.micahcarrick.com/12-24-2007/gtk-glade-tutorial-part-1.html">
+        GTK+ and Glade3 GUI Programming Tutorial - Part 1</a><br>
+        <a href="http://www.micahcarrick.com/12-27-2007/gtk-glade-tutorial-part-2.html">
+        GTK+ and Glade3 GUI Programming Tutorial - Part 2</a><br>
+        <a href="http://www.micahcarrick.com/01-01-2008/gtk-glade-tutorial-part-3.html">
+        GTK+ and Glade3 GUI Programming Tutorial - Part 3</a><br>
+      </td>
+      <td>Micah Carrick</td>
     </tr>
 
     <tr>
