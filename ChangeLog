@@ -1,6 +1,7 @@
 2009-01-08  Rafael Villar Burke  <pachi@rvburke.com>
 
 	* articles.src: Add gtkbuilder related articles by Micah Carrick
+	* head.src, foot.src, feed.py: Fix some XHTML validation issues
 
 2008-12-24  Rafael Villar Burke  <pachi@rvburke.com>
 
@@ -94,7 +95,6 @@
 
 	* consulting.src: Add core solutions.
 
->>>>>>> .r464
 2008-03-04  Rafael Villar Burke  <pachi@rvburke.com>
 
 	* applications.src: Add Zeobuilder, by Toon Verstraelen
