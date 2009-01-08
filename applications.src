@@ -53,7 +53,7 @@
   <dt><a href="http://raphael.slinckx.net/deskbar/">Deskbar Applet</a></dt>
   <dd>DeskbarApplet provides an omnipresent versatile search interface.
   By typing search terms into an entry in your panel you are presented with
-  the search results as you type.<br><br>
+  the search results as you type.<br /><br />
   Seaches are handled by a series of plugins which can be managed using
   a simple interface.</dd>
 
@@ -321,7 +321,7 @@
 
   <dt><a href="http://www.nongnu.org/orange-slice/">The Orange Slice</a></dt>
   <dd>Orange Slice is a subtitle editor, writen in Python/GTK+. It aims at
-  the manipulation of different file formats like SSA, ASS, SUB, SRT, etc.<br>
+  the manipulation of different file formats like SSA, ASS, SUB, SRT, etc.<br />
   The main goal is to have an easy application to create scripts for
   subtitling videos. For now it only manages the Sub Station Alpha (SSA)
   and Advanced Sub Station Alpha (ASS) file formats. You can also import
@@ -522,13 +522,13 @@
 
   <dt><a href="http://home.gna.org/aeternal/index.html">Aeternal</a></dt>
   <dd>Aeternal is an IRC client that targets the GNOME platform. It aims
-  freedom, usability, security, community participation and scriptability.<dd>
+  freedom, usability, security, community participation and scriptability.</dd>
 
   <dt><a href="http://www.bittorrent.com/">BitTorrent</a></dt>
   <dd>Bittorrent is a popular Peer-to-Peer application. Bittorrent is designed
   to lower the bandwidth required to distribute files. It's one of the most
   popular application on Sourceforge with over 400 000/downloads a week (as of
-  Jan 2005) Starting from version 3.9 the user interface is using PyGTK.<dd>
+  Jan 2005) Starting from version 3.9 the user interface is using PyGTK.</dd>
 
   <dt><a href="http://blogtk.sourceforge.net/">BloGTK</a></dt>
   <dd>BloGTK is a weblog client that allows you to post to your weblog
@@ -598,7 +598,7 @@
 
   <dt><a href="http://pybber.sourceforge.net/">Pybber</a></dt>
   <dd>Pybber is a single window Jabber client that is being written in Python.
-  <br>The main features of this project are a single window interface, with
+  <br />The main features of this project are a single window interface, with
   tabs, and a Gnome panel applet to show client status and the number of
   messages received since the last window hide.</dd>
 
@@ -657,7 +657,7 @@
   <dt><a href="http://gnofract4d.sourceforge.net/">GnoFract4D</a></dt>
   <dd>Gnofract 4D is a program which allows you to create beautiful
   mathematically-based images called fractals. Take a look at the Gallery
-  for some examples.<br>
+  for some examples.<br />
   What sets it apart from other fractal programs (and makes it "4D") is the
   way that it treats the Mandelbrot and Julia sets as different views of the
   same four-dimensional fractal object. This allows you to create images
@@ -921,7 +921,7 @@
   with a modern graphical user interface display.</dd>
 
   <dt><a href="http://iceme.sourceforge.net">IceMe</a></dt>
-  <dd>A graphical menu editor for IceWM written in Python and GTK.<br>
+  <dd>A graphical menu editor for IceWM written in Python and GTK.<br />
   It's licensed under the GPL and features Tree editing with Drag'n'Drop
   and Cut'n'Paste, shortcut editor, Icon selection dialog...</dd>
 
@@ -967,11 +967,11 @@
   creating smart and portable algorithms for solving adequately the problem
   of managing software upgrading and installation. This tool works in all
   major distributions, and will bring notable advantages over native tools
-  currently in use (APT, APT-RPM, YUM, URPMI, etc).</dt>
+  currently in use (APT, APT-RPM, YUM, URPMI, etc).</dd>
 
   <dt>RedHat/Fedora System Admin Tools</dt>
   <dd>If you are using a Redhat/Fedora Linux distribution almost every
-  program that starts with redhat-config-* is made with PyGTK</dt>
+  program that starts with redhat-config-* is made with PyGTK</dd>
 
   <dt><a href="http://www.ximian.com/products/redcarpet/">Red Carpet</a></dt>
   <dd> Red Carpet is a software management solution for Linux; it makes
@@ -996,21 +996,20 @@
   programs together instead of creating all-in-one
   mega-applications.</dd>
 
-  <dt><a href="http://www.realistanew.com/projects/smeg/">SMEG</a><dt>
+  <dt><a href="http://www.realistanew.com/projects/smeg/">SMEG</a></dt>
   <dd> A simple menu editor for GNOME 2.10 that can edit and add new entries and
   menus. It implements the freedesktop.org menu spec but may or may not work
   with other Desktop Environments.</dd>
 
-  <dt><a href="http://www.fabriziotarizzo.org/sw/torapplet/">TorApplet</a><dt>
-
+  <dt><a href="http://www.fabriziotarizzo.org/sw/torapplet/">TorApplet</a></dt>
   <dd>It's a GNOME applet for managing and monitoring the TOR daemon (TOR is an
-anonymous Internet communication system: <a href="http://tor.eff.org">http://tor.eff.org</a>).</dd>
+  anonymous Internet communication system: <a href="http://tor.eff.org">http://tor.eff.org</a>).</dd>
 
   <dt><a href="http://rudd-o.com/projects/ups-monitor/"> UPS
   monitor</a></dt> <dd>UPS monitor is a graphical monitoring application
   that lets you watch your UPS status in real time.</dd>
 
-  <dt><a href="http://albertomilone.com/urandr.html"/>URandR
+  <dt><a href="http://albertomilone.com/urandr.html">URandR
   </a></dt>
   <dd>GUI to RandR 1.2 exposing basic functionalities and aimed to let
   unexperienced users make multihead configuration as easy as possible.</dd>

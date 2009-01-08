@@ -7,12 +7,12 @@
 <h3>Mailing List</h3>
 
 <p>There is a main mailing list for PyGTK. To subscribe to the list, use
-the web interface at  
+the web interface at</p>
 <ul>
 <li><a
 href="http://www.daa.com.au/mailman/listinfo/pygtk">http://www.daa.com.au/mailman/listinfo/pygtk</a></li>
 </ul>
-The mailing address of the list is <a
+<p>The mailing address of the list is <a
 href="mailto:pygtk@daa.com.au">pygtk@daa.com.au</a>. The mailing list is
 archived at <a
 href="http://www.mail-archive.com/pygtk@daa.com.au/">mail-archive.com</a>
@@ -23,7 +23,7 @@ href="http://www.daa.com.au/pipermail/pygtk/">daa.com.au</a>.</p>
 
 <p>There is an IRC Channel called #pygtk in the irc.gnome.org (aka
 irc.gimp.net) network. People there are eager to help; go and meet
-some other PyGTK hackers!</p> 
+some other PyGTK hackers!</p>
 
 <h3>Bugzilla</h3>
 
