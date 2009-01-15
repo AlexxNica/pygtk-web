@@ -1001,6 +1001,11 @@
   menus. It implements the freedesktop.org menu spec but may or may not work
   with other Desktop Environments.</dd>
 
+  <dt><a href="http://www.alexmac.cc/tablet-apps/">Tablet Apps</a></dt>
+  <dd>Tablet apps is both a gnome control center applet for configuring
+  graphics tablet devices and a panel applet that shows pressure of any
+  pressure sensitive device.</dd>
+
   <dt><a href="http://www.fabriziotarizzo.org/sw/torapplet/">TorApplet</a></dt>
   <dd>It's a GNOME applet for managing and monitoring the TOR daemon (TOR is an
   anonymous Internet communication system: <a href="http://tor.eff.org">http://tor.eff.org</a>).</dd>
