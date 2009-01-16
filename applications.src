@@ -861,6 +861,11 @@
   with syslog's remote logging functionality to provides a scalable and easily
   deployed monitoring solution.</dd>
 
+  <dt><a href="http://bleachbit.sourceforge.net/">BleachBit</a></dt>
+  <dd>BleachBit deletes application and system configuration and data files,
+  as well as cookies, cache files and temporary files
+  to free space and keep your disk clean.</dd>
+
   <dt><a href="http://www.immunitysec.com/CANVAS/">CANVAS</a></dt>
   <dd>CANVAS is a commercial network intrusion product, which runs under both
   Linux and Windows and allows a system administrator or penetration tester to
