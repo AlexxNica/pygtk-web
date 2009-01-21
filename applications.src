@@ -66,6 +66,11 @@
   needs to be prefilled once by adding all your disks to it.
   </dd>
 
+  <dt><a href="http://nzjrs.github.com/facebook-notify/">
+  Facebook Notify</a></dt>
+  <dd>This application monitors a Facebook profile and notifies its changes
+  using the Gnome notification area.</dd>
+
   <dt><a href="http://gbirthday.sourceforge.net/">GBirthday</a></dt>
   <dd>GBirthday is a birthday reminder application that helps you to remember
   your evolution contacts' birthdays.  It puts an icon on notification area
