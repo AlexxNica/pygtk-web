@@ -41,6 +41,13 @@
     </tr>
 
     <tr>
+      <td>Nov 2007</td>
+      <td><a href="http://www.serpia.org/blog/2007/nov/03/matplotlib-and-pygtk-app/">
+        Building an application using PyGTK and Matplotlib</a><br />
+      <td>Serpia</td>
+    </tr>
+
+    <tr>
       <td>Jul 2007</td>
       <td><a href="http://unpythonic.blogspot.com/2007/07/pygtk-py2exe-and-inno-setup-for-single.html">
         PyGTK, Py2exe, and Inno setup for single-file Windows installers</a><br />
