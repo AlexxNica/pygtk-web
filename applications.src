@@ -129,6 +129,10 @@
   It provides an interface for browsing, downloading and managing books, as
   well as reading and bookmarking individual texts.</dd>
 
+  <dt><a href="http://rasm.ods.org/keepnote/">KeepNote</a></dt>
+  <dd>KeepNote is a multiplatform note taking application. It features
+  rich-text formatting, hierarchical organization, images or searching.</dd>
+
   <dt><a href="http://www.gnome.org/~dscorgie/labyrinth.html">Labyrinth</a></dt>
   <dd>Labyrinth is a mind-mapping tool written for GNOME. It helps to organize
   and visualize words, ideas or tasks, by representing them as linked
@@ -273,6 +277,9 @@
 
   <dt><a href="http://freemix.forja.rediris.es/">Freemix</a></dt>
   <dd>Freemix is a live video performance software aimed at video artists.</dd>
+
+  <dt><a href="http://code.google.com/p/fricorder/">Fricorder</a></dt>
+  <dd>Fricorder is a programmable video recorder for freebox.</dd>
 
   <dt><a href="http://www.fuplayer.org/">FUPlayer</a></dt>
   <dd>FUPlayer is a music manager and player for the GNOME desktop.
@@ -430,6 +437,9 @@
   It is developed in Python, PyGTK and the Twisted Framework. It prominently
   features a polished easy to use interface, with a robust backend server.
   </dd>
+
+  <dt><a href="http://code.google.com/p/jbrout/">jBrout</a></dt>
+  <dd>jBrout is a multiplatform photo management application.</dd>
 
   <dt><a href="http://upics.sf.net/">Micropics</a></dt>
   <dd>Micropics is a Gnome 2.x applet that displays changing thumbnails
@@ -956,6 +966,10 @@
   <dd>A mass file renamer.  If you have thousands upon thousands of
   files waiting for renaming, fear not! Purrr is here to help you.</dd>
 
+  <dt><a href="http://www.infinicode.org/code/pyrenamer/">PyRenamer</a></dt>
+  <dd>A mass file renamer.  It supports some cool features such as file
+  pattern matching or use of metadata to rename image and music files.</dd>
+
   <dt><a href="http://www.gnome.org/projects/sabayon/">Sabayon</a></dt>
   <dd>Sabayon is GNOME's first major design targeted at improving the
   user experience for people who administer GNOME systems. It allows to
@@ -981,6 +995,11 @@
   of managing software upgrading and installation. This tool works in all
   major distributions, and will bring notable advantages over native tools
   currently in use (APT, APT-RPM, YUM, URPMI, etc).</dd>
+
+  <dt><a href="http://specto.sourceforge.net/">Specto</a></dt>
+  <dd>Application that lets you watch configurable events (email arrival,
+  website updates, file changes...) and receive desktop notifications when
+  those happen.</dd>
 
   <dt>RedHat/Fedora System Admin Tools</dt>
   <dd>If you are using a Redhat/Fedora Linux distribution almost every
