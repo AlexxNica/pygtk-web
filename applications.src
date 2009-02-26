@@ -966,6 +966,10 @@
   <dd>A mass file renamer.  If you have thousands upon thousands of
   files waiting for renaming, fear not! Purrr is here to help you.</dd>
 
+  <dt><a href="http://code.google.com/p/pybootchartgui/">Pybootchartgui</a></dt>
+  <dd>pybootchartgui is a tool for visualization and analysis of the GNU/Linux
+  boot process.</dd>
+
   <dt><a href="http://www.infinicode.org/code/pyrenamer/">PyRenamer</a></dt>
   <dd>A mass file renamer.  It supports some cool features such as file
   pattern matching or use of metadata to rename image and music files.</dd>
