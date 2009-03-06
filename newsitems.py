@@ -14,6 +14,11 @@ item = lambda *x: items.append(x)
 #      "INSERT AUTHOR HERE")
 
 # http://news.gmane.org/gmane.comp.gnome.gtk%2B.python/
+item("PyGTK 2.14.1 released", (2009, 3, 6),
+     """PyGTK 2.14.1 is a bug fix only release and it contains updated reference manual for the 2.14 API. As usual, it's sources can be fetched
+     <a href="http://ftp.gnome.org/pub/GNOME/sources/pygtk/2.14/pygtk-2.14.1.tar.bz2">here</a>.
+     Check out <a href="http://www.daa.com.au/pipermail/pygtk/2009-March/016752.html">the release announcement and full list of changes</a>.""", 'Gian Mario Tagliaretti')
+
 item("New article - Custom PyGTK widgets in Glade 3", (2007, 3, 25),
      """Ali Afshar explains how to use your custom PyGTK widgets from within
      the Glade 3 User Interface designer.  The topic is covered in two
