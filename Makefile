@@ -10,8 +10,8 @@ PROCESSOR = ${PYTHON} stp.py
 
 WGET = wget
 REFTARBALLS = \
-	http://www.gnome.org/~johan/pygobject-docs.tar.gz	\
-	http://www.gnome.org/~johan/pygtk-docs.tar.gz
+	http://www.gnome.org/~gianmt/pygobject-docs.tar.gz	\
+	http://www.gnome.org/~gianmt/pygtk-docs.tar.gz
 
 REFFILENAMES = pygobject-docs.tar.gz pygtk-docs.tar.gz
 

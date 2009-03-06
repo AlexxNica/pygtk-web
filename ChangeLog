@@ -1,3 +1,7 @@
+2009-03-06  Gian Mario Tagliaretti  <gianmt@gnome.org>
+
+	* Makefile: Move docs tarballs from Johan's home to mine.
+
 2009-02-26  Rafael Villar Burke  <pachi@rvburke.com>
 
 	* applications.src: Add pybootchartgui
