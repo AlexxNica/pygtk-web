@@ -1,3 +1,8 @@
+2009-05-10  Gian Mario Tagliaretti  <gianmt@gnome.org>
+
+	* newsitems.py: Advertise 2.17.0 release of pygobject and
+	2.15.0 release of pygtk
+
 2009-03-29  Rafael Villar Burke  <pachi@rvburke.com>
 
 	* articles.src: Remove broken link
