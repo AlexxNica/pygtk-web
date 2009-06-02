@@ -237,6 +237,10 @@
 
   <dt><a href="http://code.google.com/p/weedbox/">Weedbox</a></dt>
   <dd>Weedbox is a GUI frontend to ease the use of kqemu.</dd>
+
+  <dt><a href="http://antrix.net/stuff/writr/">Writr</a></dt>
+  <dd>Writr is a simple editor geared towards writing of Markdown
+  syntax formatted text.</dd>
 </dl>
 
 <h3><a name="multimedia">Multimedia Applications</a></h3>
@@ -1073,6 +1077,10 @@
   connects between the values displayed and entered in GUI widgets and
   variables in your application.</dd>
 
+  <dt><a href="http://gaphor.devjavu.com/wiki/Subprojects/Gaphas">Gaphas</a></dt>
+  <dd>Gaphas is a diagram widget for PyGTK. It uses cairo for rendering
+  and features an easy to use model.</dd>
+
   <dt><a href="http://gdesklets.gnomedesktop.org/">gDesklets</a></dt>
   <dd>gDesklets provides an advanced architecture for desktop applets --
   tiny displays sitting on your desktop in a symbiotic relationship of
@@ -1114,6 +1122,15 @@
   TextView widget. It runs on all gtk-supported platforms and features
   completion and history. Its expected use case is to be embedded and used
   to inspect other applications internals.</dd>
+
+  <dt><a href="http://code.google.com/p/pygtkcanvas">PyGtkCanvas</a></dt>
+  <dd>PyGtkCanvas is an engine for both structured and non-structured graphics,
+  high performance rendering, and a powerful, high level API.
+  This widget can be used for flexible display of graphics and for creating
+  interactive user interface elements.</dd>
+
+  <dt><a href="http://trac.bjourne.webfactional.com/">PyGtkImageView</a></dt>
+  <dd>GtkImageView is a simple image viewer widget for GTK+ with PyGTK bindings.</dd>
 
   <dt><a href="http://pygtkmvc.sourceforge.net/">Pygtk MVC</a></dt>
   <dd>Pygtk MVC is a multiplatform implementation of a dialect of the
