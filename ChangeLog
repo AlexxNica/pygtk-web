@@ -1,5 +1,10 @@
 2009-06-07  Gian Mario Tagliaretti  <gianmt@gnome.org>
 
+	* downloads.src: Update with the latest stable versions and
+	remove SVN references updating to Git
+
+2009-06-07  Gian Mario Tagliaretti  <gianmt@gnome.org>
+
 	* newsitems.py: Advertise 2.18.0 release of pygobject and
 	2.15.1 release of pygtk
 
