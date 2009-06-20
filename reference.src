@@ -8,8 +8,8 @@
     Last updated 2009-03-06<br>
 
 <ul>
-   <li><a href="docs/pygobject/index.html">PyGObject Reference Manual</a></li>
-   <li><a href="docs/pygtk/index.html">PyGTK Reference Manual</a></li>
+   <li><a href="http://library.gnome.org/devel/pygobject/stable/">PyGObject Reference Manual</a></li>
+   <li><a href="http://library.gnome.org/devel/pygtk/stable/">PyGTK Reference Manual</a></li>
 </ul>
 
 The PyGObject and PyGTK reference manual is now included in the source tarballs, which
