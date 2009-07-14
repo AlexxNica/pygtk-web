@@ -759,6 +759,10 @@
   full command line of services on the bus; and execute methods with parameters
   on the bus and see their return values.</dd>
 
+  <dt><a href="http://diffuse.sourceforge.net/">Diffuse</a></dt>
+  <dd>Diffuse is a graphical tool for merging and comparing text files. It can compare
+  any number of files side-by-side and users can adjust and edit files.</dd>
+
   <dt><a href="http://gaphor.sourceforge.net">Gaphor</a></dt>
   <dd>Gaphor is the UML modeling tool for GTK/GNOME. It is written in Python
   using the PyGTK bindings. Some of its features are Class diagrams,
@@ -838,7 +842,8 @@
   properly. With Scribes, your workflow is never interrupted, and your
   files are always safe.</dd>
 
-  <dt><a href="http://tortoisehg.sourceforge.net/">TortoiseHG</a></dt>
+  <dt><a href="http://bitbucket.org/tortoisehg/stable/wiki/Home">
+  TortoiseHG</a></dt>
   <dd>TortoiseHg is a shell extension that let users of Mercurial SCM (Hg)
   work directly from MS-Windows Explorer or Gnome/Nautilus.</dd>
 
