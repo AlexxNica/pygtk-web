@@ -100,7 +100,7 @@ src_item_template = r"""
 <div class="news">
 <h4><a name="%(anchor)s">%(title)s</a></h4>
 <h5>%(pubDate)s by %(author)s</h5>
-<div>%(description)s</div>
+<div class="description">%(description)s</div>
 </div>
 """
 

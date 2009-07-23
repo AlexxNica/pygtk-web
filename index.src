@@ -31,13 +31,9 @@ distribute and study it with very few restrictions (LGPL license).</p>
 <a href="http://www.pygtk.org/news.html"><small>Old stories</small></a>
 </div>
 
+<div id="newsblock">
 <!--stp:include('newsitems-index.src') -->
-
-<center>
-<p><small>You can read <a href="news.html">old stories</a> and subscribe to
-our <a href="http://www.pygtk.org/news.rss">news feed
-<img src="img/feed-icon-14x14.png"alt="RSS" title="RSS feed" /></a></small></p>
-</center>
+</div>
 
 </div>
 

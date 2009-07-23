@@ -107,6 +107,17 @@ a:link:active {
   padding: 0;
 }
 
+/* News */
+
+#newsblock {
+  font-size:85%;
+  color:#797979;
+}
+
+#newsblock .description a {
+  color: #5555ff;
+}
+
 /* Copyright footer */
 #copyright {
   text-align: center;
