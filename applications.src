@@ -847,6 +847,12 @@
   <dd>TortoiseHg is a shell extension that let users of Mercurial SCM (Hg)
   work directly from MS-Windows Explorer or Gnome/Nautilus.</dd>
 
+  <dt><a href="http://translate.sourceforge.net/wiki/virtaal/index">
+  Virtaal</a></dt>
+  <dd>Virtaal is a translation application supporting many file formats. It
+  makes translators more productive and keeps translation fun. It is meant
+  to be easy to use and powerful at the same time.</dd>
+
   <dt><a href="http://wingide.com/wingide">Wing IDE</a></dt>
   <dd>Wing IDE is a powerful development environment for the Python
   programming language. Wing IDE and Python are well suited for rapid
