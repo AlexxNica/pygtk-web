@@ -1,3 +1,7 @@
+2009-08-12  Gian Mario Tagliaretti  <gianmt@gnome.org>
+
+	* newsitems.py: Advertise 2.19.0 release of pygobject
+
 2009-08-03  Rafael Villar Burke  <pachi@rvburke.com>
 
 	* applications.src: Add Virtaal

@@ -14,6 +14,11 @@ item = lambda *x: items.append(x)
 #      "INSERT AUTHOR HERE")
 
 # http://news.gmane.org/gmane.comp.gnome.gtk%2B.python/
+item("PyGobject 2.19.0 released", (2009, 8, 10),
+     """PyGobject 2.19.0 has been released, this is an unstable release leading to 2.20.0. As usual, it's sources can be fetched
+     <a href="http://ftp.gnome.org/pub/GNOME/sources/pygobject/2.19/pygobject-2.19.0.tar.bz2">here</a>.
+     Check out <a href="http://mail.gnome.org/archives/gnome-announce-list/2009-August/msg00031.html">the release announcement and full list of changes</a>.""", 'Gian Mario Tagliaretti')
+
 item("PyGTK 2.15.1 released", (2009, 5, 25),
      """PyGTK 2.15.1 is the second release in the 2.15.x series. It's unstable, so
      it should be used with caution. As usual, it's sources can be fetched
