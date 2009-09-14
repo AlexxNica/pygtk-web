@@ -26,6 +26,11 @@
   and information about them. It is intended to be used by botanic gardens,
   herbaria, arboreta...</dd>
 
+  <dt><a href="http://bbcalc.sourceforge.net/">BBCalc - Body Building
+  Calculators</a></dt>
+  <dd>BBCalc is a set of calculators related to body building and
+  fitness.</dd>
+
   <dt><a href="http://ceemedia.sourceforge.net/">CeeMedia</a></dt>
   <dd>CeeMedia is a Movie Catalog application which tries to be
   feature complete, as well as easy to use.
@@ -403,6 +408,9 @@
   <dd>TimPlayer is a home inspired audio player with a simple
   User Interface and the power of GStreamer.</dd>
 
+  <dt><a href="http://shakaran.es/blog/tivion/">Tivion</a></dt>
+  <dd>Tivion is a simple online TV player.</dd>
+
   <dt><a href="http://voxpak.sourceforge.net/">Voxpak</a></dt>
   <dd>A GUI for playing, recording, editing, renaming etc. voice and fax
   messages. Includes scripts for popping up sticky-notes or requesters
@@ -459,6 +467,10 @@
   <dt><a href="http://nekton.mine.nu/archives/category/projects/mum/">Mum</a></dt>
   <dd>This Program allows simple creation and upload of images galleries on web
   site. Mum is Free Software, released under the GNU GPL.</dd>
+
+  <dt><a href="http://pycasa.com.ar">Pycasa</a></dt>
+  <dd>Pycasa is a desktop application to manage (download and upload) Picasa
+  photo albums.</dd>
 
   <dt><a href="http://www.sk1project.org/modules.php?name=Products&product=pymfvu">
   Pymfvu</a></dt>
