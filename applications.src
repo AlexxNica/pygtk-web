@@ -1140,6 +1140,10 @@
   placed inside a dialog, along with supporting code that handles a lot of the
   mundane details inherent in most gui database apps.</dd>
 
+  <dt><a href="http://sourceforge.net/projects/pyblassreports/">PyBlassReports</a></dt>
+  <dd>A multiplatform framework for report creation, printing, export
+  (PDF, XLS and RTF) and preview of reports.</dd>
+
   <dt><a href="http://mooedit.sourceforge.net/hg/moo/?f=-1;file=moo/moopython/plugins/pyconsole.py">PyConsole</a></dt>
   <dd>PyConsole is a PyGTK widget that exposes a Python console using a
   TextView widget. It runs on all gtk-supported platforms and features
