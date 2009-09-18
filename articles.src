@@ -214,7 +214,7 @@
 
     <tr>
       <td>Nov 2003</td>
-      <td><a href="http://www.sicem.biz/personal/lgs/docs/gobject-python/gobject-tutorial.html">Sub-classing GObject in Python</a></td>
+      <td><a href="articles/subclassing-gobject/sub-classing-gobject-in-python.htm">Sub-classing GObject in Python</a></td>
       <td>Lorenzo G. Sanchez</td>
     </tr>
 

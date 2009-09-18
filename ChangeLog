@@ -1,3 +1,8 @@
+2009-09-18  Rafael Villar Burke  <pachi@rvburke.com>
+
+	* articles/subclassing-gobject/*: Add article
+	* articles.src: direct broken link to local copy
+
 2009-09-17  Rafael Villar Burke  <pachi@rvburke.com>
 
 	* applications.src: Add Pyblassreport

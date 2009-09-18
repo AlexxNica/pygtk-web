@@ -1,0 +1,1315 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+
+
+
+  <meta http-equiv="content-type" content="text/html; charset=us-ascii" />
+
+  <title>Sub-classing GObject in Python</title>
+  <meta name="generator" content="DocBook XSL Stylesheets V1.58.1" />
+</head><body>
+  <div class="article" xml:lang="en" lang="en">
+    <div class="titlepage">
+      <div>
+        <h1 class="title"><a id="d0e1" name="d0e1">Sub-classing GObject in
+        Python</a></h1>
+      </div>
+
+      <div>
+        <h3 class="subtitle"><a id="d0e1" name="d0e1"><i>Or how to create
+        custom properties and signals with PyGTK</i></a></h3>
+      </div>
+
+      <div>
+        <div class="authorgroup">
+          <div class="author">
+            <h3 class="author"><a id="d0e1" name="d0e1">Lorenzo Gil
+            Sanchez</a></h3>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="legalnotice">
+          <p><a id="d0e1" name="d0e1">This document is released under the
+          terms of the</a> <a href="http://www.gnu.org/copyleft/fdl.html" target="_top">FDL</a></p>
+        </div>
+      </div>
+
+      <div>
+        <div class="revhistory">
+          <table summary="Revision history" border="1" width="100%">
+            <tbody>
+              <tr>
+                <th colspan="2" align="left" valign="top"><b>Revision
+                History</b></th>
+              </tr>
+
+              <tr>
+                <td align="left">Revision 0.1.1</td>
+
+                <td align="left">29-10-2003</td>
+              </tr>
+
+              <tr>
+                <td colspan="2" align="left">
+                  <p>Added gobject.SIGNAL_ACTION for key bindings stuff</p>
+                </td>
+              </tr>
+
+              <tr>
+                <td align="left">Revision 0.1.0</td>
+
+                <td align="left">05-10-2003</td>
+              </tr>
+
+              <tr>
+                <td colspan="2" align="left">
+                  <div class="itemizedlist">
+                    <ul type="disc">
+                      <li>
+                        <p>Lots of typos fixed</p>
+                      </li>
+
+                      <li>
+                        <p>New section: 'Overriding the class closure'</p>
+                      </li>
+
+                      <li>
+                        <p>Lots of changes after the great review of Christian
+                        Reis</p>
+                      </li>
+                    </ul>
+                  </div>
+                </td>
+              </tr>
+
+              <tr>
+                <td align="left">Revision First Draft</td>
+
+                <td align="left">29-09-2003</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <hr />
+    </div>
+
+    <div class="toc">
+      <p><b>Table of Contents</b></p>
+
+      <dl>
+        <dt><a href="#d0e67">
+        Introduction</a></dt>
+
+        <dt><a href="#d0e93">
+        Advantages of subclassing GObject</a></dt>
+
+        <dt><a href="#d0e127">
+        Creating custom properties</a></dt>
+
+        <dt><a href="#d0e412">
+        Using the properties</a></dt>
+
+        <dt><a href="#d0e479">
+        Some warnings when using GObject properties in Python</a></dt>
+
+        <dd>
+          <dl>
+            <dt><a href="#d0e482">
+            Properties with long names</a></dt>
+
+            <dt><a href="#d0e530">
+            Subclassing other GObject derivates</a></dt>
+          </dl>
+        </dd>
+
+        <dt><a href="#d0e570">
+        Creating your own signals</a></dt>
+
+        <dt><a href="#d0e723">
+        Using your signals</a></dt>
+
+        <dt><a href="#d0e754">
+        Overriding the class closure</a></dt>
+
+        <dt><a href="#d0e821">
+        Bibliography</a></dt>
+      </dl>
+    </div>
+
+    <div class="abstract">
+      <p class="title"><b>Abstract</b></p>
+
+      <p>This document tries to explain the process of creating subclasses of
+      GObject, the base class of the GNOME framework, in Python.</p>
+    </div>
+
+    <div class="sect1" xml:lang="en" lang="en">
+      <div class="titlepage">
+        <div>
+          <h2 class="title" style="clear: both;"><a id="d0e67" name="d0e67">Introduction</a></h2>
+        </div>
+      </div>
+
+      <p><a href="http://www.gnome.org/" target="_top">GNOME</a> (GNU Network Object Model Environment) is a
+      project whose main goals are to create a complete, free and easy-to-use
+      desktop environment for users as well as a powerful application
+      development framework for software developers. As a result of this
+      second goal GNOME is based on a set of libraries which are very easy to
+      access from a large amount of programming languages.</p>
+
+      <p>The library most modules depend on is <a href="http://library.gnome.org/devel/glib/unstable/index.html" target="_top">GLib</a> which provides a lot of useful functionality
+      embedded and used in the GNOME framework; this document in particular
+      discussed the Object system defined in Glib that allow us to use Object
+      Orientation throughout the GNOME framework. The Glib library, as most of
+      the GNOME core libraries, is programmed in the C programming language,
+      which is not an Object Oriented language in the sense that it does not
+      contains the syntax and built-in types that are conventionally used when
+      programming in an Object Oriented way in other languages like C++, Java
+      or Python. But this does not mean that you can not program in an Object
+      Oriented way with C, it's only that you have to do some extra work. And
+      it's your lucky day, because GLib does most of this work for you.
+      <a href="http://library.gnome.org/devel/gobject/unstable/index.html" target="_top">GObject</a> is commonly known as the part of GLib that
+      provides the Object Oriented features that C lacks.</p>
+
+      <p>One of the nice things that GObject provides is a class mechanism
+      with the kind of things you are used to work within an Object Oriented
+      language like inheritance, polymorph-ism, interfaces and virtual
+      methods. But it also gives you a very powerful feature that allows you
+      to connect different objects in an asynchronous and independent way. Yes
+      I'm talking about signals. If all this is not enough for you, then let
+      me tell you that GObject also support introspection allowing some
+      programs (like GUI builders or debuggers) to know the properties of an
+      object.</p>
+
+      <p>But what if you are used to another programming language like Python
+      and you create GNOME applications using some of the GNOME bindings (like
+      <a href="http://www.pygtk.org/" target="_top">PyGTK</a>) but you still want to use some of those nice
+      features of GObject? Well, in that case, this article is for you.</p>
+    </div>
+
+    <div class="sect1" xml:lang="en" lang="en">
+      <div class="titlepage">
+        <div>
+          <h2 class="title" style="clear: both;"><a id="d0e93" name="d0e93">Advantages of subclassing GObject</a></h2>
+        </div>
+      </div>
+
+      <p><a id="d0e93" name="d0e93">You may wonder why not use Python's own
+      Object Oriented features to implement Object Oriented programs. And in
+      most of the situations you are probably right. But, as said before,
+      there are a few features of GObject, that are really useful when working
+      with the GNOME framework. These are:</a></p>
+
+      <div class="itemizedlist">
+        <ul type="disc">
+          <li>
+            <p><span class="emphasis"><a id="d0e93" name="d0e93"><em>Signals.</em></a></span> <a id="d0e93" name="d0e93">This is a mechanism to communicate your program with its
+            environment (the user input and the Window Manager actions). But
+            what is really useful is that you can use signals to communicate
+            between different parts of your programs in a very modular manner.
+            Have you ever heard of the Model View Controller philosophy? Well,
+            let me tell you that signals make this possible in a very simple
+            way. We will talk about this later.</a></p>
+          </li>
+
+          <li>
+            <p><span class="emphasis"><a id="d0e93" name="d0e93"><em>Property
+            change notifications.</em></a></span> <a id="d0e93" name="d0e93">As you can guess, having callbacks that listen for
+            property changes is a nice feature that can make your design a
+            little bit cleaner.</a></p>
+          </li>
+
+          <li>
+            <p><span class="emphasis"><a id="d0e93" name="d0e93"><em>Property
+            introspection.</em></a></span> <a id="d0e93" name="d0e93">Sure,
+            you can have the same thing with <b>dir(MyClass)</b> but what if
+            you just want to get the properties, not the methods?</a></p>
+          </li>
+
+          <li>
+            <p><span class="emphasis"><a id="d0e93" name="d0e93"><em>Type
+            checking.</em></a></span> <a id="d0e93" name="d0e93">If you have a
+            boolean property and you want to avoid things like
+            <b>self.my_boolean_prop = 'foo'</b>, the GObject property system
+            can help you.</a></p>
+          </li>
+        </ul>
+      </div>
+
+      <p><a id="d0e93" name="d0e93">One more good thing about GObject
+      subclassing is that you can always use the normal Python Object Oriented
+      features at the same time you use the GObject features and things will
+      just work smoothly.</a></p>
+    </div>
+
+    <div class="sect1" xml:lang="en" lang="en">
+      <div class="titlepage">
+        <div>
+          <h2 class="title" style="clear: both;"><a id="d0e127" name="d0e127">Creating custom properties</a></h2>
+        </div>
+      </div>
+
+      <p><a id="d0e127" name="d0e127">So let's get some action and create our
+      first example. We are going to create a Car class with a <span class="emphasis"><em>fuel</em></span> property that indicates the amount of
+      fuel that our car has. This is the</a> <a href="http://userpage.chemie.fu-berlin.de/%7Echrbecke/gobject-tutorial/car1.py" target="_top">code</a></p>
+
+      <table bgcolor="#d9eefc" border="0" width="100%">
+        <tbody>
+          <tr>
+            <td>
+              <pre class="programlisting">  1  import pygtk <a id="co-imports" name="co-imports"><img src="resources/1.png" alt="1" border="0" />
+  2  pygtk.require('2.0')
+  3  import gobject
+  4
+  5  class Car(gobject.GObject):
+  6      __gproperties__ = { </a><a id="co-gproperties-dictionary" name="co-gproperties-dictionary"><img src="resources/2.png" alt="2" border="0" />
+  7           'fuel' : (gobject.TYPE_FLOAT,                        # type
+  8                     'fuel of the car',                         # nick name
+  9                     'amount of fuel that remains in the tank', # description
+ 10                     0,                                         # minimum value
+ 11                     60,                                        # maximum value
+ 12                     50,                                        # default value
+ 13                     gobject.PARAM_READWRITE)                   # flags
+ 14      }
+ 15
+ 16      def __init__(self):
+ 17           gobject.GObject.__init__(self) </a><a id="co-gobject-init" name="co-gobject-init"><img src="resources/3.png" alt="3" border="0" />
+ 18           self.fuel = 50
+ 19
+ 20      def do_get_property(self, property): </a><a id="co-do-get-property" name="co-do-get-property"><img src="resources/4.png" alt="4" border="0" />
+ 21           if property.name == 'fuel':
+ 22               return self.fuel
+ 23           else:
+ 24               raise AttributeError, 'unknown property %s' % property.name
+ 25
+ 26      def do_set_property(self, property, value): </a><a id="co-do-set-property" name="co-do-set-property"><img src="resources/5.png" alt="5" border="0" />
+ 27           if property.name == 'fuel':
+ 28               self.fuel = value
+ 29           else:
+ 30               raise AttributeError, 'unknown property %s' % property.name
+ 31
+ 32  gobject.type_register(Car) </a><a id="co-type-register" name="co-type-register"><img src="resources/6.png" alt="6" border="0" /></a>
+</pre>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="calloutlist">
+        <table summary="Callout list" border="0">
+          <tbody>
+            <tr>
+              <td align="left" valign="top" width="5%"><a href="#co-imports">
+              <img src="resources/1.png" alt="1" border="0" /></a></td>
+
+              <td align="left" valign="top">
+                <p>These are the standard imports you need to use when using
+                PyGTK</p>
+              </td>
+            </tr>
+
+            <tr>
+              <td align="left" valign="top" width="5%"><a href="#co-gproperties-dictionary">
+              <img src="resources/2.png" alt="2" border="0" /></a></td>
+
+              <td align="left" valign="top">
+                <p>The <tt>__gproperties__</tt> dictionary is a class property
+                where you define the properties of your cars. In our example
+                we just have one property, the <tt>fuel</tt>. The format to
+                define a property is the following:</p>
+
+                <div class="itemizedlist">
+                  <ul type="disc">
+                    <li>
+                      <p>The key is the name of the property, in our case,
+                      <tt>fuel</tt>.</p>
+                    </li>
+
+                    <li>
+                      <p>The value is a tuple which describe the property. The
+                      number of elements of this tuple depends on its first
+                      element but the tuple will always contain at least the
+                      following items:</p>
+
+                      <div class="itemizedlist">
+                        <ul type="circle">
+                          <li>
+                            <p>The first element is the property's type. This
+                            is the list of the possible types:
+                            <tt>TYPE_BOOLEAN</tt>, <tt>TYPE_BOXED</tt>,
+                            <tt>TYPE_CHAR</tt>, <tt>TYPE_DOUBLE</tt>,
+                            <tt>TYPE_ENUM</tt>, <tt>TYPE_FLAGS</tt>,
+                            <tt>TYPE_FLOAT</tt>, <tt>TYPE_INT</tt>,
+                            <tt>TYPE_INT64</tt>, <tt>TYPE_INTERFACE</tt>,
+                            <tt>TYPE_INVALID</tt>, <tt>TYPE_LONG</tt>,
+                            <tt>TYPE_NONE</tt>, <tt>TYPE_OBJECT</tt>,
+                            <tt>TYPE_PARAM</tt>, <tt>TYPE_POINTER</tt>,
+                            <tt>TYPE_PYOBJECT</tt>, <tt>TYPE_STRING</tt>,
+                            <tt>TYPE_UCHAR</tt>, <tt>TYPE_UINT</tt>,
+                            <tt>TYPE_UINT64</tt>, <tt>TYPE_ULONG</tt>. If you
+                            don't find the type you are looking for, you
+                            probably want the <tt>TYPE_PYOBJECT</tt> type.</p>
+                          </li>
+
+                          <li>
+                            <p>The second element is the property's nick name,
+                            which is a string with a short description of the
+                            property. This is generally used by programs with
+                            strong introspection capabilities, like the
+                            graphical user interface builder <a href="http://glade.gnome.org/" target="_top">Glade</a>.</p>
+                          </li>
+
+                          <li>
+                            <p>The third one is the property's description or
+                            blurb, which is another string with a longer
+                            description of the property. Also used by <a href="http://glade.gnome.org/" target="_top">Glade</a> and similar programs.</p>
+                          </li>
+
+                          <li>
+                            <p>The last one (which is not necessarily the
+                            forth one as we will see later) is the property's
+                            flags, which is a bitwise or'ed combination of the
+                            following parameter flags:</p>
+
+                            <div class="itemizedlist">
+                              <ul type="disc">
+                                <li>
+                                  <p><tt>gobject.PARAM_CONSTRUCT</tt>: The
+                                  property will be set upon object
+                                  construction.</p>
+                                </li>
+
+                                <li>
+                                  <p><tt>gobject.PARAM_CONSTRUCT_ONLY</tt>:
+                                  The property will only be set upon object
+                                  construction.</p>
+                                </li>
+
+                                <li>
+                                  <p><tt>gobject.PARAM_LAX_VALIDATION</tt>:
+                                  Upon property conversion strict validation
+                                  is not required. In C if your property has
+                                  the <tt>TYPE_FLOAT</tt> type and you try to
+                                  set it with 10, GObject internally calls
+                                  g_param_value_convert() to get a float from
+                                  that constant unless this flag is used.</p>
+                                </li>
+
+                                <li>
+                                  <p><tt>gobject.PARAM_READABLE</tt>: The
+                                  property is readable.</p>
+                                </li>
+
+                                <li>
+                                  <p><tt>gobject.PARAM_WRITABLE</tt>: The
+                                  property is writable.</p>
+                                </li>
+
+                                <li>
+                                  <p><tt>gobject.PARAM_READWRITE</tt>: The
+                                  property is readable and writable. This is
+                                  the same as <tt>gobject.PARAM_READABLE |
+                                  gobject.PARAM_WRITABLE</tt></p>
+                                </li>
+                              </ul>
+                            </div>
+
+                            <p>Note that setting <tt>PARAM_CONSTRUCT*</tt>
+                            without <tt>PARAM_WRITABLE</tt> will fail.</p>
+
+                            <p>Actually, these flags are not working very well
+                            in PyGTK and I have run into some problems while
+                            working with them:</p>
+
+                            <div class="itemizedlist">
+                              <ul type="disc">
+                                <li>
+                                  <p>Setting the flag
+                                  <tt>gobject.PARAM_READABLE</tt> still let
+                                  you call the <tt>set_property()</tt> method
+                                  See the <a href="http://bugzilla.gnome.org/show_bug.cgi?id=121544" target="_top">bug number 121544.</a></p>
+                                </li>
+
+                                <li>
+                                  <p>The <tt>gobject.PARAM_CONSTRUCT</tt>
+                                  method does make GObject call your
+                                  <tt>do_set_property()</tt> method upon
+                                  object initialization but in a different
+                                  object instance!! See the <a href="http://bugzilla.gnome.org/show_bug.cgi?id=123891" target="_top">bug number 123891.</a></p>
+                                </li>
+                              </ul>
+                            </div>
+                          </li>
+                        </ul>
+                      </div>
+                    </li>
+
+                    <li>
+                      <p>The absolute length of the tuple depends on the
+                      property type (the first element of the tuple). Thus we
+                      have the following situations:</p>
+
+                      <div class="itemizedlist">
+                        <ul type="circle">
+                          <li>
+                            <p>If the type is <tt>TYPE_BOOLEAN</tt>,
+                            <tt>TYPE_ENUM</tt>, <tt>TYPE_FLAGS</tt> or
+                            <tt>TYPE_STRING</tt>, the forth element is the
+                            default value of the property.</p>
+                          </li>
+
+                          <li>
+                            <p>If the type is <tt>TYPE_*CHAR</tt>,
+                            <tt>TYPE_*INT*</tt>,<tt>TYPE_*LONG</tt>,
+                            <tt>TYPE_FLOAT</tt> or <tt>TYPE_DOUBLE</tt>, the
+                            forth element is the minimum accepted value, the
+                            fifth element is the maximum accepted value and
+                            the sixth element is the default value. This is
+                            the case of our example.</p>
+                          </li>
+
+                          <li>
+                            <p>If the type is <tt>TYPE_PARAM</tt>,
+                            <tt>TYPE_BOXED</tt>, <tt>TYPE_POINTER</tt> or
+                            <tt>TYPE_OBJECT</tt>, there are no additional
+                            elements.</p>
+                          </li>
+                        </ul>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </td>
+            </tr>
+
+            <tr>
+              <td align="left" valign="top" width="5%"><a href="#co-gobject-init">
+              <img src="resources/3.png" alt="3" border="0" /></a></td>
+
+              <td align="left" valign="top">
+                <p>Next thing you need to do is call the <tt>__init__</tt>
+                method of <tt>gobject.GObject</tt>. This call is used to
+                register your properties and signals. You also need to create
+                the appropriate Python instance members to hold your
+                properties. In this case we just need a <tt>fuel</tt> instance
+                variable.</p>
+              </td>
+            </tr>
+
+            <tr>
+              <td align="left" valign="top" width="5%"><a href="#co-do-get-property">
+              <img src="resources/4.png" alt="4" border="0" /></a></td>
+
+              <td align="left" valign="top">
+                <p>When using GObject properties you need to define a method
+                called <tt>do_get_property</tt> which will be called for you
+                each time somebody tries to access one of your properties. All
+                you need to do is return the appropriate property.</p>
+              </td>
+            </tr>
+
+            <tr>
+              <td align="left" valign="top" width="5%"><a href="#co-do-set-property">
+              <img src="resources/5.png" alt="5" border="0" /></a></td>
+
+              <td align="left" valign="top">
+                <p>You also need to define the <tt>do_set_property</tt>
+                method, that will be called when somebody tries to set one of
+                your property's value. GObject will make sure that the type of
+                the new value matches the type of your property and that the
+                value is in the appropriate range if this is needed (for char,
+                int, long, float and double types) before calling this
+                method.</p>
+              </td>
+            </tr>
+
+            <tr>
+              <td align="left" valign="top" width="5%"><a href="#co-type-register">
+              <img src="resources/6.png" alt="6" border="0" /></a></td>
+
+              <td align="left" valign="top">
+                <p>Last thing you have to do is a call to
+                <tt>gobject.type_register</tt> with your class as the
+                argument. This call registers your class as an official GType
+                and it is absolutely necessary. Some people say that this is
+                not a very elegant solution but so far that's the way to do
+                it. The main problem is that this is a class initialization
+                process and not an instance initialization issue. That's why
+                it can not be implemented in the __init__() method. Maybe
+                using Python metaclasses can solve this in a nice manner.</p>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="sect1" xml:lang="en" lang="en">
+      <div class="titlepage">
+        <div>
+          <h2 class="title" style="clear: both;"><a id="d0e412" name="d0e412">Using the properties</a></h2>
+        </div>
+      </div>
+
+      <p><a id="d0e412" name="d0e412">You can use your brand new custom
+      properties as with any other regular property like the ones you find
+      using GTK+ Widgets. For those of you that don't know what I'm talking
+      about, here is a small example:</a></p>
+
+      <table bgcolor="#d9eefc" border="0" width="100%">
+        <tbody>
+          <tr>
+            <td>
+              <pre class="programlisting">&gt;&gt;&gt; from car1 import Car
+&gt;&gt;&gt; aCar = Car()
+&gt;&gt;&gt; print "The car has %f of fuel at the beginning" % aCar.get_property('fuel')
+The car has 50.000000 of fuel at the beginning
+&gt;&gt;&gt; aCar.set_property('fuel', 20)
+&gt;&gt;&gt; print "Now the car has %f of fuel" % aCar.get_property('fuel')
+Now the car has 20.000000 of fuel
+</pre>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p><a id="d0e412" name="d0e412">What I think is really useful is
+      connecting a callback to the <span class="emphasis"><em>notify</em></span> signal of a property. In the next</a>
+      <a href="http://userpage.chemie.fu-berlin.de/%7Echrbecke/gobject-tutorial/car2.py" target="_top">example</a> we will create a function that will check if
+      we are running out of fuel using the notify mechanism of GObject:</p>
+
+      <table bgcolor="#d9eefc" border="0" width="100%">
+        <tbody>
+          <tr>
+            <td>
+              <pre class="programlisting">  1  import pygtk
+  2  pygtk.require('2.0')
+  3  import gobject
+  4
+  5  from car1 import Car
+  6
+  7  def myCallback(obj, property):
+  8      if property.name == 'fuel':
+  9          if obj.get_property('fuel') &lt; 10:
+ 10              print 'we are running out of fuel!!'
+ 11
+ 12  def test():
+ 13      aCar = Car()
+ 14      aCar.connect('notify', myCallback)
+ 15      aCar.set_property('fuel', 5.0)
+ 16
+ 17  if __name__ == '__main__':
+ 18      test()
+ 19
+</pre>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p>In this example, the <tt>myCallback</tt> function is called for
+      <span class="emphasis"><em>any</em></span> change in <span class="emphasis"><em>any</em></span> property of <tt>aCar</tt>. Suppose we
+      have 4 different properties in a <tt>Car</tt>, that's why we need the if
+      clause at the beginning of the callback.</p>
+
+      <p>Now we will <a href="http://userpage.chemie.fu-berlin.de/%7Echrbecke/gobject-tutorial/car4.py" target="_top">see in</a> another way of doing the same as in the
+      previous example but using a nice feature of GObject signal names:</p>
+
+      <table bgcolor="#d9eefc" border="0" width="100%">
+        <tbody>
+          <tr>
+            <td>
+              <pre class="programlisting">  1  import pygtk
+  2  pygtk.require('2.0')
+  3  import gobject
+  4
+  5  from car1 import Car
+  6
+  7  def myCallback(obj, property):
+  8      if obj.get_property('fuel') &lt; 10: <a id="one-less-if" name="one-less-if"><img src="resources/1.png" alt="1" border="0" />
+  9          print 'we are running out of fuel!!'
+ 10
+ 11  def test():
+ 12      aCar = Car()
+ 13      aCar.connect('notify::fuel', myCallback) </a><a id="notify" name="notify"><img src="resources/2.png" alt="2" border="0" />
+ 14      aCar.set_property('fuel', 5.0)
+ 15
+ 16  if __name__ == '__main__':
+ 17      test()</a>
+</pre>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="calloutlist">
+        <table summary="Callout list" border="0">
+          <tbody>
+            <tr>
+              <td align="left" valign="top" width="5%"><a href="#notify">
+              <img src="resources/2.png" alt="2" border="0" /></a></td>
+
+              <td align="left" valign="top">
+                <p>Here we are connecting <tt>myCallback</tt> to the notify
+                signal of the object <tt>aCar</tt> but <span class="emphasis"><em>only</em></span> when the property changed is
+                <tt>fuel</tt>.</p>
+              </td>
+            </tr>
+
+            <tr>
+              <td align="left" valign="top" width="5%"><a href="#one-less-if">
+              <img src="resources/1.png" alt="1" border="0" /></a></td>
+
+              <td align="left" valign="top">
+                <p>That's why we don't need to check if the property changed
+                is the <tt>fuel</tt> property.</p>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="sect1" xml:lang="en" lang="en">
+      <div class="titlepage">
+        <div>
+          <h2 class="title" style="clear: both;"><a id="d0e479" name="d0e479">Some warnings when using GObject properties in
+          Python</a></h2>
+        </div>
+      </div>
+
+      <div class="sect2" xml:lang="en" lang="en">
+        <div class="titlepage">
+          <div>
+            <h3 class="title"><a id="d0e482" name="d0e482">Properties with
+            long names</a></h3>
+          </div>
+        </div>
+
+        <p><a id="d0e482" name="d0e482">When naming a property with more than
+        one word you have to be careful with the character used to separate
+        the words. GObject translates all the underscore characters to hyphen
+        characters so if you have a property called <tt>background_color</tt>,
+        its internal and valid name will be <tt>background-color</tt>. The
+        places where you have to be careful about this are the
+        <tt>do_get_property()</tt> and <tt>do_set_property()</tt> methods and
+        the signal connection calls. Let's see an</a> <a href="http://userpage.chemie.fu-berlin.de/%7Echrbecke/gobject-tutorial/long-names.py" target="_top">example:</a></p>
+
+        <table bgcolor="#d9eefc" border="0" width="100%">
+          <tbody>
+            <tr>
+              <td>
+                <pre class="programlisting">  1  import pygtk
+  2  pygtk.require('2.0')
+  3  import gobject
+  4
+  5  class Style(gobject.GObject):
+  6      __gproperties__ = { <a id="gproperties-long-names" name="gproperties-long-names"><img src="resources/1.png" alt="1" border="0" />
+  7          'foreground_color' : (gobject.TYPE_STRING, 'foreground color',
+  8                    'string that represents the foreground color',
+  9                    'black', gobject.PARAM_READWRITE),
+ 10          'background_color' : (gobject.TYPE_STRING, 'background color',
+ 11                    'string that represents the background color',
+ 12                    'white', gobject.PARAM_READWRITE),
+ 13          }
+ 14
+ 15      def __init__(self):
+ 16          gobject.GObject.__init__(self)
+ 17          self.foreground_color = 'black' </a><a id="python-long-names" name="python-long-names"><img src="resources/2.png" alt="2" border="0" />
+ 18          self.background_color = 'white'
+ 19
+ 20      def do_get_property(self, property):
+ 21          if property.name == 'foreground-color': </a><a id="gobject-real-names" name="gobject-real-names"><img src="resources/3.png" alt="3" border="0" />
+ 22              return self.foreground_color
+ 23          elif property.name == 'background-color':
+ 24              return self.background_color
+ 25          else:
+ 26              raise AttributeError, 'unknown property %s' % property.name
+ 27
+ 28      def do_set_property(self, property, value):
+ 29          if property.name == 'foreground-color':
+ 30              self.foreground_color = value
+ 31          elif property.name == 'background-color':
+ 32              self.background_color = value
+ 33          else:
+ 34              raise AttributeError, 'unknown property %s' % property.name
+ 35
+ 36  gobject.type_register(Style)</a>
+</pre>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="calloutlist">
+          <table summary="Callout list" border="0">
+            <tbody>
+              <tr>
+                <td align="left" valign="top" width="5%"><a href="#gproperties-long-names">
+                <img src="resources/1.png" alt="1" border="0" /></a></td>
+
+                <td align="left" valign="top">
+                  <p>See how we name our properties: we use underscores to
+                  separate the words.</p>
+                </td>
+              </tr>
+
+              <tr>
+                <td align="left" valign="top" width="5%"><a href="#python-long-names">
+                <img src="resources/2.png" alt="2" border="0" /></a></td>
+
+                <td align="left" valign="top">
+                  <p>Note that in Python <tt>foreground-color</tt> is not a
+                  valid name so we have to use <tt>foreground_color</tt>.</p>
+                </td>
+              </tr>
+
+              <tr>
+                <td align="left" valign="top" width="5%"><a href="#gobject-real-names">
+                <img src="resources/3.png" alt="3" border="0" /></a></td>
+
+                <td align="left" valign="top">
+                  <p>Here we see how GObject has transformed our names to its
+                  internal names, which use hyphens instead of
+                  underscores.</p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p>Note that you can use long names like <tt>backgroundColor</tt>
+        (this means capitalizing the first letter of every word but the first
+        one) to avoid this problem.</p>
+      </div>
+
+      <div class="sect2" xml:lang="en" lang="en">
+        <div class="titlepage">
+          <div>
+            <h3 class="title"><a id="d0e530" name="d0e530">Subclassing other
+            GObject derivates</a></h3>
+          </div>
+        </div>
+
+        <p><a id="d0e530" name="d0e530">One very common thing you probably
+        want to do when using GTK+ is subclassing a widget (or any other
+        GObject subclass) and you should know one issue about this: If you
+        define custom properties or signals in your new class you can't call
+        the superclass <tt>__init__</tt> method in your <tt>__init__</tt>
+        method or it will overwrite your property definitions. You should call
+        the <tt>__gobject_init__</tt> method instead.</a></p>
+
+        <p><a id="d0e530" name="d0e530">This leads us to the next question:
+        <span class="emphasis"><em>what if I really need to call the
+        superclass's <tt>__init__</tt> method?</em></span> Well, then there is
+        a design bug either in your class, or in GTK+. Recently I created a
+        subclass of <tt>gtk.ListStore</tt> to make my custom
+        <tt>gtk.TreeView</tt> model. In C you can create an empty
+        <tt>GtkListStore</tt> and then you can add some columns to it with
+        another function call. But in Python there is no wrapper for this
+        function so you need to set the column types in the constructor for
+        <tt>gtk.ListStore</tt>. This means you can't define custom properties
+        in your own subclasses of <tt>gtk.ListStore</tt>. Don't worry about
+        this, there is already a</a> <a href="http://bugzilla.gnome.org/show_bug.cgi?id=123037" target="_top">bug report</a> in the PyGTK bugzilla and usually their
+        maintainers fix the bugs pretty fast.</p>
+      </div>
+    </div>
+
+    <div class="sect1" xml:lang="en" lang="en">
+      <div class="titlepage">
+        <div>
+          <h2 class="title" style="clear: both;"><a id="d0e570" name="d0e570">Creating your own signals</a></h2>
+        </div>
+      </div>
+
+      <p><a id="d0e570" name="d0e570">The other thing you probably want to use
+      when subclassing GObject is define custom <span class="emphasis"><em>signals</em></span>. You can create your own signals that
+      can be emitted so users of your class can connect to them.</a></p>
+
+      <p><a id="d0e570" name="d0e570">When a signal is emitted a set of
+      <span class="emphasis"><em>closures</em></span> will be executed. A
+      closure is an abstraction of the callback concept. A closure is the
+      callback itself (a function pointer), the user data (it will be the last
+      parameter to the callback) and another function for cleanup issues,
+      which will not be discussed in this document.</a></p>
+
+      <p><a id="d0e570" name="d0e570">For the sake of this article you don't
+      really need to know the difference between a callback and a closure so
+      both terms will be used. But be advised that this is not totally
+      correct.</a></p>
+
+      <p><a id="d0e570" name="d0e570">As we said before, when a signal is
+      emitted, a set of closures will be executed. One of them is the same one
+      for all the instances of this class and hence its name: the <span class="emphasis"><em>class closure</em></span>, and the other ones are custom
+      user callbacks. Note that not all the signals need to have a class
+      closure because it is optional.</a></p>
+
+      <p><a id="d0e570" name="d0e570">The GObject signal system is a very
+      flexible (and complex) one so you can change the order in which your
+      callback is executed very easily. Let's see the states in which a signal
+      goes so you can understand what you can do:</a></p>
+
+      <div class="orderedlist">
+        <ol type="1">
+          <li>
+            <p><span class="emphasis"><a id="d0e570" name="d0e570"><em>RUN_FIRST</em></a></span><a id="d0e570" name="d0e570">. If there is a class closure for this signal and it was
+            created with the <tt>SIGNAL_RUN_FIRST</tt> flag it is executed
+            now.</a></p>
+          </li>
+
+          <li>
+            <p><span class="emphasis"><a id="d0e570" name="d0e570"><em>HANDLER_RUN_FIRST</em></a></span><a id="d0e570" name="d0e570">. All the non blocked closures connected with the
+            <tt>GObject.connect</tt> family of functions are executed
+            now.</a></p>
+          </li>
+
+          <li>
+            <p><span class="emphasis"><a id="d0e570" name="d0e570"><em>RUN_LAST</em></a></span><a id="d0e570" name="d0e570">. If there is a class closure for this signal and it was
+            created with the <tt>SIGNAL_RUN_LAST</tt> flag it is executed
+            now.</a></p>
+          </li>
+
+          <li>
+            <p><span class="emphasis"><a id="d0e570" name="d0e570"><em>HANDLER_RUN_LAST</em></a></span><a id="d0e570" name="d0e570">. All the non blocked closures connected with the
+            <tt>GObject.connect_after</tt> family of functions are executed
+            now.</a></p>
+          </li>
+        </ol>
+      </div>
+
+      <p><a id="d0e570" name="d0e570">There are other states like
+      EMISSION_HOOK and RUN_CLEANUP which you can't use from Python so they
+      won't be explained here.</a></p>
+
+      <p><a id="d0e570" name="d0e570">I think this is enough theory for now so
+      let's jump into some real</a> <a href="http://userpage.chemie.fu-berlin.de/%7Echrbecke/gobject-tutorial/car4.py" target="_top">code</a>. We can use the signal concept to improve our car
+      class. We can have an <tt>engine-started</tt> signal that will be
+      emitted when the car's engine is started so other parts of the car can
+      connect to this signal and do something useful.</p>
+
+      <table bgcolor="#d9eefc" border="0" width="100%">
+        <tbody>
+          <tr>
+            <td>
+              <pre class="programlisting">  1  import pygtk
+  2  pygtk.require('2.0')
+  3  import gobject
+  4
+  5  class Car(gobject.GObject):
+  6      __gproperties__ = {
+  7          'fuel' : (gobject.TYPE_FLOAT, 'fuel of the car',
+  8                    'amount of fuel that remains in the tank',
+  9                    0, 60, 50, gobject.PARAM_READWRITE)
+ 10          }
+ 11
+ 12      __gsignals__ = { <a id="gsignal-dictionary" name="gsignal-dictionary"><img src="resources/1.png" alt="1" border="0" />
+ 13          'engine-started' : (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE,
+ 14                              (gobject.TYPE_FLOAT,))
+ 15          }
+ 16
+ 17      def __init__(self):
+ 18          gobject.GObject.__init__(self)
+ 19          self.fuel = 50
+ 20
+ 21      def do_get_property(self, property):
+ 22          if property.name == 'fuel':
+ 23              return self.fuel
+ 24          else:
+ 25              raise AttributeError, 'unknown property %s' % property.name
+ 26
+ 27      def do_set_property(self, property, value):
+ 28          if property.name == 'fuel':
+ 29              self.fuel = value
+ 30          else:
+ 31              raise AttributeError, 'unknown property %s' % property.name
+ 32
+ 33      def do_engine_started(self, remaining_fuel): </a><a id="class-closure" name="class-closure"><img src="resources/2.png" alt="2" border="0" />
+ 34          print 'The engine is ready and we have still %f of fuel' % self.fuel
+ 35
+ 36      def start(self): </a><a id="sample-emit" name="sample-emit"><img src="resources/3.png" alt="3" border="0" />
+ 37          self.emit('engine-started', self.get_property('fuel'))
+ 38
+ 39  gobject.type_register(Car)</a>
+</pre>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="calloutlist">
+        <table summary="Callout list" border="0">
+          <tbody>
+            <tr>
+              <td align="left" valign="top" width="5%"><a href="#gsignal-dictionary">
+              <img src="resources/1.png" alt="1" border="0" /></a></td>
+
+              <td align="left" valign="top">
+                <p>The <tt>__gsignals__</tt> dictionary is a class property
+                where you define the signals of your car. In our example we
+                just have one signal, the <tt>engine-started</tt>. The format
+                to define a signal is the following:</p>
+
+                <div class="itemizedlist">
+                  <ul type="disc">
+                    <li>
+                      <p>The key is the name of the signal, in our case,
+                      <tt>engine-started</tt></p>
+                    </li>
+
+                    <li>
+                      <p>The value is a tuple which describes the signal and
+                      has the following elements:</p>
+
+                      <div class="itemizedlist">
+                        <ul type="circle">
+                          <li>
+                            <p>The first one is the signal's flags, which
+                            defines when the class closure of this signal will
+                            be invoked. It can have the following values:</p>
+
+                            <div class="itemizedlist">
+                              <ul type="disc">
+                                <li>
+                                  <p><tt>gobject.SIGNAL_RUN_FIRST</tt></p>
+                                </li>
+
+                                <li>
+                                  <p><tt>gobject.SIGNAL_RUN_LAST</tt></p>
+                                </li>
+                              </ul>
+                            </div>
+
+                            <p>See the signal's states above to understand
+                            these constants. Note that no matter there are
+                            four different signal states you can only set two
+                            different flags here since these are the only
+                            states that affect the <span class="emphasis"><em>class closure</em></span>, which is
+                            what we are defining here. The other two states
+                            are meaningful when working with user defined
+                            callbacks</p>
+
+                            <p>Note that usually
+                            <tt>gobject.SIGNAL_RUN_LAST</tt> is more flexible
+                            since it allows the users of your class to connect
+                            callbacks that will be executed before or after
+                            the class closure is executed. If you use
+                            <tt>gobject.SIGNAL_RUN_FIRST</tt> your users will
+                            only be able to connect callbacks that will be
+                            executed after the class closure is executed.</p>
+
+                            <p>There is another flag called
+                            <tt>gobject.SIGNAL_ACTION</tt> which is useful is
+                            you are trying to use key bindings with your
+                            signal. For example if you want that everytime the
+                            user press a key your signal is emitted, you need
+                            to add this flag to the signal definition.</p>
+                          </li>
+
+                          <li>
+                            <p>The second one is the type of the return value
+                            of the signal. In our case it's
+                            <tt>gobject.TYPE_NONE</tt> since the signal does
+                            return nothing.</p>
+                          </li>
+
+                          <li>
+                            <p>The third and last one is a tuple which
+                            indicates the type of each parameter of the
+                            signal. In our case we have a single parameter for
+                            the signal which is of type float. As you can
+                            guess, our signal will have the fuel property as
+                            the first parameter.</p>
+                          </li>
+                        </ul>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </td>
+            </tr>
+
+            <tr>
+              <td align="left" valign="top" width="5%"><a href="#class-closure">
+              <img src="resources/2.png" alt="2" border="0" /></a></td>
+
+              <td align="left" valign="top">
+                <p>This method is optional but if it exists it will be
+                executed when the class closure for our signal is executed. It
+                will be invoked each time the <tt>engine-started</tt> signal
+                is emitted and in the order we defined with the
+                <tt>gobject.SIGNAL_RUN_LAST</tt> parameter. The name of this
+                method starts with <span class="emphasis"><em>do_</em></span>
+                and then the name of the signal, with hyphens (which are
+                illegal in Python functions) converted to underscore
+                characters</p>
+              </td>
+            </tr>
+
+            <tr>
+              <td align="left" valign="top" width="5%"><a href="#sample-emit">
+              <img src="resources/3.png" alt="3" border="0" /></a></td>
+
+              <td align="left" valign="top">
+                <p>Here we provide a custom method to start the engine. It
+                emits the signal <tt>engine-started</tt> with the
+                <tt>fuel</tt> property as its only parameter</p>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="sect1" xml:lang="en" lang="en">
+      <div class="titlepage">
+        <div>
+          <h2 class="title" style="clear: both;"><a id="d0e723" name="d0e723">Using your signals</a></h2>
+        </div>
+      </div>
+
+      <p><a id="d0e723" name="d0e723">Now that we have our own signal we can
+      connect callbacks to it to make it a little bit more</a> <a href="http://userpage.chemie.fu-berlin.de/%7Echrbecke/gobject-tutorial/car5.py" target="_top">useful:</a></p>
+
+      <table bgcolor="#d9eefc" border="0" width="100%">
+        <tbody>
+          <tr>
+            <td>
+              <pre class="programlisting">  1  import pygtk
+  2  pygtk.require('2.0')
+  3  import gobject
+  4
+  5  from car4 import Car
+  6
+  7  def myCallback(obj, remaining_fuel, data=None): <a id="regular-callback" name="regular-callback"><img src="resources/1.png" alt="1" border="0" />
+  8      print '***** Beginning of User callback *****'
+  9      print 'The engine is starting and we still have %f of fuel' % remaining_fuel
+ 10      print '***** End of User callback *****'
+ 11
+ 12  def lastCallback(obj, remaining_fuel, data=None): </a><a id="last-callback" name="last-callback"><img src="resources/2.png" alt="2" border="0" />
+ 13      print '***** Callback connected with connect_after *****'
+ 14      obj.set_property('fuel', remaining_fuel - 10)
+ 15      print 'Now we have %f of fuel' % obj.get_property('fuel')
+ 16      print '***** End of this callback *****'
+ 17
+ 18  def test():
+ 19      aCar = Car()
+ 20      aCar.connect('engine-started', myCallback) </a><a id="callback-connection" name="callback-connection"><img src="resources/3.png" alt="3" border="0" />
+ 21      aCar.connect_after('engine-started', lastCallback)
+ 22
+ 23      aCar.start()
+ 24
+ 25  if __name__ == '__main__':
+ 26      test()</a>
+</pre>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="calloutlist">
+        <table summary="Callout list" border="0">
+          <tbody>
+            <tr>
+              <td align="left" valign="top" width="5%"><a href="#regular-callback">
+              <img src="resources/1.png" alt="1" border="0" /></a></td>
+
+              <td align="left" valign="top">
+                <p>This first callback will be invoked before the class
+                closure because our signal was created with the
+                <tt>RUN_LAST</tt> flag.</p>
+              </td>
+            </tr>
+
+            <tr>
+              <td align="left" valign="top" width="5%"><a href="#last-callback">
+              <img src="resources/2.png" alt="2" border="0" /></a></td>
+
+              <td align="left" valign="top">
+                <p>This callback will be invoked after the class closure
+                because it will be connected with the <tt>connect_after</tt>
+                method.</p>
+              </td>
+            </tr>
+
+            <tr>
+              <td align="left" valign="top" width="5%"><a href="#callback-connection">
+              <img src="resources/3.png" alt="3" border="0" /></a></td>
+
+              <td align="left" valign="top">
+                <p>These are the methods that we use to connect our callbacks
+                to the signal.</p>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="sect1" xml:lang="en" lang="en">
+      <div class="titlepage">
+        <div>
+          <h2 class="title" style="clear: both;"><a id="d0e754" name="d0e754">Overriding the class closure</a></h2>
+        </div>
+      </div>
+
+      <p><a id="d0e754" name="d0e754">Now that you know what the class closure
+      is, you may want to override it. Suppose you want to subclass the
+      <tt>Car</tt> class with a <tt>LuxuryCar</tt> class and you want to do
+      something more when the engine is started. In this particular case when
+      you subclass a Python class with another Python class there is nothing
+      special with this. Let's see an</a> <a href="http://userpage.chemie.fu-berlin.de/%7Echrbecke/gobject-tutorial/luxurycar.py" target="_top">example:</a></p>
+
+      <table bgcolor="#d9eefc" border="0" width="100%">
+        <tbody>
+          <tr>
+            <td>
+              <pre class="programlisting">  1  import pygtk
+  2  pygtk.require('2.0')
+  3  import gobject
+  4
+  5  from car4 import Car
+  6
+  7  class LuxuryCar(Car):
+  8      def do_engine_started(self, remaining_fuel):
+  9          Car.do_engine_started(self, remaining_fuel)
+ 10          print 'Welcome to the Luxury Car'
+ 11
+ 12
+ 13  if __name__ == '__main__':
+ 14      luxuryCar = LuxuryCar()
+ 15      luxuryCar.start()
+</pre>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p>Note that since you are not defining new properties or signals you
+      don't have to call <tt>gobject.type_register(LuxuryCar)</tt></p>
+
+      <p>But, what if you want to override the class closure of a GTK+ Widget?
+      The GTK+ library is written in C and most of the functions that
+      implement the class closure for the signals of the widgets are not
+      public. This among other consequences means that they are not accessible
+      to the PyGTK bindings.</p>
+
+      <p>Now suppose you want to create a special kind of <tt>gtk.Entry</tt>
+      that will not allow the user to paste anything into it. In the regular
+      <tt>gtk.Entry</tt> the class closure of the 'paste_clipboard' signal has
+      the function that handles the paste behavior. So our class need to
+      override this class closure. <a href="http://userpage.chemie.fu-berlin.de/%7Echrbecke/gobject-tutorial/evilentry.py" target="_top">This</a> is the code you need to write:</p>
+
+      <table bgcolor="#d9eefc" border="0" width="100%">
+        <tbody>
+          <tr>
+            <td>
+              <pre class="programlisting">  1  import pygtk
+  2  pygtk.require('2.0')
+  3  import gtk
+  4  import gobject
+  5
+  6  class EvilEntry(gtk.Entry):
+  7      __gsignals__ = {
+  8          'paste_clipboard' : 'override' <a id="signal-override" name="signal-override"><img src="resources/1.png" alt="1" border="0" />
+  9          }
+ 10
+ 11      def __init__(self):
+ 12          gobject.GObject.__init__(self)
+ 13
+ 14      def do_paste_clipboard(self): </a><a id="new-class-closure" name="new-class-closure"><img src="resources/2.png" alt="2" border="0" />
+ 15          print "You tried to paste something but you can't!! muHAHAHA"
+ 16
+ 17  gobject.type_register(EvilEntry)
+ 18
+ 19  if __name__ == '__main__':
+ 20      win = gtk.Window()
+ 21      win.connect('destroy', lambda e: gtk.main_quit())
+ 22
+ 23      entry = EvilEntry()
+ 24      entry.show()
+ 25      win.add(entry)
+ 26      win.show()
+ 27
+ 28      gtk.main()</a>
+</pre>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="calloutlist">
+        <table summary="Callout list" border="0">
+          <tbody>
+            <tr>
+              <td align="left" valign="top" width="5%"><a href="#signal-override">
+              <img src="resources/1.png" alt="1" border="0" /></a></td>
+
+              <td align="left" valign="top">
+                <p>This time the value of this signal entry is the string
+                <span class="emphasis"><em>override</em></span>. This means we
+                are going to override the class closure of the
+                'paste_clipboard' signal</p>
+              </td>
+            </tr>
+
+            <tr>
+              <td align="left" valign="top" width="5%"><a href="#new-class-closure">
+              <img src="resources/2.png" alt="2" border="0" /></a></td>
+
+              <td align="left" valign="top">
+                <p>This will be the method that will be executed by the new
+                class closure. Its name is composed by do_ plus the signal
+                name.</p>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>Note that in this particular case you could have done the same thing
+      in another way: connect a callback to the 'paste_clipboard' signal and
+      call stop_emit_by_name in this callback. But you can do it only because
+      the 'paste_clipboard' signal is defined as a <tt>RUN_LAST</tt> signal
+      allowing the user callback code to be executed <span class="emphasis"><em>before</em></span> the class closure. What if the signal
+      is defined as <tt>RUN_FIRST</tt>? Then, there is no way to modify the
+      default behavior unless you override the class closure.</p>
+
+      <p>I know it's hard to find a good use of overriding the class closure
+      but you can find several ones of it looking in the <a href="http://diacanvas.sourceforge.net/" target="_top">DiaCanvas</a> library. This library is build in top of
+      GnomeCanvas and it's very useful if you want to draw diagrams. There is
+      a class called <tt>PlacementTool</tt> which is used when the user clicks
+      on the canvas and he/she is creating new items. You can override the
+      class closure of the 'button-press' and 'button-release' signals if you
+      want to do special things when creating items (as I needed to do some
+      time ago :)</p>
+    </div>
+
+    <div class="bibliography">
+      <div class="titlepage">
+        <div>
+          <h2 class="title"><a id="d0e821" name="d0e821">Bibliography</a></h2>
+        </div>
+      </div>
+
+      <div class="biblioentry">
+        <p><span class="author"><a id="d0e821" name="d0e821">Mathieu
+        Lacage.</a></span> <span class="title"><a id="d0e821" name="d0e821"></a><i><a href="http://www.le-hacker.org/papers/gobject/index.html" target="_top">The Glib Object system v0.8.0</a></i>.</span> (FIXME: dead link 2009-09-17)</p>
+      </div>
+
+      <div class="biblioentry">
+        <p><span class="author">Jan Weil.</span> <span class="title"><i><a href="http://www.daa.com.au/pipermail/pygtk/2003-August/005609.html" target="_top">PyGTK GObject Properties Mini HOWTO</a></i>.</span></p>
+      </div>
+
+      <div class="biblioentry">
+        <p><span class="author">The GTK+ guys.</span> <span class="title"><i><a href="http://library.gnome.org/devel/gobject/unstable/index.html" target="_top">GObject Reference Manual</a></i>.</span></p>
+      </div>
+
+      <div class="biblioentry">
+        <p><span class="author">James M. Cape.</span> <span class="title"><i><a href="http://ignore-your.tv/software/libgtcpsocket/docs/index.html" target="_top">GTcpSocket Library Manual</a></i>.</span> (FIXME: dead link 2009-09-17)</p>
+      </div>
+    </div>
+  </div>
+</body></html>
