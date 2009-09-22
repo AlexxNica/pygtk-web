@@ -1140,7 +1140,7 @@
   placed inside a dialog, along with supporting code that handles a lot of the
   mundane details inherent in most gui database apps.</dd>
 
-  <dt><a href="http://sourceforge.net/projects/pyblassreports/">PyBlassReports</a></dt>
+  <dt><a href="http://alexblass.xhost.ro/mysite/index.php">PyBlassReports</a></dt>
   <dd>A multiplatform framework for report creation, printing, export
   (PDF, XLS and RTF) and preview of reports.</dd>
 
