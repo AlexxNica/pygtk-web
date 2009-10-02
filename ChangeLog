@@ -1,3 +1,7 @@
+2009-10-02  Rafael Villar Burke  <pachi@rvburke.com>
+
+	* applications.src: Update Pyblassreport URL. Add ASCEND.
+
 2009-09-24  Gian Mario Tagliaretti  <gianmt@gnome.org>
 
 	* newsitems.py: Advertise 2.20.0 release of pygobject and

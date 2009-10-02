@@ -688,6 +688,10 @@
 
 <dl>
 
+  <dt><a href="http://ascend.cheme.cmu.edu/">ASCEND</a></dt>
+  <dd>ASCEND is a flexible modelling environment for solving hard engineering
+  and science problems.</dd>
+
   <dt><a href="http://gnofract4d.sourceforge.net/">GnoFract4D</a></dt>
   <dd>Gnofract 4D is a program which allows you to create beautiful
   mathematically-based images called fractals. Take a look at the Gallery
@@ -1140,7 +1144,7 @@
   placed inside a dialog, along with supporting code that handles a lot of the
   mundane details inherent in most gui database apps.</dd>
 
-  <dt><a href="http://alexblass.xhost.ro/mysite/index.php">PyBlassReports</a></dt>
+  <dt><a href="http://pyblassreports.sourceforge.net//index.php">PyBlassReports</a></dt>
   <dd>A multiplatform framework for report creation, printing, export
   (PDF, XLS and RTF) and preview of reports.</dd>
 
