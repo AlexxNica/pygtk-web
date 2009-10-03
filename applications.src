@@ -538,6 +538,11 @@
   <dd>PySudoku is a text and graphical program to create or resolve sudokus.
   It can also print and write sudoku images.</dd>
 
+  <dt><a href="http://www.johncheetham.com/projects/samuel/">Samuel</a></dt>
+  <dd>Samuel is an open source Draughts Game for Linux. It features various
+  levels of play, editable board position, standard PDN or FEN format support
+  or game review.</dd>
+
   <dt><a href="http://www.nongnu.org/tennacles/">Tennacles</a></dt>
   <dd>Tennacles is a tool which will aid artists and designers in the
   creation of adventure games through a visual integrated development
