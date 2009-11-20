@@ -423,6 +423,14 @@
 
 <dl>
 
+  <dt><a href="http://www.pietrobattiston.it/gallery_uploader/">
+  Gallery Uploader</a></dt>
+  <dd>Gallery-uploader is a simple tool to upload images to remote
+  installations of Gallery, a software for creating and managing web photo
+  repositories. gallery-uploader can be invoked as a script (it performs
+  perfectly in the role of a Nautilus script) or as a standalone program,
+  and can manage perfectly more than one Gallery account.</dd>
+
   <dt><a href="http://www.logarithmic.net/pfh/ghost-diagrams">
   Ghost Diagrams</a></dt>
   <dd>Ghost Diagrams is a program that takes sets of tiles and tries to
@@ -726,6 +734,14 @@
   <dt><a href="http://www.minipop.org/index.php?file=gresistor">GResistor</a></dt>
   <dd>gResistror is a helper program to translate resistor color codes
   into readable values.</dd>
+
+  <dt><a href="http://www.pietrobattiston.it/gvb/">Gvb - Good ViBrations</a></dt>
+  <dd>Good ViBrations is an app that provides a nice and easy interface to
+  simulate simple 1 and 2-dimensional vibrations. It provides some
+  different methods to calculate and draw the animations, as well as the
+  ability to configure the starting position of the string/membrane.
+  Frames can also be dumped to image files in order to create videos out
+  of them into readable values.</dd>
 
   <dt><a href="http://lybniz2.sourceforge.net/">Lybniz</a></dt>
   <dd>Lybniz is an easy to use mathematical function graph plotter.</dd>
@@ -1114,6 +1130,11 @@
   applications. AVC, the Application View Controller, transparently
   connects between the values displayed and entered in GUI widgets and
   variables in your application.</dd>
+
+  <dt><a href="http://www.florian-diesch.de/software/easygconf/">
+  easygconf</a></dt>
+  <dd>easygconf is a Python module that provides an easy, pythonic way
+  to access GConf through a dict-like interface.</dd>
 
   <dt><a href="http://gaphor.devjavu.com/wiki/Subprojects/Gaphas">Gaphas</a></dt>
   <dd>Gaphas is a diagram widget for PyGTK. It uses cairo for rendering
