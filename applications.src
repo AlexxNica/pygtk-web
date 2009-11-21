@@ -740,8 +740,7 @@
   simulate simple 1 and 2-dimensional vibrations. It provides some
   different methods to calculate and draw the animations, as well as the
   ability to configure the starting position of the string/membrane.
-  Frames can also be dumped to image files in order to create videos out
-  of them into readable values.</dd>
+  Frames can also be dumped to image files in order to create videos.</dd>
 
   <dt><a href="http://lybniz2.sourceforge.net/">Lybniz</a></dt>
   <dd>Lybniz is an easy to use mathematical function graph plotter.</dd>
