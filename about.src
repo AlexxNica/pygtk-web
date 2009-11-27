@@ -16,7 +16,7 @@ GTK+ is a powerful toolkit suited<br />
 for the most complex interfaces</p>
 </div>
 <p>
-PyGTK uses the <a href="http://gtk.org/">GTK+ toolkit</a> to offer a
+PyGTK uses the <a href="http://www.gtk.org/">GTK+ toolkit</a> to offer a
 <b>comprehensive set of graphical elements</b> and other useful programming
 facilities, like the handling of <b>internationalized text</b> (bidirectional
 text or non-latin gliph sets), first class accesibility support through
@@ -87,7 +87,7 @@ proprietary applications.
 including code, documentation and user support (listed alphabetically):</p>
 
 <dl>
-  <dt><a href="http://www.pcpm.ucl.ac.be/~gustin/win32_ports/">Cedric Gustin</a>
+  <dt>Cedric Gustin
   </dt>
   <dd>Maintains the win32 port of PyGTK</dd>
 
@@ -103,7 +103,7 @@ including code, documentation and user support (listed alphabetically):</p>
   helped in a lot of different things of PyGTK like bug hunting and
   fixing.</dd>
 
-  <dt><a href="http://www.daa.com.au/~james/">James Henstridge</a></dt>
+  <dt><a href="http://www.jamesh.id.au/">James Henstridge</a></dt>
   <dd>James is the main author of the PyGTK bindings. He is a well known
   GNOME hacker; among other things, creator of libglade, jhbuild,
   Fontilus and the Nautilus RPM.</dd>
@@ -130,7 +130,7 @@ including code, documentation and user support (listed alphabetically):</p>
   <dt>Xavier Ordoquy</dt>
   <dd>Works on misc parts of the project to help when needed (code,
   articles, support on IRC). Also working on
-  <a href="http://gael.sf.net/">Gael</a></dd>
+  <a href="http://gael.sourceforge.net/">Gael</a></dd>
 </dl>
 
 </div>

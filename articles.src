@@ -194,7 +194,7 @@
 
     <tr>
       <td>Jul 2004</td>
-      <td><a href="http://www.linuxjournal.com/article.php?sid=7421">Rapid
+      <td><a href="http://www.linuxjournal.com/article/7421">Rapid
       Application Development with Python and Glade</a></td>
       <td>David Reed</td>
     </tr>
@@ -230,13 +230,13 @@
 
     <tr>
       <td>Aug 2003</td>
-      <td><a href="http://www.linuxjournal.com/article.php?sid=6586">A Beginner's Guide to Using PyGTK and Glade</a></td>
+      <td><a href="http://www.linuxjournal.com/article/6586">A Beginner's Guide to Using PyGTK and Glade</a></td>
       <td>Dave Aitel</td>
     </tr>
 
     <tr>
       <td>Mar 2003</td>
-      <td><a href="http://www-106.ibm.com/developerworks/linux/library/l-wrap/">Wrap GObjects in Python</a></td>
+      <td><a href="http://www.ibm.com/developerworks/linux/library/l-wrap/">Wrap GObjects in Python</a></td>
       <td>Ross Burton</td>
     </tr>
 
@@ -266,7 +266,7 @@
 
     <tr>
       <td>Jul 2000</td>
-      <td><a href="http://www.onlamp.com/pub/a/python/2000/07/25/gnome_applet.html">GNOME Panel Applets</a></td>
+      <td><a href="http://onlamp.com/pub/a/python/2000/07/25/gnome_applet.html">GNOME Panel Applets</a></td>
       <td>Daniel Solin</td>
     </tr>
 
@@ -278,7 +278,7 @@
 
     <tr>
       <td>Feb 2000</td>
-      <td><a href="http://laguna.fmedic.unam.mx/~daniel/pygtutorial/">Python Gnome tutorial (unfinished)</a></td>
+      <td><a href="http://www.eol.ucar.edu/software/python/pygtutorial/">Python Gnome tutorial (unfinished)</a></td>
       <td>Daniel Kornhauser</td>
     </tr>
 

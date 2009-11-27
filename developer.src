@@ -64,19 +64,17 @@ reports.
    properties as descriptors</li>
 </ul>
 
-<h3>Subversion Activity</h3>
+<h3>Git Activity</h3>
 
 <p>The source code for PyGTK is located in the <a
-href="http://developer.gnome.org/tools/svn.html">Gnome Subversion repository</a>
-in the gnome-python/pygtk directory. You can view the contents using <a
-href="http://svn.gnome.org/viewcvs/pygtk/trunk">ViewCVS</a>.</p>
+href="http://git.gnome.org/cgit/pygtk">Gnome Git repository</a>.</p>
 
 <ul>
     <li><a
-    href="http://svn.gnome.org/viewcvs/pygtk/trunk/ChangeLog">Most recent changes commited</a></li>
+    href="http://git.gnome.org/cgit/pygtk/log/">Most recent changes commited</a></li>
 
 </ul>
- 
+
 </div>
 
 <!--stp:include('foot.src') -->

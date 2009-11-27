@@ -31,7 +31,7 @@
   <dd>BBCalc is a set of calculators related to body building and
   fitness.</dd>
 
-  <dt><a href="http://ceemedia.sourceforge.net/">CeeMedia</a></dt>
+  <dt><a href="http://ceemedia.sosdg.org/">CeeMedia</a></dt>
   <dd>CeeMedia is a Movie Catalog application which tries to be
   feature complete, as well as easy to use.
   Its list of features include: media info metadata; cast and crew display;
@@ -55,7 +55,7 @@
   difficulties. The application synthetises as speech messages which are
   composed as series of pictograms.</dd>
 
-  <dt><a href="http://raphael.slinckx.net/deskbar/">Deskbar Applet</a></dt>
+  <dt><a href="http://www.gnome.org/projects/deskbar-applet">Deskbar Applet</a></dt>
   <dd>DeskbarApplet provides an omnipresent versatile search interface.
   By typing search terms into an entry in your panel you are presented with
   the search results as you type.<br /><br />
@@ -82,7 +82,7 @@
   which will blink when there is any of your contacts' birthday today. You can
   also check if there is any of your contacs' birhday on next days.</dd>
 
-  <dt><a href="http://dietschnitzel.com/gfceu/">GFCE Ultra</a></dt>
+  <dt>GFCE Ultra</dt>
   <dd>GFCE Ultra is an intuitive interface for the popular Nintendo
   Emulator, FCE Ultra.</dd>
 
@@ -104,7 +104,7 @@
   <dt><a href="http://gnochm.sourceforge.net/">GnoCHM</a></dt>
   <dd>GnoCHM is a CHM file viewer for Gnome.</dd>
 
-  <dt><a href="http://gnomecatalog.sourceforge.net/">Gnome Catalog</a></dt>
+  <dt><a href="http://www.gnomecatalog.org/">Gnome Catalog</a></dt>
   <dd>Gnome Catalog is a software for cataloging CDs and DVDs.</dd>
 
   <dt><a href="http://gsmile.sourceforge.net/">gSmile</a></dt>
@@ -119,7 +119,7 @@
   collect, search and organize your recipes, and to automatically
   generate shopping lists from your collection.</dd>
 
-  <dt><a href="http://gramps.sourceforge.net/index.html">gramps</a></dt>
+  <dt><a href="http://www.gramps-project.org/">gramps</a></dt>
   <dd>Gramps (Genealogical Research and Analysis Management Programming
   System) is an open source genealogy program. It is written in Python,
   using the GTK+/GNOME interface.</dd>
@@ -130,7 +130,7 @@
 
   <dt><a href="http://guten.sourceforge.net/">Guten</a></dt>
   <dd>Guten is a utility for reading books published by
-  <a href="http://gutenberg.org/">Project Gutenberg</a>.
+  <a href="http://www.gutenberg.org/">Project Gutenberg</a>.
   It provides an interface for browsing, downloading and managing books, as
   well as reading and bookmarking individual texts.</dd>
 
@@ -143,7 +143,7 @@
   and visualize words, ideas or tasks, by representing them as linked
   elements.</dd>
 
-  <dt><a href="http://ltool.sf.net/">Lazy Tool</a></dt>
+  <dt><a href="http://ltool.sourceforge.net/">Lazy Tool</a></dt>
   <dd>Lazy Tool is a macro-editing application designed to ease common
   tasks.</dd>
 
@@ -185,7 +185,7 @@
   <dd>This is a program for viewing compressed comic files (aka cbr, cbz and
   cba files) as easy as possible.</dd>
 
-  <dt><a href="http://www.galilea.cl/gestor">pyGestor</a></dt>
+  <dt><a href="http://chileforge.cl/projects/pygestor/">pyGestor</a></dt>
   <dd>pyGestor is a Chilean accounting software developed for small and
   medium sized enterprises, The goal of the project is to provide an
   enterprise resource management system for the GNOME Desktop.</dd>
@@ -230,7 +230,7 @@
   <dd>Songwrite 2 is a tablature editor. It lets you write, edit, play and print
   your tablatures.</dd>
 
-  <dt><a href="http://www.tinyerp.com/index.html">TinyERP</a></dt>
+  <dt><a href="http://www.openerp.com/">TinyERP - OpenERP</a></dt>
   <dd>Tiny ERP is a free enterprise management software. It covers all
   domains for small to medium businesses; accounting, stock management,
   sales, customer relationship, purchases, project management,...</dd>
@@ -261,7 +261,7 @@
   using Gstreamer. Bluemindo is a free (as in freedom) software, released
   under GPLv3.</dd>
 
-  <dt><a href="http://www.delcorp.org/delvj/">DelVJ</a></dt>
+  <dt><a href="https://launchpad.net/delvj">DelVJ</a></dt>
   <dd>DelVJ is a software for realtime video 3d composition and
   algorithmic remixing that uses gtk, python, glade and puredata.
   It can be controlled through OSC, and has web and gtk interfaces.
@@ -300,14 +300,14 @@
   <dd>GNU Solfege is a computer program written to help you practice ear
   training by means of simple and mechanical exercises.</dd>
 
-  <dt><a href="http://hpc-external.jcu.edu.au/~nigel/index.php/GHDTV/HomePage">gHDTV</a></dt>
+  <dt><a href="http://www.gnomefiles.org/app.php/gHDTV">gHDTV</a></dt>
   <dd>gHDTV is a DVB channel changer for MPlayer.</dd>
 
-  <dt><a href="http://gpixpod.sourceforge.net/">GPixPod</a></dt>
+  <dt><a href="http://www.gpixpod.org/">GPixPod</a></dt>
   <dd>GPixPod is a free software app to upload and manage photos on recent
   Apple iPod models.</dd>
 
-  <dt><a href="http://www.perli.net/projekte/gpodder/">Gpodder</a></dt>
+  <dt><a href="http://gpodder.org">Gpodder</a></dt>
   <dd>gPodder is a Podcast reciever/catcher. It manages podcast feeds
   and automatically downloads all podcasts from as many feeds as
   you like.</dd>
@@ -319,7 +319,7 @@
   <dd>Jokosher is an open source multitrack audio editor and recorder,
   similar to Cubase, which tries to make Jono Bacon happy.</dd>
 
-  <dt><a href="http://listengnome.free.fr/">Listen</a></dt>
+  <dt><a href="http://www.listen-project.org/">Listen</a></dt>
   <dd>Listen is a music management and playback application for GNOME.
   It can play songs, rip and burn CDs, listen to web radio, see song lyrics
   and other song information and statistics, manage your ipod and music
@@ -371,11 +371,7 @@
   <dd>PyMServ is a graphical client for mserv, a music server. It is written
   in python using pygtk and gconf to store prefs.</dd>
 
-  <dt><a href="http://fuware.nanocrew.net/pymusique/">PyMusique</a></dt>
-  <dd>This application provides a fair interface to the iTunes Music
-  Store.</dd>
-
-  <dt><a href="http://www.sacredchao.net/quodlibet">Quod Libet</a></dt>
+  <dt><a href="http://code.google.com/p/quodlibet/">Quod Libet</a></dt>
   <dd>Quod Libet is a GTK+ based audio player, music library manager and
   tag editor written in Python. It features regexp-based searches, album cover
   display, tag editing, ReplayGain, multimedia keys and an OSD. Its tag editor,
@@ -388,7 +384,7 @@
   user interface, that can be controlled with either the keyboard or a
   remote control.</dd>
 
-  <dt><a href="http://s1x.homelinux.net/projects/serpentine/">Serpentine</a>
+  <dt><a href="http://developer.berlios.de/projects/serpentine/">Serpentine</a>
   </dt>
   <dd>Serpentine is a project for mastering audio cds. It features support for
   all gstreamer formats, playlists, audio extraction from video contents,
@@ -403,10 +399,6 @@
   <dd>Sonata is a lightweight GTK+ music client for the Music Player Daemon
   (MPD). It aims to be minimalist (no toolbar, main menu, or statusbar),
   user-firendly, and clean.</dd>
-
-  <dt><a href="http://timmir.com/wiki/index.php/TimPlayer">TimPlayer</a></dt>
-  <dd>TimPlayer is a home inspired audio player with a simple
-  User Interface and the power of GStreamer.</dd>
 
   <dt><a href="http://shakaran.es/blog/tivion/">Tivion</a></dt>
   <dd>Tivion is a simple online TV player.</dd>
@@ -461,7 +453,7 @@
   <dt><a href="http://code.google.com/p/jbrout/">jBrout</a></dt>
   <dd>jBrout is a multiplatform photo management application.</dd>
 
-  <dt><a href="http://upics.sf.net/">Micropics</a></dt>
+  <dt><a href="http://upics.sourceforge.net/">Micropics</a></dt>
   <dd>Micropics is a Gnome 2.x applet that displays changing thumbnails
   of your favorite photos. When guiding your mouse pointer over the
   thumbnail, the image zooms out, and you get to see more details.</dd>
@@ -476,11 +468,11 @@
   <dd>This Program allows simple creation and upload of images galleries on web
   site. Mum is Free Software, released under the GNU GPL.</dd>
 
-  <dt><a href="http://pycasa.com.ar">Pycasa</a></dt>
+  <dt><a href="http://pycasa-download.com.ar">Pycasa</a></dt>
   <dd>Pycasa is a desktop application to manage (download and upload) Picasa
   photo albums.</dd>
 
-  <dt><a href="http://www.sk1project.org/modules.php?name=Products&product=pymfvu">
+  <dt><a href="http://sk1project.org/modules.php?name=Products&product=pymfvu">
   Pymfvu</a></dt>
   <dd>The pymfvu program can open and render both Windows Metafile (WMF) and
   Enchanced Metafile (EMF) files.</dd>
@@ -497,7 +489,7 @@
   <dd>Sler is a RenderMan (pixar's render engine) shader generator and shader
   testing suite.</dd>
 
-  <dt><a href="http://www.sk1project.org/modules.php?name=Products&product=vsdviewer">VSDViewer</a></dt>
+  <dt><a href="http://sk1project.org/modules.php?name=Products&product=vsdviewer">VSDViewer</a></dt>
   <dd>VSDViewer is a viewer for diagrams stored in the MS Visio binary file
   format (VSD and VSS). It can also convert them to SVG.</dd>
 </dl>
@@ -511,7 +503,7 @@
   It can show whether some friend joins and can give useful server stats
   and info. It supports any game the qstat utility does.</dd>
 
-  <dt><a href="http://gwp.lunix.com.ar/">GNOME War Pad</a></dt>
+  <dt><a href="http://www.gnomefiles.org/app.php/GNOME_War_Pad">GNOME War Pad</a></dt>
   <dd>VGA Planets is a play-by-email space conquest game, it's been played
   for some years now and have a lot of fans all over the world. It's main
   website is http://www.vgaplanets.com . GNOME War Pad is a VGA Planets GNOME
@@ -593,7 +585,7 @@
   research project, which lets publishing mailing list archives
   in RDF format.</dd>
 
-  <dt><a href="http://thecircle.org.au">Circle</a></dt>
+  <dt><a href="http://savannah.nongnu.org/projects/circle/">Circle</a></dt>
   <dd>The Circle is an open source scalable decentralized peer to peer
   application, featuring real-time chat, file sharing and news. There's
   no central authority running the show.  No entry taxes either, no
@@ -660,13 +652,7 @@
   multipart messages, MIME support, message filters, address book,
   GnuPG support and GtkHTML support for message viewing.</dd>
 
-  <dt><a href="http://www.soul-less.pwp.blueyonder.co.uk/pyne/">Pyne</a></dt>
-  <dd>Pyne is a graphical offline newsreader and emailer written in Python.
-  Multiple POP3, IMAP4, SMTP, and NNTP boxes are supported. Features include
-  threading of newsgroups, optional expiry of news and mail, filters,
-  attachment support, etc.</dd>
-
-  <dt><a href="http://pyneighborhood.sourceforge.net/">PyNeighborhood</a></dt>
+  <dt><a href="https://launchpad.net/pyneighborhood">PyNeighborhood</a></dt>
   <dd>PyNeighborhood is a GUI frontend for the samba tools,
   such as smbclient, smbmount etc. Using it you can browse and use SMB
   network shares.</dd>
@@ -731,7 +717,7 @@
   <dd>Go-Osmose, is a graphical frontend to manage Osmose, an Individual
   Based Model of the dynamic of fish populations.</dd>
 
-  <dt><a href="http://www.minipop.org/index.php?file=gresistor">GResistor</a></dt>
+  <dt><a href="http://www.gnomefiles.org/app.php/gResistor">GResistor</a></dt>
   <dd>gResistror is a helper program to translate resistor color codes
   into readable values.</dd>
 
@@ -760,7 +746,7 @@
   <dd>OpenEV is a library, and reference application for viewing and
   analysing raster and vector geospatial data.</dd>
 
-  <dt><a href="http://www-stu.pem.cam.ac.uk/~jrk33/plotter/">Plotter</a></dt>
+  <dt><a href="http://www.jrkermode.co.uk/plotter/">Plotter</a></dt>
   <dd>Plotter is a GTK+ mathematical graph plotting application.</dd>
 
   <dt><a href="http://sourceforge.net/projects/pythoncad/">PythonCAD</a></dt>
@@ -810,7 +796,7 @@
   using the PyGTK bindings. Some of its features are Class diagrams,
   new GUI, UML 2.0 compliant data model, easy to use and extend.</dd>
 
-  <dt><a href="http://gazpacho.sicem.biz">Gazpacho</a></dt>
+  <dt><a href="http://www.gnomefiles.org/app.php/Gazpacho">Gazpacho</a></dt>
   <dd>Gazpacho is a Graphical User Interface designer for the GTK+ toolkit.
   Its goal is being feature complete, 100% libglade compatible but
   easy to use. It has lots of nice features such as an UIManager
@@ -827,7 +813,7 @@
   in a pygtk program, with the goal of allowing gui testing in a regression
   test suite.</dd>
 
-  <dt><a href="http://kefir.sf.net/">Kefir</a></dt>
+  <dt><a href="http://kefir.sourceforge.net/">Kefir</a></dt>
   <dd>kefir is a code sketcher, a script that takes in a Glade file, and
   spits out a set of wrapper classes around the windows in the glade file.
   It features: regenerability (edit your Glade file, and see the changes
@@ -835,7 +821,7 @@
   flexility (write programs in both the MVC and Proxy patterns).
   </dd>
 
-  <dt><a href="http://meld.sf.net">Meld</a></dt>
+  <dt><a href="http://meld.sourceforge.net">Meld</a></dt>
   <dd>Meld is a visual diff and merge tool. It integrates especially
   well with CVS.The diff viewer lets you edit files in place and allows
   easy merges.</dd>
@@ -845,7 +831,7 @@
   applications by using the data provided by the new /proc/pid/pagemap
   and /proc/kpagemap interfaces present in recent Linux kernels.</dd>
 
-  <dt><a href="http://pida.berlios.de/">Pida</a></dt>
+  <dt><a href="http://pida.co.uk/">Pida</a></dt>
   <dd>Pida is an IDE which embeds other editors and tools to create a powerful
   IDE. It currently features: full code editing (syntax highlighting, code
   completion, automatic indenting, block commenting...), project management,
@@ -868,10 +854,10 @@
   an user defined folder hierarchy, syntax highlighting and XML based
   data file.</dd>
 
-  <dt><a href="http://pysqlitegui.osp.ir/">pySQLiteGUI</a></dt>
+  <dt><a href="http://pysqlitegui.ospdev.net/">pySQLiteGUI</a></dt>
   <dd>PySQLiteGUI is a tool for creating and managing SQLite databases.</dd>
 
-  <dt><a href="http://qa-assistant.berlios.de">QA Assistant</a></dt>
+  <dt><a href="http://qa-assistant.sourceforge.net">QA Assistant</a></dt>
   <dd>QA Assistant helps with running Quality Assurance on any project.
   It allows to point and click through a list of potential problem areas,
   lets writing short summaries for the problems found, and finally
@@ -917,11 +903,11 @@
   email and IM account setting, eMule configuration, desktop background
   images, fonts...</dd>
 
-  <dt><a href="http://www.realistanew.com/projects/alacarte/">Alacarte</a></dt>
+  <dt><a href="http://ftp.gnome.org/pub/gnome/sources/alacarte/">Alacarte</a></dt>
   <dd>Alacarte is a simple menu editor for GNOME. With a click you can type
   type to edit, add, or delete menu entries. It is freedesktop.org compliant</dd>
 
-  <dt><a href="http://fedora.redhat.com/projects/anaconda-installer/">Anaconda</a></dt>
+  <dt><a href="http://fedoraproject.org/projects/anaconda-installer/">Anaconda</a></dt>
   <dd>Anaconda is the installation program for Red Hat distributions.
   During installation, the system's hardware is identified and
   configured, and the appropriate file systems for the system's
@@ -941,12 +927,12 @@
   as well as cookies, cache files and temporary files
   to free space and keep your disk clean.</dd>
 
-  <dt><a href="http://www.immunitysec.com/CANVAS/">CANVAS</a></dt>
+  <dt><a href="http://www.immunitysec.com/products-canvas.shtml">CANVAS</a></dt>
   <dd>CANVAS is a commercial network intrusion product, which runs under both
   Linux and Windows and allows a system administrator or penetration tester to
   break into machines on their network. It uses pyGTK 2.0 for the GUI.</dd>
 
-  <dt><a href="http://www.conduit-project.org/">Conduit</a></dt>
+  <dt><a href="http://live.gnome.org/Conduit">Conduit</a></dt>
   <dd>Conduit is a synchronization solution for GNOME which allows the
   user to take their emails, files, bookmarks, and any other type of personal
   information, synchronize and convert that data, if needed, with another
@@ -994,7 +980,7 @@
   easily by just renaming them (i.e. changing extension). The daemon uses
   FAM to track files and later act on them.</dd>
 
-  <dt><a href="http://hotwire-shell.org/">Hotwire</a></dt>
+  <dt><a href="http://code.google.com/p/hotwire-shell/">Hotwire</a></dt>
   <dd>Hotwire is an object-oriented hypershell. It is designed for systems
   programming (files, processes), like the Unix shell+terminal and
   Windows PowerShell and blends the concepts of a systems-oriented shell
@@ -1008,12 +994,7 @@
   <dt><a href="http://narim.sourceforge.net">Narim</a></dt>
   <dd>Narim is a GUI file-name encoding converter written in Python.</dd>
 
-  <dt><a href="http://www.nolongervalid.com/heartbeat/">Heartbeat</a></dt>
-  <dd>Heartbeat is a server and service monitoring program written in
-  PyGTK, featuring a XML config and support for unlimited servers and
-  services.</dd>
-
-  <dt><a href="http://porthole.sf.net">Porthole</a></dt>
+  <dt><a href="http://porthole.sourceforge.net">Porthole</a></dt>
   <dd> Porthole is a GTK-based frontend for Portage (the Gentoo package
   management system). It features a hierarchial view of packages and supports
   fast searches and dependency calculations. Porthole also supports basic
@@ -1031,7 +1012,7 @@
   <dd>A mass file renamer.  It supports some cool features such as file
   pattern matching or use of metadata to rename image and music files.</dd>
 
-  <dt><a href="http://www.gnome.org/projects/sabayon/">Sabayon</a></dt>
+  <dt><a href="http://projects.gnome.org/sabayon/">Sabayon</a></dt>
   <dd>Sabayon is GNOME's first major design targeted at improving the
   user experience for people who administer GNOME systems. It allows to
   easily manage profiles, GConf keys, and remotely deploy these.
@@ -1049,7 +1030,7 @@
   etc. It has both a graphical and command line mode and it can be used to
   do scheduled backups.</dd>
 
-  <dt><a href="http://www.smartpm.org/">
+  <dt><a href="http://labix.org/smart">
   Smart Package Manager</a></dt>
   <dd>The Smart Package Manager project has the ambitious objective of
   creating smart and portable algorithms for solving adequately the problem
@@ -1066,14 +1047,6 @@
   <dd>If you are using a Redhat/Fedora Linux distribution almost every
   program that starts with redhat-config-* is made with PyGTK</dd>
 
-  <dt><a href="http://www.ximian.com/products/redcarpet/">Red Carpet</a></dt>
-  <dd> Red Carpet is a software management solution for Linux; it makes
-  it easy to update and manage Linux desktops with improved package
-  inventory, update history, and remote operation. Red Carpet offers a
-  choice of client interfaces: the redesigned graphical interface, and
-  the "rug" command line interface, which provides simple, powerful
-  commands and easy scriptability.</dd>
-
   <dt><a href="http://oss.codepoet.no/revelation/">Revelation</a></dt>
   <dd> Revelation is a password manager for the GNOME 2 desktop,
   released under the GNU GPL license. It organizes accounts in a tree
@@ -1089,7 +1062,7 @@
   programs together instead of creating all-in-one
   mega-applications.</dd>
 
-  <dt><a href="http://www.realistanew.com/projects/smeg/">SMEG</a></dt>
+  <dt><a href="http://www.gnomefiles.org/app.php/Smeg">SMEG</a></dt>
   <dd> A simple menu editor for GNOME 2.10 that can edit and add new entries and
   menus. It implements the freedesktop.org menu spec but may or may not work
   with other Desktop Environments.</dd>
@@ -1101,7 +1074,8 @@
 
   <dt><a href="http://www.fabriziotarizzo.org/sw/torapplet/">TorApplet</a></dt>
   <dd>It's a GNOME applet for managing and monitoring the TOR daemon (TOR is an
-  anonymous Internet communication system: <a href="http://tor.eff.org">http://tor.eff.org</a>).</dd>
+  anonymous Internet communication system: <a href="http://www.torproject.org">
+  http://www.torproject.org</a>).</dd>
 
   <dt><a href="http://rudd-o.com/projects/ups-monitor/"> UPS
   monitor</a></dt> <dd>UPS monitor is a graphical monitoring application
@@ -1135,11 +1109,11 @@
   <dd>easygconf is a Python module that provides an easy, pythonic way
   to access GConf through a dict-like interface.</dd>
 
-  <dt><a href="http://gaphor.devjavu.com/wiki/Subprojects/Gaphas">Gaphas</a></dt>
+  <dt><a href="http://gaphor.sourceforge.net/">Gaphas</a></dt>
   <dd>Gaphas is a diagram widget for PyGTK. It uses cairo for rendering
   and features an easy to use model.</dd>
 
-  <dt><a href="http://gdesklets.gnomedesktop.org/">gDesklets</a></dt>
+  <dt><a href="http://gdesklets.de/">gDesklets</a></dt>
   <dd>gDesklets provides an advanced architecture for desktop applets --
   tiny displays sitting on your desktop in a symbiotic relationship of
   eye candy and usefulness.</dd>
@@ -1168,18 +1142,11 @@
   mathematica), in web application servers generating dynamic charts, or
   embedded in GTK+ or WX applications.</dd>
 
-  <dt><a href="http://www.netpromi.com/mojoview.html">MojoView</a></dt>
-  <dd>MojoView is a Python package that assists you in building simple PyGTK2
-  database applications. It consists of a set of classes that you can subclass
-  in your application. Each class is either a dialog or a widget that should be
-  placed inside a dialog, along with supporting code that handles a lot of the
-  mundane details inherent in most gui database apps.</dd>
-
   <dt><a href="http://pyblassreports.sourceforge.net//index.php">PyBlassReports</a></dt>
   <dd>A multiplatform framework for report creation, printing, export
   (PDF, XLS and RTF) and preview of reports.</dd>
 
-  <dt><a href="http://mooedit.sourceforge.net/hg/moo/?f=-1;file=moo/moopython/plugins/pyconsole.py">PyConsole</a></dt>
+  <dt><a href="http://mooedit.sourceforge.net">PyConsole</a></dt>
   <dd>PyConsole is a PyGTK widget that exposes a Python console using a
   TextView widget. It runs on all gtk-supported platforms and features
   completion and history. Its expected use case is to be embedded and used
@@ -1202,17 +1169,10 @@
   attention mostly on the application that must be developed, instead of on the
   framework that stays behind the scene.</dd>
 
-  <dt><a href="http://www.loria.fr/~rougier/index.php?n=Software.Software#pycons">Python GTK Console</a></dt>
+  <dt><a href="http://www.loria.fr/~rougier/pycons.html">Python GTK Console</a></dt>
   <dd>This widget implements an interactive python session in a GTK window
   and it accepts input directly within the console. It's heavily based on
   the GTK Interactive Console bundled with The Gimp.</dd>
-
-  <dt><a href="http://www.defuze.org/oss/pyirc/index.htm">PyIRC</a></dt>
-  <dd>PyIrc is a Python module which tends to implement RFC 1459 and
-  part of RFC 2812. One of the main goal of the project was to provide a
-  module completely independent from the interface. As such, you can use
-  the product in every kind of applications. For instance the tarball
-  comes with two clients done in PyGTK and PyQt.</dd>
 
   <dt><a href="http://jstripchart.sourceforge.net/">PyStripchart Widget
   Library</a></dt>
