@@ -1080,14 +1080,19 @@
   anonymous Internet communication system: <a href="http://www.torproject.org">
   http://www.torproject.org</a>).</dd>
 
-  <dt><a href="http://rudd-o.com/projects/ups-monitor/"> UPS
-  monitor</a></dt> <dd>UPS monitor is a graphical monitoring application
+  <dt><a href="http://rudd-o.com/projects/ups-monitor/">UPS
+  monitor</a></dt>
+  <dd>UPS monitor is a graphical monitoring application
   that lets you watch your UPS status in real time.</dd>
 
-  <dt><a href="http://albertomilone.com/urandr.html">URandR
-  </a></dt>
+  <dt><a href="http://albertomilone.com/urandr.html">URandR</a></dt>
   <dd>GUI to RandR 1.2 exposing basic functionalities and aimed to let
   unexperienced users make multihead configuration as easy as possible.</dd>
+
+  <dt><a href="http://virt-manager.org/">Virt-manager</a></dt>
+  <dd>Virtual Machine Manager: Virtual Machine Manager (or virt-manager) is a tool
+  for creating, cloning, and managing virtual machines, storage, and network
+  interfaces through <a href="http://libvirt.org/">libvirt</a>.</dd>
 
   <dt><a href="http://zero-install.sourceforge.net/">Zero Install</a></dt>
   <dd>The Zero Install system makes software installation not merely
