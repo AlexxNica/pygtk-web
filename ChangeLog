@@ -1,3 +1,7 @@
+2009-12-03  Rafael Villar Burke  <pachi@rvburke.com>
+
+	* applications.src: Add TextTest and PyUseCase
+
 2009-12-02  Rafael Villar Burke  <pachi@rvburke.com>
 
 	* applications.src: Add virt-manager

@@ -873,6 +873,12 @@
   properly. With Scribes, your workflow is never interrupted, and your
   files are always safe.</dd>
 
+  <dt><a href="http://www.texttest.org/">TextTest</a></dt>
+  <dd>TextTest (http://www.texttest.org) is a generic acceptance testing
+  tool that works by running programs from the command line and
+  comparing produced textual output with previously stored versions of that
+  text.</dd>
+
   <dt><a href="http://bitbucket.org/tortoisehg/stable/wiki/Home">
   TortoiseHG</a></dt>
   <dd>TortoiseHg is a shell extension that let users of Mercurial SCM (Hg)
@@ -1188,6 +1194,13 @@
   in an interactive "strip chart" form.  The widgets are written in
   Python and built upon the PyGTK package. PyStripchart is distributed
   under the GNU LGPL license.</dd>
+
+  <dt><a href="http://www.texttest.org/index.php?page=ui_testing">PyUseCase
+  </a></dt>
+  <dd>PyUseCase is a record/playback style test tool for PyGTK UIs. It records
+  "usecase"-like sequences of actions in terms chosen by the user, and
+  auto-generates a log of the GUI which can then be used as a baseline for
+  testing with TextTest.</dd>
 
   <dt><a href="http://rtgraph.sourceforge.net/">rtgraph</a></dt>
   <dd>rtgraph is a Python package providing several widgets for graphing
