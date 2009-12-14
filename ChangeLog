@@ -1,3 +1,7 @@
+2009-12-14  Rafael Villar Burke  <pachi@rvburke.com>
+
+	* applications.src: Add Tryton
+
 2009-12-03  Rafael Villar Burke  <pachi@rvburke.com>
 
 	* applications.src: Add TextTest and PyUseCase
