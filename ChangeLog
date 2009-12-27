@@ -1,3 +1,8 @@
+2009-12-26  Gian Mario Tagliaretti  <gianmt@gnome.org>
+
+	* newsitems.py: Advertise 2.21.0 release of pygobject and
+	2.17.0 release of pygtk
+
 2009-12-14  Rafael Villar Burke  <pachi@rvburke.com>
 
 	* applications.src: Add Tryton

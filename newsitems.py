@@ -14,6 +14,17 @@ item = lambda *x: items.append(x)
 #      "INSERT AUTHOR HERE")
 
 # http://news.gmane.org/gmane.comp.gnome.gtk%2B.python/
+item("PyGTK 2.17.0 released", (2009, 12, 26),
+     """PyGTK 2.17.0 is the first release in the 2.17.x series. It's unstable, so
+     it should be used with caution. As usual, it's sources can be fetched
+     <a href="http://ftp.gnome.org/pub/GNOME/sources/pygtk/2.17/pygtk-2.17.0.tar.bz2">here</a>.
+     Check out <a href="http://mail.gnome.org/archives/gnome-announce-list/2009-December/msg00068.html">the release announcement and full list of changes</a>.""", 'Gian Mario Tagliaretti')
+
+item("PyGobject 2.21.0 released", (2009, 12, 18),
+     """PyGobject 2.21.0 has been released, this is an unstable release leading to 2.22.0. As usual, it's sources can be fetched
+     <a href="http://ftp.gnome.org/pub/GNOME/sources/pygobject/2.21/pygobject-2.21.0.tar.bz2">here</a>.
+     Check out <a href="http://mail.gnome.org/archives/gnome-announce-list/2009-December/msg00039.html">the release announcement and full list of changes</a>.""", 'Gian Mario Tagliaretti')
+
 item("PyGobject 2.20.0 released", (2009, 9, 23),
      """PyGobject 2.20.0 has been released, this is a stable release, the first of the 2.20.x series. As usual, it's sources can be fetched
      <a href="http://ftp.gnome.org/pub/GNOME/sources/pygobject/2.20/pygobject-2.20.0.tar.bz2">here</a>.
