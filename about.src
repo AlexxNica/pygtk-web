@@ -10,7 +10,7 @@ using the <a href="http://python.org/">Python</a> programming language.
 
 <h3>A powerful toolkit at your hands</h3>
 <div class="screenshot">
-<a href="img/gimp-screenshot.png"><img src="img/gimp-screenshot-thumb.png" /></a>
+<a href="img/gimp-screenshot.png"><img src="img/gimp-screenshot-thumb.png" alt="Gimp screenshot" /></a>
 <p>
 GTK+ is a powerful toolkit suited<br />
 for the most complex interfaces</p>
@@ -29,7 +29,7 @@ The current version of PyGTK requires at least GTK+ version 2.8.0.
 
 <h3>You can use it anywhere</h3>
 <div class="screenshot">
-<a href="img/platforms-screenshot.png"><img src="img/platforms-screenshot-thumb.png" /></a>
+<a href="img/platforms-screenshot.png"><img src="img/platforms-screenshot-thumb.png" alt="Multiplatform"/></a>
 <p>PyGTK apps running on Windows,<br />GNOME on GNU/Linux and OSX</p>
 </div>
 <p>
@@ -45,7 +45,7 @@ full featured applications.
 
 <h3>Get a perfect GNOME desktop integration</h3>
 <div class="screenshot">
-<a href="img/quodlibet-gajim.png"><img src="img/quodlibet-gajim-thumb.png" /></a>
+<a href="img/quodlibet-gajim.png"><img src="img/quodlibet-gajim-thumb.png" alt="Integration with GNOME"/></a>
 <p>
 PyGTK apps running on GNOME</p>
 </div>

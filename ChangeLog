@@ -1,3 +1,10 @@
+2009-12-29  Rafael Villar Burke  <pachi@rvburke.com>
+
+	* about.src, applications.src, articles.src, developer.src,
+	feedback.src, head.src, index.src, newsitems.py, reference.src,
+	tutorial.src: Fix markup to make it more standards compliant. Patch
+	by Joel Juvenal Rivera Rivera. Thanks!
+
 2009-12-26  Gian Mario Tagliaretti  <gianmt@gnome.org>
 
 	* newsitems.py: Advertise 2.21.0 release of pygobject and

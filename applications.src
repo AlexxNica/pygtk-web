@@ -477,7 +477,7 @@
   <dd>Pycasa is a desktop application to manage (download and upload) Picasa
   photo albums.</dd>
 
-  <dt><a href="http://sk1project.org/modules.php?name=Products&product=pymfvu">
+  <dt><a href="http://sk1project.org/modules.php?name=Products&amp;product=pymfvu">
   Pymfvu</a></dt>
   <dd>The pymfvu program can open and render both Windows Metafile (WMF) and
   Enchanced Metafile (EMF) files.</dd>
@@ -494,7 +494,7 @@
   <dd>Sler is a RenderMan (pixar's render engine) shader generator and shader
   testing suite.</dd>
 
-  <dt><a href="http://sk1project.org/modules.php?name=Products&product=vsdviewer">VSDViewer</a></dt>
+  <dt><a href="http://sk1project.org/modules.php?name=Products&amp;product=vsdviewer">VSDViewer</a></dt>
   <dd>VSDViewer is a viewer for diagrams stored in the MS Visio binary file
   format (VSD and VSS). It can also convert them to SVG.</dd>
 </dl>
@@ -808,7 +808,7 @@
   <dd>Gazpacho is a Graphical User Interface designer for the GTK+ toolkit.
   Its goal is being feature complete, 100% libglade compatible but
   easy to use. It has lots of nice features such as an UIManager
-  Editor, well supported Copy&Paste and Undo/Redo capabilities, Templates,
+  Editor, well supported Copy&amp;Paste and Undo/Redo capabilities, Templates,
   Project views...</dd>
 
   <dt><a href="http://gquilt.sourceforge.net/">gquilt</a></dt>

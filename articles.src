@@ -24,7 +24,7 @@
 
     <tr>
       <td>Jan 2008</td>
-      <td><a href="http://www.tortall.net/mu/wiki/PyGTKCairoTutorial">Cairo Tutorial for PyGTK Programmers</a><br />
+      <td><a href="http://www.tortall.net/mu/wiki/PyGTKCairoTutorial">Cairo Tutorial for PyGTK Programmers</a></td>
       <td>Michael Urman</td>
     </tr>
 
@@ -43,14 +43,14 @@
     <tr>
       <td>Nov 2007</td>
       <td><a href="http://www.serpia.org/blog/2007/nov/03/matplotlib-and-pygtk-app/">
-        Building an application using PyGTK and Matplotlib</a><br />
+        Building an application using PyGTK and Matplotlib</a></td>
       <td>Serpia</td>
     </tr>
 
     <tr>
       <td>Jul 2007</td>
       <td><a href="http://unpythonic.blogspot.com/2007/07/pygtk-py2exe-and-inno-setup-for-single.html">
-        PyGTK, Py2exe, and Inno setup for single-file Windows installers</a><br />
+        PyGTK, Py2exe, and Inno setup for single-file Windows installers</a></td>
       <td>Ali Afshar</td>
     </tr>
 
@@ -58,9 +58,10 @@
       <td>Mar 2007</td>
       <td><a href="http://unpythonic.blogspot.com/2007/03/custom-pygtk-widgets-in-glade3-part-2.html">Custom PyGTK Widgets in Glade3: part 2</a><br />
         <ul>
-          <li><a href="./articles/custom-widgets-glade/Custom_PyGTK_Widgets_in_Glade3-part-2.html">Local copy</a>
-          <li><a href="http://d.hatena.ne.jp/t2y-1979/20080604/1212566448">Japanese translation</a>
+          <li><a href="./articles/custom-widgets-glade/Custom_PyGTK_Widgets_in_Glade3-part-2.html">Local copy</a></li>
+          <li><a href="http://d.hatena.ne.jp/t2y-1979/20080604/1212566448">Japanese translation</a></li>
         </ul>
+	</td>
       <td>Ali Afshar</td>
     </tr>
 
@@ -68,9 +69,10 @@
       <td>Mar 2007</td>
       <td><a href="http://unpythonic.blogspot.com/2007/03/custom-pygtk-widgets-in-glade3.html">Custom PyGTK Widgets in Glade3</a><br />
         <ul>
-          <li><a href="./articles/custom-widgets-glade/Custom_PyGTK_Widgets_in_Glade3.html">Local copy</a>
-          <li><a href="http://d.hatena.ne.jp/t2y-1979/20080604/1212555173">Japanese translation</a>
+          <li><a href="./articles/custom-widgets-glade/Custom_PyGTK_Widgets_in_Glade3.html">Local copy</a></li>
+          <li><a href="http://d.hatena.ne.jp/t2y-1979/20080604/1212555173">Japanese translation</a></li>
         </ul>
+      </td>
       <td>Ali Afshar</td>
     </tr>
 
@@ -78,9 +80,10 @@
       <td>Sep 2006</td>
       <td><a href="http://www.learningpython.com/2006/09/02/extending-our-pygtk-application/">Extending our PyGTK Application</a><br />
         <ul>
-          <li><a href="./articles/extending-our-pygtk-application/extending-our-pygtk-application.htm">Local copy</a>
-          <li><a href="http://d.hatena.ne.jp/t2y-1979/20080606/1212711378">Japanese Translation by Tetsuya Morimoto</a>
+          <li><a href="./articles/extending-our-pygtk-application/extending-our-pygtk-application.htm">Local copy</a></li>
+          <li><a href="http://d.hatena.ne.jp/t2y-1979/20080606/1212711378">Japanese Translation by Tetsuya Morimoto</a></li>
         </ul>
+      </td>
       <td>Mark Mruss</td>
     </tr>
 
@@ -88,8 +91,9 @@
       <td>Aug 2006</td>
       <td><a href="http://www.learningpython.com/2006/08/19/wordpress-python-library/">WordPy offline blogging tool</a><br />
         <ul>
-          <li><a href="./articles/wordpy-offline-blogging-tool/wordpy-offline-blogging-tool.htm">Local copy</a>
+          <li><a href="./articles/wordpy-offline-blogging-tool/wordpy-offline-blogging-tool.htm">Local copy</a></li>
         </ul>
+      </td>
       <td>Mark Mruss</td>
     </tr>
 
@@ -97,9 +101,10 @@
       <td>Jul 2006</td>
       <td><a href="http://www.learningpython.com/2006/07/25/writing-a-custom-widget-using-pygtk/">Writing a custom widget using pygtk</a><br />
         <ul>
-          <li><a href="http://po3a.blogspot.com/2006/09/pygtk.html">Japanese translation</a><br />
-          <li><a href="./articles/writing-a-custom-widget-using-pygtk/writing-a-custom-widget-using-pygtk.htm">Local copy</a>
+          <li><a href="http://po3a.blogspot.com/2006/09/pygtk.html">Japanese translation</a></li>
+          <li><a href="./articles/writing-a-custom-widget-using-pygtk/writing-a-custom-widget-using-pygtk.htm">Local copy</a></li>
         </ul>
+      </td>
       <td>Mark Mruss</td>
     </tr>
 
@@ -107,11 +112,12 @@
       <td>Jun 2006</td>
       <td><a href="http://www.learningpython.com/2006/05/30/building-an-application-with-pygtk-and-glade/">Building an application with PyGTK and Glade</a><br />
         <ul>
-          <li><a href="http://blog.chinaunix.net/u/5462/showart.php?id=157696">Chinese translation</a><br />
-          <li><a href="http://daniel.coquette.free.fr/dotclear/index.php/post/2006/12/18/Construire-une-application-avec-PyGTK-et-Glade">French translation</a><br />
-          <li><a href="http://po3a.blogspot.com/2006/08/pygtk-glade.html">Japanese translation</a><br />
-          <li><a href="./articles/application-pygtk-glade/Building_an_Application_with_PyGTK_and_Glade.htm">Local copy</a>
+          <li><a href="http://blog.chinaunix.net/u/5462/showart.php?id=157696">Chinese translation</a></li>
+          <li><a href="http://daniel.coquette.free.fr/dotclear/index.php/post/2006/12/18/Construire-une-application-avec-PyGTK-et-Glade">French translation</a></li>
+          <li><a href="http://po3a.blogspot.com/2006/08/pygtk-glade.html">Japanese translation</a></li>
+          <li><a href="./articles/application-pygtk-glade/Building_an_Application_with_PyGTK_and_Glade.htm">Local copy</a></li>
         </ul>
+      </td>
       <td>Mark Mruss</td>
     </tr>
 
@@ -119,11 +125,13 @@
       <td>May 2006</td>
       <td><a href="http://www.learningpython.com/2006/05/07/creating-a-gui-using-pygtk-and-glade/">Creating a GUI using PyGTK and Glade</a><br />
         <ul>
-          <li>Chinese translation <a href="http://blog.chinaunix.net/u/5462/showart.php?id=150996">Part I</a> and <a href="http://blog.chinaunix.net/u/5462/showart.php?id=151571">Part II</a><br />
-          <li><a href="http://daniel.coquette.free.fr/dotclear/index.php/post/2006/12/11/Creer-des-interfaces-graphique-avec-PyGTK-et-Glade">French translation</a><br />
-          <li><a href="http://po3a.blogspot.com/2006/08/pygtk-glade-gui.html">Japanese translation</a><br />
-          <li><a href="./articles/pygtk-glade-gui/Creating_a_GUI_using_PyGTK_and_Glade.htm">Local copy</a>
+          <li>Chinese translation <a href="http://blog.chinaunix.net/u/5462/showart.php?id=150996">Part I</a> and
+              <a href="http://blog.chinaunix.net/u/5462/showart.php?id=151571">Part II</a> </li>
+          <li><a href="http://daniel.coquette.free.fr/dotclear/index.php/post/2006/12/11/Creer-des-interfaces-graphique-avec-PyGTK-et-Glade">French translation</a></li>
+          <li><a href="http://po3a.blogspot.com/2006/08/pygtk-glade-gui.html">Japanese translation</a></li>
+          <li><a href="./articles/pygtk-glade-gui/Creating_a_GUI_using_PyGTK_and_Glade.htm">Local copy</a></li>
         </ul>
+      </td>
       <td>Mark Mruss</td>
     </tr>
 
@@ -131,7 +139,7 @@
       <td>Feb 2006</td>
       <td><a href="./articles/cairo-pygtk-widgets/cairo-pygtk-widgets2.htm">Writing a Widget Using Cairo and PyGTK 2.8, Part 2</a><br />
         <ul>
-          <li><a href="http://www.oluyede.org/blog/writing-a-widget-using-cairo-and-pygtk-28-part-2/">Original source</a>
+          <li><a href="http://www.oluyede.org/blog/writing-a-widget-using-cairo-and-pygtk-28-part-2/">Original source</a></li>
         </ul>
       </td>
       <td>Lawrence Oluyede</td>
@@ -147,7 +155,7 @@
       <td>Dec 2005</td>
       <td><a href="./articles/cairo-pygtk-widgets/cairo-pygtk-widgets.htm">Writing a Widget Using Cairo and PyGTK 2.8</a><br />
         <ul>
-          <li><a href="http://www.oluyede.org/blog/writing-a-widget-using-cairo-and-pygtk-28/">Original source</a>
+          <li><a href="http://www.oluyede.org/blog/writing-a-widget-using-cairo-and-pygtk-28/">Original source</a></li>
         </ul>
       </td>
       <td>Lawrence Oluyede</td>
@@ -159,7 +167,7 @@
         <a href="articles/bitpodder/BitPodder.htm">
         Writing win32 applications with python and glade</a>
           <ul>
-            <li><a href="articles/bitpodder/BitPodder_doc.pdf">[PDF (520kb)]</a>
+            <li><a href="articles/bitpodder/BitPodder_doc.pdf">[PDF (520kb)]</a></li>
           </ul>
       </td>
       <td>Nzeka Gilbert</td>

@@ -33,7 +33,7 @@ item("PyGobject 2.20.0 released", (2009, 9, 23),
 item("PyGTK 2.16.0 released", (2009, 8, 23),
      """PyGTK 2.16.0 is a new major release containing the API recently added in GTK-+2.16. As usual, it's sources can be fetched
      <a href="http://ftp.gnome.org/pub/GNOME/sources/pygtk/2.16/pygtk-2.16.0.tar.bz2">here</a>.
-     Check out <a http://mail.gnome.org/archives/gnome-announce-list/2009-August/msg00059.html">the release announcement and full list of changes</a>.""", 'Gian Mario Tagliaretti')
+     Check out <a href="http://mail.gnome.org/archives/gnome-announce-list/2009-August/msg00059.html">the release announcement and full list of changes</a>.""", 'Gian Mario Tagliaretti')
 
 item("PyGobject 2.19.0 released", (2009, 8, 10),
      """PyGobject 2.19.0 has been released, this is an unstable release leading to 2.20.0. As usual, it's sources can be fetched

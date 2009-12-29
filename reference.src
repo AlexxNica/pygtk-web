@@ -5,7 +5,7 @@
 <h2>PyGTK Reference Manual</h2>
 
 <h3>PyGTK 2.x (GTK+ 2.x) Reference Manual </h3>
-    Last updated 2009-06-20<br>
+    Last updated 2009-06-20<br />
 
 <ul>
    <li><a href="http://library.gnome.org/devel/pygobject/stable/">PyGObject Reference Manual</a></li>
@@ -23,42 +23,42 @@ you can find here:
 
 <ul>
    <li><a href="pygtkmozembed/index.html">Reference Manual</a></li>
-   <li><a href="dist/pygtkmozembed.tar.bz2">Bzip2'd Tarball of Reference Manual</a>
+   <li><a href="dist/pygtkmozembed.tar.bz2">Bzip2'd Tarball of Reference Manual</a></li>
 </ul>
 
 <h3>Python GtkSourceView Reference Manual</h3>
 
 <ul>
    <li><a href="pygtksourceview/index.html">Reference Manual</a></li>
-   <li><a href="dist/pygtksourceview.tar.bz2">Bzip2'd Tarball of Reference Manual</a>
+   <li><a href="dist/pygtksourceview.tar.bz2">Bzip2'd Tarball of Reference Manual</a></li>
 </ul>
 
 <h3>Python GtkSpell Reference Manual</h3>
 
 <ul>
    <li><a href="pygtkspell/index.html">Reference Manual</a></li>
-   <li><a href="dist/pygtkspell.tar.bz2">Bzip2'd Tarball of Reference Manual</a>
+   <li><a href="dist/pygtkspell.tar.bz2">Bzip2'd Tarball of Reference Manual</a></li>
 </ul>
 
 <h3>Python GnomePrint Reference Manual</h3>
 
 <ul>
    <li><a href="pygnomeprint/index.html">Reference Manual</a></li>
-   <li><a href="dist/pygnomeprint.tar.bz2">Bzip2'd Tarball of Reference Manual</a>
+   <li><a href="dist/pygnomeprint.tar.bz2">Bzip2'd Tarball of Reference Manual</a></li>
 </ul>
 
 <h3>Python GnomePrintUI Reference Manual</h3>
 
 <ul>
    <li><a href="pygnomeprintui/index.html">Reference Manual</a></li>
-   <li><a href="dist/pygnomeprintui.tar.bz2">Bzip2'd Tarball of Reference Manual</a>
+   <li><a href="dist/pygnomeprintui.tar.bz2">Bzip2'd Tarball of Reference Manual</a></li>
 </ul>
 
 <h3>Python GnomeVFS Reference Manual</h3>
 
 <ul>
    <li><a href="pygnomevfs/index.html">Reference Manual</a></li>
-   <li><a href="dist/pygnomevfs.tar.bz2">Bzip2'd Tarball of Reference Manual</a>
+   <li><a href="dist/pygnomevfs.tar.bz2">Bzip2'd Tarball of Reference Manual</a></li>
 </ul>
 
 </div>
