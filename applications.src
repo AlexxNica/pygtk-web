@@ -71,6 +71,9 @@
   needs to be prefilled once by adding all your disks to it.
   </dd>
 
+  <dt><a href="https://launchpad.net/espeak-gui">eSpeak-gui</a></dt>
+  <dd>A simple graphical user interface for the eSpeak speech synthesizer.</dd>
+
   <dt><a href="http://nzjrs.github.com/facebook-notify/">
   Facebook Notify</a></dt>
   <dd>This application monitors a Facebook profile and notifies its changes

@@ -1,3 +1,7 @@
+2010-01-04  Rafael Villar Burke  <pachi@rvburke.com>
+
+	* applications.src: Add espeak-gui
+
 2010-01-03  Gian Mario Tagliaretti  <gianmt@gnome.org>
 
 	* newsitems.py: Advertise 2.21.1 release of pygobject
