@@ -16,6 +16,13 @@
 
   <tbody>
     <tr>
+      <td>Jan 2010</td>
+      <td><a href="http://www.florian-diesch.de/doc/python-und-glade/">
+        German tutorial for PyGTK and Glade.</a><br /></td>
+      <td>Florian Diesch</td>
+    </tr>
+
+    <tr>
       <td>May 2008</td>
       <td><a href="http://www.micahcarrick.com/05-30-2008/gtk-builder-libglade-faq.html">
         Libglade to GtkBuilder F.A.Q.</a><br /></td>
