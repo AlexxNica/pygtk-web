@@ -1196,6 +1196,12 @@
   and it accepts input directly within the console. It's heavily based on
   the GTK Interactive Console bundled with The Gimp.</dd>
 
+  <dt><a href="https://launchpad.net/py-gtktree">Py-GTKTree</a></dt>
+  <dd>A package that brings PyGTK tree models closer to harmony with OOP and
+  Python. Includes custom Pythonic implementations of gtk.TreeModel interface
+  (both list and tree) and a collection of utility functions that simplify common
+  tasks with gtk.TreeView.</dd>
+
   <dt><a href="http://jstripchart.sourceforge.net/">PyStripchart Widget
   Library</a></dt>
   <dd>PyStripchart is a set of widgets for displaying time-sampled data
