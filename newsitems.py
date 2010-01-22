@@ -14,6 +14,11 @@ item = lambda *x: items.append(x)
 #      "INSERT AUTHOR HERE")
 
 # http://news.gmane.org/gmane.comp.gnome.gtk%2B.python/
+item("PyGObject, PyGTK and PyCairo windows installers updated", (2010, 01, 22),
+     """The installers for win32 have been now updated to recent versions. As usual, they can be found
+     <a href="http://ftp.gnome.org/pub/GNOME/binaries/win32">here</a> (under the pygtk, pygobject and pycairo directories).
+     Thanks to John Stowers for fixing and doing the windows builds and to Ignacio Casal for uploading them.""", 'Rafael Villar Burke')
+
 item("PyGobject 2.21.1 released", (2010, 01, 03),
      """PyGobject 2.21.1 has been released, this is an unstable release leading to 2.22.0. As usual, it's sources can be fetched
      <a href="http://ftp.gnome.org/pub/GNOME/sources/pygobject/2.21/pygobject-2.21.1.tar.bz2">here</a>.
