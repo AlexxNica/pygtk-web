@@ -765,6 +765,13 @@
   Check out its <a href="http://sourceforge.net/projects/pythoncad/">website</a>
   for some cool screenshots.</dd>
 
+  <dt><a href="http://geosys.usc.edu/projects/seatree/wiki">SEATREE</a></dt>
+  <dd>SEATREE is a solid Earth research tool for the classroom and
+  interdisciplinary, scientific collaboration.
+  It includes tools to compute mantle flow, display Earth structure using
+  surface wave tomography, two-dimensional synthetic tomography and
+  preliminary support for earthquake location models using 3-D tomography.</dd>
+
   <dt><a href="http://symbide.googlecode.com/svn/trunk/website/html/home.html">
   Symbide</a></dt>
   <dd>Symbide is a Python IDE focused on physical and mathematical
