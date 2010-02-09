@@ -1,3 +1,7 @@
+2010-02-09  Rafael Villar Burke  <pachi@rvburke.com>
+
+	* applications.src: Fix broken URL for Griffith
+
 2010-02-02  Rafael Villar Burke  <pachi@rvburke.com>
 
 	* applications.src: Add Luciole
