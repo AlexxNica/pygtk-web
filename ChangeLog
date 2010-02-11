@@ -1,3 +1,8 @@
+2010-02-11  Rafael Villar Burke  <pachi@rvburke.com>
+
+	* applications.src: Add Computer Temperature Monitor, Eikazo
+	PyGTKShell, PyBrowser, Simple Minesweeper
+
 2010-02-09  Rafael Villar Burke  <pachi@rvburke.com>
 
 	* applications.src: Fix broken URL for Griffith

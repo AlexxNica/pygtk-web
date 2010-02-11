@@ -557,6 +557,9 @@
   levels of play, editable board position, standard PDN or FEN format support
   or game review.</dd>
 
+  <dt><a href="http://sites.google.com/site/victorhr02/pymassrotate2">Simple Minesweeper</a></dt>
+  <dd>A simple minesweeper in 540 lines of code.</dd>
+
   <dt><a href="http://www.nongnu.org/tennacles/">Tennacles</a></dt>
   <dd>Tennacles is a tool which will aid artists and designers in the
   creation of adventure games through a visual integrated development
@@ -962,11 +965,20 @@
   Linux and Windows and allows a system administrator or penetration tester to
   break into machines on their network. It uses pyGTK 2.0 for the GUI.</dd>
 
+  <dt><a href="http://computertemp.berlios.de/">Computer Temperature Monitor</a></dt>
+  <dd>Computer Temperature Monitor is a little applet for the GNOME desktop
+  that shows the temperature of your computer CPU and disks on screen. It
+  can log temperature to a file, set alarms, and monitor different sensors.</dd>
+
   <dt><a href="http://live.gnome.org/Conduit">Conduit</a></dt>
   <dd>Conduit is a synchronization solution for GNOME which allows the
   user to take their emails, files, bookmarks, and any other type of personal
   information, synchronize and convert that data, if needed, with another
   computer, an online service, or even another electronic device.</dd>
+
+  <dt><a href="http://eikazo.berlios.de/">Eikazo</a></dt>
+  <dd>Eikazo is a graphical frontend for Sane, which is intended mainly for usage
+  with ADF scanners.</dd>
 
   <dt><a href="http://albertomilone.com/nvidia_scripts1.html">Envy</a></dt>
   <dd>This application helps with the installation and management of the
@@ -1037,6 +1049,16 @@
   <dt><a href="http://code.google.com/p/pybootchartgui/">Pybootchartgui</a></dt>
   <dd>pybootchartgui is a tool for visualization and analysis of the GNU/Linux
   boot process.</dd>
+
+  <dt><a href="http://club.telepolis.com/drfingers/pybrowser.html">PyBrowser</a></dt>
+  <dd>A HTML rendering widget implemented in Python, using gtkhtml2 and an internet
+  browser implemented in Python, using BrowserWidget.</dd>
+
+  <dt><a href="http://felixrabe.textdriven.com/pygtk-shell/">PyGTKShell</a></dt>
+  <dd>The PyGTK Shell provides widgets derived from PyGTK optimized for
+  interactive programming as well as an interactive, extensible PyGTK console
+  for the rapid prototyping of GUI applications. It can be embedded by PyGTK
+  applications.</dd>
 
   <dt><a href="http://www.infinicode.org/code/pyrenamer/">PyRenamer</a></dt>
   <dd>A mass file renamer.  It supports some cool features such as file
