@@ -691,6 +691,10 @@
   retrieval phase, Taof presents the logged requests and allows the user
   to specify the fuzzing points within the requests.</dd>
 
+  <dt><a href="http://code.google.com/p/turpial/">Turpial</a></dt>
+  <dd>Turpial is an alternative Twitter client written. Its goal is to be
+  a featureful but low resource app, fully integrated with user desktop.</dd>
+
   <dt><a href="http://umitproject.org/">Umit</a></dt>
   <dd>Umit is a graphical frontend for Nmap, a tool for network monitoring
   and security auditing.</dd>
