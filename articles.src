@@ -84,6 +84,18 @@
     </tr>
 
     <tr>
+      <td>Feb 2007</td>
+      <td><a href="http://www.learningpython.com/2007/02/17/pylan-a-gtd-todo-application-written-in-python-and-pygtk-part-one/">
+        PyLan a GTD todo application written in python and PyGTK - Part 1</a><br />
+        <a href="http://www.learningpython.com/2007/03/11/pylan-a-gtd-todo-application-written-in-python-and-pygtk-part-two/">
+        PyLan a GTD todo application written in python and PyGTK - Part 2</a><br />
+        <a href="http://www.learningpython.com/2007/07/04/pylan-a-gtd-todo-application-written-in-python-and-pygtk-part-three/">
+        PyLan a GTD todo application written in python and PyGTK - Part 3</a><br />
+      </td>
+      <td>Mark Mruss</td>
+    </tr>
+
+    <tr>
       <td>Sep 2006</td>
       <td><a href="http://www.learningpython.com/2006/09/02/extending-our-pygtk-application/">Extending our PyGTK Application</a><br />
         <ul>
@@ -91,6 +103,12 @@
           <li><a href="http://d.hatena.ne.jp/t2y-1979/20080606/1212711378">Japanese Translation by Tetsuya Morimoto</a></li>
         </ul>
       </td>
+      <td>Mark Mruss</td>
+    </tr>
+
+    <tr>
+      <td>Oct 2006</td>
+      <td><a href="http://www.learningpython.com/2006/10/24/wordpy-02-using-xml-to-save-and-load-data/">WordPy 0.2 - Using XML to Save and Load Data</a></td>
       <td>Mark Mruss</td>
     </tr>
 
