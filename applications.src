@@ -828,6 +828,9 @@
   <dd>Diffuse is a graphical tool for merging and comparing text files. It can compare
   any number of files side-by-side and users can adjust and edit files.</dd>
 
+  <dt><a href="http://sourceforge.net/projects/edsa/">Edsa</a></dt>
+  <dd>A database manager for SnakeSQL.</dd>
+
   <dt><a href="http://gaphor.sourceforge.net">Gaphor</a></dt>
   <dd>Gaphor is the UML modeling tool for GTK/GNOME. It is written in Python
   using the PyGTK bindings. Some of its features are Class diagrams,
