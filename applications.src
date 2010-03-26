@@ -806,6 +806,11 @@
 
 <dl>
 
+  <dt><a href="http://aciresnippets.wordpress.com/">Acire Snippets</a></dt>
+  <dd>The Acire Project aims to provide a library of Python snippets and
+  examples and a browser for the library that demonstrates how to perform
+  specific tasks.</dd>
+
   <dt><a href="http://clay.ll.pl/clarence.html">Clarence</a></dt>
   <dd>Clarence is a small GTK+-based programmer's calculator.</dd>
 

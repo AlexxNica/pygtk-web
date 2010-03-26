@@ -14,6 +14,9 @@ item = lambda *x: items.append(x)
 #      "INSERT AUTHOR HERE")
 
 # http://news.gmane.org/gmane.comp.gnome.gtk%2B.python/
+item("Help improving PyGTK documentation contributing to the Acire Snippets project", (2010, 03, 26),
+     """Acire Snippets is a library and browser of snippets and examples of Python code that demonstrates how to perform specific tasks. It has a new <a href="http://aciresnippets.wordpress.com/">Acire Snippets website</a> with information on how to use it and send contributions and PyGTK users are encouraged to enrich the existing PyGTK snippets collection.""", 'Rafael Villar Burke')
+
 item("PyGObject, PyGTK and PyCairo windows installers updated", (2010, 01, 22),
      """The installers for win32 have been now updated to recent versions. As usual, they can be found
      <a href="http://ftp.gnome.org/pub/GNOME/binaries/win32">here</a> (under the pygtk, pygobject and pycairo directories).
