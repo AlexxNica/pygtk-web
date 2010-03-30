@@ -160,6 +160,10 @@
   <dd>Mapview is a python map browser for Terraserver-usa map tiles. It
   allows for edition of track files.</dd>
 
+  <dt><a href="http://live.gnome.org/MouseTrap">MouseTrap</a></dt>
+  <dd>MouseTrap is a head tracking application that helps users with physical
+  impairments to access the desktop via webcam.</dd>
+
   <dt><a href="http://newton.sourceforge.net/">Newton</a></dt>
   <dd>Newton is a simple wiki-like note taking application for the GNOME Desktop.
   It can highlight source code and export to HTML its contents.</dd>
