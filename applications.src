@@ -1197,6 +1197,10 @@
   tiny displays sitting on your desktop in a symbiotic relationship of
   eye candy and usefulness.</dd>
 
+  <dt><a href="http://kaizer.se/wiki/python-keybinder/">Keybinder</a></dt>
+  <dd>keybinder is a python module for gtk-based applications registering
+  global key bindings.</dd>
+
   <dt><a href="http://www.async.com.br/projects/kiwi/">Kiwi</a></dt>
   <dd> Kiwi consists of a set of classes and wrappers for PyGTK that
   were developed to provide a sort of framework for applications. Fully
