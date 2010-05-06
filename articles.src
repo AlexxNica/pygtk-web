@@ -88,9 +88,18 @@
       <td><a href="http://www.learningpython.com/2007/02/17/pylan-a-gtd-todo-application-written-in-python-and-pygtk-part-one/">
         PyLan a GTD todo application written in python and PyGTK - Part 1</a><br />
         <a href="http://www.learningpython.com/2007/03/11/pylan-a-gtd-todo-application-written-in-python-and-pygtk-part-two/">
-        PyLan a GTD todo application written in python and PyGTK - Part 2</a><br />
+        PyLan a GTD todo application written in python and PyGTK - Part 2 - misc widgets</a><br />
         <a href="http://www.learningpython.com/2007/07/04/pylan-a-gtd-todo-application-written-in-python-and-pygtk-part-three/">
-        PyLan a GTD todo application written in python and PyGTK - Part 3</a><br />
+        PyLan a GTD todo application written in python and PyGTK - Part 3 - theme engine, treeviews...</a><br />
+        <a href="http://www.learningpython.com/2007/09/23/pylan-a-gtd-todo-application-written-in-python-and-pygtk-part-four-context-menus/">
+        PyLan a GTD todo application written in python and PyGTK - Part 4 - context menus!</a><br />
+      </td>
+      <td>Mark Mruss</td>
+    </tr>
+
+    <tr>
+      <td>Dec 2006</td>
+      <td><a href="http://www.learningpython.com/2006/12/03/translating-your-pythonpygtk-application/">Translating your Python/PyGTK Application</a><br />
       </td>
       <td>Mark Mruss</td>
     </tr>
