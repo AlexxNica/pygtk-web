@@ -668,6 +668,9 @@
   <dd>Nixory is an Anti Spyware program for Mozilla Firefox planned to
   remove malicious data mining.</dd>
 
+  <dt><a href="http://sourceforge.net/projects/shapley/files/">PIPCalc</a></dt>
+  <dd>PIPCalc is a simple IP subnet calculator. It supports IP version 4 and version 6.</dd>
+
   <dt><a href="http://planimo.sourceforge.net/">Planimo</a></dt>
   <dd>Planimo is an instant messenger for private LAN chats. It features tabbed chatting (one tab per private chat), file transfers between users, and is very portable (it runs anywhere pygtk can run).</dd>
 

@@ -14,10 +14,10 @@
 <li><a href="http://ftp.gnome.org/pub/GNOME/binaries/win32/pygtk/">PyGTK</a></li>
 </ul>
 
-<p>In order to install PyGtk in windows, you will also need a <a
+<p>Besides the PyCairo, PyGobject and PyGTK modules, you will also need a <a
 href="http://www.python.org/download/">Python</a> interpreter and
 the <a href="http://www.gtk.org/download-windows.html#StableRelease">GTK+
-runtime</a>.</p>
+runtime</a> in order to install PyGTK in Windows.</p>
 
 <p>We recommend to install the GTK+ runtime using the <a
 href="http://ftp.gnome.org/pub/GNOME/binaries/win32/gtk+/">official GTK+
