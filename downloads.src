@@ -7,27 +7,23 @@
 <h3>Install PyGTK!</h3>
 <h4>PyGTK for Microsoft Windows</h4>
 
-<p>Current releases:</p>
+<p>In order to get PyGTK on Windows you need:</p>
 <ul>
-<li><a href="http://ftp.gnome.org/pub/GNOME/binaries/win32/pycairo/">PyCairo</a></li>
-<li><a href="http://ftp.gnome.org/pub/GNOME/binaries/win32/pygobject/">PyGObject</a></li>
-<li><a href="http://ftp.gnome.org/pub/GNOME/binaries/win32/pygtk/">PyGTK</a></li>
+<li>A <strong>Python interpreter</strong> for Windows (you can get it at the
+    <a href="http://www.python.org/download/">Python downloads</a>) page.</li>
+<li>The <strong>GTK+ runtime</strong>. We recommend to install it using
+    the <a href="http://www.gtk.org/download-windows.html#StableRelease">
+    official GTK+ bundle</a> (gtk+-bundle*.zip files).<br />
+    To fully install this bundle you need to uncompress its contents in a folder and
+    manually add the <em>bin</em> subfolder to the system path.</li>
+<li>The <a href="http://ftp.gnome.org/pub/GNOME/binaries/win32/pygtk/">PyGTK</a>,
+    <a href="http://ftp.gnome.org/pub/GNOME/binaries/win32/pycairo/">PyCairo</a> and
+    <a href="http://ftp.gnome.org/pub/GNOME/binaries/win32/pygobject/">PyGObject</a>
+    modules (available from this site, just follow the links).<br />
+    When downloading them, you must make sure that the PyCairo,
+    PyGObject and PyGTK versions fit the corresponding Python interpreter
+    version and you have a recent enough GTK+ runtime.</li>
 </ul>
-
-<p>Besides the PyCairo, PyGobject and PyGTK modules, you will also need a <a
-href="http://www.python.org/download/">Python</a> interpreter and
-the <a href="http://www.gtk.org/download-windows.html#StableRelease">GTK+
-runtime</a> in order to install PyGTK in Windows.</p>
-
-<p>We recommend to install the GTK+ runtime using the <a
-href="http://ftp.gnome.org/pub/GNOME/binaries/win32/gtk+/">official GTK+
-bundle</a> (gtk+-bundle*.zip files). To fully install this bundle you need
-to uncompress its contents in a folder and manually add the <em>bin</em>
-subfolder to the system path.</p>
-
-<p>When downloading those files you must make sure that the PyCairo,
-PyGobject and PyGTK versions fit the corresponding Python interpreter
-version and you have a recent enough GTK+ runtime.</p>
 
 <p>A great companion to develop your PyGTK applications is the
 <a href="http://ftp.gnome.org/pub/GNOME/binaries/win32/glade3/">Glade</a>
