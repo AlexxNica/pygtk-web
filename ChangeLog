@@ -1,3 +1,9 @@
+2010-05-28  Rafael Villar Burke  <pachi@rvburke.com>
+
+	* head.src: Use git URL for browsing code
+	* downloads.src: Add information on how to build the extensions
+	and that distutils can be used to build binary installers on win32.
+
 2010-05-27  Rafael Villar Burke  <pachi@rvburke.com>
 
 	* downloads.src: Improve win32 installation instructions

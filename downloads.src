@@ -7,7 +7,7 @@
 <h3>Install PyGTK!</h3>
 <h4>PyGTK for Microsoft Windows</h4>
 
-<p>In order to get PyGTK on Windows you need:</p>
+<p>In order to install PyGTK on Windows you need:</p>
 <ul>
 <li>A <strong>Python interpreter</strong> for Windows (you can get it at the
     <a href="http://www.python.org/download/">Python downloads</a>) page.</li>
@@ -103,6 +103,17 @@ needed to run it.</p>
 
     <p>Anyhow, if you are writing a new program, it is strongly recommended that
     you use the latest GTK+ 2.x version of PyGTK instead.</p>
+
+<h3>Build PyGTK!</h3>
+
+<p>Both PyGTK and PyGObject sources have information on how to build the extensions.  This includes support to create binary installers using distutils, to ease development on Windows.</p>
+<p>Build instructions files:</p>
+<ul>
+<li><a href="http://git.gnome.org/browse/pygobject/tree/README">PyGObject (Linux/Unix)</a></li>
+<li><a href="http://git.gnome.org/browse/pygobject/tree/README.win32">PyGObject (Windows)</a></li>
+<li><a href="http://git.gnome.org/browse/pygtk/tree/README">PyGTK (Linux/Unix)</a></li>
+<li><a href="http://git.gnome.org/browse/pygtk/tree/README.win32">PyGTK (Windows)</a></li>
+</ul>
 
 </div>
 

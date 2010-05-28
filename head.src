@@ -22,7 +22,7 @@ urchinTracker();
       <div id="headerNavigation">
         <a href="http://www.gnome.org/">Users</a> &#x00b7;
         <a href="http://developer.gnome.org/"><b>Developers</b></a> &#x00b7;
-        <a href="http://svn.gnome.org/viewcvs/pygtk/trunk">ViewCVS</a> &#x00b7;
+        <a href="http://git.gnome.org/browse/pygtk/">Browse Sources</a> &#x00b7;
         <a href="http://ftp.gnome.org/pub/GNOME/sources/pygtk/">FTP</a> &#x00b7;
         <a href="http://bugzilla.gnome.org/browse.cgi?product=pygtk">Bugzilla</a> &#x00b7;
         <a href="http://faq.pygtk.org/">FAQ</a> &#x00b7;
