@@ -168,6 +168,12 @@
   <dd>Newton is a simple wiki-like note taking application for the GNOME Desktop.
   It can highlight source code and export to HTML its contents.</dd>
 
+  <dt><a href="http://live.gnome.org/OCRFeeder">OCRFeeder</a></dt>
+  <dd>OCRFeeder is a document layout analysis and optical character
+  recognition system. It can distinguish between graphics and text in
+  images, perform OCR over the latter and let you correct and tweak the
+  results. It generates multiple formats being its main one ODT.</dd>
+
   <dt><a href="http://live.gnome.org/OnTV">OnTV</a></dt>
   <dd>OnTV is a GNOME Applet written in Python using PyGTK. It uses XMLTV files
   to monitor current and upcoming TV programs.</dd>
