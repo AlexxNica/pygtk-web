@@ -66,6 +66,14 @@ consulting services.</li>
   <li><strong>References</strong>: <a href="http://gpodder.org">gPodder</a> (Lead developer)</li>
 </ul>
 
+<ul class="consulting">
+ <li class="first"><strong>Name</strong>: Peter Hecker</li>
+ <li><strong>Website</strong>: <a href="http://www.gfu.net/">http://www.gfu.net</a> </li>
+ <li><strong>Services</strong>: Python and PyGTK seminars, see: <a title="PyGTK Schulungen bei der GFU" href="http://www.gfu.net/s1288.html"><strong>PyGTK</strong> Seminars</a></li>
+ <li><strong>Location</strong>: Germany</li>
+ <li><strong>Contact</strong>: GFU Cyrus AG <a href="http://www.gfu.net">http:www.gfu.net</a></li>
+</ul>
+
 <!-- TEMPLATE 
 <ul class="consulting">
   <li class="first"><strong>Name</strong>: </li>
