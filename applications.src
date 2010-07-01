@@ -239,7 +239,7 @@
   another, optionally via some other city or cities. You can see the shortest,
   fastest, or "preferred" route.</dd>
 
-  <dt><a href="http://debain.org/software/shrinkingman/">Shrinking Man Diet
+  <dt><a href="http://code.google.com/p/shrinkingman/">Shrinking Man Diet
   Tracker</a></dt>
   <dd>Shrinking Man is an application for tracking your weight and the calories
   consumed each day. It integrates well with the GNOME desktop environment.</dd>
@@ -690,6 +690,12 @@
   <dd>Pygmy is a GNOME mail client. It features folder hierarchy,
   multipart messages, MIME support, message filters, address book,
   GnuPG support and GtkHTML support for message viewing.</dd>
+
+  <dt><a href="http://didx.sarse.com/pygtkspread/">Pygtkspread</a></dt>
+  <dd>PyGTK friendly interface to the spread library, which handles network
+  operations providing a high performance, fault tolerant messaging service
+  for local and wide area networks. It is specially suited for
+  distributed applications.</dd>
 
   <dt><a href="https://launchpad.net/pyneighborhood">PyNeighborhood</a></dt>
   <dd>PyNeighborhood is a GUI frontend for the samba tools,
