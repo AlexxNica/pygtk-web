@@ -270,6 +270,11 @@
   <dt><a href="http://antrix.net/stuff/writr/">Writr</a></dt>
   <dd>Writr is a simple editor geared towards writing of Markdown
   syntax formatted text.</dd>
+
+  <dt><a href="http://zim-wiki.org/index.html">Zim - A Desktop Wiki</a></dt>
+  <dd>Zim brings the concept of a wiki to your desktop. Store information,
+  link pages and edit with WYSISYG markup. Pages are stored in a folder structure,
+  and can have attachments.</dd>
 </dl>
 
 <h3><a name="multimedia">Multimedia Applications</a></h3>
