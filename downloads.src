@@ -13,16 +13,20 @@
     <a href="http://www.python.org/download/">Python downloads</a>) page.</li>
 <li>The <strong>GTK+ runtime</strong>. We recommend to install it using
     the <a href="http://www.gtk.org/download-windows.html#StableRelease">
-    official GTK+ bundle</a> (gtk+-bundle*.zip files).<br />
+    official GTK+ bundle</a> (gtk+-bundle*.zip files). Just choose the latest
+    version available.<br />
     To fully install this bundle you need to uncompress its contents in a folder and
     manually add the <em>bin</em> subfolder to the system path.</li>
 <li>The <a href="http://ftp.gnome.org/pub/GNOME/binaries/win32/pygtk/">PyGTK</a>,
     <a href="http://ftp.gnome.org/pub/GNOME/binaries/win32/pycairo/">PyCairo</a> and
     <a href="http://ftp.gnome.org/pub/GNOME/binaries/win32/pygobject/">PyGObject</a>
-    modules (available from this site, just follow the links).<br />
+    modules (available from this site, just follow the links and choose the lastest
+    version).<br />
     When downloading them, you must make sure that the PyCairo,
     PyGObject and PyGTK versions fit the corresponding Python interpreter
-    version and you have a recent enough GTK+ runtime.</li>
+    version and you have a recent enough GTK+ runtime. The python version used
+    to build those extensions is written in the installer name (e.g. 'py2.6' for
+    Python 2.6).</li>
 </ul>
 
 <p>A great companion to develop your PyGTK applications is the

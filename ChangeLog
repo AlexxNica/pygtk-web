@@ -1,3 +1,7 @@
+2010-07-16  Rafael Villar Burke  <pachi@rvburke.com>
+
+	* downloads.src: Try to clarify win32 installation information
+
 2010-07-08  Rafael Villar Burke  <pachi@rvburke.com>
 
 	* applications.src: Add Zim Desktop Wiki
