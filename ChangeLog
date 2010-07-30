@@ -1,6 +1,7 @@
 2010-07-30  Rafael Villar Burke  <pachi@rvburke.com>
 
 	* articles.src: Add article by Jon Black on tranlating PyGTK apps.
+			Add article by Gabriel Elanaro on PyGTKHelpers.
 	* applications.src: Add PyGTKHelpers library.
 
 2010-07-16  Rafael Villar Burke  <pachi@rvburke.com>

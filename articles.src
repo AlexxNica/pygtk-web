@@ -23,6 +23,15 @@
     </tr>
 
     <tr>
+      <td>May 2010</td>
+      <td><a href="https://pygabriel.wordpress.com/2010/05/24/writing-pygtk-applications-with-style-using-pygtkhelpers/">
+        Tutorial on using pygtkhelpers to develop PyGTK applications. PyGTKHelpers
+        is a library developed by pida developers and makes the pygtk programming
+        experience much better.</a><br /></td>
+      <td>Gabriel Elanaro</td>
+    </tr>
+
+    <tr>
       <td>Jan 2010</td>
       <td><a href="http://www.florian-diesch.de/doc/python-und-glade/">
         German tutorial for PyGTK and Glade.</a><br /></td>
