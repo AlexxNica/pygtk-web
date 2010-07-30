@@ -1261,6 +1261,18 @@
   This widget can be used for flexible display of graphics and for creating
   interactive user interface elements.</dd>
 
+  <dt><a href="http://packages.python.org/pygtkhelpers/index.html">
+  PyGTKHelpers</a></dt>
+  <dd>PyGTKHelpers is a library to assist the building of PyGTK applications.
+  It is intentionally designed to be non-frameworky, and blend well with your
+  particular style of PyGTK development.
+
+  PyGTKHelpers provides a number of features: View delegation, MVC, mixed
+  GtkBuilder/Python views, widget proxying, signal auto-connection, object-based
+  lists and trees, helper widgets, utility functions for assisting creating new
+  GObject types, unit testing helpers and utilities to help debug PyGTK
+  applications.</dd>
+
   <dt><a href="http://trac.bjourne.webfactional.com/">PyGtkImageView</a></dt>
   <dd>GtkImageView is a simple image viewer widget for GTK+ with PyGTK bindings.</dd>
 
