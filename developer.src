@@ -9,6 +9,10 @@ which take care of coding, bugfixing, support and documentation. This
 page provides links and tips for people interested in helping the team
 by actively participating in the project.
 
+<h3>Notice!</h3>
+
+PyGObject with gobject-introspection is planned to replace PyGTK in the future, though as of yet it is neither stable, complete, nor well documented. If you would like to help out with testing or developing these bindings, please see <a href="http://live.gnome.org/PyGObject">here</a>.
+
 <h3>Helping out</h3>
 
 There are a number of ways to help out with PyGTK development:
