@@ -232,6 +232,10 @@
   It was originally developer for cyclist geeks but can be used to track
   other sports.</dd>
 
+  <dt><a href="http://recipemanager.org/">Recipe Manager</a></dt>
+  <dd>Small application designed to store and manage your favourite recipes.
+  </dd>
+
   <dt><a href="http://www.lordsutch.com/chris/routeplanner.html">RoutePlanner
   </a></dt>
   <dd>RoutePlanner is a highway trip planner written in Python that will run
