@@ -14,6 +14,32 @@ item = lambda *x: items.append(x)
 #      "INSERT AUTHOR HERE")
 
 # http://news.gmane.org/gmane.comp.gnome.gtk%2B.python/
+
+item("PyGobject 2.26.0 released",
+     (2010, 09, 27),
+     """PyGobject 2.26.0 has been released. This is the first stable release in the 2.26.x series and
+     introduces initial support for introspection and Python 3.
+     As usual, sources can be fetched from
+     <a href="http://ftp.gnome.org/pub/GNOME/sources/pygobject/2.26/pygobject-2.26.0.tar.bz2">here</a>.
+     Check out <a href="http://article.gmane.org/gmane.comp.gnome.gtk%2B.python/14841">
+     the release announcement and full list of changes</a>.""",
+     'Rafael Villar Burke')
+
+item("PyGTK 2.22.0 released",
+     (2010, 09, 25),
+     """PyGTK 2.22.0 has been released. This is the first stable release supporting the GTK+ 2.22 API.<br />
+     New users wishing to develop Python applications using GTK+ are recommended to use the GObject-Introspection
+     features available in PyGObject.<br />
+     Existing authors of PyGTK applications are also recommended to port their applications to PyGObject
+     to take advantage of new features appearing in GTK-3 and beyond. More information on PyGObject
+     and GObject-Introspection can be found at <a href="http://live.gnome.org/PyGObject">
+     http://live.gnome.org/PyGObject</a>.<br />
+     As usual, sources can be fetched from
+     <a href="http://ftp.gnome.org/pub/GNOME/sources/pygtk/2.22/pygtk-2.22.0.tar.bz2">here</a>.
+     Check out <a href="http://article.gmane.org/gmane.comp.gnome.gtk%2B.python/14835">
+     the release announcement and full list of changes</a>.""",
+     'Rafael Villar Burke')
+
 item("Help improving PyGTK documentation contributing to the Acire Snippets project", (2010, 03, 26),
      """Acire Snippets is a library and browser of snippets and examples of Python code that demonstrates how to perform specific tasks. It has a new <a href="http://aciresnippets.wordpress.com/">Acire Snippets website</a> with information on how to use it and send contributions and PyGTK users are encouraged to enrich the existing PyGTK snippets collection.""", 'Rafael Villar Burke')
 

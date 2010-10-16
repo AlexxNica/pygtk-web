@@ -1,3 +1,8 @@
+2010-10-16  Rafael Villar Burke  <pachi@rvburke.com>
+
+	* newsitems.py: Add PyGobject 2.26 and PyGTK 2.22 announcement
+	* downloads.src: Link to the new PyGTK 2.22 release
+
 2010-10-14  Rafael Villar Burke  <pachi@rvburke.com>
 
 	* applications.src: Add Recipe Manager by Daniel Taylor

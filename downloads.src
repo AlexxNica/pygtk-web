@@ -47,12 +47,13 @@ code</strong> can also be downloaded and compiled from the links below.</p>
 
 <h3>Get the sources!</h3>
 <h4>Current stable release</h4>
-<h5>2.16 series</h5>
-<p>The latest release of PyGTK for GTK+ 2.16 is available from the following website:</p>
+<h5>2.22 series</h5>
+<p>The latest release of PyGTK for GTK+ 2.22 is available from the following website:</p>
 
 <ul>
-<li><a href="http://ftp.gnome.org/pub/GNOME/sources/pygtk/2.16/">http://ftp.gnome.org/pub/GNOME/sources/pygtk/2.16/</a></li>
+<li><a href="http://ftp.gnome.org/pub/GNOME/sources/pygtk/2.22/">http://ftp.gnome.org/pub/GNOME/sources/pygtk/2.22/</a></li>
 </ul>
+
 <h4>Current development version</h4>
 
 <p>Alternatively, you can get the bleeding edge version of PyGTK from
