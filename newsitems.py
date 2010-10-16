@@ -16,7 +16,7 @@ item = lambda *x: items.append(x)
 # http://news.gmane.org/gmane.comp.gnome.gtk%2B.python/
 
 item("PyGobject 2.26.0 released",
-     (2010, 09, 27),
+     (2010, 9, 27),
      """PyGobject 2.26.0 has been released. This is the first stable release in the 2.26.x series and
      introduces initial support for introspection and Python 3.
      As usual, sources can be fetched from
@@ -26,7 +26,7 @@ item("PyGobject 2.26.0 released",
      'Rafael Villar Burke')
 
 item("PyGTK 2.22.0 released",
-     (2010, 09, 25),
+     (2010, 9, 25),
      """PyGTK 2.22.0 has been released. This is the first stable release supporting the GTK+ 2.22 API.<br />
      New users wishing to develop Python applications using GTK+ are recommended to use the GObject-Introspection
      features available in PyGObject.<br />
@@ -40,15 +40,15 @@ item("PyGTK 2.22.0 released",
      the release announcement and full list of changes</a>.""",
      'Rafael Villar Burke')
 
-item("Help improving PyGTK documentation contributing to the Acire Snippets project", (2010, 03, 26),
+item("Help improving PyGTK documentation contributing to the Acire Snippets project", (2010, 3, 26),
      """Acire Snippets is a library and browser of snippets and examples of Python code that demonstrates how to perform specific tasks. It has a new <a href="http://aciresnippets.wordpress.com/">Acire Snippets website</a> with information on how to use it and send contributions and PyGTK users are encouraged to enrich the existing PyGTK snippets collection.""", 'Rafael Villar Burke')
 
-item("PyGObject, PyGTK and PyCairo windows installers updated", (2010, 01, 22),
+item("PyGObject, PyGTK and PyCairo windows installers updated", (2010, 1, 22),
      """The installers for win32 have been now updated to recent versions. As usual, they can be found
      <a href="http://ftp.gnome.org/pub/GNOME/binaries/win32">here</a> (under the pygtk, pygobject and pycairo directories).
      Thanks to John Stowers for fixing and doing the windows builds and to Ignacio Casal for uploading them.""", 'Rafael Villar Burke')
 
-item("PyGobject 2.21.1 released", (2010, 01, 03),
+item("PyGobject 2.21.1 released", (2010, 1, 03),
      """PyGobject 2.21.1 has been released, this is an unstable release leading to 2.22.0. As usual, it's sources can be fetched
      <a href="http://ftp.gnome.org/pub/GNOME/sources/pygobject/2.21/pygobject-2.21.1.tar.bz2">here</a>.
      Check out <a href="http://mail.gnome.org/archives/gnome-announce-list/2010-January/msg00004.html">the release announcement and full list of changes</a>.""", 'Gian Mario Tagliaretti')
