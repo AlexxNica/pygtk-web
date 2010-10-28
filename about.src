@@ -19,7 +19,7 @@ for the most complex interfaces</p>
 PyGTK uses the <a href="http://www.gtk.org/">GTK+ toolkit</a> to offer a
 <b>comprehensive set of graphical elements</b> and other useful programming
 facilities, like the handling of <b>internationalized text</b> (bidirectional
-text or non-latin gliph sets), first class accesibility support through
+text or non-Latin glyph sets), first class accesibility support through
 the <b>Gnome Accessibility Framework</b> (ATK library)...
 </p>
 <p>
@@ -38,7 +38,7 @@ unmodified, on Linux, Windows, MacOS X and other platforms.
 </p>
 <p>
 You can see some of the <a href="applications.html">applications</a> where
-PyGTK is being used, which range from small single purpose scripts up to large
+PyGTK is being used, which range from small single-purpose scripts up to large
 full featured applications.
 </p>
 <div class="clear"/>
@@ -109,7 +109,7 @@ including code, documentation and user support (listed alphabetically):</p>
   Fontilus and the Nautilus RPM.</dd>
 
   <dt><a href="http://www.async.com.br/~jdahlin/">Johan Dahlin</a></dt>
-  <dd>This swede has helped James a lot with PyGTK, specially with the
+  <dd>This Swede has helped James a lot with PyGTK, specially with the
   GTK+ 2.x port. Currently the maintainer of PyGTK. Wrote a big part of
   the gnome-python bindings. Also maintains the nautilus-python package.
   </dd>
@@ -130,7 +130,7 @@ including code, documentation and user support (listed alphabetically):</p>
   <dt>Xavier Ordoquy</dt>
   <dd>Works on misc parts of the project to help when needed (code,
   articles, support on IRC). Also working on
-  <a href="http://gael.sourceforge.net/">Gael</a></dd>
+  <a href="http://gael.sourceforge.net/">Gael</a>.</dd>
 </dl>
 
 </div>

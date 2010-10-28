@@ -11,7 +11,7 @@
 <ul>
 <li>A <strong>Python interpreter</strong> for Windows (you can get it at the
     <a href="http://www.python.org/download/">Python downloads</a>) page.</li>
-<li>The <strong>GTK+ runtime</strong>. We recommend to install it using
+<li>The <strong>GTK+ runtime</strong>. We recommend that you install it using
     the <a href="http://www.gtk.org/download-windows.html#StableRelease">
     official GTK+ bundle</a> (gtk+-bundle*.zip files). Just choose the latest
     version available.<br />
@@ -24,12 +24,12 @@
     version).<br />
     When downloading them, you must make sure that the PyCairo,
     PyGObject and PyGTK versions fit the corresponding Python interpreter
-    version and you have a recent enough GTK+ runtime. The python version used
+    version and you have a relatively recent GTK+ runtime. The python version used
     to build those extensions is written in the installer name (e.g. 'py2.6' for
     Python 2.6).</li>
 </ul>
 
-<p>A great companion to develop your PyGTK applications is the
+<p>A great companion for helping you develop your PyGTK applications is the
 <a href="http://ftp.gnome.org/pub/GNOME/binaries/win32/glade3/">Glade</a>
 user interface designer.</p>
 
@@ -106,8 +106,8 @@ needed to run it.</p>
     <li><a href="ftp://ftp.gtk.org/pub/gtk/python/v1.2/">ftp://ftp.gtk.org/pub/gtk/python/v1.2/</a></li>
     </ul>
 
-    <p>Anyhow, if you are writing a new program, it is strongly recommended that
-    you use the latest GTK+ 2.x version of PyGTK instead.</p>
+    <p>If you are writing a new program, we strongly recommend that
+    you use the latest GTK+ 2.x.</p>
 
 <h3>Build PyGTK!</h3>
 
