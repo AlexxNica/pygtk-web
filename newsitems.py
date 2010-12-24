@@ -15,6 +15,21 @@ item = lambda *x: items.append(x)
 
 # http://news.gmane.org/gmane.comp.gnome.gtk%2B.python/
 
+item("PyGTK All-in-one installer for windows released!",
+     (2010, 12, 24),
+     """The PyGTK team is pleased to announce the return of the highly popular all-in-one
+     installer for Windows.<br />
+     It provides an alternative installation method for PyGTK users on Windows and bundles
+     PyGTK, PyGObject, PyCairo, PyGtkSourceView2, PyGooCanvas, PyRsvg, the gtk+-bundle and
+     Glade in one handy installer.<br />
+     Currently 32 bit Python 2.6 and 2.7 versions are supported on Windows XP and above.<br />
+     See the release <a href="http://www.daa.com.au/pipermail/pygtk/2010-December/019296.html">
+     announcement</a> and <a href="https://github.com/dieterv/pygtk-installer/blob/master/README.rst">
+     README</a> file for further details. The installer itself can be found
+     <a href="http://ftp.gnome.org/pub/GNOME/binaries/win32/pygtk/2.22/">here</a>.<br />
+     Special thanks go to Dieter Verfaillie, for his impressive work to get this done.""",
+     'Rafael Villar Burke')
+
 item("PyGobject 2.26.0 released",
      (2010, 9, 27),
      """PyGobject 2.26.0 has been released. This is the first stable release in the 2.26.x series and
