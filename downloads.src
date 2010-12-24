@@ -5,9 +5,24 @@
 <h2>PyGTK Downloads</h2>
 
 <h3>Install PyGTK!</h3>
-<h4>PyGTK for Microsoft Windows</h4>
+<h4>PyGTK for Microsoft Windows using the all-in-one installer</h4>
 
-<p>In order to install PyGTK on Windows you need:</p>
+<p>For greater convenience, you can use the
+<a href="http://ftp.gnome.org/pub/GNOME/binaries/win32/pygtk/2.22/">
+all-in-one installer</a> which handles all of the PyGTK dependencies,
+development tools (GUI designer and translation tools) and other additional
+modules for you.</p>
+
+<p>You will only need to install the
+<a href="http://www.gtk.org/download-windows.html#StableRelease">
+Python interpreter</a> before starting the all-in-one installer.</p>
+
+<p>The all-in-one installer let's you choose the components to install so
+you can get a fully customized install.</p>
+
+<h4>PyGTK for Microsoft Windows using separate components</h4>
+
+<p>In order to install PyGTK on Windows, without using the all-in-one bundle, you need:</p>
 <ul>
 <li>A <strong>Python interpreter</strong> for Windows (you can get it at the
     <a href="http://www.python.org/download/">Python downloads</a>) page.</li>
