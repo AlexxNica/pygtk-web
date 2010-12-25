@@ -14,7 +14,7 @@ development tools (GUI designer and translation tools) and other additional
 modules for you.</p>
 
 <p>You will only need to install the
-<a href="http://www.gtk.org/download-windows.html#StableRelease">
+<a href="http://www.python.org/download/">
 Python interpreter</a> before starting the all-in-one installer.</p>
 
 <p>The all-in-one installer let's you choose the components to install so
