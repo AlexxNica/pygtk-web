@@ -59,6 +59,11 @@
   difficulties. The application synthetises as speech messages which are
   composed as series of pictograms.</dd>
 
+  <dt><a href="https://diveintoinfosec.wordpress.com/2011/02/03/introducing-creepy/">
+  Creepy</a></dt>
+  <dd>Creepy is a geolocation aggregator. It searches for a user's geolocation
+  information shared publicly in social networking platforms.</dd>
+
   <dt><a href="http://www.gnome.org/projects/deskbar-applet">Deskbar Applet</a></dt>
   <dd>DeskbarApplet provides an omnipresent versatile search interface.
   By typing search terms into an entry in your panel you are presented with
@@ -888,6 +893,11 @@
   easy to use. It has lots of nice features such as an UIManager
   Editor, well supported Copy&amp;Paste and Undo/Redo capabilities, Templates,
   Project views...</dd>
+
+  <dt><a href="http://www.geany.org/">Geany</a></dt>
+  <dd>Geany is a text editor using the GTK2 toolkit with basic features of an
+  integrated development environment. It was developed to provide a small and
+  fast IDE, which has only a few dependencies from other packages.</dd>
 
   <dt><a href="http://gquilt.sourceforge.net/">gquilt</a></dt>
   <dd>gquilt is GUI wrapper for quilt and Mercurial patch queues, a tool
