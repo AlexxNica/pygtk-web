@@ -1,3 +1,7 @@
+2011-04-02  Rafael Villar Burke  <pachi@rvburke.com>
+
+	* newsitems.py downloads.src: Announce the PyGTK 2.24 release
+
 2011-03-13  Rafael Villar Burke  <pachi@rvburke.com>
 
 	* applications.src: Add Sunflower-fm

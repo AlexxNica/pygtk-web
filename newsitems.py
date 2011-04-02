@@ -15,6 +15,24 @@ item = lambda *x: items.append(x)
 
 # http://news.gmane.org/gmane.comp.gnome.gtk%2B.python/
 
+item("PyGTK 2.24.0 released",
+     (2011, 4, 1),
+     """PyGTK 2.24.0 has been released. This is a stable release supporting the GTK+ 2.24 API.<br />
+     New users wishing to develop Python applications using GTK+ are recommended to use the GObject-Introspection
+     features available in PyGObject.<br />
+     Existing authors of PyGTK applications are also recommended to port their applications to PyGObject
+     to take advantage of new features appearing in GTK-3 and beyond. More information on PyGObject
+     and GObject-Introspection can be found at <a href="http://live.gnome.org/PyGObject">
+     http://live.gnome.org/PyGObject</a>.<br />
+     PyGTK-2.24 will be the final major release of PyGTK. Additional bug-fix releases
+     may appear when necessary to maintain compatibility and stability with the
+     GTK-2.24 series.<br />
+     As usual, sources can be fetched from
+     <a href="http://ftp.gnome.org/pub/GNOME/sources/pygtk/2.24/">here</a>.
+     Check out <a href="http://article.gmane.org/gmane.comp.gnome.gtk%2B.python/15449">
+     the release announcement and full list of changes</a>.""",
+     'Rafael Villar Burke')
+
 item("PyGTK All-in-one installer for windows released!",
      (2010, 12, 24),
      """The PyGTK team is pleased to announce the return of the highly popular all-in-one
@@ -30,7 +48,7 @@ item("PyGTK All-in-one installer for windows released!",
      Special thanks go to Dieter Verfaillie, for his impressive work to get this done.""",
      'Rafael Villar Burke')
 
-item("PyGobject 2.26.0 released",
+item("PyGObject 2.26.0 released",
      (2010, 9, 27),
      """PyGobject 2.26.0 has been released. This is the first stable release in the 2.26.x series and
      introduces initial support for introspection and Python 3.
