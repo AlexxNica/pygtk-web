@@ -5,50 +5,42 @@
          xmlns="http://usefulinc.com/ns/doap#">
 
   <name xml:lang="en">PyGTK Website</name>
-  <shortdesc xml:lang="en">PyGTK and PyGObject bindings website</shortdesc>
+  <shortdesc xml:lang="en">Website code for the PyGTK and PyGObject bindings</shortdesc>
   <homepage rdf:resource="http://www.pygtk.org" />
   <mailing-list rdf:resource="http://www.daa.com.au/mailman/listinfo/pygtk" />
-  <category rdf:resource="http://developer.gnome.org/pygtk/" />
-  <category rdf:resource="http://developer.gnome.org/pygobject/" />
-
+  <category rdf:resource="http://api.gnome.org/doap-extensions#bindings" />
   <maintainer>
     <foaf:Person>
       <foaf:name>Rafael Villar Burke</foaf:name>
+      <foaf:mbox rdf:resource="mailto:pachi@rvburke.com" />
       <gnome:userid>rvburke</gnome:userid>
     </foaf:Person>
   </maintainer>
-
   <maintainer>
     <foaf:Person>
       <foaf:name>Johan Dahlin</foaf:name>
+      <foaf:mbox rdf:resource="mailto:johan@gnome.org" />
       <gnome:userid>johan</gnome:userid>
     </foaf:Person>
   </maintainer>
-
   <maintainer>
     <foaf:Person>
-      <foaf:name>Joha Finlay</foaf:name>
+      <foaf:name>John Finlay</foaf:name>
+      <foaf:mbox rdf:resource="mailto:finlay@moeraki.com" />
       <gnome:userid>finlay</gnome:userid>
     </foaf:Person>
   </maintainer>
-
   <maintainer>
     <foaf:Person>
       <foaf:name>Christian Robottom Reis</foaf:name>
+      <foaf:mbox rdf:resource="mailto:kiko@async.com.br" />
       <gnome:userid>kiko</gnome:userid>
     </foaf:Person>
   </maintainer>
-
-  <maintainer>
-    <foaf:Person>
-      <foaf:name>Lorenzo Gil Sanchez</foaf:name>
-      <gnome:userid>lgs</gnome:userid>
-    </foaf:Person>
-  </maintainer>
-
   <maintainer>
     <foaf:Person>
       <foaf:name>J. A. M. Carneiro</foaf:name>
+      <foaf:mbox rdf:resource="mailto:gjc@gnome.org" />
       <gnome:userid>gjc</gnome:userid>
     </foaf:Person>
   </maintainer>
