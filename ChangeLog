@@ -1,3 +1,7 @@
+2011-05-10  Rafael Villar Burke  <pachi@rvburke.com>
+
+	* downloads.src: Update links to 2.24 (AIO and stable series)
+
 2011-04-02  Rafael Villar Burke  <pachi@rvburke.com>
 
 	* newsitems.py downloads.src: Announce the PyGTK 2.24 release

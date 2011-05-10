@@ -8,7 +8,7 @@
 <h4>PyGTK for Microsoft Windows using the all-in-one installer</h4>
 
 <p>For greater convenience, you can use the
-<a href="http://ftp.gnome.org/pub/GNOME/binaries/win32/pygtk/2.22/">
+<a href="http://ftp.gnome.org/pub/GNOME/binaries/win32/pygtk/2.24/">
 all-in-one installer</a> which handles all of the PyGTK dependencies,
 development tools (GUI designer and translation tools) and other additional
 modules for you.</p>
@@ -62,7 +62,7 @@ code</strong> can also be downloaded and compiled from the links below.</p>
 
 <h3>Get the sources!</h3>
 <h4>Current stable release</h4>
-<h5>2.22 series</h5>
+<h5>2.24 series</h5>
 <p>The latest release of PyGTK for GTK+ 2.24 is available from the following website:</p>
 
 <ul>
