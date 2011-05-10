@@ -1,6 +1,7 @@
 2011-05-10  Rafael Villar Burke  <pachi@rvburke.com>
 
 	* downloads.src: Update links to 2.24 (AIO and stable series)
+	* pygtk-web.doap: Add proyect Metadata file
 
 2011-04-02  Rafael Villar Burke  <pachi@rvburke.com>
 

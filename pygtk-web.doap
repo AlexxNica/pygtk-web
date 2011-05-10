@@ -1,0 +1,56 @@
+<Project xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+         xmlns:foaf="http://xmlns.com/foaf/0.1/"
+         xmlns:gnome="http://api.gnome.org/doap-extensions#"
+         xmlns="http://usefulinc.com/ns/doap#">
+
+  <name xml:lang="en">PyGTK Website</name>
+  <shortdesc xml:lang="en">PyGTK and PyGObject bindings website</shortdesc>
+  <homepage rdf:resource="http://www.pygtk.org" />
+  <mailing-list rdf:resource="http://www.daa.com.au/mailman/listinfo/pygtk" />
+  <category rdf:resource="http://developer.gnome.org/pygtk/" />
+  <category rdf:resource="http://developer.gnome.org/pygobject/" />
+
+  <maintainer>
+    <foaf:Person>
+      <foaf:name>Rafael Villar Burke</foaf:name>
+      <gnome:userid>rvburke</gnome:userid>
+    </foaf:Person>
+  </maintainer>
+
+  <maintainer>
+    <foaf:Person>
+      <foaf:name>Johan Dahlin</foaf:name>
+      <gnome:userid>johan</gnome:userid>
+    </foaf:Person>
+  </maintainer>
+
+  <maintainer>
+    <foaf:Person>
+      <foaf:name>Joha Finlay</foaf:name>
+      <gnome:userid>finlay</gnome:userid>
+    </foaf:Person>
+  </maintainer>
+
+  <maintainer>
+    <foaf:Person>
+      <foaf:name>Christian Robottom Reis</foaf:name>
+      <gnome:userid>kiko</gnome:userid>
+    </foaf:Person>
+  </maintainer>
+
+  <maintainer>
+    <foaf:Person>
+      <foaf:name>Lorenzo Gil Sánchez</foaf:name>
+      <gnome:userid>lgs</gnome:userid>
+    </foaf:Person>
+  </maintainer>
+
+  <maintainer>
+    <foaf:Person>
+      <foaf:name>J. A. M. Carneiro</foaf:name>
+      <gnome:userid>gjc</gnome:userid>
+    </foaf:Person>
+  </maintainer>
+</Project>
+
