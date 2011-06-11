@@ -1,6 +1,8 @@
 2011-06-11  Rafael Villar Burke  <pachi@rvburke.com>
 
-	* articles.src: Add PyGTK Book document from Peter Gill
+	* articles.src: Add PyGTK Book document by Peter Gill
+	* articles.src: Fix typo
+	* applications.src: Add DeVeDe by rastersoft
 
 2011-05-10  Rafael Villar Burke  <pachi@rvburke.com>
 
