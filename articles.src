@@ -32,6 +32,13 @@
     </tr>
 
     <tr>
+      <td>Feb 2010</td>
+      <td><a href="http://majorsilence.com/pygtk_book">
+        PyGTK Book - PyGTK, PyCario, DBus, GStreamer, Pyclutter ...</a><br /></td>
+      <td>Peter Gill</td>
+    </tr>
+
+    <tr>
       <td>Jan 2010</td>
       <td><a href="http://www.florian-diesch.de/doc/python-und-glade/">
         German tutorial for PyGTK and Glade.</a><br /></td>
