@@ -870,6 +870,11 @@
   <dt><a href="http://clay.ll.pl/clarence.html">Clarence</a></dt>
   <dd>Clarence is a small GTK+-based programmer's calculator.</dd>
 
+  <dt><a href="http://darning.sourceforge.net/">Darning</a></dt>
+  <dd>Darning is a system (CLI and GUI) for managing a series of patches in a
+  manner similar to quilt and the (original) Mercurial Queues (mq) extension
+  to the Mercurial (hg) distributed source control management (SCM) tool.</dd>
+
   <dt><a href="http://www.vitavonni.de/projekte/dbus-inspector">
   DBus-inspector</a></dt>
   <dd>DBus-Inspector is a development tool to show the contents of the
@@ -918,6 +923,11 @@
   <dd>gtklogger is a python module for recording and replaying user actions
   in a pygtk program, with the goal of allowing gui testing in a regression
   test suite.</dd>
+
+  <dt><a href="http://gwsmhg.sourceforge.net/">gwsmhg</a></dt>
+  <dd>gwsmhg GUI for managing work spaces containing sources under the control
+  of the Mercurial Distributed Version Control system and/or Mercurial Queues (mq),
+  a patch management system on top of Mercurial.</dd>
 
   <dt><a href="http://kefir.sourceforge.net/">Kefir</a></dt>
   <dd>kefir is a code sketcher, a script that takes in a Glade file, and
