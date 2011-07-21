@@ -173,6 +173,10 @@
   <dd>MouseTrap is a head tracking application that helps users with physical
   impairments to access the desktop via webcam.</dd>
 
+  <dt><a href="http://naufrago.sourceforge.net/">Naufrago!</a></dt>
+  <dd>Naufrago! is a simple RSS/feed reader that allows reading news with its images
+  without being online.</dd>
+
   <dt><a href="http://newton.sourceforge.net/">Newton</a></dt>
   <dd>Newton is a simple wiki-like note taking application for the GNOME Desktop.
   It can highlight source code and export to HTML its contents.</dd>
