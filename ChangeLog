@@ -2,6 +2,11 @@
 
 	* applications.src: Add ReliaFree
 
+2011-08-05  Dieter Verfaillie  <dieterv@optionexplicit.be>
+
+	* about.src applications.src developer.src downloads.src
+	feedback.src index.src: Fix typos
+
 2011-07-21  Rafael Villar Burke  <pachi@rvburke.com>
 
 	* applications.src: Add Naufrago! feed reader

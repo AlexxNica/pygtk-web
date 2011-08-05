@@ -35,7 +35,7 @@ you can get a fully customized install.</p>
 <li>The <a href="http://ftp.gnome.org/pub/GNOME/binaries/win32/pygtk/">PyGTK</a>,
     <a href="http://ftp.gnome.org/pub/GNOME/binaries/win32/pycairo/">PyCairo</a> and
     <a href="http://ftp.gnome.org/pub/GNOME/binaries/win32/pygobject/">PyGObject</a>
-    modules (available from this site, just follow the links and choose the lastest
+    modules (available from this site, just follow the links and choose the latest
     version).<br />
     When downloading them, you must make sure that the PyCairo,
     PyGObject and PyGTK versions fit the corresponding Python interpreter
@@ -58,7 +58,7 @@ FAQ.</a></p>
 Debian, Fedora, Ubuntu, Opensuse, Gentoo, Mandrake, Redhat, SUSE...); the <strong>source
 code</strong> can also be downloaded and compiled from the links below.</p>
 
-<!-- TODO: Add per distro instruccions -->
+<!-- TODO: Add per distro instructions -->
 
 <h3>Get the sources!</h3>
 <h4>Current stable release</h4>

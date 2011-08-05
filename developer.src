@@ -21,7 +21,7 @@ There are a number of ways to help out with PyGTK development:
     <li>Write documentation and <a href="articles.html">articles</a></li>
     <li>Provide <a href="feedback.html">support</a> via the mailing list
     or IRC</li>
-    <li><a href="http://bugzilla.gnome.org/enter_bug.cgi?product=pygtk">Report 
+    <li><a href="http://bugzilla.gnome.org/enter_bug.cgi?product=pygtk">Report
         bugs</a></li>
     <li>Write testcases and triage <a
     href="http://bugzilla.gnome.org/buglist.cgi?product=pygtk&amp;bug_status=UNCONFIRMED&amp;bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;email1=&amp;emailtype1=substring&amp;emailassigned_to1=1&amp;email2=&amp;emailtype2=substring&amp;emailreporter2=1&amp;changedin=&amp;chfieldfrom=&amp;chfieldto=Now&amp;chfieldvalue=&amp;short_desc=&amp;short_desc_type=substring&amp;long_desc=&amp;long_desc_type=substring&amp;bug_file_loc=&amp;bug_file_loc_type=substring&amp;status_whiteboard=&amp;status_whiteboard_type=substring&amp;keywords=&amp;keywords_type=anywords&amp;op_sys_details=&amp;op_sys_details_type=substring&amp;version_details=&amp;version_details_type=substring&amp;cmdtype=doit&amp;namedcmd=gnome-python&amp;newqueryname=&amp;order=Reuse+same+sort+as+last+time&amp;form_name=query">open bugs</a></li>
@@ -75,7 +75,7 @@ href="http://git.gnome.org/cgit/pygtk">Gnome Git repository</a>.</p>
 
 <ul>
     <li><a
-    href="http://git.gnome.org/cgit/pygtk/log/">Most recent changes commited</a></li>
+    href="http://git.gnome.org/cgit/pygtk/log/">Most recent changes committed</a></li>
 
 </ul>
 

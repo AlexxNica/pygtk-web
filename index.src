@@ -17,7 +17,7 @@ develop full featured applications for the GNOME Desktop.</p>
 and they're able to run, unmodified, on Linux, Windows, MacOS X
 and other platforms.</p>
 <p>Other distinctive features of PyGTK are, besides its <strong>ease of
-use</strong> and rapid prototyping, its first class accesibility support
+use</strong> and rapid prototyping, its first class accessibility support
 or the capability to deal with complex multilingual or bidirectional
 text for fully localized applications.</p>
 <p>PyGTK is <strong>free software</strong>, so you can use, modify,

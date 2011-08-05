@@ -19,7 +19,7 @@ for the most complex interfaces</p>
 PyGTK uses the <a href="http://www.gtk.org/">GTK+ toolkit</a> to offer a
 <b>comprehensive set of graphical elements</b> and other useful programming
 facilities, like the handling of <b>internationalized text</b> (bidirectional
-text or non-Latin glyph sets), first class accesibility support through
+text or non-Latin glyph sets), first class accessibility support through
 the <b>Gnome Accessibility Framework</b> (ATK library)...
 </p>
 <p>
