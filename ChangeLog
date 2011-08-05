@@ -4,6 +4,7 @@
 
 2011-08-05  Dieter Verfaillie  <dieterv@optionexplicit.be>
 
+	* articles/application-pygtk-glade: Add link to part one
 	* articles/custom-widgets-glade: Update documentation links
 	* articles/application-pygtk-glade: Update documentation links
 	and add missing images
