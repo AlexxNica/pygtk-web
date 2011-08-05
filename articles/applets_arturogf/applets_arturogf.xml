@@ -734,7 +734,7 @@ show this dialog when the user clicks on the popup preferences option.</para>
       </biblioentry>
       <biblioentry>
         <abstract>
-          <para><ulink url="http://www.moreaki.com/pygtkreference/pygtk2reference/index.html">PyGTK 2.0 Reference Manual</ulink></para>
+          <para><ulink url="http://developer.gnome.org/pygtk/2.24/index.html">PyGTK 2.0 Reference Manual</ulink></para>
         </abstract>
         <author>
           <firstname>John</firstname>
@@ -747,12 +747,12 @@ show this dialog when the user clicks on the popup preferences option.</para>
           <surname>McLoughlin</surname>
         </author>
         <abstract>
-          <para><ulink url="http://developer.gnome.org/doc/API/2.0/panel-applet/panelapplet.html">PanelApplet Reference Manual</ulink></para>
+          <para><ulink url="http://developer.gnome.org/panel-applet/2.32/index.html">PanelApplet Reference Manual</ulink></para>
         </abstract>
       </biblioentry>
       <biblioentry>
         <abstract>
-          <para><ulink url="http://developer.gnome.org/doc/API/2.0/bonobo-activation/index.html">Bonobo Activation API Reference manual 2.0</ulink></para>
+          <para><ulink url="http://developer.gnome.org/bonobo-activation/2.32/index.html">Bonobo Activation API Reference manual 2.0</ulink></para>
         </abstract>
         <author>
           <firstname>Mathieu</firstname>
