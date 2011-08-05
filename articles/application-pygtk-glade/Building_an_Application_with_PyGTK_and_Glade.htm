@@ -68,7 +68,7 @@ menu. Set the new items label to be "_Wine" and set it's handler to be:
 	<p>You'll notice that the handled for the Add toolbar button clicked event and the <code>Add | Wine</code>
 menu activation are the same. This is because both of those two widgets
 will be performing the exact same task, adding a wine to our wine list.</p>
-	<p><a href="http://www.learningpython.com/images/pywine_01/pywine_03.png"><img style="margin: 10px;" src="./resources/small_pywine_03.png" alt="Python Glade Menu Editor" border="0"></a></p>
+	<p><a href="./resources/pywine_03.png"><img style="margin: 10px;" src="./resources/small_pywine_03.png" alt="Python Glade Menu Editor" border="0"></a></p>
 	<p>So what's going to happen when the user clicks on the Add Wine button or selects <code>Add | Wine</code>
 from the menu, is a dialog will pop up allowing them to enter in
 details about the wine. If they choose the "Ok" button to end the
@@ -176,7 +176,7 @@ we'll use for our wineDlg dialog, we'll call it wineDialog:</p>
 next thing we need to do is add a function to our wineDialog class that
 will load the wineDialog widget from the glade file and show it. We
 will also want this function to return the result of the dialog, this
-will be a gtk.RESPONSE, you can read more about these at the <a href="http://www.pygtk.org/pygtk2reference/gtk-constants.html#gtk-response-type-constants">PyGTK website</a>.</p>
+will be a gtk.RESPONSE, you can read more about these at the <a href="http://developer.gnome.org/pygtk/2.24/gtk-constants.html#gtk-response-type-constants">PyGTK website</a>.</p>
 	<p>Here is the run function:</p>
 	<div class="hl-surround" style="height: 280px;"><div class="hl-main"><pre><span class="hl-reserved">def </span><span class="hl-identifier">run</span><span class="hl-brackets">(</span><span class="hl-identifier">self</span><span class="hl-brackets">)</span><span class="hl-default">:
 	</span><span class="hl-quotes">"""</span><span class="hl-string">This function will show the wineDlg</span><span class="hl-quotes">"""	
@@ -215,7 +215,7 @@ of the widget that we want to load. This will automatically show the
 Dialog (in the same way that it does our main window) but that's not
 good enough for us, we want the run function to wait until the user has
 exited the dialog before we return to the caller. To do that we call
-get the dialog widget from the widget tree (<code>self.dlg = self.wTree.get_widget("wineDlg")</code>) and we call the <a href="http://www.pygtk.org/pygtk2reference/class-gtkdialog.html#method-gtkdialog--run">GTkDialogs run function</a>.  I'll let the PyGTk documentation describe what this function does:</p>
+get the dialog widget from the widget tree (<code>self.dlg = self.wTree.get_widget("wineDlg")</code>) and we call the <a href="http://developer.gnome.org/pygtk/2.24/class-gtkdialog.html#method-gtkdialog--run">GTkDialogs run function</a>.  I'll let the PyGTk documentation describe what this function does:</p>
 	<blockquote><p>The
 run() method blocks in a recursive main loop until the dialog either
 emits the "response" signal, or is destroyed. If the dialog is
@@ -242,15 +242,15 @@ is returned by this dialog if the user clicks the Ok button.</p>
 can also see that we get the GTKEntry widgets from the dialog in order
 to get and set their text. All-in-all this function is pretty simple.</p>
 	<h3>Tree Views and List Stores</h3>
-	<p>Now that we have the wine the the user wanted to add to the list we need actually add it to the <a href="http://www.pygtk.org/pygtk2reference/class-gtktreeview.html">gtk.TreeView</a>. </p>
-	<p>The main feature if CTKTreeViews is that they display their data in whatever way their model tells them to.  They can use a <a href="http://www.pygtk.org/pygtk2reference/class-gtkliststore.html">gkt.ListStore</a>, <a href="http://www.pygtk.org/pygtk2reference/class-gtktreestore.html">gtk.TreeStore</a>, <a href="http://www.pygtk.org/pygtk2reference/class-gtktreemodelsort.html">gtk.TreeModelSort</a>, or a <a href="http://www.pygtk.org/pygtk2reference/class-pygtkgenerictreemodel.html">gtk.GenericTreeModel</a>.  For this example we're going to be using a gtk.ListStore.</p>
+	<p>Now that we have the wine the the user wanted to add to the list we need actually add it to the <a href="http://developer.gnome.org/pygtk/2.24/class-gtktreeview.html">gtk.TreeView</a>. </p>
+	<p>The main feature if CTKTreeViews is that they display their data in whatever way their model tells them to.  They can use a <a href="http://developer.gnome.org/pygtk/2.24/class-gtkliststore.html">gkt.ListStore</a>, <a href="http://developer.gnome.org/pygtk/2.24/class-gtktreestore.html">gtk.TreeStore</a>, <a href="http://developer.gnome.org/pygtk/2.24/class-gtktreemodelsort.html">gtk.TreeModelSort</a>, or a <a href="http://developer.gnome.org/pygtk/2.24/class-pygtkgenerictreemodel.html">gtk.GenericTreeModel</a>.  For this example we're going to be using a gtk.ListStore.</p>
 	<p>The
 relationships between Tree View's and Models is a bit complicated but
 once you start using it you'll begin to understand why they did it this
 way. In a very basic form the Model represents the Data, and the Tree
 View is simply a way to display the data. So you can have multiple
 views display the same data (model) in totally different ways. From the
-<a href="http://developer.gnome.org/doc/API/2.0/gtk/TreeWidget.html">GTk+ reference manual</a>:</p>
+<a href="http://developer.gnome.org/gtk/2.24/TreeWidget.html">GTk+ reference manual</a>:</p>
 	<blockquote><p>
 To create a tree or list in GTK+, use the GtkTreeModel interface in
 conjunction with the GtkTreeView widget. This widget is designed around
@@ -305,7 +305,7 @@ def AddWineListColumn(self, title, columnId):<br>
 	column.set_sort_column_id(columnId)<br>
 	self.wineView.append_column(column)<br>
 [/code]</p>
-	<p>This code is a bit more complicated, first we create a new <a href="http://www.pygtk.org/pygtk2reference/class-gtktreeviewcolumn.html">gtk.TreeViewColumn</a> that uses a <a href="http://www.pygtk.org/pygtk2reference/class-gtkcellrenderertext.html">gtk.CellRendererText</a> as it's <a href="http://www.pygtk.org/pygtk2reference/class-gtkcellrenderer.html">gtk.CellRenderer</a>.  Here is a bit more general information from the <a href="http://developer.gnome.org/doc/API/2.0/gtk/TreeWidget.html">GTK+ reference manual</a>:</p>
+	<p>This code is a bit more complicated, first we create a new <a href="http://developer.gnome.org/pygtk/2.24/class-gtktreeviewcolumn.html">gtk.TreeViewColumn</a> that uses a <a href="http://developer.gnome.org/pygtk/2.24/class-gtkcellrenderertext.html">gtk.CellRendererText</a> as it's <a href="http://developer.gnome.org/pygtk/2.24/class-gtkcellrenderer.html">gtk.CellRenderer</a>.  Here is a bit more general information from the <a href="http://developer.gnome.org/gtk/2.24/TreeWidget.html">GTK+ reference manual</a>:</p>
 	<blockquote><p>
 Once the GtkTreeView widget has a model, it will need to know how to
 display the model. It does this with columns and cell renderers.</p>
@@ -363,7 +363,7 @@ since the two are connected.</p>
 	wine information.  It is used to add a wine to the 
 	wineList easily</span><span class="hl-quotes">"""
 	</span><span class="hl-reserved">return </span><span class="hl-brackets">[</span><span class="hl-identifier">self</span><span class="hl-code">.</span><span class="hl-identifier">wine</span><span class="hl-code">, </span><span class="hl-identifier">self</span><span class="hl-code">.</span><span class="hl-identifier">winery</span><span class="hl-code">, </span><span class="hl-identifier">self</span><span class="hl-code">.</span><span class="hl-identifier">grape</span><span class="hl-code">, </span><span class="hl-identifier">self</span><span class="hl-code">.</span><span class="hl-identifier">year</span><span class="hl-brackets">]</span></pre></div></div>
-	<p><a href="http://www.learningpython.com/images/pywine_01/pywine_05.png"><img style="margin: 10px;" src="./resources/small_pywine_05.png" alt="Python PyGTK PyWine Glade" border="0"></a></p>
+	<p><a href="./resources/pywine_05.png"><img style="margin: 10px;" src="./resources/small_pywine_05.png" alt="Python PyGTK PyWine Glade" border="0"></a></p>
 	<p>That's
 about it for this sample application, granted it doesn't save any of
 the information or anything like that yet, but it does outline some of
