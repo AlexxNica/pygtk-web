@@ -51,14 +51,14 @@
 
         <p>Now lets create our first simple GUI, this is what you will be
         greeted with when you first start GLADE:</p> <p><a
-            href="http://www.learningpython.com/images/glade_01.png"><img
+            href="./resources/glade_01.png"><img
             style="margin: 0pt 10px 10px 0pt; cursor: pointer;"
             src="./resources/small_glade_01.png" alt="Python RSS Reader"
             border="0"></a></p> <p><a id="more-23"></a></p> <p>What we need to
         do is press the "Window" button on the GLADE palette to create our base
         window. We can then edit the properties of the window in the Properties
         Window:</p> <p><a
-            href="http://www.learningpython.com/images/glade_02.png"><img
+            href="./resources/glade_02.png"><img
             style="margin: 0pt 10px 10px 0pt; cursor: pointer;"
             src="./resources/small_glade_02.png" alt="Python RSS Reader"
             border="0"></a></p> <p>We'll call our window MainWindow and we will
@@ -89,7 +89,7 @@
         btnHelloWorld, and set it's label to be "Click me!"</p> <p>We now need
         to set our project options, I'm going to call this project PyHelloWorld
         and save it in my projects/PyHelloWorld folder.</p> <p><a
-            href="http://www.learningpython.com/images/glade_03.png"><img
+            href="./resources/glade_03.png"><img
             style="margin: 0pt 10px 10px 0pt; cursor: pointer;"
             src="./resources/small_glade_03.png" alt="Python RSS Reader"
             border="0"></a></p> <p>So that's it, you'll see in the PyHelloWorld
@@ -143,7 +143,7 @@ try</span><span class="hl-default">:
 
     <p>The first thing that we do (after defining the class) is specify the
     glade file that we are going to use and create a <a
-        href="http://www.pygtk.org/pygtk2reference/class-gladexml.html">gtk.glade.XML</a>
+        href="http://developer.gnome.org/pygtk/2.24/class-gladexml.html">gtk.glade.XML</a>
     object using our glade file.  Here is a description of the object taken
     from the pyGTK2 reference:</p>
 
@@ -161,7 +161,7 @@ try</span><span class="hl-default">:
     <p>So what we are doing when we create our gtk.glade.XML object is creating
     and loading our main interface.</p> <p>The next thing that we go is get an
     instance to our main window and connect the "destroy" event with the <a
-        href="http://www.pygtk.org/pygtk2reference/gtk-functions.html#function-gtk--main-quit">get.main_quit()</a>
+        href="http://developer.gnome.org/pygtk/2.24/gtk-functions.html#function-gtk--main-quit">get.main_quit()</a>
     function. This basically quits our application when the main window is
     closed. Otherwise the application will continue to run when the main window
     is closed (which we obviously don't want).</p> <p>That's it for our
@@ -191,7 +191,7 @@ try</span><span class="hl-default">:
     alt="PyGame Window" border="0"></p> <p>That's it for the work in Glade, now
     what we need to do is connect that event to something in our code.
     Fortunately this is pretty easily done using the <a
-        href="http://www.pygtk.org/pygtk2reference/class-gladexml.html#method-gladexml--signal-autoconnect">gtk.glade.XML.signal_autoconnect</a>
+        href="http://developer.gnome.org/pygtk/2.24/class-gladexml.html#method-gladexml--signal-autoconnect">gtk.glade.XML.signal_autoconnect</a>
     function.</p>
 
 	<div class="hl-surround">
