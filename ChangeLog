@@ -1,3 +1,8 @@
+2011-08-06  Dieter Verfaillie  <dieterv@optionexplicit.be>
+
+	* articles/subclassing-gobject: Update documentation links
+	and add missing Python source files
+
 2011-08-06  Rafael Villar Burke  <pachi@rvburke.com>
 
 	* applications.src: Add ReliaFree

@@ -160,7 +160,7 @@
       second goal GNOME is based on a set of libraries which are very easy to
       access from a large amount of programming languages.</p>
 
-      <p>The library most modules depend on is <a href="http://library.gnome.org/devel/glib/unstable/index.html" target="_top">GLib</a> which provides a lot of useful functionality
+      <p>The library most modules depend on is <a href="http://developer.gnome.org/glib/stable/index.html" target="_top">GLib</a> which provides a lot of useful functionality
       embedded and used in the GNOME framework; this document in particular
       discussed the Object system defined in Glib that allow us to use Object
       Orientation throughout the GNOME framework. The Glib library, as most of
@@ -171,7 +171,7 @@
       or Python. But this does not mean that you can not program in an Object
       Oriented way with C, it's only that you have to do some extra work. And
       it's your lucky day, because GLib does most of this work for you.
-      <a href="http://library.gnome.org/devel/gobject/unstable/index.html" target="_top">GObject</a> is commonly known as the part of GLib that
+      <a href="http://developer.gnome.org/gobject/stable/index.html" target="_top">GObject</a> is commonly known as the part of GLib that
       provides the Object Oriented features that C lacks.</p>
 
       <p>One of the nice things that GObject provides is a class mechanism
@@ -254,7 +254,7 @@
 
       <p><a id="d0e127" name="d0e127">So let's get some action and create our
       first example. We are going to create a Car class with a <span class="emphasis"><em>fuel</em></span> property that indicates the amount of
-      fuel that our car has. This is the</a> <a href="http://userpage.chemie.fu-berlin.de/%7Echrbecke/gobject-tutorial/car1.py" target="_top">code</a></p>
+      fuel that our car has. This is the</a> <a href="./resources/car1.py" target="_top">code</a></p>
 
       <table bgcolor="#d9eefc" border="0" width="100%">
         <tbody>
@@ -578,7 +578,7 @@ Now the car has 20.000000 of fuel
 
       <p><a id="d0e412" name="d0e412">What I think is really useful is
       connecting a callback to the <span class="emphasis"><em>notify</em></span> signal of a property. In the next</a>
-      <a href="http://userpage.chemie.fu-berlin.de/%7Echrbecke/gobject-tutorial/car2.py" target="_top">example</a> we will create a function that will check if
+      <a href="./resources/car2.py" target="_top">example</a> we will create a function that will check if
       we are running out of fuel using the notify mechanism of GObject:</p>
 
       <table bgcolor="#d9eefc" border="0" width="100%">
@@ -615,7 +615,7 @@ Now the car has 20.000000 of fuel
       have 4 different properties in a <tt>Car</tt>, that's why we need the if
       clause at the beginning of the callback.</p>
 
-      <p>Now we will <a href="http://userpage.chemie.fu-berlin.de/%7Echrbecke/gobject-tutorial/car4.py" target="_top">see in</a> another way of doing the same as in the
+      <p>Now we will <a href="./resources/car4.py" target="_top">see in</a> another way of doing the same as in the
       previous example but using a nice feature of GObject signal names:</p>
 
       <table bgcolor="#d9eefc" border="0" width="100%">
@@ -696,7 +696,7 @@ Now the car has 20.000000 of fuel
         its internal and valid name will be <tt>background-color</tt>. The
         places where you have to be careful about this are the
         <tt>do_get_property()</tt> and <tt>do_set_property()</tt> methods and
-        the signal connection calls. Let's see an</a> <a href="http://userpage.chemie.fu-berlin.de/%7Echrbecke/gobject-tutorial/long-names.py" target="_top">example:</a></p>
+        the signal connection calls. Let's see an</a> <a href="./resources/long-names.py" target="_top">example:</a></p>
 
         <table bgcolor="#d9eefc" border="0" width="100%">
           <tbody>
@@ -885,7 +885,7 @@ Now the car has 20.000000 of fuel
       won't be explained here.</a></p>
 
       <p><a id="d0e570" name="d0e570">I think this is enough theory for now so
-      let's jump into some real</a> <a href="http://userpage.chemie.fu-berlin.de/%7Echrbecke/gobject-tutorial/car4.py" target="_top">code</a>. We can use the signal concept to improve our car
+      let's jump into some real</a> <a href="./resources/car4.py" target="_top">code</a>. We can use the signal concept to improve our car
       class. We can have an <tt>engine-started</tt> signal that will be
       emitted when the car's engine is started so other parts of the car can
       connect to this signal and do something useful.</p>
@@ -1071,7 +1071,7 @@ Now the car has 20.000000 of fuel
       </div>
 
       <p><a id="d0e723" name="d0e723">Now that we have our own signal we can
-      connect callbacks to it to make it a little bit more</a> <a href="http://userpage.chemie.fu-berlin.de/%7Echrbecke/gobject-tutorial/car5.py" target="_top">useful:</a></p>
+      connect callbacks to it to make it a little bit more</a> <a href="./resources/car5.py" target="_top">useful:</a></p>
 
       <table bgcolor="#d9eefc" border="0" width="100%">
         <tbody>
@@ -1160,7 +1160,7 @@ Now the car has 20.000000 of fuel
       <tt>Car</tt> class with a <tt>LuxuryCar</tt> class and you want to do
       something more when the engine is started. In this particular case when
       you subclass a Python class with another Python class there is nothing
-      special with this. Let's see an</a> <a href="http://userpage.chemie.fu-berlin.de/%7Echrbecke/gobject-tutorial/luxurycar.py" target="_top">example:</a></p>
+      special with this. Let's see an</a> <a href="./resources/luxurycar.py" target="_top">example:</a></p>
 
       <table bgcolor="#d9eefc" border="0" width="100%">
         <tbody>
@@ -1200,7 +1200,7 @@ Now the car has 20.000000 of fuel
       that will not allow the user to paste anything into it. In the regular
       <tt>gtk.Entry</tt> the class closure of the 'paste_clipboard' signal has
       the function that handles the paste behavior. So our class need to
-      override this class closure. <a href="http://userpage.chemie.fu-berlin.de/%7Echrbecke/gobject-tutorial/evilentry.py" target="_top">This</a> is the code you need to write:</p>
+      override this class closure. <a href="./resources/evilentry.py" target="_top">This</a> is the code you need to write:</p>
 
       <table bgcolor="#d9eefc" border="0" width="100%">
         <tbody>
