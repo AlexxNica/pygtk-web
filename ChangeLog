@@ -1,5 +1,6 @@
 2011-08-06  Dieter Verfaillie  <dieterv@optionexplicit.be>
 
+	* reference.src: Update documentation links
 	* downloads.src: clarify the need for a 32 bit Python
 	interpreter on Windows
 	* head.src: fix favicon
