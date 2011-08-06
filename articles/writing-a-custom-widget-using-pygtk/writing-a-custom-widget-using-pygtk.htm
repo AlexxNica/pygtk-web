@@ -45,17 +45,17 @@
         "http://www.pygtk.org/articles/cairo-pygtk-widgets/cairo-pygtk-widgets.htm">
         writing a widget</a> turotial on the PyGTK website, and the
         <a href=
-        "http://cvs.gnome.org/viewcvs/pygtk/examples/gtk/widget.py?rev=1.12&amp;view=markup">
+        "http://git.gnome.org/browse/pygtk/tree/examples/gtk/widget.py">
         widget.py</a> example in the PyGTK cvs.</p>
 
         <p>The skeleton of the following code will be mostly based
         off of the <a href=
-        "http://cvs.gnome.org/viewcvs/pygtk/examples/gtk/widget.py?rev=1.12&amp;view=markup">
+        "http://git.gnome.org/browse/pygtk/tree/examples/gtk/widget.py">
         widget.py</a> example, but since this example will try to
         accomplish a bit more there will be some extra code. In
         order to understand this tutorial better I suggest you give
         <a href=
-        "http://cvs.gnome.org/viewcvs/pygtk/examples/gtk/widget.py?rev=1.12&amp;view=markup">
+        "http://git.gnome.org/browse/pygtk/tree/examples/gtk/widget.py">
         widget.py</a> a couple of reads.</p>
 
         <p>The starting point is a file names starhscale.py which
@@ -189,7 +189,7 @@ import </span><span class="hl-identifier">pygtk
         <p>So what's happening here? Well the first thing you see
         is the definition of our StarHScale widget that is a
         subclass of <a href=
-        "http://www.pygtk.org/pygtk2reference/class-gtkwidget">gtk.Widget</a>,
+        "http://developer.gnome.org/pygtk/2.24/class-gtkwidget.html">gtk.Widget</a>,
         which is the base class for all widgets in PyGTK. Then we
         have a rather simple __init__ routine where we set some
         parameters (the max number of stars to show and the current
@@ -217,7 +217,7 @@ import </span><span class="hl-identifier">pygtk
         <p>The next function we will write is the do_realize()
         function. The do_realize() function is related to the
         <a href=
-        "http://www.pygtk.org/pygtk2reference/class-gtkwidget.html#method-gtkwidget--realize">
+        "http://developer.gnome.org/pygtk/2.24/class-gtkwidget.html#method-gtkwidget--realize">
         gtk.Widget.realize()</a> function and is called when a
         widget is supposed to allocate its GDK windowing
         resources.</p>
@@ -225,12 +225,12 @@ import </span><span class="hl-identifier">pygtk
         <p>It may seem a bit complicated, but the do_realize()
         function is simply where widgets create their GDK windows
         resources (most probably a <a href=
-        "http://www.pygtk.org/pygtk2reference/class-gdkwindow.html">
+        "http://developer.gnome.org/pygtk/2.24/class-gdkwindow.html">
         gtk.gdk.Window</a>) where the widget will eventually be
         drawn to). In order to fully understand this it may be
         helpful to understand what a gtk.gdk.Window is, here is an
         explanation from the <a href=
-        "http://www.pygtk.org/pygtk2reference/class-gdkwindow.html">
+        "http://developer.gnome.org/pygtk/2.24/class-gdkwindow.html">
         PyGTK documentation</a>:</p>
 
         <blockquote>
@@ -254,13 +254,13 @@ import </span><span class="hl-identifier">pygtk
         think of one, it's basically a rectangular region on the
         screen that will be used for "drawing" of some sort. So for
         our StarHScale widget, it's <a href=
-        "http://www.pygtk.org/pygtk2reference/class-gdkwindow.html">
+        "http://developer.gnome.org/pygtk/2.24/class-gdkwindow.html">
         gtk.gdk.Window</a> will be the area where the stars will be
         drawn. If you have done programming with other toolkits or
         other languages it may be helpful to think of this as the
         "surface" that the widget draws on. Much of the
         do_realize() code is taken from the <a href=
-        "http://cvs.gnome.org/viewcvs/pygtk/examples/gtk/widget.py?rev=1.12&amp;view=markup">
+        "http://git.gnome.org/browse/pygtk/tree/examples/gtk/widget.py">
         widget.py</a> example:</p>
 
         <div class="hl-surround" style="height: 280px;">
@@ -458,14 +458,14 @@ import </span><span class="hl-identifier">pygtk
         to explain it. The first step is to set a flag so that lets
         us, and anyone else that wants to know, that we have been
         realized - that we have a <a href=
-        "http://www.pygtk.org/pygtk2reference/class-gdkwindow.html">
+        "http://developer.gnome.org/pygtk/2.24/class-gdkwindow.html">
         gtk.gdk.Window</a> associated with ourselves.</p>
 
         <p>The next step is to actually create the gtk.gdk.Window
         that will be associated with the StarHScale widget. When we
         create it we also set many of it's attributes. You can read
         more about all the available attributes in the <a href=
-        "http://www.pygtk.org/pygtk2reference/class-gdkwindow.html#constructor-gdkwindow">
+        "http://developer.gnome.org/pygtk/2.24/class-gdkwindow.html#constructor-gdkwindow">
         PyGTK documentation</a> but here are the attributes that we
         are setting:</p>
 
@@ -491,7 +491,7 @@ import </span><span class="hl-identifier">pygtk
         <p>The next step is where the do_realize() code begins to
         diverge from the widget.py example. The next step is where
         we create our star pixmap using the <a href=
-        "http://www.pygtk.org/pygtk2reference/class-gdkpixmap.html#function-gdk--pixmap-create-from-xpm-d">
+        "http://developer.gnome.org/pygtk/2.24/class-gdkpixmap.html#function-gdk--pixmap-create-from-xpm-d">
         pixmap_create_from_xmp_d</a> function:</p>
 
         <div class="hl-surround">
@@ -523,7 +523,7 @@ import </span><span class="hl-identifier">pygtk
         </div>
 
         <p>Here is a description of what a <a href=
-        "http://www.pygtk.org/pygtk2reference/class-gdkpixmap.html">
+        "http://developer.gnome.org/pygtk/2.24/class-gdkpixmap.html">
         gtk.gdk.Pixmap</a> is:</p>
 
         <blockquote>
@@ -857,16 +857,16 @@ import </span><span class="hl-identifier">pygtk
 
         <p>Then we make a quick reference to the normal state
         foreground <a href=
-        "http://www.pygtk.org/pygtk2reference/class-gdkgc.html">gtk.gdk.GC</a>
+        "http://developer.gnome.org/pygtk/2.24/class-gdkgc.html">gtk.gdk.GC</a>
         (graphic context) associated with our style. A <a href=
-        "http://www.pygtk.org/pygtk2reference/class-gdkgc.html">gtk.gdk.GC</a>
+        "http://developer.gnome.org/pygtk/2.24/class-gdkgc.html">gtk.gdk.GC</a>
         is simply an object that "encapsulates information about
         the way things are drawn, such as the foreground color or
         line width. By using graphics contexts, the number of
         arguments to each drawing call is greatly reduced, and
         communication overhead is minimized, since identical
         arguments do not need to be passed repeatedly. (<a href=
-        "http://www.pygtk.org/pygtk2reference/class-gdkgc.html">From
+        "http://developer.gnome.org/pygtk/2.24/class-gdkgc.html">From
         the PYGTK Docs</a> )" So it's basically a bunch of drawing
         settings encapsulated in one simple object.</p>
 
@@ -878,7 +878,7 @@ import </span><span class="hl-identifier">pygtk
         <p>The next step in our widget creation is the
         do_unrealize() function, which is called when a widget
         should free all of its resources. The <a href=
-        "http://cvs.gnome.org/viewcvs/pygtk/examples/gtk/widget.py?rev=1.12&amp;view=markup">
+        "http://git.gnome.org/browse/pygtk/tree/examples/gtk/widget.py">
         widget.py</a> example calls:</p>
 
         <div class="hl-surround" style="height: 28px;">
@@ -1061,7 +1061,7 @@ import </span><span class="hl-identifier">pygtk
         <p>Basically we simply loop through the current number of
         stars (self.stars) and draw our star pixmap to the window
         using the <a href=
-        "http://pygtk.org/pygtk2reference/class-gdkdrawable.html#method-gdkdrawable--draw-drawable">
+        "http://developer.gnome.org/pygtk/2.24/class-gdkdrawable.html">
         draw_drawable</a> function. We use the self.sizes list
         (which we calculated in the __init__ function) to determine
         the x position where we will draw the star.</p>
@@ -1178,7 +1178,7 @@ import </span><span class="hl-identifier">pygtk
         get us the real pointer information. If it is not a hint
         then we just collect the information from the passed
         <a href=
-        "http://www.pygtk.org/pygtk2reference/class-gdkevent.html">gtk.gdk.Event</a>
+        "http://developer.gnome.org/pygtk/2.24/class-gdkevent.html">gtk.gdk.Event</a>
         object.</p>
 
         <p>Then we check the events state to make sure that the
