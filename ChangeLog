@@ -1,5 +1,6 @@
 2011-08-06  Dieter Verfaillie  <dieterv@optionexplicit.be>
 
+	* articles/wordpy-offline-blogging-tool: Update documentation links
 	* articles/subclassing-gobject: Update documentation links
 	and add missing Python source files
 

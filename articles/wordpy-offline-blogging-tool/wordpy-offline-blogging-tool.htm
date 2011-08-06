@@ -341,7 +341,7 @@ WordPressSettings are updated. </p>
 	<p>I
 found working with the gtk.TextView object to be quite difficult, it
 uses an approach to Text controls that I really had not encountered
-before. Mainly the <a href="http://www.pygtk.org/pygtk2reference/class-gtktextview.html">gtk.TextView</a> <a href="http://www.pygtk.org/pygtk2reference/class-gtktextbuffer.html">gtk.TextBuffer</a> relationship.  For a full understanding of the gtk.TextView/gtk.TextBuffer relationship you might want to read the <a href="http://developer.gnome.org/doc/API/2.0/gtk/TextWidget.html">GTK+ reference guide</a>.  Here is a brief excerpt that may explain how they two are related:</p>
+before. Mainly the <a href="http://developer.gnome.org/pygtk/2.24/class-gtktextview.html">gtk.TextView</a> <a href="http://developer.gnome.org/pygtk/2.24/class-gtktextbuffer.html">gtk.TextBuffer</a> relationship.  For a full understanding of the gtk.TextView/gtk.TextBuffer relationship you might want to read the <a href="http://developer.gnome.org/gtk/2.24/TextWidget.html">GTK+ reference guide</a>.  Here is a brief excerpt that may explain how they two are related:</p>
 	<blockquote><p>
 GTK+ has an extremely powerful framework for multiline text editing.
 The primary objects involved in the process are GtkTextBuffer, which
@@ -372,17 +372,17 @@ gravity, because it stays to the right of inserted text.
 </p></blockquote>
 	<p>So, a gtk.TextBuffer is the actual text, and it
 can be displayed in more then one gtkTextView objects which decide how
-the text will look. <a href="http://www.pygtk.org/pygtk2reference/class-gtktextiter.html">gtk.TextIter</a>
+the text will look. <a href="http://developer.gnome.org/pygtk/2.24/class-gtktextiter.html">gtk.TextIter</a>
 objects are used to iterate through the text, but they will not be
 valid forever since the text might change. To keep track of a position
-in the text 'forever' <a href="http://www.pygtk.org/pygtk2reference/class-gtktextmark.html">gtk.TextMarks</a>
+in the text 'forever' <a href="http://developer.gnome.org/pygtk/2.24/class-gtktextmark.html">gtk.TextMarks</a>
 must be used. You can also use tags and things to format text in a
 gtk.TextView but we won't be using them at all in this tutorial.</p>
 	<p>Because
 of the complicated relationship between all of these pyGTK objects I
 decided to write some helper functions to make working with the text
 easier.</p>
-	<p>The first thing we needed to do was get the <a href="http://www.pygtk.org/pygtk2reference/class-gtktextview.html">gtk.TextView</a> and <a href="http://www.pygtk.org/pygtk2reference/class-gtktextbuffer.html">gtk.TextBuffers</a> that we will be working with.  In order to do this we add the following code to the __init__ function:</p>
+	<p>The first thing we needed to do was get the <a href="http://developer.gnome.org/pygtk/2.24/class-gtktextview.html">gtk.TextView</a> and <a href="http://developer.gnome.org/pygtk/2.24/class-gtktextbuffer.html">gtk.TextBuffers</a> that we will be working with.  In order to do this we add the following code to the __init__ function:</p>
 	<div class="hl-surround"><div class="hl-main"><pre><span class="hl-comment">#Get the text view
 </span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">txtPost</span><span class="hl-default"> = </span><span class="hl-identifier">self</span><span class="hl-default">.</span><span class="hl-identifier">wTree</span><span class="hl-default">.</span><span class="hl-identifier">get_widget</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">txtPost</span><span class="hl-quotes">"</span><span class="hl-brackets">)
 </span><span class="hl-comment">#Get the buffer associated with the text view
@@ -424,7 +424,7 @@ and end gtk.TextIter objects that represent the selection:</p>
 first thing this function does is initialize our returns values (start
 and end) to None, just so that the caller function can tell whether the
 function succeeded or not. The next thing we do is attempt to get the
-current selection using <a href="http://www.pygtk.org/pygtk2reference/class-gtktextbuffer.html#method-gtktextbuffer--get-selection-bounds">gtk.TextBuffer.get_selection_bounds()</a> function.  If there is no selection then we use the <a href="http://www.pygtk.org/pygtk2reference/class-gtktextbuffer.html#method-gtktextbuffer--get-insert">gtk.TextBuffer.get_insert()</a> function to get the <a href="http://www.pygtk.org/pygtk2reference/class-gtktextmark.html">gtk.TextMark</a>
+current selection using <a href="http://developer.gnome.org/pygtk/2.24/class-gtktextbuffer.html#method-gtktextbuffer--get-selection-bounds">gtk.TextBuffer.get_selection_bounds()</a> function.  If there is no selection then we use the <a href="http://developer.gnome.org/pygtk/2.24/class-gtktextbuffer.html#method-gtktextbuffer--get-insert">gtk.TextBuffer.get_insert()</a> function to get the <a href="http://developer.gnome.org/pygtk/2.24/class-gtktextmark.html">gtk.TextMark</a>
 that is at the current position of the cursor. Then we use that
 gtk.TextMark to set the start and end gtk.TextIter object and we're
 done.</p>
@@ -463,11 +463,11 @@ insert_text() function:</p>
 	<p>The
 comments in the code should help explain what is happening in this
 function, but I will explain it briefly. First we get the start and end
-<a href="http://www.pygtk.org/pygtk2reference/class-gtktextiter.html">gtk.TextIter</a> objects representing the current selection.  Then we delete that selection and create a <a href="http://www.pygtk.org/pygtk2reference/class-gtktextmark.html">gtk.TextMark</a>
+<a href="http://developer.gnome.org/pygtk/2.24/class-gtktextiter.html">gtk.TextIter</a> objects representing the current selection.  Then we delete that selection and create a <a href="http://developer.gnome.org/pygtk/2.24/class-gtktextmark.html">gtk.TextMark</a>
 at the start location. The gtk.TextMark is created with left gravity,
 which means that when text is inserted at it's position it will stay to
 the left of the text rather then being pushed to the right.</p>
-	<p>Then we insert the text at the end position, which will insert the text and update the position of the end <a href="http://www.pygtk.org/pygtk2reference/class-gtktextiter.html">gtk.TextIter</a> to point at the end of the inserted text.  Next we get the start <a href="http://www.pygtk.org/pygtk2reference/class-gtktextiter.html">gtk.TextIter</a>
+	<p>Then we insert the text at the end position, which will insert the text and update the position of the end <a href="http://developer.gnome.org/pygtk/2.24/class-gtktextiter.html">gtk.TextIter</a> to point at the end of the inserted text.  Next we get the start <a href="http://developer.gnome.org/pygtk/2.24/class-gtktextiter.html">gtk.TextIter</a>
 based off of our start_mark and select all of the text that we just
 inserted. Finally we delete the gtk.TextMark that we created and the
 function is done.</p>
@@ -636,7 +636,7 @@ with the link tags.</p>
 	<p>The next thing we are going to do is work
 on letting the user add an image to their blog post. To do this we will
 respond to the on_btnImage_clicked function. The first thing we need to
-do is let the user browse for an image. We will use a <a href="http://www.pygtk.org/pygtk2reference/class-gtkfilechooserdialog.html">gtk.FileChooserDialog</a>, for more information on using a gtk.FileChooserDialog see section <a href="http://www.pygtk.org/pygtk2tutorial/sec-FileChoosers.html">16.6 in the PyGTK Tutorial</a>, where much of the following code is taken:</p>
+do is let the user browse for an image. We will use a <a href="http://developer.gnome.org/pygtk/2.24/class-gtkfilechooserdialog.html">gtk.FileChooserDialog</a>, for more information on using a gtk.FileChooserDialog see section <a href="http://www.pygtk.org/pygtk2tutorial/sec-FileChoosers.html">16.6 in the PyGTK Tutorial</a>, where much of the following code is taken:</p>
 	<div class="hl-surround" style="height: 280px;"><div class="hl-main"><pre><span class="hl-reserved">def </span><span class="hl-identifier">browse_for_image</span><span class="hl-brackets">(</span><span class="hl-identifier">self</span><span class="hl-brackets">)</span><span class="hl-default">:
 	</span><span class="hl-quotes">"""</span><span class="hl-string">This function is used to browse for an image.
 	The path to the image will be returned if the user
@@ -674,10 +674,10 @@ do is let the user browse for an image. We will use a <a href="http://www.pygtk.
 	</span><span class="hl-reserved">return </span><span class="hl-identifier">result</span></pre></div></div>
 	<p>The browse_for_image() function will show the following dialog:</p>
 	<p><img style="margin: 0pt 10px 10px 0pt;" src="resources/wordpy_03.png" alt="Python PyGTK gtk.FileChooserDialog" border="0"></p>
-	<p>The first thing we do in the function is create our <a href="http://www.pygtk.org/pygtk2reference/class-gtkfilechooserdialog.html#constructor-gtkfilechooserdialog">gtk.FileChooserDialog</a>.
+	<p>The first thing we do in the function is create our <a href="http://developer.gnome.org/pygtk/2.24/class-gtkfilechooserdialog.html#constructor-gtkfilechooserdialog">gtk.FileChooserDialog</a>.
 When constructing the gtk.FileChooseDialog we set it's title, the fact
 that it is a File Open dialog, and what buttons it will have (Ok and
-Cancel). Then we use two <a href="http://www.pygtk.org/pygtk2reference/class-gtkfilefilter.html">gtk.FileFilter</a>'s
+Cancel). Then we use two <a href="http://developer.gnome.org/pygtk/2.24/class-gtkfilefilter.html">gtk.FileFilter</a>'s
 to control what sort of files the user will be allowed to browse for.
 The first file filter sets up the common image types that they will be
 allowed to browse for and the second filter lets them browse for any
