@@ -1,7 +1,6 @@
 WEBDIR ?= ${HOME}/www/pygtk-web
 IMGDIR = ${WEBDIR}/img
 DISTDIR = ${WEBDIR}/dist
-REFDISTDIR = ${DISTDIR}/reference-tarballs
 ARTICLEDIR = ${WEBDIR}/articles
 
 #using python2.4 now (2007/04/19)
@@ -10,10 +9,8 @@ PROCESSOR = ${PYTHON} stp.py
 
 WGET = wget
 REFTARBALLS = \
-	http://www.gnome.org/~gianmt/pygobject-docs.tar.gz	\
-	http://www.gnome.org/~gianmt/pygtk-docs.tar.gz
-
-REFFILENAMES = pygobject-docs.tar.gz pygtk-docs.tar.gz
+	documentation/pygobject.tar.bz2	\
+	documentation/pygtk.tar.bz2
 
 TARBALLS = 								\
 	http://www.moeraki.com/pygtktutorial/pygtk2tutorial.tgz 	\
@@ -53,7 +50,7 @@ html: ${HTML_PAGES}
 
 pages: dirs news.rss ${HTML_PAGES} extras
 
-dirs: ${WEBDIR} ${IMGDIR} ${DISTDIR} ${ARTICLEDIR} ${REFDISTDIR}
+dirs: ${WEBDIR} ${IMGDIR} ${DISTDIR} ${ARTICLEDIR}
 
 start_log:
 	echo 'Starting to build the PyGTK web'
@@ -69,9 +66,6 @@ ${IMGDIR}:
 
 ${DISTDIR}:
 	mkdir -p ${DISTDIR}
-
-${REFDISTDIR}:
-	mkdir -p ${REFDISTDIR}
 
 ${ARTICLEDIR}:
 	mkdir -p ${ARTICLEDIR}
@@ -102,8 +96,7 @@ reference-tarballs:
 
 	mkdir -p ${WEBDIR}/docs
 
-	-(cd ${REFDISTDIR}; ${WGET} -KN ${REFTARBALLS})
-	(cd ${WEBDIR}/docs; for f in ${REFFILENAMES}; do tar xzf ${REFDISTDIR}/$$f; done)
+	(srcdir=`pwd`; cd ${WEBDIR}/docs; for f in ${REFTARBALLS}; do bzip2 -dc $${srcdir}/$$f | tar x; done)
 
 local-tarballs:
 	cp ${LOCAL_TARBALLS} ${DISTDIR}

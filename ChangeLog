@@ -1,5 +1,7 @@
 2011-08-06  Dieter Verfaillie  <dieterv@optionexplicit.be>
 
+	* docs/pygobject: Update reference documentation to 2.28.6
+	* docs/pygtk: Update reference documentation to 2.24.0
 	* about.src: Add John Stowers and myself to "The people
 	behind PyGTK", mark former maintainers as such
 	* reference.src: Update documentation links
