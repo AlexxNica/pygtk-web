@@ -56,18 +56,6 @@ reports.
 </ul>
 
 
-<h4>Bugs that need attention (help or reviews wanted!)</h4>
-
-<ul>
-   <!-- <li><a href=""></a></li> -->
-   <li><a
-   href="http://bugzilla.gnome.org/show_bug.cgi?id=126477">126477</a>:pyORBit
-   and threading</li>
-   <li><a
-   href="http://bugzilla.gnome.org/show_bug.cgi?id=81879">81879</a>:GObject
-   properties as descriptors</li>
-</ul>
-
 <h3>Git Activity</h3>
 
 <p>The source code for PyGTK is located in the <a
