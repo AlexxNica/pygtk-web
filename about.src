@@ -83,20 +83,23 @@ proprietary applications.
 
 <h2>The people behind PyGTK</h2>
 
-<p>The following people are involved in maintaining the PyGTK project,
+<p>The following people are or have been involved in maintaining the PyGTK project,
 including code, documentation and user support (listed alphabetically):</p>
 
 <dl>
-  <dt>Cedric Gustin
-  </dt>
-  <dd>Maintains the win32 port of PyGTK</dd>
+  <dt>Cedric Gustin</dt>
+  <dd>Former maintainer of the win32 port of PyGTK</dd>
 
   <dt><a href="http://www.async.com.br/~kiko/">Christian Reis</a> a.k.a. kiko</dt>
-  <dd><a href="http://faq.pygtk.org/">FAQ</a> maintainer,
+  <dd><a href="http://faq.pygtk.org/">FAQ</a> former maintainer,
   general IRC and email support, and purportedly co-maintainer of the
   1.2 branch (though he never manages to do much work on it). Also the
   author of <a href="http://www.async.com.br/projects/kiwi/">Kiwi</a>, a
   high-level framework for developing applications using PyGTK.</dd>
+
+  <dt>Dieter Verfaillie</dt>
+  <dd>Maintains the win32 port and All-in-one installer of PyGTK
+  and helps out where needed (documentation, bugs, mailing list).</dd>
 
   <dt>Gustavo J. Carneiro</dt>
   <dd>Gustavo is the gnomeprint hacker of the team. But he also has
@@ -110,13 +113,17 @@ including code, documentation and user support (listed alphabetically):</p>
 
   <dt><a href="http://www.async.com.br/~jdahlin/">Johan Dahlin</a></dt>
   <dd>This Swede has helped James a lot with PyGTK, specially with the
-  GTK+ 2.x port. Currently the maintainer of PyGTK. Wrote a big part of
-  the gnome-python bindings. Also maintains the nautilus-python package.
+  GTK+ 2.x port. Former maintainer of PyGTK. Wrote a big part of
+  the gnome-python bindings. Also maintained the nautilus-python package.
   </dd>
 
   <dt>John Finlay</dt>
   <dd>Did practically all the work on the great tutorial and reference
   documentation of PyGTK. What would it be without John? </dd>
+
+  <dt>John Stowers</dt>
+  <dd>Current maintainer of PyGTK, kept the project alive when no one else
+  was around to do so.</dd>
 
   <dt>Lorenzo G. Sanchez</dt>
   <dd>Works on documentation (translating the PyGTK Tutorial to Spanish,

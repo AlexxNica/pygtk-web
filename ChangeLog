@@ -1,5 +1,7 @@
 2011-08-06  Dieter Verfaillie  <dieterv@optionexplicit.be>
 
+	* about.src: Add John Stowers and myself to "The people
+	behind PyGTK", mark former maintainers as such
 	* reference.src: Update documentation links
 	* downloads.src: clarify the need for a 32 bit Python
 	interpreter on Windows
