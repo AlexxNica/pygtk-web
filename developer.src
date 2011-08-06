@@ -71,11 +71,11 @@ reports.
 <h3>Git Activity</h3>
 
 <p>The source code for PyGTK is located in the <a
-href="http://git.gnome.org/cgit/pygtk">Gnome Git repository</a>.</p>
+href="http://git.gnome.org/browse/pygtk">Gnome Git repository</a>.</p>
 
 <ul>
     <li><a
-    href="http://git.gnome.org/cgit/pygtk/log/">Most recent changes committed</a></li>
+    href="http://git.gnome.org/browse/pygtk/log/">Most recent changes committed</a></li>
 
 </ul>
 
