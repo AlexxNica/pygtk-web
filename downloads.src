@@ -13,7 +13,7 @@ all-in-one installer</a> which handles all of the PyGTK dependencies,
 development tools (GUI designer and translation tools) and other additional
 modules for you.</p>
 
-<p>You will only need to install the
+<p>You will only need to install a 32 bit
 <a href="http://www.python.org/download/">
 Python interpreter</a> before starting the all-in-one installer.</p>
 
@@ -24,8 +24,8 @@ you can get a fully customized install.</p>
 
 <p>In order to install PyGTK on Windows, without using the all-in-one bundle, you need:</p>
 <ul>
-<li>A <strong>Python interpreter</strong> for Windows (you can get it at the
-    <a href="http://www.python.org/download/">Python downloads</a>) page.</li>
+<li>A 32 bit <a href="http://www.python.org/download/"><strong>Python
+    interpreter</strong></a>.</li>
 <li>The <strong>GTK+ runtime</strong>. We recommend that you install it using
     the <a href="http://www.gtk.org/download-windows.html#StableRelease">
     official GTK+ bundle</a> (gtk+-bundle*.zip files). Just choose the latest

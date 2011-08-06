@@ -1,5 +1,7 @@
 2011-08-06  Dieter Verfaillie  <dieterv@optionexplicit.be>
 
+	* downloads.src: clarify the need for a 32 bit Python
+	interpreter on Windows
 	* head.src: fix favicon
 	* developer.src: update git links
 	* articles/writing-a-custom-widget-using-pygtk: Update
