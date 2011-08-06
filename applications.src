@@ -249,6 +249,12 @@
   <dd>Small application designed to store and manage your favourite recipes.
   </dd>
 
+  <dt><a href="http://sourceforge.net/projects/reliafree/">ReliaFree</a></dt>
+  <dd>ReliaFree is a Python and PyGTK based suite of tools to assist in
+  Reliability, Availability, Maintainability, and Safety (RAMS) analyses.
+  ReliaFree is intended to be an Open Source alternative to proprietary RAMS
+  analyses solutions.</dd>
+
   <dt><a href="http://www.lordsutch.com/chris/routeplanner.html">RoutePlanner
   </a></dt>
   <dd>RoutePlanner is a highway trip planner written in Python that will run
