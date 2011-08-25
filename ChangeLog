@@ -1,3 +1,7 @@
+2011-08-25  Rafael Villar Burke  <pachi@rvburke.com>
+
+	* downloads.src: Fix links to win32 and win64 gtk+ bundles
+
 2011-08-06  Dieter Verfaillie  <dieterv@optionexplicit.be>
 
 	* developer.src: remove links to resolved bugs

@@ -27,9 +27,10 @@ you can get a fully customized install.</p>
 <li>A 32 bit <a href="http://www.python.org/download/"><strong>Python
     interpreter</strong></a>.</li>
 <li>The <strong>GTK+ runtime</strong>. We recommend that you install it using
-    the <a href="http://www.gtk.org/download-windows.html#StableRelease">
-    official GTK+ bundle</a> (gtk+-bundle*.zip files). Just choose the latest
-    version available.<br />
+    the official GTK+ bundle for
+    <a href="http://www.gtk.org/download/win32.php">32-bit</a> or
+    <a href="http://www.gtk.org/download/win64.php">64-bit</a> windows
+    (gtk+-bundle*.zip files). Just choose the latest version available.<br />
     To fully install this bundle you need to uncompress its contents in a folder and
     manually add the <em>bin</em> subfolder to the system path.</li>
 <li>The <a href="http://ftp.gnome.org/pub/GNOME/binaries/win32/pygtk/">PyGTK</a>,
