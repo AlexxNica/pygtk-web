@@ -16,6 +16,13 @@
 
   <tbody>
     <tr>
+      <td>Jul 2012</td>
+      <td><a href="http://www.tedut.com/python-gtk.html">
+        Tutorial on PyGTK in Bahasa Indonesia</a></td>
+      <td>Noprianto</td>
+    </tr>
+
+    <tr>
       <td>Jul 2010</td>
       <td><a href="https://prioritiseapp.wordpress.com/2010/07/28/translating-a-pygtk-application/">
         Tutorial on translating a pygtk application using gettext, distutils, and launchpad.</a><br /></td>
