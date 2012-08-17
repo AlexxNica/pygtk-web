@@ -267,6 +267,9 @@
   <dd>Shrinking Man is an application for tracking your weight and the calories
   consumed each day. It integrates well with the GNOME desktop environment.</dd>
 
+  <dt><a href="http://stock.r.tedut.com/">Simple Stock</a></dt>
+  <dd>A simple stock management application, using a SQLite database and PyGTK.</dd>
+
   <dt><a href="http://home.gna.org/oomadness/en/songwrite/index.html">Songwrite2
   Tracker</a></dt>
   <dd>Songwrite 2 is a tablature editor. It lets you write, edit, play and print
@@ -1317,6 +1320,12 @@
   high performance rendering, and a powerful, high level API.
   This widget can be used for flexible display of graphics and for creating
   interactive user interface elements.</dd>
+
+  <dt><a href="http://pygtkcodes.r.tedut.com/">PyGTKCodes</a></dt>
+  <dd>PyGTKCodes is an collection of example widgets and small applications
+  useful to learn how to write PyGTK applications. It includes shaped windows,
+  barcharts, an audio player, a syntax highlighting editor and other nice
+  examples.</dd>
 
   <dt><a href="http://packages.python.org/pygtkhelpers/index.html">
   PyGTKHelpers</a></dt>
