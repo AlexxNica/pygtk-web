@@ -107,7 +107,8 @@ local-tarballs:
 # fix this them up in this hackish sort of way.
 tarball-directory-fixups:
 	mkdir -p ${WEBDIR}/pygtk2tutorial-id
-	rm ${WEBDIR}/pygtk2tutorial-es/.htaccess
+	mkdir -p ${WEBDIR}/pygtk2tutorial-es
+	cp .htaccess-utf8 ${WEBDIR}/pygtk2tutorial-es/.htaccess
 	cp .htaccess-latin1 ${WEBDIR}/pygtk2tutorial-id/.htaccess
 
 tarballs: local-tarballs remote-tarballs reference-tarballs tarball-directory-fixups

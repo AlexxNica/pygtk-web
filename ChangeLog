@@ -1,3 +1,8 @@
+2012-10-07  Rafael Villar Burke  <pachi@rvburke.com>
+
+	* .htaccess-utf8: Now tut-es is utf8
+	* Makefile: copy .htaccess-utf8 to pygtk2tutorial-es
+
 2012-10-07  Rafael Villar Burke <pachi@rvburke.com>
 
 	* Makefile: Change server with updated versions of tutorials
