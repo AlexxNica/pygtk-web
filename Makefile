@@ -103,12 +103,11 @@ local-tarballs:
 	cp ${LOCAL_TARBALLS} ${DISTDIR}
 	(srcdir=`pwd`; cd ${WEBDIR}; for f in ${LOCAL_TARBALLS}; do bzip2 -dc $${srcdir}/$$f | tar x; done)
 
-# The spanish and bahasa indonesia tutorials aren't utf-8, so we need to
+# The bahasa indonesia tutorials aren't utf-8, so we need to
 # fix this them up in this hackish sort of way.
 tarball-directory-fixups:
 	mkdir -p ${WEBDIR}/pygtk2tutorial-id
-	mkdir -p ${WEBDIR}/pygtk2tutorial-es
-	cp .htaccess ${WEBDIR}/pygtk2tutorial-es/.htaccess
+	rm ${WEBDIR}/pygtk2tutorial-es/.htaccess
 	cp .htaccess-latin1 ${WEBDIR}/pygtk2tutorial-id/.htaccess
 
 tarballs: local-tarballs remote-tarballs reference-tarballs tarball-directory-fixups
