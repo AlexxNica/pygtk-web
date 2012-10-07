@@ -108,7 +108,7 @@ local-tarballs:
 tarball-directory-fixups:
 	mkdir -p ${WEBDIR}/pygtk2tutorial-id
 	mkdir -p ${WEBDIR}/pygtk2tutorial-es
-	cp .htaccess-latin1 ${WEBDIR}/pygtk2tutorial-es/.htaccess
+	cp .htaccess ${WEBDIR}/pygtk2tutorial-es/.htaccess
 	cp .htaccess-latin1 ${WEBDIR}/pygtk2tutorial-id/.htaccess
 
 tarballs: local-tarballs remote-tarballs reference-tarballs tarball-directory-fixups

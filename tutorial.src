@@ -9,12 +9,12 @@
 <p>For a more hands-on and task oriented information the <a href="http://pygtk.org/articles.html">articles section</a> should be consulted, while the <a href="http://pygtk.org/reference.html">API reference</a> provides precise and terse information about the toolkit's programming interface details.</p>
 
 <h3>PyGTK 2.x (GTK+ 2.x)</h3>
-    Version 2.4 Last updated 2005-04-13<br />
+    Version 2.4 Last updated 2012-10-07<br />
 
 <ul>
    <li><a href="pygtk2tutorial/index.html">Tutorial</a></li>
-   <li><a href="dist/pygtk2tutorial.tgz">Gzip'd Tarball of Tutorial</a> (1.42 MB)</li>
-   <li><a href="dist/pygtk2-tut.pdf"> Tutorial PDF Version</a> (2.24 MB)</li>
+   <li><a href="dist/pygtk2tutorial.tgz">Gzip'd Tarball of Tutorial</a> (1.4 MB)</li>
+   <li><a href="dist/pygtk2-tut.pdf"> Tutorial PDF Version</a> (3.6 MB)</li>
 </ul>
 
 <h3>PyGTK 0.6.x (GTK+ 1.x)</h3>
@@ -23,12 +23,13 @@
 <ul>
    <li><a href="pygtktutorial/index.html">Tutorial</a></li>
    <li><a href="dist/pygtktutorial.tgz">Gzip'd Tarball of Tutorial</a> (1.5MB)</li>
+   <li><a href="dist/pygtk2-tut-es.pdf"> Tutorial PDF Version</a> (3.7 MB)</li>
 </ul>
 
 <h2>Localized versions</h2>
 
 <h3>Espa&ntilde;ol</h3>
-    Version 2.3 &Uacute;ltima actualizaci&oacute;n 2005-01-19<br />
+    Version 2.3 &Uacute;ltima actualizaci&oacute;n 2012-10-07<br />
 <ul>
    <li><a href="pygtk2tutorial-es/index.html">Tutorial de PyGTK 2.3 para GTK+ 2.4</a></li>
    <li><a href="dist/pygtk2tutorial-es.tgz">Paquete con el Tutorial</a> (1.4MB)</li>

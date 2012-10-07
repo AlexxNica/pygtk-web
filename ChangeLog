@@ -1,3 +1,7 @@
+2012-10-07  Rafael Villar Burke <pachi@rvburke.com>
+	* Makefile: Change server with updated versions of tutorials
+		    Fix encoding issues in tut-es
+
 2012-08-17  Rafael Villar Burke  <pachi@rvburke.com>
 
 	* articles.src: Update link to Indonesia tutorial
