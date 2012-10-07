@@ -13,10 +13,11 @@ REFTARBALLS = \
 	documentation/pygtk.tar.bz2
 
 TARBALLS = 								\
-	http://www.moeraki.com/pygtktutorial/pygtk2tutorial.tgz 	\
+	http://www.rvburke.com/pygtktutorial/pygtk2tutorial.tgz 	\
 	http://www.moeraki.com/pygtktutorial/pygtktutorial.tgz 		\
-	http://www.moeraki.com/pygtktutorial/pygtk2-tut.pdf 		\
-	http://www.sicem.biz/personal/lgs/docs/pygtk2tutorial-es.tgz 	\
+	http://www.rvburke.com/pygtktutorial/pygtk2-tut.pdf 		\
+	http://www.rvburke.com/pygtktutorial/pygtk2tutorial-es.tgz 	\
+	http://www.rvburke.com/pygtktutorial/pygtk2-tut-es.pdf		\
 	http://www.cornets.net/mige/pygtk2tutorial-id/pygtk2tutorial-id.tgz
 
 LOCAL_TARBALLS =				\
@@ -92,7 +93,7 @@ remote-tarballs:
 
 reference-tarballs:
 	rm -fr ${WEBDIR}/pygtk2reference
-	ln -s ${WEBDIR}/docs/pygtk ${WEBDIR}/pygtk2reference 
+	ln -s ${WEBDIR}/docs/pygtk ${WEBDIR}/pygtk2reference
 
 	mkdir -p ${WEBDIR}/docs
 
@@ -105,6 +106,8 @@ local-tarballs:
 # The spanish and bahasa indonesia tutorials aren't utf-8, so we need to
 # fix this them up in this hackish sort of way.
 tarball-directory-fixups:
+	mkdir -p ${WEBDIR}/pygtk2tutorial-id
+	mkdir -p ${WEBDIR}/pygtk2tutorial-es
 	cp .htaccess-latin1 ${WEBDIR}/pygtk2tutorial-es/.htaccess
 	cp .htaccess-latin1 ${WEBDIR}/pygtk2tutorial-id/.htaccess
 
