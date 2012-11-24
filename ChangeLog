@@ -1,3 +1,8 @@
+2012-11-24  Rafael Villar Burke  <pachi@rvburke.com>
+
+	* applications.src: Add Painter's Colour Assistant Tool Kit by Peter
+	Williams.
+
 2012-10-07  Rafael Villar Burke  <pachi@rvburke.com>
 
 	* .htaccess-utf8: Now tut-es is utf8
