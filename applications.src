@@ -196,6 +196,10 @@
   layout settings for Gnome. For each configuration it can store a screenshot
   and it features by default some already-made layout configurations.</dd>
 
+  <dt><a href="https://github.com/sunshine69/pnote">Pnote</a></dt>
+  <dd>Pnote is a note taking application. It features ease of use, searching,
+  history tracking, reminders, email integration, export to text, filtering...</dd>
+
   <dt>Point2Play</dt>
   <dd>Point2Play is simply a graphical front end for TransGaming's core
   WineX technology which enables you to run Windows applications on
