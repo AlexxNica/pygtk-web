@@ -8,7 +8,7 @@
   <shortdesc xml:lang="en">Website code for the PyGTK and PyGObject bindings</shortdesc>
   <homepage rdf:resource="http://www.pygtk.org" />
   <mailing-list rdf:resource="http://www.daa.com.au/mailman/listinfo/pygtk" />
-  <category rdf:resource="http://api.gnome.org/doap-extensions#bindings" />
+  <category rdf:resource="http://api.gnome.org/doap-extensions#infrastructure" />
   <maintainer>
     <foaf:Person>
       <foaf:name>Rafael Villar Burke</foaf:name>
