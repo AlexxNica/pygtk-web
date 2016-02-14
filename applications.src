@@ -1117,6 +1117,10 @@
   <dd>Flyback is a backup and recovery tool similar to Apple's 'Time Machine'.
   </dd>
 
+  <dt><a href="https://github.com/55abhilash/gfdupes/blob/master/gfdupes">gfdupes</a></dt>
+  <dd>A graphical frontend to fdupes, the utility to find duplicate files
+  in a directory.</dd>
+
   <dt><a href="http://gfreqlet.sourceforge.net/">GFreqlet</a></dt>
   <dd>GFreqlet is a GNOME applet for Linux which monitors CPU frequency
   scaling, and allows the end user to easily change the frequency or governor
